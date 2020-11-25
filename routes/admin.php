@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login.form');
+Route::view('/login', 'admin.auth.login')->name('admin.login.form');
 Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

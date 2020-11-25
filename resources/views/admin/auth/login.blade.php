@@ -1,164 +1,98 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin Login</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <style>
-        html,body{
-			height: 100%;
-			margin: 0;
-			background: rgb(2,0,36);
-            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(149,199,20,1) 0%, rgba(0,212,255,1) 96%);
-		
-		}
-   
-   .myForm{
-   	background-color: rgba(0,0,0,0.5) !important;
-   	padding: 15px !important;
-   border-radius: 15px !important;
-   color: white;
-   
-   }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin| Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   input{
-   	border-radius:0 15px 15px 0 !important;
-
-   }
-   input:focus{
-       outline: none;
-box-shadow:none !important;
-border:1px solid #ccc !important;
-
-   }
-
-   .br-15{
-   	border-radius: 15px 0 0 15px !important;
-   }
-
-   #add_more{
-   	color: white !important;
-   	background-color: #fa8231 !important;
-   	border-radius: 15px !important;
-   	border: 0 !important;
-
-   }
-   #remove_more{
-   	color: white !important;
-   	background-color: #fc5c65 !important;
-   	border-radius: 15px !important;
-   	border: 0 !important;
-   	display: none;
-
-   }
-   	
-   .submit_btn{
-   	border-radius: 15px !important;
-    background-color: #95c714 !important;
-    border: 0 !important;
-   }
-    </style>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('public/backend/dist/css/adminlte.min.css')}}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Amr</b>BOGURA</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
 
-<!-- Coded With Love By Mutiullah Samim-->
-<body>
-	<dvi class="container h-100">
-	<div class="d-flex justify-content-center">
-		<div class="card mt-5 col-md-4 animated bounceInDown myForm">
-			<div class="card-header">
-                <center>
-                <h4>Admin</h4>
-                </center>
-				
-			</div>
-			<div class="card-body">
-				<form method="post" action="{{route('admin.login.submit')}}">
-                    @csrf
-					<div id="dynamic_container">
-						
-						<div class="input-group mt-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text br-15"><i class="fas fa-at"></i></span>
-							</div>
-							<input type="email" name="email" placeholder="Email" class="form-control"/>
-						</div>
-						<div class="input-group mt-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text br-15"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" name="password" placeholder="password" class="form-control"/>
-						</div>
-					</div>
-				
-			</div>
-			<div class="card-footer">
-				<!-- <a class="btn btn-secondary btn-sm" id="add_more"><i class="fas fa-plus-circle"></i> Add</a> -->
-				
-				<button class="btn btn-success btn-sm float-right submit_btn"><i class="fas fa-arrow-alt-circle-right"></i> Login</button>
+      <form method="post" action="{{route('admin.login.submit')}}">
+		@csrf
+        <div class="input-group mb-3">
+          <input type="email" name="email" class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
             </div>
-            </form>
-		</div>
-	</div>
-    </dvi>
-    <script>
-        	var i=0;
-	$(document).ready(function(){
-     $('#add_more').on('click', function(){
-      var colorR = Math.floor((Math.random() * 256));
-      var colorG = Math.floor((Math.random() * 256));
-      var colorB = Math.floor((Math.random() * 256));
-      i++;
-      var html ='<div id="append_no_'+i+'" class="animated bounceInLeft">'+
-          '<div class="input-group mt-3">'+
-		  '<div class="input-group-prepend">'+
-		  '<span class="input-group-text br-15" style="color:rgb('+colorR+','+colorG+','+colorB+'">'+
-		  '<i class="fas fa-user-graduate"></i></span>'+
-		  '</div>'+
-		  '<input type="text" placeholder="Student Name"  class="form-control"/>'+
-		  '</div>'+
-		  '<div class="input-group mt-3">'+
-		  '<div class="input-group-prepend">'+
-		  '<span class="input-group-text br-15" style="color:rgb('+colorR+','+colorG+','+colorB+'">'+
-		  '<i class="fas fa-phone-square"></i></span>'+
-		  '</div>'+
-		  '<input type="text" placeholder="Student Phone" class="form-control"/>'+
-		  '</div>'+
-		  '<div class="input-group mt-3">'+
-		  '<div class="input-group-prepend">'+
-		  '<span class="input-group-text br-15" style="color:rgb('+colorR+','+colorG+','+colorB+'">'+
-		  '<i class="fas fa-at"></i></span>'+
-		  '</div>'+
-		  '<input type="email" placeholder="Student Email" class="form-control"/>'+
-		  '</div></div>';
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
-	  $('#dynamic_container').append(html);
-	  $('#remove_more').fadeIn(function(){
-	  	 $(this).show();
-	  });
-     });
+      <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+        </a>
+      </div>
+      <!-- /.social-auth-links -->
 
-     $('#remove_more').on('click', function(){
-         
-         $('#append_no_'+i).removeClass('bounceInLeft').addClass('bounceOutRight')
-            .fadeOut(function(){
-            	$(this).remove();
-            });
-            i--;
-            if(i==0){
-            	$('#remove_more').fadeOut(function(){
-            		$(this).hide()
-            	});;
-            }
-   
-     });
-	});
-    </script>
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Register a new membership</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('public/backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('public/backend/dist/js/adminlte.min.js')}}"></script>
+
 </body>
 </html>

@@ -1,89 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>
-@yield('admin-page-title')
-</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="{{asset('/public/backend/css/bootstrap.min.css')}}" />
-<link rel="stylesheet" href="{{asset('/public/backend/css/bootstrap-responsive.min.css')}}" />
-<link rel="stylesheet" href="{{asset('/public/backend/css/fullcalendar.css')}}" />
-<link rel="stylesheet" href="{{asset('/public/backend/css/matrix-style.css')}}" />
-<link rel="stylesheet" href="{{asset('/public/backend/css/matrix-media.css')}}" />
-<link rel="stylesheet" href="{{asset('/public/backend/dataTable/dataTables.bootstrap4.min.css')}}" />
-<!-- <link href="{{asset('/public/backend/font-awesome/css/font-awesome.css')}}" rel="stylesheet" /> -->
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-<link rel="stylesheet" href="{{asset('/public/backend/css/jquery.gritter.css')}}" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-<!--test-->
-<script src="{{asset('/public/backend/js/jquery.min.js')}}"></script> 
-
-<script src="{{asset('/public/backend/dataTable/jquery.dataTables.min.js')}}"></script> 
-<script src="{{asset('/public/backend/dataTable/dataTables.bootstrap4.min.js')}}"></script> 
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+    @yield('admin-page-title')
+    </title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/fontawesome-free/css/all.min.css')}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/jqvmap/jqvmap.min.css')}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('public/backend/dist/css/adminlte.min.css')}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('public/backend/plugins/summernote/summernote-bs4.css')}}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  @yield('custom_css')
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-@include('admin.layouts.header')
-<!--sidebar-menu-->
-@include('admin.layouts.navbar')
-<!--sidebar-menu-->
+  <!-- Navbar -->
+  @include('admin.layouts.header')
+  <!-- /.navbar -->
 
-<!--main-container-part-->
-<div id="content">
-@yield('admin_content')
+  <!-- Main Sidebar Container -->
+  @include('admin.layouts.navbar')
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    @yield('admin_content')
+  </div>
+  <!-- /.content-wrapper -->
+  @include('admin.layouts.footer')
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 </div>
+<!-- ./wrapper -->
 
-<!--end-main-container-part-->
-
-<!--Footer-part-->
-
-@include('admin.layouts.footer')
-<!--end-Footer-part-->
-
-<script src="{{asset('/public/backend/js/excanvas.min.js')}}"></script> 
-
-<script src="{{asset('/public/backend/js/jquery.ui.custom.js')}}"></script> 
-<script src="{{asset('/public/backend/js/bootstrap.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.flot.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.flot.resize.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.peity.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/fullcalendar.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/matrix.js')}}"></script> 
-<script src="{{asset('/public/backend/js/matrix.dashboard.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.gritter.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/matrix.interface.js')}}"></script> 
-<script src="{{asset('/public/backend/js/matrix.chat.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.validate.js')}}"></script> 
-<script src="{{asset('/public/backend/js/matrix.form_validation.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.wizard.js')}}"></script> 
-<script src="{{asset('/public/backend/js/jquery.uniform.js')}}"></script> 
-<script src="{{asset('/public/backend/js/select2.min.js')}}"></script> 
-<script src="{{asset('/public/backend/js/matrix.popover.js')}}"></script> 
-<script type="text/javascript">
-
-  // This function is called from the pop-up menus to transfer to
-  // a different page. Ignore if the value returned is a null string:
-  function goPage (newURL) {
-
-      // if url is empty, skip the menu dividers and reset the menu selection to default
-      if (newURL != "") {
-      
-          // if url is "-", it is this page -- reset the menu:
-          if (newURL == "-" ) {
-              resetMenu();            
-          } 
-          // else, send page to designated URL            
-          else {  
-            document.location.href = newURL;
-          }
-      }
-  }
-
-// resets the menu selection upon entry to this page:
-function resetMenu() {
-   document.gomenu.selector.selectedIndex = 2;
-}
+<!-- jQuery -->
+<script src="{{asset('public/backend/plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('public/backend/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
 </script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('public/backend/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- ChartJS -->
+<script src="{{asset('public/backend/plugins/chart.js/Chart.min.js')}}"></script>
+<!-- Sparkline -->
+<script src="{{asset('public/backend/plugins/sparklines/sparkline.js')}}"></script>
+<!-- JQVMap -->
+<script src="{{asset('public/backend/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('public/backend/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{asset('public/backend/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+<!-- daterangepicker -->
+<script src="{{asset('public/backend/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('public/backend/plugins/daterangepicker/daterangepicker.js')}}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{asset('public/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{asset('public/backend/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('public/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{asset('public/backend/dist/js/adminlte.js')}}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('public/backend/dist/js/pages/dashboard.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('public/backend/dist/js/demo.js')}}"></script>
+@yield('custom_script')
 </body>
 </html>
