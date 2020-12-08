@@ -12,5 +12,11 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
      * admin  blood bank
      */
     Route::get('/blood-groups', 'BloodBankController@bloodGroupsList')->name('admin.blood.group.list');
+    Route::view('/add-blood-group', 'admin.bloodBank.add_group')->name('admin.blood.group.add');
+    Route::post('/store-blood-group', 'BloodBankController@storeBloodGroup')->name('admin.blood.group.store');
+    Route::get('/edit-blood-group/{bg_id}', 'BloodBankController@editBloodGroup')->name('admin.blood.group.edit');
+    Route::post('/update-blood-group', 'BloodBankController@updateBloodGroup')->name('admin.blood.group.update');
+
+    //blood donor
     Route::get('/add-donar-form', 'BloodBankController@loadDonarAddForm')->name('admin.blood.donar.add');
 });
