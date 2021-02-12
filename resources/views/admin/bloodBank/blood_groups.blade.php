@@ -6,21 +6,22 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('public/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
-        href="{{ asset('public/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+        href="{{ asset('public/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">  
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header pb-1 pt-2">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Blood Groups</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
+                    <h5 class="m-0 text-dark">Blood Bank</h5>
+                    <ol class="breadcrumb float-sm-left">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Blood Groups</li>
                     </ol>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -51,11 +52,11 @@
                                 </thead>
                                 <tbody>
                                     @php
-                                    $counter=0;
+                                        $counter = 0;
                                     @endphp
                                     @foreach ($bd_groups as $bg)
                                         @php
-                                        $counter++;
+                                            $counter++;
                                         @endphp
                                         <tr>
                                             <td>{{ $counter }}</td>

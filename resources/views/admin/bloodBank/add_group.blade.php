@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Add Blood Groups</h1>
+                    <h5 class="m-0 text-dark">Add Blood Groups</h5>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -32,7 +32,7 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-lg-12 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Blood Group Information</h3>
@@ -40,7 +40,7 @@
                         <!-- /.card-header -->
                         <div class="card-body row">
                             <form role="form" action="{{ route('admin.blood.group.store') }}" method="POST"
-                                class="col-lg-4">
+                                class="col-lg-12">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -78,8 +78,8 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
+                                    <div class="offset-md-6 col-sm-6">
+                                        <input type="submit" class="btn btn-block bg-gradient-success" value="Save" />
                                     </div>
 
                                 </div>

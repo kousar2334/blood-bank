@@ -11,6 +11,7 @@ h1{
     font-family:"SolaimanLipiNormal"; 
 }
 </style>
+<title>amr Bogura</title>
 <head>
 <body>
 <center>

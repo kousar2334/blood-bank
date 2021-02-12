@@ -23,17 +23,25 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('public/backend/dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/daterangepicker/daterangepicker.css') }}">
-    <!-- summernote -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('public/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     @yield('custom_css')
+    <style>
+        .content-header .breadcrumb{
+            line-height: 1.5rem;
+        }
+        a{
+        color:black;
+    }  
+    [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item .nav-treeview, [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item>.nav-treeview {
+    background: #000408;
+}
+    </style>
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="layout-fixed layout-navbar-fixed">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -81,23 +89,24 @@
     <script src="{{ asset('public/backend/plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('public/backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('public/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    <script
+        src="{{ asset('public/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
     </script>
     <!-- Summernote -->
     <script src="{{ asset('public/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- overlayScrollbars -->
-    <script src="{{ asset('public/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <script src="{{ asset('public/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}">
+    </script>
     <!-- AdminLTE App -->
     <script src="{{ asset('public/backend/dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('public/backend/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('public/backend/dist/js/demo.js') }}"></script>
-    {{--
-    <!--Toaster-->
+    {{-- <!--Toaster-->
     <script src="{{ asset('/public/backend/plugins/toastr/toastr.min.js') }}"></script>
-    {!! Toastr::message() !!} --}}
+    {!!  Toastr::message() !!} --}}
     @yield('custom_script')
-</body>
+</body class="hold-transition sidebar-mini layout-navbar-fixed">
 
 </html>

@@ -20,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/','User\IndexController@index')->name('user.home');
+Route::get('/','User\IndexController@index')->name('frontpage');
