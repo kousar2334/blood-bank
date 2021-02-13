@@ -16,7 +16,8 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "spatie/laravel-permission": "^3.17"
+        "spatie/laravel-permission": "^3.17",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -39,6 +40,9 @@
         "psr-4": {
             "App\\": "app/"
         },
+        "files": [
+            "app/Helpers/fileUpload.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"

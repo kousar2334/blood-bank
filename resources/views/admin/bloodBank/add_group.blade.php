@@ -10,17 +10,21 @@
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header pb-1 pt-2">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h5 class="m-0 text-dark">Add Blood Groups</h5>
+                    <h4 class="m-0 text-dark">Add Blood Groups</h4>
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
+                                Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.blood.group.list') }}">Blood Bank</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.blood.group.list') }}">Blood Groups</a></li>
+                        <li class="breadcrumb-item active">Add New Blood Groups</li>
+                    </ol>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Add Blood Groups</li>
-                    </ol>
+
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -83,6 +87,7 @@
                                     </div>
 
                                 </div>
+                            </form>
                         </div>
                         <!-- /.card-body -->
                     </div>

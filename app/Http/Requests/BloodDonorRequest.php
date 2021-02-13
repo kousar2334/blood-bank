@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BloodGroupStoreRequest extends FormRequest
+class BloodDonorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,9 @@ class BloodGroupStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+           'name'=>'required',
+           'mobile'=>'required',
+           'blood_group'=>'required|numeric'
         ];
     }
-    /**
- * Get the error messages for the defined validation rules.
- *
- * @return array
- */
-public function messages()
-{
-    return [
-        'name.required' => 'Blood group name is required',
-    ];
-}
 }

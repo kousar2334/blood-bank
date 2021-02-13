@@ -14,9 +14,10 @@
         <div class="container-fluid">
             <div class="row mb-1">
                 <div class="col-sm-6">
-                    <h5 class="m-0 text-dark">Blood Bank</h5>
+                    <h4 class="m-0 text-dark">Blood Groups</h4>
                     <ol class="breadcrumb float-sm-left">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i> Dashboard</a></li>
+                        <li class="breadcrumb-item active">Blood Bank</li>
                         <li class="breadcrumb-item active">Blood Groups</li>
                     </ol>
                 </div><!-- /.col -->
@@ -36,7 +37,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
+                            <h3 class="card-title">Blood Groups List</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -66,8 +67,19 @@
                                             <td>{{ $bg->description }}</td>
                                             <td class="text-right text-white">
                                                 <a href="{{ route('admin.blood.group.edit', $bg->id) }}"
-                                                    class="btn btn-sm btn-info">Edit</a>
-                                                <a class="btn btn-sm btn-danger">Delete</a>
+                                                    class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                                                    <div class="del-modal <?php echo 'modal'.$counter?>">
+                                                        <p><b>Record delete confirmation.</b></p>
+                                                        <p>Are you want to really delete ?</p>
+                
+                                                        <button class="btn btn-info py-1 del-close float-left delete-model-cansel-btn">Cancel</button>
+                                                        <form method="post"  action="{{route('admin.blood.group.delete')}}" style="float:right;">
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{$bg->id}}">
+                                                            <button class="btn btn-danger py-1">Confirm</button>
+                                                        </form>
+                                                    </div>           
+                                            <a  href="#" class="btn btn-sm btn-danger"  onclick="displayDeleteModal({{$bg->id}})" title="Delete Item"> <i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -111,4 +123,18 @@
         });
 
     </script>
+     <script>
+        $(document).ready(function(){
+            $(".del-close").click(function(){
+                $(".del-modal").hide('fadeIn');
+
+            });
+
+          
+        });
+        function displayDeleteModal(id){
+            $(".del-modal").hide('fadeIn');
+           $(".modal"+id).show('fadeOut');
+         }  
+    </script> 
 @stop
