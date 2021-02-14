@@ -153,7 +153,12 @@ class BloodBankController extends Controller
      */
     public function donorListAjaxCall()
     {
-        $donors = BloodDonor::with(['group'])->orderBy('id', 'ASC')->get();
+        // $donors = BloodDonor::with(['group'])->orderBy('id', 'ASC')->get();
+        $donors=DB::table('blood_donors')
+         ->join('blood_groups','blood_groups.id','=','blood_donors.blood_group')
+         ->select('blood_donors.name','blood_donors.id','blood_donors.email','blood_donors.address','blood_donors.mobile','blood_donors.image','blood_donors.status','blood_donors.mobile2','blood_groups.name as group')
+         ->orderBy('blood_donors.id','DESC')
+         ->get();
         return Datatables::of($donors)
             ->addColumn('image', function ($donor) {
                 if ($donor->image) {
@@ -172,7 +177,7 @@ class BloodBankController extends Controller
                 }
             })
             ->addColumn('action', function ($donor) {
-                return '<a href="#" onclick="displayEditModal(' . $donor->id . ')" class="btn btn-sm btn-info edit-info"><i class="fas fa-edit"></i></a> 
+                return '<a href="'.route('admin.blood.donar.edit',$donor->id).'" class="btn btn-sm btn-info edit-info"><i class="fas fa-edit"></i></a> 
                 <div
                 class="del-modal modal'.$donor->id.'">
                 <p><b>Record delete confirmation.</b></p>
@@ -212,19 +217,16 @@ class BloodBankController extends Controller
     /**
      * get blood donor details
      */
-    public function editBloodDonor(Request $request)
+    public function editBloodDonor(BloodDonor $bg,$id)
     {
         try {
-            BloodDonor::findOrFail($request->id);
-            $donor = BloodDonor::where('id', $request->id)->first();
-            return response()->json([
-                'success' => true,
-                'donor' => $donor,
+            BloodDonor::findOrFail($id);
+            $donor = BloodDonor::where('id', $id)->first();
+            return view('admin.bloodBank.edit_donor')->with([
+                'donor' => $donor
             ]);
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-            ]);
+            return redirect()->back();
         }
     }
 }

@@ -24,6 +24,10 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/store-blood-donar', 'BloodBankController@storeBloodDonor')->name('admin.blood.donar.store');
     Route::get('/blood-donar-list', 'BloodBankController@bloodDonorList')->name('admin.blood.donar.list');
     Route::post('/delete-blood-donar', 'BloodBankController@deleteBloodDonor')->name('admin.blood.donar.delete');
-    Route::post('/blood-donar-edit', 'BloodBankController@editBloodDonor')->name('admin.blood.donar.edit');
+    Route::get('/blood-donar-edit', 'BloodBankController@editBloodDonor')->name('admin.blood.donar.edit');
     Route::get('/blood-donar-list-data-table', 'BloodBankController@donorListAjaxCall')->name('admin.blood.donar.list.data.table');
+
+    //hospital routes
+    Route::view('/add-hospital-category','admin.hospitals.add_hospital_category')->name('admin.hospital.category.add');
+    Route::post('/store-hospital-category','HospitalController@storeHospitalCategory')->name('admin.hospital.category.store');
 });

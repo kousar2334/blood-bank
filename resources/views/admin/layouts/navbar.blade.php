@@ -83,8 +83,8 @@
                 </li>
                 <!--End blood bank Module-->
                 <!--Hospital Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.hospital.category.add']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#" class="{{ Request::routeIs(['admin.hospital.category.add']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
                         <p>
                             Hospital
@@ -92,6 +92,13 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.hospital.category.add') }}"
+                                class="{{ Request::routeIs('admin.hospital.category.add') ? 'active ' : '' }} nav-link">
+                                <i class="fas fa-minus nav-icon"></i>
+                                <p>Add Hospitals Category</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">

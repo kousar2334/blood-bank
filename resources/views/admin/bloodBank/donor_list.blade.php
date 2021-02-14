@@ -243,8 +243,9 @@
                             name: 'name'
                         },
                         {
-                            data: 'group.name',
-                            name: 'Blood Group'
+                            data: 'group',
+                            name: 'Blood Group',
+                            searchable: true
                         },
                         {
                             data: 'email',
@@ -273,7 +274,7 @@
                             searchable: false
                         }
                     ],
-                    order:[0,'desc']
+                    order: [0, 'desc']
                 });
             });
         });
@@ -283,7 +284,8 @@
             $(".del-modal").hide('fadeIn');
             $(".modal" + id).show('fadeOut');
         }
-        function hideDeleteAlert(){
+
+        function hideDeleteAlert() {
             $(".del-modal").hide('fadeIn');
         };
         //edit item
