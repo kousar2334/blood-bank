@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="705396f8-1979-4a80-a495-fd9ca8aaec00" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bogura.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bogura.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminDashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminDashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +180,7 @@
       <workItem from="1613412563591" duration="506000" />
       <workItem from="1613413114472" duration="318000" />
       <workItem from="1613413468192" duration="795000" />
-      <workItem from="1613827536800" duration="604000" />
+      <workItem from="1613827536800" duration="1592000" />
     </task>
     <servers />
   </component>
