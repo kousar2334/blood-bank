@@ -54,28 +54,28 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs('admin.blood.group.list') ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Blood Groups</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.add') }}"
                                 class="{{ Request::routeIs('admin.blood.group.add') ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Blood Group</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.donar.add') }}"
                                 class="{{ Request::routeIs('admin.blood.donar.add') ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add New Donor</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.donar.list') }}"
                                 class="{{ Request::routeIs('admin.blood.donar.list') ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Donors List</p>
                             </a>
                         </li>
@@ -95,28 +95,28 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.hospital.category.add') }}"
                                 class="{{ Request::routeIs('admin.hospital.category.add') ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Hospitals Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Hospitals Types</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Hospital</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Hospitals </p>
                             </a>
                         </li>
@@ -136,14 +136,14 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Doctors</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Doctor</p>
                             </a>
                         </li>
@@ -164,21 +164,21 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Ambulance</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Ambulance</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Ambulance Types</p>
                             </a>
                         </li>
@@ -198,14 +198,14 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p> Fire Stations</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Fire Stations</p>
                             </a>
                         </li>
@@ -225,14 +225,14 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Police Stations</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Police Stations</p>
                             </a>
                         </li>
@@ -252,28 +252,28 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Authors</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Author</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Blogs</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Blogs</p>
                             </a>
                         </li>
@@ -292,14 +292,14 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Videos</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Images</p>
                             </a>
                         </li>
@@ -319,14 +319,14 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Roles</p>
                             </a>
                         </li>
@@ -346,21 +346,21 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Menu Management</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Homepage Setting</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fas fa-minus nav-icon"></i>
+                                <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Banner Management</p>
                             </a>
                         </li>

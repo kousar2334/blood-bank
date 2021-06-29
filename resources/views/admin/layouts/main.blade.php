@@ -44,11 +44,11 @@
     [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item .nav-treeview, [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item>.nav-treeview {
     background: #000408;
 }
-.del-modal{
+       .del-modal{
 			position: absolute;
             background-color:white;box-shadow: 0 0 6px 1px grey;
             z-index: 999;
-            right:60px;
+            right:99px;
             margin-top:-115px;
             display: none;
             padding: 20px;
@@ -71,6 +71,9 @@
         .delete-model-cansel-btn{
             background-color: #808080a6;
             border-color: #808080a6;
+        }
+        .nav-icon{
+            color:#d81b60
         }
     </style>
 </head>

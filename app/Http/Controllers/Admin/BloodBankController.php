@@ -139,11 +139,7 @@ class BloodBankController extends Controller
     public function bloodDonorList()
     {
         try {
-            $groups = BloodGroup::all();
-            //$donors = BloodDonor::with(['group'])->orderBy('id', 'DESC')->get();
-            return view('admin.bloodBank.donor_list')->with([
-                'groups' => $groups
-            ]);
+            return view('admin.bloodBank.donor_list');
         } catch (\Excepton $e) {
             dd($e);
         }
@@ -176,7 +172,7 @@ class BloodBankController extends Controller
                     return '<p class="badge badge-danger">Inactive</p>';
                 }
             })
-            ->addColumn('action', function ($donor) {
+            ->editColumn('action', function ($donor) {
                 return '<a href="'.route('admin.blood.donar.edit',$donor->id).'" class="btn btn-sm btn-info edit-info"><i class="fas fa-edit"></i></a> 
                 <div
                 class="del-modal modal'.$donor->id.'">
@@ -217,15 +213,55 @@ class BloodBankController extends Controller
     /**
      * get blood donor details
      */
-    public function editBloodDonor(BloodDonor $bg,$id)
+    public function editBloodDonor($id)
     {
         try {
             BloodDonor::findOrFail($id);
+            $groups = BloodGroup::all();
             $donor = BloodDonor::where('id', $id)->first();
             return view('admin.bloodBank.edit_donor')->with([
-                'donor' => $donor
+                'donor' => $donor,
+                'b_groups'=>$groups
             ]);
         } catch (\Exception $e) {
+            return redirect()->back();
+        }
+    }
+    /**
+     * update single blood donor
+     */
+    public function updateBloodDonor(BloodDonorRequest $request)
+    {
+        try {
+            BloodDonor::findOrFail($request->id);
+            if ($request->has('image')) {
+                $image = uploadDonorImage($request);
+                $old_image =DB::table('blood_donors')->where('id',$request->id)->first()->image;
+                if(file_exists($old_image)){
+                 unlink($old_image);
+                }
+            } else {
+                $image =DB::table('blood_donors')->where('id',$request->id)->first()->image;
+            }
+    
+            DB::beginTransaction();
+            DB::table('blood_donors')->where('id',$request->id)
+            ->update([
+              'name'=>$request->name,
+              'blood_group'=>$request->blood_group,
+              'mobile'=>$request->mobile,
+              'mobile2'=>$request->mobile2,
+              'email'=>$request->email,
+              'address'=>$request->address,
+              'status'=>$request->status,
+              'image'=>$image,
+            ]);
+            DB::commit();
+            Toastr::success('Blood donor  update successfully');
+            return redirect()->route('admin.blood.donar.edit',$request->id);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Toastr::error('Somethin went wrong');
             return redirect()->back();
         }
     }

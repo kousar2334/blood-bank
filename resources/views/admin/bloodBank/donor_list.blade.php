@@ -12,24 +12,23 @@
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
-    <div class="content-header pb-1 pt-2">
+    <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-1">
+            <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">Blood Donors</h4>
-                    <ol class="breadcrumb float-sm-left">
+                    <h4 class="m-0 text-dark">Blood Donor's List</h4>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
-                        <li class="breadcrumb-item active">Blood Bank</li>
-                        <li class="breadcrumb-item active">Blood Donors</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Blood Bank</a></li>
+                        <li class="breadcrumb-item active">Edit Blood Donor List</li>
                     </ol>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-
-                </div><!-- /.col -->
-            </div><!-- /.row -->
+                </div>
+            </div>
         </div><!-- /.container-fluid -->
-    </div>
+    </section>
     <!-- /.content-header -->
 
     <!-- Main content -->
@@ -41,6 +40,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Blood Donor's List</h3>
+                            <a href="{{ route('admin.blood.donar.add') }}" class="btn btn-info btn-sm float-right text-white">Add New Blood Donor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -73,140 +73,6 @@
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        <div class="modal fade" id="edit-donor-modal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Update Donor Information</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form" action="{{ route('admin.blood.donar.store') }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <div class="p-3">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Name<span class="text-danger">*</span></label>
-                                            <input type="text" name="name" id="name" value="{{ old('name') }}"
-                                                class="form-control" placeholder="Enter Name">
-                                            @if ($errors->has('name'))
-                                                <small class="text text-danger">{{ $errors->first('name') }}</small>
-                                            @endif
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Blood Group<span class="text-danger">*</span></label>
-                                            <select class="form-control" name="blood_group"
-                                                value="{{ old('blood_group') }}">
-                                                @foreach ($groups as $bg)
-                                                    <option value="{{ $bg->id }}">{{ $bg->name }}</option>
-                                                @endforeach
-                                            </select>
-                                            @if ($errors->has('blood_group'))
-                                                <small
-                                                    class="text text-danger">{{ $errors->first('blood_group') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Mobile<span class="text-danger">*</span></label>
-                                            <input type="number" name="mobile" value="{{ old('mobile') }}"
-                                                class="form-control" placeholder="Enter Mobile">
-                                            @if ($errors->has('mobile'))
-                                                <small class="text text-danger">{{ $errors->first('mobile') }}</small>
-                                            @endif
-
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Mobile 2</label>
-                                            <input type="number" name="mobile_2" value="{{ old('mobile_2') }}"
-                                                class="form-control" placeholder="Enter Mobile">
-                                            @if ($errors->has('mobile'))
-                                                <small class="text text-danger">{{ $errors->first('mobile_2') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" name="email" value="{{ old('email') }}"
-                                                class="form-control" placeholder="Enter Email">
-                                            @if ($errors->has('email'))
-                                                <small class="text text-danger">{{ $errors->first('email') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label id="image_label">Image</label>
-                                            <input type="file" name="image" value="{{ old('image') }}"
-                                                class="form-control" placeholder="Enter ...">
-                                            @if ($errors->has('image'))
-                                                <small class="text text-danger">{{ $errors->first('image') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <!-- textarea -->
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <textarea class="form-control" id="address" name="addres" rows="3"
-                                                placeholder="Enter Address">{{ old('addres') }}</textarea>
-                                            @if ($errors->has('address'))
-                                                <small class="text text-danger">{{ $errors->first('address') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Status<span class="text-danger">*</span></label>
-                                            <select class="form-control" name="status" value="{{ old('status') }}">
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
-                                            </select>
-                                            @if ($errors->has('blood_group'))
-                                                <small
-                                                    class="text text-danger">{{ $errors->first('blood_group') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <p class="btn btn-default" data-dismiss="modal">Close</p>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                    </form>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
     </section>
     <!-- /.content -->
 
@@ -278,7 +144,7 @@
                 });
             });
         });
-        //delete record modal open
+        //Delete record modal open
         function displayDeleteModal(id) {
             console.log(id);
             $(".del-modal").hide('fadeIn');
@@ -287,48 +153,6 @@
 
         function hideDeleteAlert() {
             $(".del-modal").hide('fadeIn');
-        };
-        //edit item
-        function displayEditModal(id) {
-            //ajax
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                url: "{{ route('admin.blood.donar.edit') }}",
-                type: "POST",
-                data: {
-                    'id': id
-                },
-                //dataType:'json',
-                success: function(data) {
-                    if (data.success) {
-                        $("input[name='name']").val(data.donor.name);
-                        $("input[name='mobile']").val(data.donor.mobile);
-                        $("input[name='mobile_2']").val(data.donor.mobile2);
-                        $("input[name='email']").val(data.donor.email);
-                        $("textarea#address").val(data.donor.address);
-                        $('select[name="blood_group"]').val(data.donor.blood_group);
-                        $('select[name="status"]').val(data.donor.status);
-                        var imaggeLabel = "";
-                        if (data.donor.image) {
-                            imaggeLabel = 'Change Image';
-                        } else {
-                            imaggeLabel = 'Add Image';
-                        }
-                        $("#image_label").html(imaggeLabel);
-                        $("#edit-donor-modal").modal('show');
-                    } else {
-                        toastr.error("Something went Wrong, Please Try again.");
-                    }
-                    // 	$(".modal-data").html(data);
-                },
-                error: function() {
-                    toastr.error("Something went Wrong, Please Try again.");
-                }
-            });
-
-            //end ajax
         };
 
     </script>
