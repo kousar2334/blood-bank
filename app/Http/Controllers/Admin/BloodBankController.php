@@ -98,9 +98,11 @@ class BloodBankController extends Controller
             DB::beginTransaction();
             BloodGroup::find($request->id)->delete();
             DB::commit();
+            Toastr::success('Blood Group Deleted successfully');
             return redirect()->route('admin.blood.group.list');
         } catch (\Exception $e) {
             DB::rollBack();
+            Toastr::error('Unable to Delete This Blood Group');
             return redirect()->back();
         }
     }

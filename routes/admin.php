@@ -31,4 +31,8 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     //hospital routes
     Route::view('/add-hospital-category','admin.hospitals.add_hospital_category')->name('admin.hospital.category.add');
     Route::post('/store-hospital-category','HospitalController@storeHospitalCategory')->name('admin.hospital.category.store');
+    Route::get('/hospital-category-list','HospitalController@hospitalCategoryList')->name('admin.hospital.category.list');
+    Route::get('/hospital-category/{id}', 'HospitalController@editHospitalCategory')->name('admin.hospital.category.edit');
+    Route::post('/update-hospital-category','HospitalController@updateHospitalCategory')->name('admin.hospital.category.update');
+    Route::post('/delete-hospital-category','HospitalController@deleteHospitalCategory')->name('admin.hospital.category.delete');
 });
