@@ -41,7 +41,7 @@
                 </li>
                 <!--Start Blood Bank Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list','admin.blood.donar.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-burn"></i>
@@ -84,7 +84,7 @@
                 <!--End blood bank Module-->
                 <!--Hospital Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list','admin.hospital.category.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.hospital.list','admin.hospital.add','admin.hospital.category.add', 'admin.hospital.category.list','admin.hospital.category.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
@@ -109,15 +109,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
+                            <a href="{{ route('admin.hospital.add') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Hospital</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.hospital.list') }}"
+                                class="{{ Request::routeIs('admin.hospital.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Hospitals </p>
                             </a>

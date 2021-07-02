@@ -28,11 +28,20 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/blood-donar-update', 'BloodBankController@updateBloodDonor')->name('admin.blood.donar.update');
     Route::get('/blood-donar-list-data-table', 'BloodBankController@donorListAjaxCall')->name('admin.blood.donar.list.data.table');
 
-    //hospital routes
+    //hospital categories routes
     Route::view('/add-hospital-category','admin.hospitals.add_hospital_category')->name('admin.hospital.category.add');
     Route::post('/store-hospital-category','HospitalController@storeHospitalCategory')->name('admin.hospital.category.store');
     Route::get('/hospital-category-list','HospitalController@hospitalCategoryList')->name('admin.hospital.category.list');
     Route::get('/hospital-category/{id}', 'HospitalController@editHospitalCategory')->name('admin.hospital.category.edit');
     Route::post('/update-hospital-category','HospitalController@updateHospitalCategory')->name('admin.hospital.category.update');
     Route::post('/delete-hospital-category','HospitalController@deleteHospitalCategory')->name('admin.hospital.category.delete');
+    //hospital routes
+    Route::get('/add-new-hospital','HospitalController@addNewHospital')->name('admin.hospital.add');
+    Route::post('/store-new-hospitals','HospitalController@storeNewHospital')->name('admin.hospital.store');
+    Route::get('/all-hospitals','HospitalController@allHospital')->name('admin.hospital.list');
+    Route::get('/hospitals-edit/{id}','HospitalController@editHospital')->name('admin.hospital.edit');
+    Route::get('/hospital-list-data-table', 'HospitalController@hospitalsListAjaxCall')->name('admin.hospital.list.data.table');
+    Route::post('/update-hospital','HospitalController@updateHospital')->name('admin.hospital.update');
+    Route::post('/delate-hospital','HospitalController@deleteHospital')->name('admin.hospital.delete');
+    Route::post('/hospital-details','HospitalController@drtailsHospital')->name('admin.hospital.details');
 });
