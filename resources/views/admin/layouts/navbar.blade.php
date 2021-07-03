@@ -126,8 +126,8 @@
                 </li>
                 <!--End Hospital Module-->
                 <!--Doctor Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li class="{{ Request::routeIs(['admin.doctor.category.add']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#" class="{{ Request::routeIs(['admin.doctor.category.add']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
                             Doctors
@@ -135,6 +135,20 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.doctor.category.add') }}"
+                                class="{{ Request::routeIs('admin.doctor.category.add') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-arrow-right nav-icon"></i>
+                                <p>Doctors New Category</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.blood.group.list') }}"
+                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-arrow-right nav-icon"></i>
+                                <p>Doctor's Categoris</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">

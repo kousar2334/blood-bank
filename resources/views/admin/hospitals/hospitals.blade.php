@@ -12,6 +12,10 @@
             height: 150px;
             width: 250px;
         }
+        .custom_td{
+            padding-left: 1px;
+            padding-right: 1px;
+        }
 
     </style>
 @stop
@@ -200,6 +204,7 @@
                             name: 'action',
                             orderable: false,
                             searchable: false,
+                            class:'custom_td'
                         }
                     ],
                     order: [0, 'desc']

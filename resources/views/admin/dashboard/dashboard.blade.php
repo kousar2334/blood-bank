@@ -2,6 +2,15 @@
 @section('admin-page-title')
     Dashboard
 @stop
+@section('custom_css')
+    <style>
+        .img-size-32 {
+            height: 32px;
+        }
+
+    </style>
+
+@stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -20,54 +29,56 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-12">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Blood Donor</span>
-                            <span class="info-box-number">1,410</span>
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                          <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
+                          <p>Blood Donors</p>
                         </div>
-                        <!-- /.info-box-content -->
-                    </div>
+                        <div class="icon">
+                          <i class="fas fa-users"></i>
+                        </div>
+                      </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-danger"><i class="fas fa-user-md"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Doctors</span>
-                            <span class="info-box-number">410</span>
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                          <h3>53<sup style="font-size: 20px"></sup></h3>
+          
+                          <p>Doctors</p>
                         </div>
-                        <!-- /.info-box-content -->
-                    </div>
+                        <div class="icon">
+                          <i class="fas fa-user-md"></i>
+                        </div>
+                      </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-warning"><i class="fas fa-hospital"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Hospitals</span>
-                            <span class="info-box-number">13,648</span>
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                          <h3>{{ $total_hospital }}<sup style="font-size: 20px"></sup></h3>
+          
+                          <p>Hospitals</p>
                         </div>
-                        <!-- /.info-box-content -->
-                    </div>
+                        <div class="icon">
+                          <i class="fas fa-hospital"></i>
+                        </div>
+                      </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
-                    <div class="info-box">
-                        <span class="info-box-icon bg-danger"><i class="fas fa-glasses"></i></span>
-
-                        <div class="info-box-content">
-                            <span class="info-box-text">Visitor</span>
-                            <span class="info-box-number">93,139</span>
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                          <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
+                          <p>Visitor</p>
                         </div>
-                        <!-- /.info-box-content -->
-                    </div>
+                        <div class="icon">
+                          <i class="fas fa-glasses"></i>
+                        </div>
+                      </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
@@ -76,13 +87,10 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header border-0">
-                            <h3 class="card-title">Leatest Blood Request</h3>
+                            <h3 class="card-title font-weight-bold">Leatest Blood Requests</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-tool btn-sm">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                                <a href="#" class="btn btn-tool btn-sm">
-                                    <i class="fas fa-bars"></i>
+                                <a href="#" class="btn btn-sm btn-info">
+                                    All Requests
                                 </a>
                             </div>
                         </div>
@@ -92,92 +100,41 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Blood Group</th>
-                                        <th>Status</th>
-                                        <th>More</th>
+                                        <th>Quantity(Bag)</th>
+                                        <th>Time</th>
+                                        <th>Mobile</th>
+                                        <th>status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Some Product
-                                        </td>
-                                        <td>$13 USD</td>
-                                        <td>
-                                            <small class="text-success mr-1">
-                                                <i class="fas fa-arrow-up"></i>
-                                                12%
-                                            </small>
-                                            12,000 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Another Product
-                                        </td>
-                                        <td>$29 USD</td>
-                                        <td>
-                                            <small class="text-warning mr-1">
-                                                <i class="fas fa-arrow-down"></i>
-                                                0.5%
-                                            </small>
-                                            123,234 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Amazing Product
-                                        </td>
-                                        <td>$1,230 USD</td>
-                                        <td>
-                                            <small class="text-danger mr-1">
-                                                <i class="fas fa-arrow-down"></i>
-                                                3%
-                                            </small>
-                                            198 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Perfect Item
-                                            <span class="badge bg-danger">NEW</span>
-                                        </td>
-                                        <td>$199 USD</td>
-                                        <td>
-                                            <small class="text-success mr-1">
-                                                <i class="fas fa-arrow-up"></i>
-                                                63%
-                                            </small>
-                                            87 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($leatest_blood_donors as $donor)
+                                        <tr>
+                                            <td>
+                                                @if ($donor->status == 1)
+                                                <img src="{{ asset('/public') }}/backend/static/icon/blood2.png"
+                                                alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
+                                            @else
+                                            <img src="{{ asset('/public') }}/backend/static/icon/blood1.gif"
+                                            alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
+                                            @endif
+                                                
+                                                {{ $donor->name }}
+                                            </td>
+                                            <td>{{ $donor->group }}</td>
+                                            <td>{{ $donor->id }}</td>
+                                            <td>Friday 5 PM</td>
+                                            <td>
+                                                {{ $donor->mobile }}
+                                            </td>
+                                            <td>
+                                                @if ($donor->status == 1)
+                                                    <span class="badge badge-success">Solved</span>
+                                                @else
+                                                    <span class="badge badge-danger">Pending</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -221,21 +178,18 @@
                         </div>
                     </div>
 
-                 
+
                     <!-- /.card -->
                 </div>
-                
+
                 <!-- /.col-md-6 -->
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header border-0">
-                            <h3 class="card-title">Leatest Blood Donors</h3>
+                            <h3 class="card-title font-weight-bold">Leatest Blood Donors</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-tool btn-sm">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                                <a href="#" class="btn btn-tool btn-sm">
-                                    <i class="fas fa-bars"></i>
+                                <a href="#" class="btn btn-sm btn-info">
+                                    All Donors
                                 </a>
                             </div>
                         </div>
@@ -245,92 +199,36 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Blood Group</th>
-                                        <th>Status</th>
-                                        <th>More</th>
+                                        <th>Mobile</th>
+                                        <th>status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Some Product
-                                        </td>
-                                        <td>$13 USD</td>
-                                        <td>
-                                            <small class="text-success mr-1">
-                                                <i class="fas fa-arrow-up"></i>
-                                                12%
-                                            </small>
-                                            12,000 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Another Product
-                                        </td>
-                                        <td>$29 USD</td>
-                                        <td>
-                                            <small class="text-warning mr-1">
-                                                <i class="fas fa-arrow-down"></i>
-                                                0.5%
-                                            </small>
-                                            123,234 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Amazing Product
-                                        </td>
-                                        <td>$1,230 USD</td>
-                                        <td>
-                                            <small class="text-danger mr-1">
-                                                <i class="fas fa-arrow-down"></i>
-                                                3%
-                                            </small>
-                                            198 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="{{ asset('/public') }}/backend/dist/img/default-150x150.png"
-                                                alt="Product 1" class="img-circle img-size-32 mr-2">
-                                            Perfect Item
-                                            <span class="badge bg-danger">NEW</span>
-                                        </td>
-                                        <td>$199 USD</td>
-                                        <td>
-                                            <small class="text-success mr-1">
-                                                <i class="fas fa-arrow-up"></i>
-                                                63%
-                                            </small>
-                                            87 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    @foreach ($leatest_blood_donors as $donor)
+                                        <tr>
+                                            <td>
+                                                @if ($donor->image)
+                                                    <img src="{{ asset('/public') }}/{{ $donor->image }}"
+                                                        alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
+                                                @else
+                                                    <img src="{{ asset('/public') }}/backend/static/icon/blood.jpeg"
+                                                    alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
+                                                @endif
+                                                {{ $donor->name }}
+                                            </td>
+                                            <td>{{ $donor->group }}</td>
+                                            <td>
+                                                {{ $donor->mobile }}
+                                            </td>
+                                            <td>
+                                                @if ($donor->status == 1)
+                                                    <span class="badge badge-success">Active</span>
+                                                @else
+                                                    <span class="badge badge-danger">Inactive</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

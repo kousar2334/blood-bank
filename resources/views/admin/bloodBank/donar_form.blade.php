@@ -82,7 +82,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Mobile<span class="text-danger">*</span></label>
-                                            <input type="number" name="mobile" value="{{ old('mobile') }}"
+                                            <input type="text" name="mobile" value="{{ old('mobile') }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile') }}</small>
@@ -95,7 +95,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Mobile 2</label>
-                                            <input type="number" name="mobile_2" value="{{ old('mobile_2') }}"
+                                            <input type="text" name="mobile_2" value="{{ old('mobile_2') }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile_2') }}</small>
