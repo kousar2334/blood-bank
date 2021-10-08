@@ -131,7 +131,7 @@
                                             <!-- textarea -->
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea class="form-control" name="addres" rows="3"
+                                                <textarea class="form-control" name="address" rows="3"
                                                     placeholder="Enter Address">{{ $donor->address }}</textarea>
                                                 @if ($errors->has('address'))
                                                     <small
