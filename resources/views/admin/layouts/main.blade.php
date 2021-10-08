@@ -11,28 +11,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet"
-        href="{{ asset('public/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+        href="{{ asset('/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
-    {{-- <link rel="stylesheet" href="{{ asset('public/backend/plugins/jqvmap/jqvmap.min.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('/backend/plugins/jqvmap/jqvmap.min.css') }}"> --}}
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('public/backend/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet"
-        href="{{ asset('public/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+        href="{{ asset('/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!--Tostr-->
-	<link rel="stylesheet" type="text/css" href="{{asset('/public/backend/css/toastr.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('/backend/css/toastr.min.css')}}">
      <!-- jQuery -->
-     <script src="{{ asset('public/backend/plugins/jquery/jquery.min.js') }}"></script>
+     <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
     @yield('custom_css')
     <style>
         .content-header .breadcrumb{
@@ -102,43 +102,43 @@
     </div>
     <!-- ./wrapper -->
     <!-- jQuery UI 1.11.4 -->
-    <script src="{{ asset('public/backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
 
     </script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('public/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- ChartJS -->
-    <script src="{{ asset('public/backend/plugins/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Sparkline -->
-    <script src="{{ asset('public/backend/plugins/sparklines/sparkline.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/sparklines/sparkline.js') }}"></script>
     <!-- JQVMap -->
-    {{-- <script src="{{ asset('public/backend/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('public/backend/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script> --}}
+    {{-- <script src="{{ asset('/backend/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script> --}}
     <!-- jQuery Knob Chart -->
-    <script src="{{ asset('public/backend/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
     <!-- daterangepicker -->
-    <script src="{{ asset('public/backend/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('public/backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('/backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
     <script
-        src="{{ asset('public/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+        src="{{ asset('/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
     </script>
     <!-- Summernote -->
-    {{-- <script src="{{ asset('public/backend/plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('/backend/plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
     <!-- overlayScrollbars -->
-    <script src="{{ asset('public/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}">
+    <script src="{{ asset('/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}">
     </script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('public/backend/dist/js/adminlte.js') }}"></script>
+    <script src="{{ asset('/backend/dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    {{-- <script src="{{ asset('public/backend/dist/js/pages/dashboard.js') }}"></script> --}}
+    {{-- <script src="{{ asset('/backend/dist/js/pages/dashboard.js') }}"></script> --}}
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('public/backend/dist/js/demo.js') }}"></script>
+    <script src="{{ asset('/backend/dist/js/demo.js') }}"></script>
     <!--Toaster-->
-    <script src="{{asset('/public/backend/js/toastr.min.js')}}"></script>
+    <script src="{{asset('/backend/js/toastr.min.js')}}"></script>
     {!! Toastr::message() !!}
     <script>
         @if(count($errors) > 0)

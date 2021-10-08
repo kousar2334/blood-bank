@@ -33,7 +33,7 @@
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="{{ asset('public/backend/dist/img/user1-128x128.jpg') }}" alt="User Avatar"
+                        <img src="{{ asset('/backend/dist/img/user1-128x128.jpg') }}" alt="User Avatar"
                             class="img-size-50 mr-3 img-circle">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
@@ -50,7 +50,7 @@
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="{{ asset('public/backend/dist/img/user8-128x128.jpg') }}" alt="User Avatar"
+                        <img src="{{ asset('/backend/dist/img/user8-128x128.jpg') }}" alt="User Avatar"
                             class="img-size-50 img-circle mr-3">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
@@ -67,7 +67,7 @@
                 <a href="#" class="dropdown-item">
                     <!-- Message Start -->
                     <div class="media">
-                        <img src="{{ asset('public/backend/dist/img/user3-128x128.jpg') }}" alt="User Avatar"
+                        <img src="{{ asset('/backend/dist/img/user3-128x128.jpg') }}" alt="User Avatar"
                             class="img-size-50 img-circle mr-3">
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
@@ -123,7 +123,7 @@
                         @if (!empty(Auth::user()->image))
                         <img src="{{ asset(Auth::user()->image) }}" class="img-size-50 mr-3 img-circle" alt="User Image">
                     @else
-                        <img src="{{ asset('public/backend/dist/img/user1-160x160.jpg') }}" class="img-size-50 mr-3 img-circle"
+                        <img src="{{ asset('/backend/dist/img/user1-160x160.jpg') }}" class="img-size-50 mr-3 img-circle"
                             alt="User Image">
                     @endif
                         <div class="media-body">

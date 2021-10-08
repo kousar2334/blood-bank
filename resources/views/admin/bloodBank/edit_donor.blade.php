@@ -3,10 +3,6 @@
     Edit Blood Donor Infomation | Blood Bank
 @stop
 @section('custom_css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('public/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -180,7 +176,7 @@
                                       <h5 class="widget-user-desc">Blood Donor</h5>
                                     </div>
                                     <div class="widget-user-image">
-                                      <img class="img-circle elevation-2" src="{{ asset('/public/' . $donor->image) }}" alt="User Avatar">
+                                      <img class="img-circle elevation-2" src="{{ asset('/' . $donor->image) }}" alt="User Avatar">
                                     </div>
                                     <div class="card-footer">
                                       <div class="row">

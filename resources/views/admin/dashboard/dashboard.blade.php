@@ -111,10 +111,10 @@
                                         <tr>
                                             <td>
                                                 @if ($donor->status == 1)
-                                                <img src="{{ asset('/public') }}/backend/static/icon/blood2.png"
+                                                <img src="{{ asset('/') }}backend/static/icon/blood2.png"
                                                 alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                             @else
-                                            <img src="{{ asset('/public') }}/backend/static/icon/blood1.gif"
+                                            <img src="{{ asset('/') }}backend/static/icon/blood1.gif"
                                             alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                             @endif
                                                 
@@ -208,10 +208,10 @@
                                         <tr>
                                             <td>
                                                 @if ($donor->image)
-                                                    <img src="{{ asset('/public') }}/{{ $donor->image }}"
+                                                    <img src="{{ asset('/') }}{{ $donor->image }}"
                                                         alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
-                                                    <img src="{{ asset('/public') }}/backend/static/icon/blood.jpeg"
+                                                    <img src="{{ asset('/') }}backend/static/icon/blood.jpeg"
                                                     alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $donor->name }}
@@ -296,7 +296,7 @@
     <!-- /.content -->
 @stop
 @section('custom_script')
-    <script src="{{ asset('/') }}/public/backend/plugins/chart.js/Chart.min.js"></script>
-    <script src="{{ asset('/') }}/public/backend/dist/js/demo.js"></script>
-    <script src="{{ asset('/') }}/public/backend/dist/js/pages/dashboard3.js"></script>
+    <script src="{{ asset('/') }}backend/plugins/chart.js/Chart.min.js"></script>
+    <script src="{{ asset('/') }}backend/dist/js/demo.js"></script>
+    <script src="{{ asset('/') }}backend/dist/js/pages/dashboard3.js"></script>
 @stop

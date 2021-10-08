@@ -3,10 +3,6 @@
 New Doctor's Category
 @stop
 @section('custom_css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('public/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -43,7 +39,7 @@ New Doctor's Category
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
-                            <form role="form" action="{{ route('admin.hospital.category.store') }}" method="POST"
+                            <form role="form" action="{{ route('admin.doctor.category.store') }}" method="POST"
                                 class="col-md-6">
                                 @csrf
                                 <div class="row">

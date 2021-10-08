@@ -3,10 +3,7 @@
     Admin | Blood Bank- Add Groups
 @stop
 @section('custom_css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('public/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('public/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+  
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->

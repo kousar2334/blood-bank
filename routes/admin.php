@@ -46,5 +46,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/hospital-details','HospitalController@drtailsHospital')->name('admin.hospital.details');
     //Doctors Routes
     Route::view('/new-doctor-category','admin.doctors.new_category')->name('admin.doctor.category.add');
+    Route::post('/store-doctor-categry','DoctorController@storeCategory')->name('admin.doctor.category.store');
+    Route::get('/list-doctor-categry','DoctorController@doctorCategoryList')->name('admin.doctor.category.list');
 
 });

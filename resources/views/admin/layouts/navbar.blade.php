@@ -1,7 +1,7 @@
 <aside class="main-sidebar elevation-1 sidebar-dark-maroon">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
-        <img src="{{ asset('public/backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+        <img src="{{ asset('/backend/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Amr Bogura</span>
     </a>
@@ -14,7 +14,7 @@
                 @if (!empty(Auth::user()->image))
                     <img src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
                 @else
-                    <img src="{{ asset('public/backend/dist/img/user1-160x160.jpg') }}" class="img-circle elevation-2"
+                    <img src="{{ asset('/backend/dist/img/user1-160x160.jpg') }}" class="img-circle elevation-2"
                         alt="User Image">
                 @endif
 
@@ -84,7 +84,7 @@
                 <!--End blood bank Module-->
                 <!--Hospital Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.hospital.list','admin.hospital.add','admin.hospital.category.add', 'admin.hospital.category.list','admin.hospital.category.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.hospital.list','admin.hospital.add','admin.hospital.category.add', 'admin.hospital.category.list','admin.hospital.category.edit','admin.hospital.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
@@ -110,7 +110,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.hospital.add') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                                class="{{ Request::routeIs('admin.hospital.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Add Hospital</p>
                             </a>

@@ -16,8 +16,9 @@ use Brian2694\Toastr\Facades\Toastr;
 class HospitalController extends Controller
 {
     /**
-     * store hospital category information
-     * @return String
+     * Store hospital category information
+     * 
+     * @return mixed
      */
     public function storeHospitalCategory(Request $request)
     {
@@ -136,7 +137,7 @@ class HospitalController extends Controller
             return redirect()->route('admin.hospital.list');
         } catch (\Exception $e) {
             dd($e->getMessage());
-            Toastr::error('Something went wrong'.$e->getMessage());
+            Toastr::error('Something went wrong' . $e->getMessage());
             return redirect()->back();
         }
     }
@@ -164,10 +165,10 @@ class HospitalController extends Controller
         return Datatables::of($hospitals)
             ->addColumn('image', function ($hospital) {
                 if ($hospital->image) {
-                    $url = asset('/public/' . $hospital->image);
+                    $url = asset('/' . $hospital->image);
                     return '<img src="' . $url . '" border="0"class="img-circle elevation-1" width="50" height="50" />';
                 } else {
-                    $url = asset('/public/backend/static/user/user1.png');
+                    $url = asset('/backend/static/user/user1.png');
                     return '<img src="' . $url . '" border="0"class="img-circle elevation-1" width="50" height="50" />';
                 }
             })
@@ -180,7 +181,7 @@ class HospitalController extends Controller
             })
             ->editColumn('action', function ($hospital) {
                 return '
-                <button class="btn btn-sm btn-info edit-info" onclick=viewDetails('.$hospital->id.')><i class="fas fa-eye"></i></button>
+                <button class="btn btn-sm btn-info edit-info" onclick=viewDetails(' . $hospital->id . ')><i class="fas fa-eye"></i></button>
                 <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="btn btn-sm btn-warning edit-info"><i class="fas fa-edit"></i></a>
                 <form method="post" action="' . route('admin.hospital.delete') . '"
                 style="float:right; right:5px">
@@ -268,18 +269,19 @@ class HospitalController extends Controller
      * @param Int
      * @return Array 
      */
-    public function drtailsHospital(Request $request){
-        try{
-        Hospitals::findOrFail($request->id);
-        $hospital=Hospitals::with('category')->where('id',$request->id)->first();
-         return response()->json([
-             'success'=>true,
-             'hospital'=>$hospital
-         ]);
-        }catch(\Exception $e){
+    public function drtailsHospital(Request $request)
+    {
+        try {
+            Hospitals::findOrFail($request->id);
+            $hospital = Hospitals::with('category')->where('id', $request->id)->first();
             return response()->json([
-               'success'=>false,
-               'error'=>$request
+                'success' => true,
+                'hospital' => $hospital
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => $request
             ]);
         }
     }
