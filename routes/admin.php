@@ -29,24 +29,23 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/blood-donar-list-data-table', 'BloodBankController@donorListAjaxCall')->name('admin.blood.donar.list.data.table');
 
     //hospital categories routes
-    Route::view('/add-hospital-category','admin.hospitals.add_hospital_category')->name('admin.hospital.category.add');
-    Route::post('/store-hospital-category','HospitalController@storeHospitalCategory')->name('admin.hospital.category.store');
-    Route::get('/hospital-category-list','HospitalController@hospitalCategoryList')->name('admin.hospital.category.list');
+    Route::view('/add-hospital-category', 'admin.hospitals.add_hospital_category')->name('admin.hospital.category.add');
+    Route::post('/store-hospital-category', 'HospitalController@storeHospitalCategory')->name('admin.hospital.category.store');
+    Route::get('/hospital-category-list', 'HospitalController@hospitalCategoryList')->name('admin.hospital.category.list');
     Route::get('/hospital-category/{id}', 'HospitalController@editHospitalCategory')->name('admin.hospital.category.edit');
-    Route::post('/update-hospital-category','HospitalController@updateHospitalCategory')->name('admin.hospital.category.update');
-    Route::post('/delete-hospital-category','HospitalController@deleteHospitalCategory')->name('admin.hospital.category.delete');
+    Route::post('/update-hospital-category', 'HospitalController@updateHospitalCategory')->name('admin.hospital.category.update');
+    Route::post('/delete-hospital-category', 'HospitalController@deleteHospitalCategory')->name('admin.hospital.category.delete');
     //hospital routes
-    Route::get('/add-new-hospital','HospitalController@addNewHospital')->name('admin.hospital.add');
-    Route::post('/store-new-hospitals','HospitalController@storeNewHospital')->name('admin.hospital.store');
-    Route::get('/all-hospitals','HospitalController@allHospital')->name('admin.hospital.list');
-    Route::get('/hospitals-edit/{id}','HospitalController@editHospital')->name('admin.hospital.edit');
+    Route::get('/add-new-hospital', 'HospitalController@addNewHospital')->name('admin.hospital.add');
+    Route::post('/store-new-hospitals', 'HospitalController@storeNewHospital')->name('admin.hospital.store');
+    Route::get('/all-hospitals', 'HospitalController@allHospital')->name('admin.hospital.list');
+    Route::get('/hospitals-edit/{id}', 'HospitalController@editHospital')->name('admin.hospital.edit');
     Route::get('/hospital-list-data-table', 'HospitalController@hospitalsListAjaxCall')->name('admin.hospital.list.data.table');
-    Route::post('/update-hospital','HospitalController@updateHospital')->name('admin.hospital.update');
-    Route::post('/delate-hospital','HospitalController@deleteHospital')->name('admin.hospital.delete');
-    Route::post('/hospital-details','HospitalController@drtailsHospital')->name('admin.hospital.details');
+    Route::post('/update-hospital', 'HospitalController@updateHospital')->name('admin.hospital.update');
+    Route::post('/delate-hospital', 'HospitalController@deleteHospital')->name('admin.hospital.delete');
+    Route::post('/hospital-details', 'HospitalController@detailsHospital')->name('admin.hospital.details');
     //Doctors Routes
-    Route::view('/new-doctor-category','admin.doctors.new_category')->name('admin.doctor.category.add');
-    Route::post('/store-doctor-categry','DoctorController@storeCategory')->name('admin.doctor.category.store');
-    Route::get('/list-doctor-categry','DoctorController@doctorCategoryList')->name('admin.doctor.category.list');
-
+    Route::view('/new-doctor-category', 'admin.doctors.new_category')->name('admin.doctor.category.add');
+    Route::post('/store-doctor-categry', 'DoctorController@storeCategory')->name('admin.doctor.category.store');
+    Route::get('/list-doctor-categry', 'DoctorController@doctorCategoryList')->name('admin.doctor.category.list');
 });

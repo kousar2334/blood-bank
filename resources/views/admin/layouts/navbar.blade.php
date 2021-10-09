@@ -112,7 +112,7 @@
                             <a href="{{ route('admin.hospital.add') }}"
                                 class="{{ Request::routeIs('admin.hospital.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-arrow-right nav-icon"></i>
-                                <p>Add Hospital</p>
+                                <p>Add New Hospital</p>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -235,7 +235,7 @@
                         $('.address').html(data.hospital.address);
                         $('.description').html(data.hospital.description);
                         if (data.hospital.image) {
-                            var source = "{{ asset('/') }}/" + data.hospital.image;
+                            var source = "{{ asset('/') }}" + data.hospital.image;
                             $('.img-hospital').attr('src', source);
                         }
 
@@ -247,7 +247,6 @@
         }
 
         function closeModal() {
-            console.log('ok');
             $("#details-modal").hide('fadeIn');
         }
     </script>

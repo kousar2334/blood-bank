@@ -18,12 +18,27 @@
     <link rel="stylesheet" href="{{ asset('/backend/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .body{
+            background-color: #343a40;
+            align-items: center;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            /* height: 100vh; */
+            margin-top:100px;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
-<body class="hold-transition login-page mt-0">
+<body class="hold-transition body">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Amr</b>BOGURA</a>
+            <img src="{{ asset('/logo/logo.png') }}" alt="AdminLTE Logo"
+            class="brand-image">
         </div>
         <!-- /.login-logo -->
         <div class="card">

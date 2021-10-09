@@ -179,6 +179,7 @@ return [
 
         //custom provider
         App\Providers\BloodBankProvider::class,
+        App\Providers\HospitalProvider::class,
 
     ],
 
