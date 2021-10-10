@@ -28,7 +28,7 @@ if (!function_exists('uploadHospitalImage')) {
 if (!function_exists('uploadDoctorCategoryImage')) {
     function uploadDoctorCategoryImage($request)
     {
-        $directory = "uploads/doctor/category/image";
+        $directory = "uploads/doctor/category/image/";
         $image = $request->file('image');
         $imageName = $image->getClientOriginalName();
         $extension = pathinfo($imageName, PATHINFO_EXTENSION);

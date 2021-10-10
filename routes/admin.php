@@ -48,4 +48,5 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::view('/new-doctor-category', 'admin.doctors.new_category')->name('admin.doctor.category.add');
     Route::post('/store-doctor-categry', 'DoctorController@storeCategory')->name('admin.doctor.category.store');
     Route::get('/list-doctor-categry', 'DoctorController@doctorCategoryList')->name('admin.doctor.category.list');
+    Route::get('/edit-doctor-categry/{id}', 'DoctorController@editDoctorCategory')->name('admin.doctor.category.edit');
 });

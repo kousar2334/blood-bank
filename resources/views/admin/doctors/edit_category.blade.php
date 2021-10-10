@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-New Doctor's Category
+Edit Doctor's Category
 @stop
 @section('custom_css')
 @stop
@@ -10,14 +10,14 @@ New Doctor's Category
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">New Doctor's Category</h4>
+                    <h4 class="m-0 text-dark">Edit Doctor's Category</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Doctors</a></li>
-                        <li class="breadcrumb-item active">New Docotr's Category</li>
+                        <li class="breadcrumb-item active">Edit Docotr's Category</li>
                     </ol>
                 </div>
             </div>
@@ -33,9 +33,9 @@ New Doctor's Category
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Doctor Category's Information</h3>
+                            {{-- <h3 class="card-title">Doctor Category's Information</h3> --}}
                             <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-info btn-sm float-right text-white">All Doctors</a>
-                            <a href="{{ route('admin.doctor.category.list') }}" class="mr-2 btn btn-danger btn-sm float-right text-white">Doctor's Category List</a>
+                            <a href="{{ route('admin.doctor.category.list') }}" class="mr-2 btn btn-danger btn-sm float-right text-white">Doctor's Categories</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -47,8 +47,8 @@ New Doctor's Category
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                                placeholder="Enter ...">
+                                            <input type="text" name="name" class="form-control"
+                                                placeholder="Enter ..." value="{{$doctor_category->name}}">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
@@ -60,7 +60,7 @@ New Doctor's Category
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name (Bangla)</label>
-                                            <input type="text" name="bn_name" value="{{ old('bn_name') }}"
+                                            <input type="text" name="bn_name" value="{{$doctor_category->bn_name}}"
                                                 class="form-control" placeholder="Enter ...">
                                         </div>
                                     </div>
@@ -94,18 +94,21 @@ New Doctor's Category
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea class="form-control" name="description" rows="3"
-                                                placeholder="Enter ...">{{ old('description') }}</textarea>
+                                                placeholder="Enter ...">{{$doctor_category->name}}</textarea>
                                         </div>
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="offset-md-6 col-sm-6">
-                                        <input type="submit" class="btn btn-block bg-gradient-success" value="Save" />
+                                        <input type="submit" class="btn btn-block bg-gradient-success" value="Update Category" />
                                     </div>
 
                                 </div>
                             </form>
+                            <div class="offset-lg-1 col-lg-5">
+                              Image
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>

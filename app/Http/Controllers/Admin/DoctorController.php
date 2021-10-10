@@ -2,59 +2,67 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Model\DoctorCategory;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\DoctorCategoryRequest;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Interfaces\DoctorCategoryInterface;
 
 class DoctorController extends Controller
 {
+    protected $doctor_category_repository;
+
+    public function __construct(DoctorCategoryInterface $doctor_category_repository)
+    {
+        $this->doctor_category_repository = $doctor_category_repository;
+    }
+
     /**
      * Store new doctor category
+     * 
+     * @param \App\Http\Requests\DoctorCategoryRequest $request
+     * @return mixed
      */
-    public function storeCategory(Request $request)
+    public function storeCategory(DoctorCategoryRequest $request)
     {
-        $request->validate([
-            'name' => 'required|max:150',
-        ]);
-        //icon upload
-        if ($request->has('icon')) {
-            // $request->validate([
-            //     'icon' => 'mimes:png,jpg,jpge'
-            // ]);
-            $icon = uploadDoctorCategoryIcon($request);
-        } else {
-            $icon = "";
-        }
-        //image upload
-        if ($request->has('image')) {
-            $request->validate([
-                'image' => 'mimes:png,jpg,jpge',
-            ]);
-            $image = uploadDoctorCategoryImage($request);
-        } else {
-            $image = "";
-        }
         try {
-            $dcat = new DoctorCategory;
-            $dcat->name = $request->name;
-            $dcat->bn_name = $request->bn_name;
-            $dcat->description = $request->description;
-            $dcat->image = $image;
-            $dcat->icon = $icon;
-            $dcat->save();
+            $this->doctor_category_repository->store($request);
             Toastr::success('new category Added Successfully');
             return redirect()->route('admin.doctor.category.list');
         } catch (\Exception $e) {
             Toastr::error('Something went wrong');
+            return redirect()->back();
         }
     }
     /**
-     * All doctor categories
-     * @return Arrary
+     * Get all doctor categories
+     * 
+     * @return mixed
      */
     public function doctorCategoryList()
     {
-        dd('ok');
+        try {
+            $doctor_categories = $this->doctor_category_repository->all();
+            return view('admin.doctors.categories', ['doctor_categories' => $doctor_categories]);
+        } catch (\Exception $e) {
+            Toastr::error('Something went wrong');
+            return redirect()->back();
+        }
+    }
+    /**
+     * get single category information
+     *
+     *@param Int $id
+     *@return mixed
+     */
+    public function editDoctorCategory($id)
+    {
+        try {
+            $doctor_category = $this->doctor_category_repository->get($id);
+            return view('admin.doctors.edit_category', ['doctor_category' => $doctor_category]);
+        } catch (\Exception $e) {
+            Toastr::error('Something went wrong');
+            return redirect()->back();
+        }
     }
 }

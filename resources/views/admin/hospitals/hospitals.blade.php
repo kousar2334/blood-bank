@@ -225,7 +225,6 @@
                     'id': id
                 },
                 success: function(data) {
-                    console.log(data);
                     if (data.success) {
                         $('.name').html(data.hospital.name);
                         $('.type').html(data.hospital.category.name);

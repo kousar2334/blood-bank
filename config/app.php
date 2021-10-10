@@ -180,6 +180,7 @@ return [
         //custom provider
         App\Providers\BloodBankProvider::class,
         App\Providers\HospitalProvider::class,
+        App\Providers\DoctorProvider::class,
 
     ],
 
