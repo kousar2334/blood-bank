@@ -75,9 +75,8 @@
                                             <div class="form-group">
                                                 <label>Category<span class="text-danger">*</span></label>
                                                 <select class="form-control" name="cat_id"
-                                                    value="{{ old('cat_id') }}">
                                                     @foreach ($hos_cats as $cat)
-                                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                                        <option  {{ $hospital->cat_id === $cat->id  ? 'selected' : '' }} value="{{ $cat->id }}">{{ $cat->name }}</option>
                                                     @endforeach
                                                 </select>
                                                 @if ($errors->has('cat_id'))
