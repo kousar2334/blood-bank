@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Model\DoctorCategory;
+use Illuminate\Support\Facades\DB;
 use App\Interfaces\DoctorCategoryInterface;
 
 class DoctorCategoryRepository implements DoctorCategoryInterface
@@ -52,12 +53,48 @@ class DoctorCategoryRepository implements DoctorCategoryInterface
         $dcat->status = 1;
         $dcat->save();
     }
-
+    /**
+     * Update doctor category
+     * 
+     * @param Arrary $data
+     * @return void
+     */
     public function update($data)
     {
+        if ($data->has('icon')) {
+            $icon = uploadDoctorCategoryIcon($data);
+        } else {
+            $icon = DB::table('doctor_categories')->where('id', $data->id)->first()->icon;
+        }
+        if ($data->has('image')) {
+            $image = uploadDoctorCategoryImage($data);
+        } else {
+            $image = DB::table('doctor_categories')->where('id', $data->id)->first()->image;
+        }
+        DB::table('doctor_categories')->where('id', $data->id)->update([
+            'name' => $data->name,
+            'bn_name' => $data->bn_name,
+            'name' => $data->name,
+            'description' => $data->description,
+            'status' => $data->status,
+            'image' => $image,
+            'icon' => $icon,
+        ]);
     }
-
+    /**
+     * Delete doctor category
+     *
+     *@param Int $id
+     *@return void
+     */
     public function delete($id)
     {
+        try {
+            DB::beginTransaction();
+            DB::table('doctor_categories')->where('id', $id)->delete();
+            DB::commit();
+        } catch (\Exception $d) {
+            DB::rollBack();
+        }
     }
 }

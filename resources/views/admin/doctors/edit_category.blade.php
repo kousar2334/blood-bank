@@ -39,7 +39,7 @@ Edit Doctor's Category
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
-                            <form role="form" action="{{ route('admin.doctor.category.store') }}" method="POST"
+                            <form role="form" action="{{ route('admin.doctor.category.update') }}" method="POST"
                                 class="col-md-6"  enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -49,6 +49,7 @@ Edit Doctor's Category
                                             <label>Name</label>
                                             <input type="text" name="name" class="form-control"
                                                 placeholder="Enter ..." value="{{$doctor_category->name}}">
+                                            <input type="hidden" name="id" value="{{$doctor_category->id}}">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
@@ -100,15 +101,36 @@ Edit Doctor's Category
 
                                 </div>
                                 <div class="row">
+                                    <div class="col-sm-12">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" name="status">
+                                                <option {{ $doctor_category->status == '1' ? 'selected' : '' }} value="1">
+                                                    Active</option>
+                                                <option {{ $doctor_category->status == '0' ? 'selected' : '' }} value="0">
+                                                    Inactive</option>
+
+                                            </select>
+
+                                            @if ($errors->has('status'))
+                                                <small
+                                                    class="text text-danger">{{ $errors->first('status') }}</small>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
                                     <div class="offset-md-6 col-sm-6">
                                         <input type="submit" class="btn btn-block bg-gradient-success" value="Update Category" />
                                     </div>
 
                                 </div>
                             </form>
-                            <div class="offset-lg-1 col-lg-5">
+                            {{-- <div class="offset-lg-1 col-lg-5">
                               Image
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- /.card-body -->
                     </div>

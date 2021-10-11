@@ -141,8 +141,6 @@
                 $(".del-modal").hide('fadeIn');
 
             });
-
-
         });
         function displayDeleteModal(id) {
             $(".del-modal").hide('fadeIn');

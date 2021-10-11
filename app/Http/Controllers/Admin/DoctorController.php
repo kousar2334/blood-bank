@@ -65,4 +65,38 @@ class DoctorController extends Controller
             return redirect()->back();
         }
     }
+    /**
+     * Update doctor category
+     * 
+     * @param \App\Http\Requests\DoctorCategoryRequest $request
+     * @return mixed
+     */
+    public function updateCategory(DoctorCategoryRequest $request)
+    {
+        try {
+            $this->doctor_category_repository->update($request);
+            Toastr::success('Category update successfully');
+            return redirect()->route('admin.doctor.category.list');
+        } catch (\Exception $e) {
+            Toastr::error('Something went wrong');
+            return redirect()->back();
+        }
+    }
+    /**
+     * Delete doctor category
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function deleteCategory(Request $request)
+    {
+        try {
+            $this->doctor_category_repository->update($request);
+            Toastr::success('Category delete successfully');
+            return redirect()->route('admin.doctor.category.list');
+        } catch (\Exception $e) {
+            Toastr::error('Something went wrong');
+            return redirect()->back();
+        }
+    }
 }
