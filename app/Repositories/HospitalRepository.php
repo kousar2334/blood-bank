@@ -147,14 +147,21 @@ class HospitalRepository implements HospitalInterface
             })
             ->editColumn('action', function ($hospital) {
                 return '
-            <button class="btn btn-sm btn-info edit-info" onclick=viewDetails(' . $hospital->id . ')><i class="fas fa-eye"></i></button>
-            <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="btn btn-sm btn-warning edit-info"><i class="fas fa-edit"></i></a>
-            <form method="post" action="' . route('admin.hospital.delete') . '"
-            style="float:right; right:5px">
-            <input name="_token" type="hidden" value=" ' . csrf_token() . ' ">
-            <input type="hidden" name="id" value="' . $hospital->id . '">
-            <button class="btn btn-sm btn-danger edit-info"><i class="fas fa-trash"></i></button>
-            </form>';
+                    <div class="btn-group">
+                        <p class="mb-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-tasks"></i>
+                        </p>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button" onclick=viewDetails(' . $hospital->id . ')>View Details</button>
+                            <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="dropdown-item" type="button">Edit Doctor</a>
+                            <form method="post" action="' . route('admin.hospital.delete') . '">
+                            <input type="hidden" name="id" value="' . $hospital->id . '">
+                            <input type="hidden" name="_token" value="' . csrf_token() . '">
+                            <input class="dropdown-item" type="submit" value="Delete" />
+                            </form>
+                        </div>
+                    </div>
+            ';
             })
             ->rawColumns(['image', 'status', 'action'])->make(true);
     }

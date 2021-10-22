@@ -49878,8 +49878,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/lampp/htdocs/bogura/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /opt/lampp/htdocs/bogura/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/e632d026-5858-4e33-8e62-2946578fcfb1/htdocs/personal/bogura/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/e632d026-5858-4e33-8e62-2946578fcfb1/htdocs/personal/bogura/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
