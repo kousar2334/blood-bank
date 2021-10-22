@@ -1,12 +1,11 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Docotr's Categories
+    Admin | Docotr's Departments
 @stop
 @section('custom_css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -14,7 +13,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">Doctor's Categories</h4>
+                    <h4 class="m-0 text-dark">Doctor's Departments</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -22,7 +21,7 @@
                                 Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Doctors</a>
                         </li>
-                        <li class="breadcrumb-item active">Doctor's Categories</li>
+                        <li class="breadcrumb-item active">Doctor's Departments</li>
                     </ol>
                 </div>
             </div>
@@ -39,7 +38,12 @@
                     <div class="card">
                         <div class="card-header">
                             {{-- <h3 class="card-title">Doctor's Categories</h3> --}}
-                            <a href="{{ route('admin.doctor.category.add') }}" class="btn btn-info btn-sm float-right text-white">Add New Category</a>
+                            <a href="{{ route('admin.doctor.category.add') }}"
+                                class="btn btn-info btn-sm float-right text-white">Add New Departments</a>
+                            <a href="{{ route('admin.doctor.list') }}"
+                                class="btn btn-danger btn-sm float-right text-white mr-2">All Doctors</a>
+                            <a href="{{ route('admin.doctor.add') }}"
+                                class="mr-2 btn btn-success btn-sm float-right text-white">Add New Doctor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -69,38 +73,42 @@
                                             <td>{{ $cat->name }}</td>
                                             <td>{{ $cat->bn_name }}</td>
                                             <td>
-                                                @if($cat->icon)
-                                                <img src="{{asset('/')}}{{$cat->icon}}" border="0"class="img-circle elevation-1" width="50" height="50" />
+                                                @if ($cat->icon)
+                                                    <img src="{{ asset('/') }}{{ $cat->icon }}" border="0"
+                                                        class="img-circle elevation-1" width="50" height="50" />
                                                 @else
-                                                <img src="{{asset('/')}}images/no-image.png" border="0"class="img-circle elevation-1" width="50" height="50" />
+                                                    <img src="{{ asset('/') }}images/no-image.png" border="0"
+                                                        class="img-circle elevation-1" width="50" height="50" />
                                                 @endif
                                             </td>
                                             <td>
-                                                @if($cat->image)
-                                                <img src="{{asset('/')}}{{$cat->image}}" border="0"class="img-circle elevation-1" width="50" height="50" />
+                                                @if ($cat->image)
+                                                    <img src="{{ asset('/') }}{{ $cat->image }}" border="0"
+                                                        class="img-circle elevation-1" width="50" height="50" />
                                                 @else
-                                                <img src="{{asset('/')}}images/no-image.png" border="0"class="img-circle elevation-1" width="50" height="50" />
+                                                    <img src="{{ asset('/') }}images/no-image.png" border="0"
+                                                        class="img-circle elevation-1" width="50" height="50" />
                                                 @endif
                                             </td>
                                             <td>{{ $cat->description }}</td>
                                             <td>
-                                                @if($cat->status==1)
-                                                <p class="badge badge-success">Actice</p>
+                                                @if ($cat->status == 1)
+                                                    <p class="badge badge-success">Actice</p>
                                                 @else
-                                                <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">Inactive</p>
                                                 @endif
                                             </td>
                                             <td class="text-right text-white">
                                                 <a href="{{ route('admin.doctor.category.edit', $cat->id) }}"
                                                     class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                                <div
-                                                    class="del-modal <?php echo 'modal' . $counter; ?>">
+                                                <div class="del-modal <?php echo 'modal' . $counter; ?>">
                                                     <p><b>Record delete confirmation.</b></p>
                                                     <p>Are you want to really delete ?</p>
 
                                                     <button
                                                         class="btn btn-info py-1 del-close float-left delete-model-cansel-btn">Cancel</button>
-                                                    <form method="post" action="{{ route('admin.hospital.category.delete') }}"
+                                                    <form method="post"
+                                                        action="{{ route('admin.hospital.category.delete') }}"
                                                         style="float:right;">
                                                         @csrf
                                                         <input type="hidden" name="id" value="{{ $cat->id }}">
@@ -108,8 +116,8 @@
                                                     </form>
                                                 </div>
                                                 <a href="#" class="btn btn-sm btn-danger"
-                                                    onclick="displayDeleteModal({{ $cat->id }})"
-                                                    title="Delete Item"> <i class="fas fa-trash"></i></a>
+                                                    onclick="displayDeleteModal({{ $cat->id }})" title="Delete Item">
+                                                    <i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -142,6 +150,7 @@
 
             });
         });
+
         function displayDeleteModal(id) {
             $(".del-modal").hide('fadeIn');
             $(".modal" + id).show('fadeOut');

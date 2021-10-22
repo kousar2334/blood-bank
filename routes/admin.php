@@ -51,4 +51,13 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/edit-doctor-categry/{id}', 'DoctorController@editDoctorCategory')->name('admin.doctor.category.edit');
     Route::post('/update-doctor-categry', 'DoctorController@updateCategory')->name('admin.doctor.category.update');
     Route::post('/delete-doctor-categry', 'DoctorController@deleteCategory')->name('admin.doctor.category.delete');
+
+    Route::get('/add-new-doctor', 'DoctorController@loadDoctorForm')->name('admin.doctor.add');
+    Route::post('/store-new-doctor', 'DoctorController@storeNewDoctor')->name('admin.doctor.store');
+    Route::get('/all-doctors', 'DoctorController@allDoctors')->name('admin.doctor.list');
+    Route::get('/doctor-list-data-table', 'DoctorController@doctorListAjaxCall')->name('admin.doctor.list.data.table');
+    Route::post('/doctor-details', 'DoctorController@detailsDoctor')->name('admin.doctor.details');
+    Route::get('/edit-doctor-details/{id}', 'DoctorController@editDoctor')->name('admin.doctor.edit');
+    Route::post('/update-doctor', 'DoctorController@updateDoctor')->name('admin.doctor.update');
+    Route::post('/delete-doctor', 'DoctorController@deleteDoctor')->name('admin.doctor.delete');
 });

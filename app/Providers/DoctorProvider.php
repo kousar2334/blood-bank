@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\DoctorCategoryRepository;
 use App\Interfaces\DoctorCategoryInterface;
+use App\Repositories\DoctorRepository;
+use App\Interfaces\DoctorInterface;
+
 
 class DoctorProvider extends ServiceProvider
 {
@@ -16,6 +19,7 @@ class DoctorProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(DoctorCategoryInterface::class, DoctorCategoryRepository::class);
+        $this->app->bind(DoctorInterface::class, DoctorRepository::class);
     }
 
     /**

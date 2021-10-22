@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-Edit Doctor's Category
+    Edit Doctor's Department
 @stop
 @section('custom_css')
 @stop
@@ -10,14 +10,14 @@ Edit Doctor's Category
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">Edit Doctor's Category</h4>
+                    <h4 class="m-0 text-dark">Edit Department</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Doctors</a></li>
-                        <li class="breadcrumb-item active">Edit Docotr's Category</li>
+                        <li class="breadcrumb-item active">Edit Department</li>
                     </ol>
                 </div>
             </div>
@@ -34,22 +34,26 @@ Edit Doctor's Category
                     <div class="card">
                         <div class="card-header">
                             {{-- <h3 class="card-title">Doctor Category's Information</h3> --}}
-                            <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-info btn-sm float-right text-white">All Doctors</a>
-                            <a href="{{ route('admin.doctor.category.list') }}" class="mr-2 btn btn-danger btn-sm float-right text-white">Doctor's Categories</a>
+                            <a href="{{ route('admin.doctor.list') }}"
+                                class="btn btn-info btn-sm float-right text-white">All Doctors</a>
+                            <a href="{{ route('admin.doctor.add') }}"
+                                class="mr-2 btn btn-success btn-sm float-right text-white">New Doctor</a>
+                            <a href="{{ route('admin.doctor.category.list') }}"
+                                class="mr-2 btn btn-danger btn-sm float-right text-white">All Departments</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
                             <form role="form" action="{{ route('admin.doctor.category.update') }}" method="POST"
-                                class="col-md-6"  enctype="multipart/form-data">
+                                class="col-md-6" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" class="form-control"
-                                                placeholder="Enter ..." value="{{$doctor_category->name}}">
-                                            <input type="hidden" name="id" value="{{$doctor_category->id}}">
+                                            <input type="text" name="name" class="form-control" placeholder="Enter ..."
+                                                value="{{ $doctor_category->name }}">
+                                            <input type="hidden" name="id" value="{{ $doctor_category->id }}">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
@@ -61,7 +65,7 @@ Edit Doctor's Category
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name (Bangla)</label>
-                                            <input type="text" name="bn_name" value="{{$doctor_category->bn_name}}"
+                                            <input type="text" name="bn_name" value="{{ $doctor_category->bn_name }}"
                                                 class="form-control" placeholder="Enter ...">
                                         </div>
                                     </div>
@@ -95,7 +99,7 @@ Edit Doctor's Category
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea class="form-control" name="description" rows="3"
-                                                placeholder="Enter ...">{{$doctor_category->name}}</textarea>
+                                                placeholder="Enter ...">{{ $doctor_category->name }}</textarea>
                                         </div>
                                     </div>
 
@@ -106,16 +110,17 @@ Edit Doctor's Category
                                         <div class="form-group">
                                             <label>Status</label>
                                             <select class="form-control" name="status">
-                                                <option {{ $doctor_category->status == '1' ? 'selected' : '' }} value="1">
+                                                <option {{ $doctor_category->status == '1' ? 'selected' : '' }}
+                                                    value="1">
                                                     Active</option>
-                                                <option {{ $doctor_category->status == '0' ? 'selected' : '' }} value="0">
+                                                <option {{ $doctor_category->status == '0' ? 'selected' : '' }}
+                                                    value="0">
                                                     Inactive</option>
 
                                             </select>
 
                                             @if ($errors->has('status'))
-                                                <small
-                                                    class="text text-danger">{{ $errors->first('status') }}</small>
+                                                <small class="text text-danger">{{ $errors->first('status') }}</small>
                                             @endif
                                         </div>
                                     </div>
@@ -123,7 +128,8 @@ Edit Doctor's Category
                                 </div>
                                 <div class="row">
                                     <div class="offset-md-6 col-sm-6">
-                                        <input type="submit" class="btn btn-block bg-gradient-success" value="Update Category" />
+                                        <input type="submit" class="btn btn-block bg-gradient-success"
+                                            value="Update Category" />
                                     </div>
 
                                 </div>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-New Doctor's Category
+    New Doctor's Departments
 @stop
 @section('custom_css')
 @stop
@@ -10,14 +10,14 @@ New Doctor's Category
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">New Doctor's Category</h4>
+                    <h4 class="m-0 text-dark">New Department</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Doctors</a></li>
-                        <li class="breadcrumb-item active">New Docotr's Category</li>
+                        <li class="breadcrumb-item active">New Departments</li>
                     </ol>
                 </div>
             </div>
@@ -33,22 +33,24 @@ New Doctor's Category
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Doctor Category's Information</h3>
-                            <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-info btn-sm float-right text-white">All Doctors</a>
-                            <a href="{{ route('admin.doctor.category.list') }}" class="mr-2 btn btn-danger btn-sm float-right text-white">Doctor's Category List</a>
+
+                            <a href="{{ route('admin.doctor.list') }}"
+                                class="btn btn-info btn-sm float-right text-white">All Doctors</a>
+                            <a href="{{ route('admin.doctor.category.list') }}"
+                                class="mr-2 btn btn-danger btn-sm float-right text-white">Departments List</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
                             <form role="form" action="{{ route('admin.doctor.category.store') }}" method="POST"
-                                class="col-md-6"  enctype="multipart/form-data">
+                                class="col-md-6" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                                placeholder="Enter ...">
+                                            <input type="text" name="name" value="{{ old('name') }}"
+                                                class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif

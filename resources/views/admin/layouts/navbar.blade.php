@@ -1,8 +1,7 @@
 <aside class="main-sidebar elevation-1 sidebar-dark-maroon">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link">
-        <img src="{{ asset('/logo/logo.png') }}" alt="AdminLTE Logo"
-            class="brand-image">
+        <img src="{{ asset('/logo/logo.png') }}" alt="AdminLTE Logo" class="brand-image">
         {{-- <span class="brand-text font-weight-light">Amr Bogura</span> --}}
     </a>
 
@@ -41,7 +40,7 @@
                 </li>
                 <!--Start Blood Bank Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list','admin.blood.donar.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list', 'admin.blood.donar.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-burn"></i>
@@ -84,7 +83,7 @@
                 <!--End blood bank Module-->
                 <!--Hospital Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.hospital.list','admin.hospital.add','admin.hospital.category.add', 'admin.hospital.category.list','admin.hospital.category.edit','admin.hospital.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.hospital.list', 'admin.hospital.add', 'admin.hospital.category.add', 'admin.hospital.category.list', 'admin.hospital.category.edit', 'admin.hospital.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
@@ -126,8 +125,10 @@
                 </li>
                 <!--End Hospital Module-->
                 <!--Doctor Module-->
-                <li class="{{ Request::routeIs(['admin.doctor.category.add','admin.doctor.category.list','admin.doctor.category.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs(['admin.doctor.category.add','admin.doctor.category.list','admin.doctor.category.edit']) ? 'active' : '' }} nav-link">
+                <li
+                    class="{{ Request::routeIs(['admin.doctor.category.add', 'admin.doctor.category.list', 'admin.doctor.category.edit', 'admin.doctor.add', 'admin.doctor.list', 'admin.doctor.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs(['admin.doctor.category.add', 'admin.doctor.category.list', 'admin.doctor.category.edit', 'admin.doctor.add', 'admin.doctor.list', 'admin.doctor.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
                             Doctors
@@ -136,31 +137,32 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.doctor.category.add') }}"
-                                class="{{ Request::routeIs('admin.doctor.category.add') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-arrow-right nav-icon"></i>
-                                <p>Doctors New Category</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.doctor.category.list') }}"
-                                class="{{ Request::routeIs('admin.doctor.category.list') ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-arrow-right nav-icon"></i>
-                                <p>Doctor's Categories</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.doctor.list') }}"
+                                class="{{ Request::routeIs('admin.doctor.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-arrow-right nav-icon"></i>
                                 <p>Doctors</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.doctor.add') }}"
+                                class="{{ Request::routeIs('admin.doctor.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-arrow-right nav-icon"></i>
-                                <p>Add Doctor</p>
+                                <p>New Doctor</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.doctor.category.list') }}"
+                                class="{{ Request::routeIs('admin.doctor.category.list') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-arrow-right nav-icon"></i>
+                                <p>Departments</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.doctor.category.add') }}"
+                                class="{{ Request::routeIs('admin.doctor.category.add') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-arrow-right nav-icon"></i>
+                                <p>New Department</p>
                             </a>
                         </li>
                     </ul>

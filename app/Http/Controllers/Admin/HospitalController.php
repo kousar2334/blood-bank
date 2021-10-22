@@ -213,10 +213,16 @@ class HospitalController extends Controller
     {
         try {
             $hospital = $this->hospital_repository->details($request->id);
-            return response()->json([
-                'success' => true,
-                'hospital' => $hospital
-            ]);
+            if ($hospital) {
+                return response()->json([
+                    'success' => true,
+                    'hospital' => $hospital
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                ]);
+            }
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
