@@ -2,8 +2,9 @@ import Vue from "vue";
 import Router from "vue-router";
 import AppHeader from "./layout/AppHeader";
 import AppFooter from "./layout/AppFooter";
-import Doctors from "./views/pages/Doctors.vue";
 import Home from "./views/pages/Home.vue";
+import Doctors from "./views/pages/Doctors.vue";
+import BloodBank from "./views/pages/BloodBank.vue";
 import Login from "./views/pages/Login.vue";
 import Register from "./views/pages/Register.vue";
 import Profile from "./views//pages/Profile.vue";
@@ -11,7 +12,17 @@ import Profile from "./views//pages/Profile.vue";
 Vue.use(Router);
 export default new Router({
     linkExactActiveClass: "active",
+    //mode: "history",
     routes: [
+        {
+            path: "/",
+            name: "components",
+            components: {
+                header: AppHeader,
+                default: Home,
+                footer: AppFooter
+            }
+        },
         {
             path: "/doctors",
             name: "Doctors",
@@ -22,11 +33,11 @@ export default new Router({
             }
         },
         {
-            path: "/",
-            name: "components",
+            path: "/blood-bank",
+            name: "BloodBank",
             components: {
                 header: AppHeader,
-                default: Home,
+                default: BloodBank,
                 footer: AppFooter
             }
         },

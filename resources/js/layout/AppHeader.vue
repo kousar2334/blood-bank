@@ -19,6 +19,25 @@
 			</div>
 
 			<ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+				<li class="nav-item">
+					<router-link class="nav-link nav-link-icon" to="/">
+						<span class="nav-link-inner--text bangla-font">হোম </span>
+					</router-link>
+				</li>
+				<li class="nav-item">
+					<router-link class="nav-link nav-link-icon" to="/login">
+						<span class="nav-link-inner--text bangla-font"
+							>রক্ত দিতে চান ?
+						</span>
+					</router-link>
+				</li>
+				<li class="nav-item">
+					<router-link class="nav-link nav-link-icon" to="/login">
+						<span class="nav-link-inner--text bangla-font"
+							>ডাক্তার যোগ করুন
+						</span>
+					</router-link>
+				</li>
 				<base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
 					<a
 						slot="title"
@@ -94,6 +113,13 @@
 						>Register</router-link
 					>
 				</base-dropdown>
+				<li class="nav-item">
+					<router-link class="nav-link nav-link-icon" to="/login">
+						<span class="nav-link-inner--text bangla-font"
+							>আমাদের সম্পর্কে
+						</span>
+					</router-link>
+				</li>
 			</ul>
 			<ul class="navbar-nav align-items-lg-center ml-lg-auto">
 				<li class="nav-item">
