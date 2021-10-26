@@ -25,14 +25,17 @@
 					</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link class="nav-link nav-link-icon" to="/login">
+					<router-link
+						class="nav-link nav-link-icon"
+						to="/blood-donor-registration"
+					>
 						<span class="nav-link-inner--text bangla-font"
 							>রক্ত দিতে চান ?
 						</span>
 					</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link class="nav-link nav-link-icon" to="/login">
+					<router-link class="nav-link nav-link-icon" to="/add-new-doctor">
 						<span class="nav-link-inner--text bangla-font"
 							>ডাক্তার যোগ করুন
 						</span>
@@ -105,13 +108,22 @@
 						role="button"
 					>
 						<i class="ni ni-collection d-lg-none"></i>
-						<span class="nav-link-inner--text bangla-font">ব্লগ</span>
+						<span class="nav-link-inner--text bangla-font">নিবন্ধন ফর্ম</span>
 					</a>
-					<router-link to="/profile" class="dropdown-item">Profile</router-link>
-					<router-link to="/login" class="dropdown-item">Login</router-link>
-					<router-link to="/register" class="dropdown-item"
-						>Register</router-link
-					>
+					<router-link
+						to="/blood-donor-registration"
+						class="dropdown-item bangla-font"
+						>রক্তদাতা
+					</router-link>
+					<router-link to="/add-new-doctor" class="dropdown-item bangla-font"
+						>ডাক্তার
+					</router-link>
+					<router-link to="/register" class="dropdown-item bangla-font"
+						>হাসপাতাল/ক্লিনিক
+					</router-link>
+					<router-link to="/register" class="dropdown-item bangla-font"
+						>অ্যাম্বুলেন্স
+					</router-link>
 				</base-dropdown>
 				<li class="nav-item">
 					<router-link class="nav-link nav-link-icon" to="/login">
@@ -161,7 +173,7 @@
 						<span class="nav-link-inner--text d-lg-none">Twitter</span>
 					</a>
 				</li>
-				<li class="nav-item d-none d-lg-block ml-lg-4">
+				<!-- <li class="nav-item d-none d-lg-block ml-lg-4">
 					<a
 						href="https://www.creative-tim.com/product/vue-argon-design-system"
 						target="_blank"
@@ -189,7 +201,7 @@
 						</span>
 						<span class="nav-link-inner--text bangla-font ml-2">লগইন</span>
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</base-nav>
 	</header>

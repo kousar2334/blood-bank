@@ -5,6 +5,8 @@ import AppFooter from "./layout/AppFooter";
 import Home from "./views/pages/Home.vue";
 import Doctors from "./views/pages/Doctors.vue";
 import BloodBank from "./views/pages/BloodBank.vue";
+import BloodDonorForm from "./views/pages/BloodDonorForm.vue";
+import DoctorAddForm from "./views/pages/DoctorAddForm.vue";
 import Login from "./views/pages/Login.vue";
 import Register from "./views/pages/Register.vue";
 import Profile from "./views//pages/Profile.vue";
@@ -33,11 +35,29 @@ export default new Router({
             }
         },
         {
+            path: "/add-new-doctor",
+            name: "AddNewDoctor",
+            components: {
+                header: AppHeader,
+                default: DoctorAddForm,
+                footer: AppFooter
+            }
+        },
+        {
             path: "/blood-bank",
             name: "BloodBank",
             components: {
                 header: AppHeader,
                 default: BloodBank,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/blood-donor-registration",
+            name: "NewBloodDonor",
+            components: {
+                header: AppHeader,
+                default: BloodDonorForm,
                 footer: AppFooter
             }
         },

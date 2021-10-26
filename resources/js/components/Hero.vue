@@ -15,34 +15,32 @@
 		<div class="container shape-container d-flex">
 			<div class="col px-0">
 				<div class="row justify-content-center align-items-center mt-3">
-					<div class="col-lg-12 text-center pt-5 pb-5">
-						<h1 class="bangla-font text-white">এখানে খুঁজুন</h1>
-						<div id="inputWrapper">
-							<input
-								class="bangla-font"
-								id="searchinput"
-								type="search"
-								autocomplete="off"
-								spellcheck="false"
-								role="combobox"
-								aria-live="polite"
-								placeholder="এখানে খুঁজুন"
-							/>
-							<button id="search-button" title="Search by voice">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="16"
-									height="16"
-									fill="currentColor"
-									class="bi bi-search"
-									viewBox="0 0 16 16"
-								>
-									<path
-										d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-									/>
-								</svg>
-							</button>
-						</div>
+					<div class="col-lg-12 text-center pt-0 mt-3 pb-0">
+						<VueSlickCarousel :arrows="false" :dots="false" v-bind="settings">
+							<div>
+								<img
+									v-lazy="
+										'https://hw.menardc.com/main/store/20090519001/assets/images6/lightbulbs/Responsive/1_Title_Image_rev.jpg'
+									"
+									class="img-center img-fluid mb-2"
+									style="width: 100px,max-heigth:200px"
+								/>
+							</div>
+							<div>
+								<h1 class="bangla-font text-white">দুটি সন্তানের বেশী নয়</h1>
+								<h1 class="bangla-font text-white">একটি হলে ভাল হয়</h1>
+							</div>
+							<div>
+								<h1 class="bangla-font text-white">ঘুষ দান ও গ্রহণ</h1>
+								<h1 class="bangla-font text-white">দুই টাই সমান অপরাধ</h1>
+							</div>
+							<div>
+								<h1 class="bangla-font text-white">
+									এখানে আপনার ডাক্তার খুঁজুন
+								</h1>
+								<p class="bangla-font text-white btn btn-success">খুঁজুন</p>
+							</div>
+						</VueSlickCarousel>
 					</div>
 				</div>
 			</div>
@@ -50,7 +48,32 @@
 	</section>
 </template>
 <script>
-export default {};
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
+export default {
+	components: { VueSlickCarousel },
+	data() {
+		return {
+			settings: {
+				arrows: false,
+				dots: false,
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				autoplay: true,
+				speed: 1000,
+				autoplaySpeed: 10000,
+				cssEase: "linear",
+				pauseOnDotsHover: true,
+				pauseOnFocus: true,
+				pauseOnHover: true,
+				fade: true,
+			},
+		};
+	},
+};
 </script>
 <style>
 </style>
