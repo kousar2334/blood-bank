@@ -33,12 +33,32 @@
 											<label class="bangla-font mb-0 font-weight-bold"
 												>রক্তের গ্রুপ<span class="text-danger">*</span></label
 											>
-											<select class="form-control bangla-font">
-												<option>রক্তের গ্রুপ বাছাই করুন</option>
-												<option>O+</option>
-												<option>O-</option>
-												<option>AB+</option>
+											<select
+												class="form-control bangla-font"
+												@change="setBloodGroup($event)"
+											>
+												<option :selected="selected_blood_group === ''">
+													রক্তের গ্রুপ বাছাই করুন
+												</option>
+												<option
+													v-for="(blood_group, index) in blood_groups"
+													:key="index"
+													:value="blood_group.id"
+												>
+													{{ blood_group.name }}
+												</option>
 											</select>
+											<div v-if="errors.blood_group">
+												<p
+													v-for="(
+														blood_groupError, index
+													) in errors.blood_group"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0"
+												>
+													{{ blood_groupError }}
+												</p>
+											</div>
 										</div>
 										<div class="form-group">
 											<label class="bangla-font mb-0 font-weight-bold"
@@ -47,9 +67,18 @@
 											<input
 												type="text"
 												class="form-control bangla-font"
-												id="exampleFormControlInput1"
 												placeholder="নাম লিখুন"
+												v-model="name"
 											/>
+											<div v-if="errors.name">
+												<p
+													v-for="(nameError, index) in errors.name"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0"
+												>
+													{{ nameError }}
+												</p>
+											</div>
 										</div>
 										<div class="form-group">
 											<label class="bangla-font mb-0 font-weight-bold"
@@ -58,9 +87,18 @@
 											<input
 												type="text"
 												class="form-control bangla-font"
-												id="exampleFormControlInput1"
 												placeholder="মোবাইল নাম্বার দিন "
+												v-model="mobile"
 											/>
+											<div v-if="errors.mobile">
+												<p
+													v-for="(mobileError, index) in errors.mobile"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0"
+												>
+													{{ mobileError }}
+												</p>
+											</div>
 										</div>
 										<div class="form-group">
 											<label class="bangla-font mb-0 font-weight-bold"
@@ -69,20 +107,58 @@
 											<input
 												type="text"
 												class="form-control bangla-font"
-												id="exampleFormControlInput1"
-												placeholder="বিকল্প মোবাইল নাম্বার দিন যদি থাকে "
+												placeholder="বিকল্প মোবাইল নাম্বার দিন, যদি থাকে "
+												v-model="mobile_2"
 											/>
+											<div v-if="errors.mobile_2">
+												<p
+													v-for="(mobile_2Error, index) in errors.mobile_2"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0"
+												>
+													{{ mobile_2Error }}
+												</p>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="bangla-font mb-0 font-weight-bold"
+												>ইমেইল</label
+											>
+											<input
+												type="email"
+												class="form-control bangla-font"
+												placeholder="ইমেইল দিন , যদি থাকে "
+												v-model="email"
+											/>
+											<div v-if="errors.email">
+												<p
+													v-for="(emailError, index) in errors.email"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0"
+												>
+													{{ emailError }}
+												</p>
+											</div>
 										</div>
 										<div class="form-group">
 											<label class="bangla-font mb-0 font-weight-bold"
 												>ঠিকানা<span class="text-danger">*</span></label
 											>
 											<textarea
+												v-model="address"
 												class="form-control bangla-font"
-												id="exampleFormControlTextarea1"
 												rows="3"
 												placeholder="বর্তমান ঠিকানা লিখুন "
 											></textarea>
+											<div v-if="errors.address">
+												<p
+													v-for="(addressError, index) in errors.address"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0"
+												>
+													{{ addressError }}
+												</p>
+											</div>
 										</div>
 										<div class="form-group">
 											<label class="bangla-font mb-0 font-weight-bold"
@@ -91,9 +167,19 @@
 											<input
 												type="file"
 												class="form-control bangla-font"
-												id="exampleFormControlInput1"
 												placeholder="বিকল্প মোবাইল নাম্বার দিন যদি থাকে "
+												ref="image"
+												@change="getImage($event)"
 											/>
+											<div v-if="errors.image">
+												<p
+													v-for="(imageError, index) in errors.image"
+													:key="index"
+													class="text-danger bangla-font font-size-13 mb-0 mb-0"
+												>
+													{{ imageError }}
+												</p>
+											</div>
 										</div>
 										<div class="form-group">
 											<p class="bangla-font">
@@ -105,7 +191,7 @@
 											<base-button
 												type="primary"
 												class="my-4 bangla-font"
-												@click.prevent="viewDetails"
+												@click.prevent="createNewBloodDonor"
 												>জমা দিন</base-button
 											>
 										</div>
@@ -119,38 +205,25 @@
 			<div class="row">
 				<div class="col-md-4">
 					<modal
-						:show.sync="modals.modal1"
+						:show.sync="notification_modal"
 						gradient="danger"
 						modal-classes="modal-danger modal-dialog-top"
 					>
-						<!-- <h6 slot="header" class="modal-title" id="modal-title-notification">
-							Your attention is required
-						</h6> -->
-
 						<div class="py-3 text-center">
 							<i class="ni ni-bell-55 ni-3x"></i>
-							<h1 class="mt-4 bangla-font">ধন্যবাদ</h1>
+							<h1 class="mt-4 bangla-font">{{ notifination_header }}</h1>
 							<p class="bangla-font">
-								রক্তদাতা হিসাবে আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার
-								দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।
+								{{ notifination_message }}
 							</p>
 						</div>
 
 						<template slot="footer">
 							<base-button
 								type="white"
-								@click="modals.modal1 = false"
+								@click="notification_modal = false"
 								class="bangla-font"
 								>কেটে দিন</base-button
 							>
-							<!-- <base-button
-								type="link"
-								text-color="white"
-								class="ml-auto"
-								@click="modals.modal1 = false"
-							>
-								Close
-							</base-button> -->
 						</template>
 					</modal>
 				</div>
@@ -160,6 +233,7 @@
 </template>
 <script>
 import Modal from "../../components/Modal.vue";
+import axios from "axios";
 export default {
 	name: "BloodDonorForm",
 	components: {
@@ -167,16 +241,96 @@ export default {
 	},
 	data() {
 		return {
-			modals: {
-				modal1: false,
-				modal2: false,
-				modal3: false,
-			},
+			notification_modal: false,
+			notifination_header: "",
+			notifination_message: "",
+			blood_groups: [],
+			name: "",
+			mobile: "",
+			mobile_2: "",
+			image: "",
+			address: "",
+			email: "",
+			selected_blood_group: "",
+			errors: [],
 		};
 	},
+	mounted() {
+		this.getAllBloodGroup();
+	},
 	methods: {
-		viewDetails() {
-			this.modals.modal1 = true;
+		/**
+		 * Get all blood groups
+		 */
+		getAllBloodGroup() {
+			axios
+				.get("/api/get-all-blood-groups")
+				.then((response) => {
+					if (response.data.success) {
+						this.blood_groups = response.data.blood_groups;
+					}
+				})
+				.catch((error) => {});
+		},
+		/**
+		 * Get selected blood group
+		 */
+		setBloodGroup(event) {
+			this.selected_blood_group = event.target.value;
+		},
+		/**
+		 * Get Donor Image
+		 */
+		getImage(event) {
+			this.image = event.target.files[0];
+		},
+		/**
+		 * Store new blood donor
+		 */
+		createNewBloodDonor() {
+			this.errors = [];
+			let form_data = new FormData();
+			form_data.append("name", this.name);
+			form_data.append("mobile", this.mobile);
+			form_data.append("mobile_2", this.mobile_2);
+			form_data.append("image", this.image);
+			form_data.append("email", "");
+			form_data.append("address", this.address);
+			form_data.append("email", this.email);
+			form_data.append("blood_group", this.selected_blood_group);
+			axios
+				.post("/api/store-new-blood-donor", form_data)
+				.then((response) => {
+					if (response.data.success) {
+						this.notifination_header = "ধন্যবাদ";
+						this.notifination_message =
+							"রক্তদাতা হিসাবে আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।";
+						this.name = "";
+						this.mobile = "";
+						this.image = "";
+						this.mobile_2 = "";
+						this.address = "";
+						this.email = "";
+						this.selected_blood_group = "";
+						this.$refs.image.type = "text";
+						this.$refs.image.type = "file";
+					} else {
+						this.notifination_header = "দুঃখিত";
+						this.notifination_message =
+							"আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+					}
+					this.notification_modal = true;
+				})
+				.catch((error) => {
+					if (error.response.status === 422) {
+						this.errors = error.response.data.errors;
+					} else {
+						this.notifination_header = "দুঃখিত";
+						this.notifination_message =
+							"আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+						this.notification_modal = true;
+					}
+				});
 		},
 	},
 };

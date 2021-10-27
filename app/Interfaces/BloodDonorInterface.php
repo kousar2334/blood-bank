@@ -16,4 +16,8 @@ interface BloodDonorInterface
     public function delete($id);
 
     public function getDataTable();
+
+    public function getLastId();
+
+    public function inactiveDonor($id);
 }

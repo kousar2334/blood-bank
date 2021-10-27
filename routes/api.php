@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/get-all-blood-groups', 'Api\BloodBankController@getAllBloodGroups');
+Route::post('/store-new-blood-donor', 'Api\BloodBankController@storeNewBloodDonor');

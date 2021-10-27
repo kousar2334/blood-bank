@@ -22,7 +22,7 @@ class BloodDonorRepository implements BloodDonorInterface
      */
     public function store($request)
     {
-        if ($request->has('image')) {
+        if ($request->image != null) {
             $image = uploadDonorImage($request);
         } else {
             $image = NULL;
@@ -34,7 +34,7 @@ class BloodDonorRepository implements BloodDonorInterface
         $bd->mobile2 = $request->mobile_2;
         $bd->email = $request->email;
         $bd->image = $image;
-        $bd->address = $request->addres;
+        $bd->address = $request->address;
         $bd->status = 1;
         $bd->save();
     }
@@ -156,5 +156,26 @@ class BloodDonorRepository implements BloodDonorInterface
                 <i class="fas fa-trash"></i></a>';
             })
             ->rawColumns(['image', 'status', 'action'])->make(true);
+    }
+    /**
+     * Inactive blood donor
+     * 
+     * @param Int $donor_id
+     * @return void
+     */
+    public function inactiveDonor($id)
+    {
+        DB::table('blood_donors')->where('id', $id)->update([
+            'status' => 0
+        ]);
+    }
+    /**
+     * Get last id
+     * 
+     * @return Int
+     */
+    public function getLastId()
+    {
+        return DB::table('blood_donors')->orderBy('id', 'DESC')->first()->id;
     }
 }
