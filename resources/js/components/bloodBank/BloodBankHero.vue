@@ -14,17 +14,29 @@
 		</div>
 		<div class="container shape-container d-flex">
 			<div class="col px-0 mt-lg-5">
-				<div class="row justify-content-center align-items-center mt-5">
-					<div class="offset-lg-2 col-lg-8 text-center pt-5 pb-5">
+				<div
+					class="
+						row
+						justify-content-center
+						align-items-center
+						mb-4 mb-md-0 mb-lg-0
+						mt-0 mt-lg-5 mt-md-5
+					"
+				>
+					<div
+						class="offset-lg-2 col-lg-8 text-center pt-0 pt-lg-5 pt-md-5 pb-5"
+					>
 						<h1 class="bangla-font text-white">রক্তের গ্রুপ বাছাই করুন</h1>
 
 						<div id="inputWrapper">
 							<v-select
-								:options="bloodGroups"
+								single
+								:options.sync="bloodGroups"
 								:key="bloodGroups.id"
-								v-model="selectedGroup"
-								@input="setSelected"
-								:getOptionLabel="(selectedGroup) => selectedGroup.bn_name"
+								label="name"
+								class="bangla-font"
+								placeholder="রক্তের গ্রুপ বাছাই করুন"
+								@input="setSelected($event)"
 								:clearable="false"
 							></v-select>
 						</div>
@@ -49,8 +61,8 @@ export default {
 		};
 	},
 	methods: {
-		setSelected() {
-			this.$emit("selectBloodGroup", this.selectedGroup);
+		setSelected(event) {
+			this.$emit("selectBloodGroup", event);
 		},
 	},
 };

@@ -10,7 +10,7 @@
 					<a
 						href="https://demos.creative-tim.com/vue-argon-design-system/documentation/"
 					>
-						<img src="img/brand/blue.png" />
+						<img src="img/brand/white.png" />
 					</a>
 				</div>
 				<div class="col-6 collapse-close">
@@ -41,7 +41,7 @@
 						</span>
 					</router-link>
 				</li>
-				<base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
+				<!-- <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
 					<a
 						slot="title"
 						href="#"
@@ -98,7 +98,7 @@
 							</div>
 						</a>
 					</div>
-				</base-dropdown>
+				</base-dropdown> -->
 				<base-dropdown tag="li" class="nav-item">
 					<a
 						slot="title"
@@ -173,13 +173,8 @@
 						<span class="nav-link-inner--text d-lg-none">Twitter</span>
 					</a>
 				</li>
-				<!-- <li class="nav-item d-none d-lg-block ml-lg-4">
-					<a
-						href="https://www.creative-tim.com/product/vue-argon-design-system"
-						target="_blank"
-						rel="noopener"
-						class="btn btn-neutral btn-icon"
-					>
+				<li class="nav-item d-none d-lg-block ml-lg-4">
+					<router-link class="btn btn-neutral btn-icon" to="/blood-bank">
 						<span class="btn-inner--icon">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -199,9 +194,11 @@
 								/>
 							</svg>
 						</span>
-						<span class="nav-link-inner--text bangla-font ml-2">লগইন</span>
-					</a>
-				</li> -->
+						<span class="nav-link-inner--text bangla-font ml-2"
+							>রক্ত প্রয়োজন</span
+						>
+					</router-link>
+				</li>
 			</ul>
 		</base-nav>
 	</header>

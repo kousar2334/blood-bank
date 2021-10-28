@@ -15,7 +15,7 @@
 		<div class="container shape-container d-flex">
 			<div class="col px-0">
 				<div class="row justify-content-center align-items-center mt-3">
-					<div class="col-lg-12 text-center pt-0 mt-3 pb-0">
+					<div class="col-lg-12 text-center pt-0 mt-0 mt-lg-3 mt-md-3 pb-0">
 						<VueSlickCarousel :arrows="false" :dots="false" v-bind="settings">
 							<div>
 								<img

@@ -26,7 +26,14 @@
     min-height: 220px;
     cursor: pointer;
 }
-
+.single-donor {
+    border: 1px;
+    border-style: dotted;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    min-height: 260px;
+}
 .name {
     color: cornflowerblue;
     margin-bottom: 2px;
@@ -55,6 +62,12 @@
 }
 .font-size-13 {
     font-size: 13px;
+}
+.list-image {
+    min-height: 100px;
+    max-width: 100px;
+    min-width: 100px;
+    max-width: 100px;
 }
 
 //vue select
@@ -298,18 +311,28 @@
 }
 .vs__search::-webkit-input-placeholder {
     color: inherit;
+    font-family: "SolaimanLipiNormal";
+    font-size: 20px;
 }
 .vs__search::-moz-placeholder {
     color: inherit;
+    font-family: "SolaimanLipiNormal";
+    font-size: 20px;
 }
 .vs__search:-ms-input-placeholder {
     color: inherit;
+    font-family: "SolaimanLipiNormal";
+    font-size: 20px;
 }
 .vs__search::-ms-input-placeholder {
     color: inherit;
+    font-family: "SolaimanLipiNormal";
+    font-size: 20px;
 }
 .vs__search::placeholder {
     color: inherit;
+    font-family: "SolaimanLipiNormal";
+    font-size: 20px;
 }
 .vs--unsearchable .vs__search {
     opacity: 1;

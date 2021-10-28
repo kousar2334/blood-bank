@@ -56,4 +56,25 @@ class BloodBankController extends Controller
             ]);
         }
     }
+    /**
+     * Get blood donors list
+     * 
+     * @param \Illuminate\Http\Request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getBloodDonorList(Request $request)
+    {
+        try {
+            $blood_donors = $this->blood_donor_repository->filterList($request);
+            return response()->json([
+                'success' => true,
+                'blood_donors' => $blood_donors,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'e' => $e->getMessage()
+            ]);
+        }
+    }
 }

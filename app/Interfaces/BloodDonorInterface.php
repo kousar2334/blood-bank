@@ -20,4 +20,6 @@ interface BloodDonorInterface
     public function getLastId();
 
     public function inactiveDonor($id);
+
+    public function filterList($request);
 }

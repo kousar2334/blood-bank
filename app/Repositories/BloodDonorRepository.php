@@ -10,9 +10,41 @@ use App\Interfaces\BloodDonorInterface;
 class BloodDonorRepository implements BloodDonorInterface
 {
 
+    public function filterList($request)
+    {
+        $query = DB::table('blood_donors')
+            ->join('blood_groups', 'blood_groups.id', '=', 'blood_donors.blood_group')
+            ->select([
+                'blood_donors.name',
+                'blood_donors.mobile',
+                'blood_donors.mobile2',
+                'blood_donors.address',
+                'blood_donors.email',
+                'blood_donors.image',
+                'blood_groups.name as blood_group',
+            ]);
+        if (isset($request->blood_group) && $request->blood_group != null) {
+            $query = $query->where('blood_donors.blood_group', $request->blood_group);
+        }
+        return $query->where('blood_donors.status', 1)->paginate($request->perPage);
+    }
+    /**
+     * Get blood donor list
+     */
     public function all()
     {
-        return 'ok';
+        return DB::table('blood_donors')
+            ->join('blood_groups', 'blood_groups.id', '=', 'blood_donors.blood_group')
+            ->select([
+                'blood_donors.name',
+                'blood_donors.mobile',
+                'blood_donors.mobile2',
+                'blood_donors.address',
+                'blood_donors.email',
+                'blood_donors.image',
+                'blood_groups.name as blood_group',
+            ])
+            ->where('blood_donors.status', 1)->paginate(8);
     }
     /**
      * Store blood Donor information

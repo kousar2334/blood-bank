@@ -1,25 +1,10 @@
 <template>
 	<div>
 		<BloodbankHero
-			:blood-groups="bloodGroups"
+			:blood-groups="blood_groups"
 			v-on:selectBloodGroup="getSelectedBloodGroup($event)"
 		></BloodbankHero>
-		<!-- <section class="section section-lg pt-lg-0 mt--100">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-12">
-						<div class="row row-grid">
-							<div class="col-lg-12">
-								<card class="border-0" shadow body-classes="py-5">
-									<h2 class="bangla-font text-center mb-2 mt-2">সকল ডাক্তার</h2>
-								</card>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
-		<section class="section section-lg pt-lg-0">
+		<section class="section section-lg pt-0">
 			<div class="p-3">
 				<div class="row">
 					<div class="col-12 page-header pb-4">
@@ -28,12 +13,22 @@
 						</h2>
 					</div>
 					<div
-						v-for="(doctor, index) in doctors"
+						v-for="(donor, index) in blood_donors"
 						:key="index"
 						class="col-lg-3 p-3"
 					>
-						<single-donor :doctor="doctor"> </single-donor>
+						<single-donor :donor="donor"> </single-donor>
 					</div>
+				</div>
+				<div class="text-center mb-2 mt-4">
+					<base-pagination
+						:total="total"
+						:perPage="perPage"
+						:value="currentPage"
+						align="center"
+						:empty-message="emptyMessage"
+						@input="changePage($event)"
+					></base-pagination>
 				</div>
 			</div>
 		</section>
@@ -42,128 +37,79 @@
 <script>
 import BloodbankHero from "../../components/bloodBank/BloodBankHero.vue";
 import SingleDonor from "../../components/bloodBank/SingleDonor.vue";
+import BasePagination from "../../components/BasePagination.vue";
+import axios from "axios";
 export default {
-	name: "Doctors",
+	name: "BloodBank",
 	components: {
 		BloodbankHero,
 		SingleDonor,
+		BasePagination,
 	},
 	data() {
 		return {
 			title: "সকল গ্রুপের রক্তদাতাদের তালিখা",
-			bloodGroups: [
-				{
-					id: 0,
-					bn_name: "সকল গ্রুপের রক্ত",
-				},
-				{
-					id: 1,
-					bn_name: "ও পজিটিভ(O+)",
-				},
-				{
-					id: 2,
-					bn_name: "ও নেগেটিভ O-",
-				},
-				{
-					id: 3,
-					bn_name: "A+",
-				},
-				{
-					id: 4,
-					bn_name: "A-",
-				},
-				{
-					id: 5,
-					bn_name: "B+",
-				},
-				{
-					id: 6,
-					bn_name: "B-",
-				},
-				{
-					id: 7,
-					bn_name: "AB+",
-				},
-				{
-					id: 8,
-					bn_name: "AB-",
-				},
-			],
-			doctors: [
-				{
-					name: "মোঃ শফিকুর রহমান পাটওয়ারী",
-					blood_group: "O+",
-					address: "জাতীয় হৃদরোগ ইন্সিটিউট ও হাসপাতাল, ঢাকা ।",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "০১৯১৯৬৫৮৫৯৫",
-					image: "uploads/profile_image/doctor/10222021043027d.jpg",
-				},
-				{
-					name: "আরজিনা আক্তার লাবনী",
-					blood_group: "O-",
-					address: "জাতীয় হৃদরোগ ইন্সিটিউট ও হাসপাতাল, ঢাকা ।",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "",
-					image: "uploads/profile_image/doctor/10222021043027d.jpg",
-				},
-				{
-					name: "মো. আসিফ ইকবাল",
-					blood_group: "AB+",
-					address:
-						"চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর ।",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "০১৯১৯৬৫৮৫৯৫",
-					image: "",
-				},
-				{
-					name: "মো. আসিফ ইকবাল",
-					blood_group: "AB-",
-					address: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে )",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "০১৯১৯৬৫৮৫৯৫",
-					image: "uploads/profile_image/doctor/10222021043027d.jpg",
-				},
-				{
-					name: "মোঃ শফিকুর রহমান পাটওয়ারী",
-					blood_group: "O+",
-					address: "জাতীয় হৃদরোগ ইন্সিটিউট ও হাসপাতাল, ঢাকা ।",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "০১৯১৯৬৫৮৫৯৫",
-					image: "uploads/profile_image/doctor/10222021043027d.jpg",
-				},
-				{
-					name: "আরজিনা আক্তার লাবনী",
-					blood_group: "O-",
-					address: "জাতীয় হৃদরোগ ইন্সিটিউট ও হাসপাতাল, ঢাকা ।",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "",
-					image: "uploads/profile_image/doctor/10222021043027d.jpg",
-				},
-				{
-					name: "মো. আসিফ ইকবাল",
-					blood_group: "AB+",
-					address:
-						"চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর ।",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "০১৯১৯৬৫৮৫৯৫",
-					image: "",
-				},
-				{
-					name: "মো. আসিফ ইকবাল",
-					blood_group: "AB-",
-					address: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে )",
-					mobile: "০১৭১১-৬৭৫৮৪৬",
-					mobile2: "০১৯১৯৬৫৮৫৯৫",
-					image: "uploads/profile_image/doctor/10222021043027d.jpg",
-				},
-			],
+			emptyMessage: "দুঃখিত !... কোন রক্ত দাতা খুঁজে পাওয়া যায় নি ।",
+			blood_groups: [],
+			blood_donors: [],
+			currentPage: 1,
+			total: 0,
+			perPage: 12,
+			selected_group: "",
 		};
 	},
+	mounted() {
+		this.getAllBloodGroup();
+		this.getDonorList();
+	},
 	methods: {
+		/**
+		 * Get all blood groups
+		 */
+		getAllBloodGroup() {
+			axios
+				.get("/api/get-all-blood-groups")
+				.then((response) => {
+					if (response.data.success) {
+						response.data.blood_groups.unshift({
+							name: "সকল গ্রুপের",
+							id: "",
+						});
+						this.blood_groups = response.data.blood_groups;
+					}
+				})
+				.catch((error) => {});
+		},
+		/**
+		 * Get blood  group
+		 */
 		getSelectedBloodGroup(selectedGroup) {
-			console.log("from");
-			// console.log(event);
-			this.title = selectedGroup.bn_name + " গ্রুপের রক্তদাতাদের তালিখা";
+			this.title = selectedGroup.name + " গ্রুপের রক্ত দাতাদের তালিখা";
+			this.selected_group = selectedGroup.id;
+			this.currentPage = 1;
+			this.getDonorList();
+		},
+		/**
+		 * Get blood donors
+		 */
+		getDonorList() {
+			axios
+				.post("/api/get-blood-donor-list", {
+					perPage: this.perPage,
+					page: this.currentPage,
+					blood_group: this.selected_group,
+				})
+				.then((response) => {
+					if (response.data.success) {
+						this.blood_donors = response.data.blood_donors.data;
+						this.total = response.data.blood_donors.total;
+					}
+				})
+				.catch((error) => {});
+		},
+		changePage(page) {
+			this.currentPage = page;
+			this.getDonorList();
 		},
 	},
 };

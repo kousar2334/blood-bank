@@ -25,10 +25,10 @@ class BloodDonorApiRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'mobile' => 'required|unique:blood_donors,mobile|numeric|digits_between:10,14',
-            'blood_group' => 'required|numeric|exists:blood_groups,id',
+            'mobile' => 'required|unique:blood_donors,mobile',
+            'blood_group' => 'required|exists:blood_groups,id',
             'image' => 'nullable|mimes:png,jpg,jpge',
-            'mobile_2' => 'nullable|unique:blood_donors,mobile|numeric|digits_between:10,14',
+            'mobile_2' => 'nullable|unique:blood_donors,mobile',
             'address' => 'required',
         ];
     }
@@ -42,8 +42,9 @@ class BloodDonorApiRequest extends FormRequest
             'name.required' => 'রক্ত দাতার নাম অবশ্যই দিতে হবে',
             //mobile
             'mobile.unique' => 'এই মোবাইল নাম্বার টি আগে ব্যবহার করা হয়েছে',
+            'mobile_2.unique' => 'এই মোবাইল নাম্বার টি আগে ব্যবহার করা হয়েছে',
             'mobile.required' => 'মোবাইল নাম্বার অবশ্যই দিতে হবে',
-            'mobile.numeric' => 'সঠিক মোবাইল নাম্বার দিন ',
+            'mobile.numeric' => 'সঠিক মোবাইল নাম্বার দিন',
             'mobile.digits_between' => 'সঠিক মোবাইল নাম্বার দিন',
             'mobile_2.numeric' => 'সঠিক মোবাইল নাম্বার দিন ',
             'mobile_2.digits_between' => 'সঠিক মোবাইল নাম্বার দিন ',

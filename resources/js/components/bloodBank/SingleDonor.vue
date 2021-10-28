@@ -1,26 +1,43 @@
 <template>
-	<div class="single-doctor">
+	<div class="single-donor">
 		<div class="col-12 text-center p-1">
 			<img
-				v-if="doctor.image"
-				:src="'/' + doctor.image"
-				:alt="doctor.name"
-				class="rounded-circle img-center img-fluid shadow shadow-lg--hover mb-2"
+				v-if="donor.image"
+				:src="'/' + donor.image"
+				:alt="donor.name"
+				class="
+					rounded-circle
+					img-center img-fluid
+					shadow
+					shadow-lg--hover
+					mb-2
+					list-image
+				"
 				style="width: 100px"
 			/>
 			<img
 				v-else
 				v-lazy="'img/theme/doctor.jpg'"
-				class="rounded-circle img-center img-fluid shadow shadow-lg--hover mb-2"
+				class="
+					rounded-circle
+					img-center img-fluid
+					shadow
+					shadow-lg--hover
+					mb-2
+					list-image
+				"
 				style="width: 100px"
 			/>
-			<p class="bangla-font name font-weight-bold">{{ doctor.name }}</p>
-			<p class="bangla-font specialist">{{ doctor.blood_group }}</p>
+			<p class="bangla-font name font-weight-bold">{{ donor.name }}</p>
+			<p class="bangla-font specialist">{{ donor.blood_group }}</p>
 			<p class="bangla-font mobile">
-				মোবাইলঃ {{ doctor.mobile }}<span v-if="doctor.mobile2">,</span>
-				{{ doctor.mobile2 }}
+				মোবাইলঃ {{ donor.mobile }}<span v-if="donor.mobile2">,</span>
+				{{ donor.mobile2 }}
 			</p>
-			<p class="bangla-font working_place">{{ doctor.address }}</p>
+			<p class="bangla-font mobile" v-if="donor.email">
+				ইমেইলঃ {{ donor.email }}
+			</p>
+			<p class="bangla-font working_place">{{ donor.address }}</p>
 		</div>
 	</div>
 </template>
@@ -32,7 +49,7 @@ export default {
 	},
 	name: "single-donor",
 	props: {
-		doctor: {
+		donor: {
 			type: Object,
 			default: "",
 		},
