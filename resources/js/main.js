@@ -5,7 +5,9 @@ import Argon from "./plugins/argon-kit";
 import "./registerServiceWorker";
 import vSelect from "vue-select";
 //import "vue-select/dist/vue-select.css";
+import VueMeta from "vue-meta";
 
+Vue.use(VueMeta);
 Vue.component("v-select", vSelect);
 Vue.config.productionTip = false;
 Vue.use(Argon);

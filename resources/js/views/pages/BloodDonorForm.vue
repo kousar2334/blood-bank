@@ -333,6 +333,9 @@ export default {
 				});
 		},
 	},
+	metaInfo: {
+		title: "নতুন রক্ত দাতার নিবন্ধন",
+	},
 };
 </script>
 <style>

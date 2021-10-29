@@ -112,5 +112,9 @@ export default {
 			this.getDonorList();
 		},
 	},
+	metaInfo: {
+		title: "ব্লাড ব্যাংক",
+		meta: [{ name: "description", content: "foo" }],
+	},
 };
 </script>
