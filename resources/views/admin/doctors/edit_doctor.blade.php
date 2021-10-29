@@ -57,7 +57,6 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>নাম<span class="text-danger">*</span></label>
                                             <input type="hidden" name="id" value="{{ $doc_info->id }}">
@@ -68,10 +67,20 @@
                                             @endif
 
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>নাম<span class="text-danger">*</span></label>
+                                            <input type="text" name="en_name" value="{{ $doc_info->en_name }}"
+                                                class="form-control" placeholder="Enter Name">
+                                            @if ($errors->has('name'))
+                                                <small class="text text-danger">{{ $errors->first('name') }}</small>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+
                                         <div class="form-group">
                                             <label>বিভাগ<span class="text-danger">*</span></label>
                                             <select class="form-control" name="department">
@@ -87,11 +96,19 @@
                                             @endif
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
+
+                                        <div class="form-group">
+                                            <label>বিএমডিসি রেজি. নং:</label>
+                                            <input type="text" name="bmdc_no" value="{{ $doc_info->bmdc_no }}"
+                                                class="form-control" placeholder="Enter BMDC No">
+                                            @if ($errors->has('bmdc_no'))
+                                                <small class="text text-danger">{{ $errors->first('bmdc_no') }}</small>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+
                                         <div class="form-group">
                                             <label>ডিগ্রি<span class="text-danger">*</span></label>
                                             <textarea class="form-control" name="qualification" rows="4"
@@ -105,7 +122,7 @@
 
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
+
                                         <div class="form-group">
                                             <label>পদবী</label>
                                             <textarea class="form-control" name="position" rows="4"
@@ -116,7 +133,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
+
                                         <div class="form-group">
                                             <label>কোন বিষয়ে বিশেষজ্ঞ</label>
                                             <textarea class="form-control" name="specialist" rows="4"
@@ -128,7 +145,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
+
                                         <div class="form-group">
                                             <label>কর্মস্থল</label>
                                             <textarea class="form-control" name="working_place" rows="4"
@@ -139,11 +156,8 @@
                                             @endif
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-
                                     <div class="col-sm-6">
-                                        <!-- text input -->
+
                                         <div class="form-group">
                                             <label>মোবাইল</label>
                                             <textarea class="form-control" name="mobile" rows="4"
@@ -153,27 +167,60 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <!-- text input -->
+
+
+                                    <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label>বিএমডিসি রেজি. নং:</label>
-                                            <textarea class="form-control" name="bmdc_no" rows="4"
-                                                placeholder="Enter BMDC No">{{ $doc_info->bmdc_no }}</textarea>
-                                            @if ($errors->has('bmdc_no'))
-                                                <small class="text text-danger">{{ $errors->first('bmdc_no') }}</small>
+                                            <label>স্ট্যাটাস</label>
+                                            <select class="form-control" name="status">
+                                                <option {{ $doc_info->status == '1' ? 'selected' : '' }} value="1">
+                                                    Active</option>
+                                                <option {{ $doc_info->status == '0' ? 'selected' : '' }} value="0">
+                                                    Inactive</option>
+
+                                            </select>
+                                            @if ($errors->has('status'))
+                                                <small class="text text-danger">{{ $errors->first('status') }}</small>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label>মেম্বার</label>
+                                            <input type="text" name="is_featured" value="{{ $doc_info->is_featured }}"
+                                                class="form-control">
+                                            @if ($errors->has('is_featured'))
+                                                <small
+                                                    class="text text-danger">{{ $errors->first('is_featured') }}</small>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- textarea -->
                                         <div class="form-group">
                                             <label>চেম্বার:</label>
                                             @foreach ($doc_info->chambers as $chamber)
-                                                <textarea class="form-control mb-4" name="chamber[]" rows="5">
-                                                                                    {{ $chamber->chamber }}
-                                                                                </textarea>
+                                                <div>
+                                                    <span class="fas fa-times remove-btn"
+                                                        onclick="removeInput(this)"></span>
+                                                    <input type="text" name="chambers[{{ $chamber->id }}][chamber]"
+                                                        class="form-control mb-2 mt-4" value="{{ $chamber->chamber }}"
+                                                        placeholder="চেম্বারের নাম">
+                                                    <textarea class="form-control mb-2"
+                                                        name="chambers[{{ $chamber->id }}][address]" placeholder="ঠিকানা"
+                                                        rows="4">{{ $chamber->address }}</textarea>
+                                                    <textarea class="form-control mb-2"
+                                                        name="chambers[{{ $chamber->id }}][visiting_time]"
+                                                        placeholder="রোগী দেখার সময়"
+                                                        rows="4">{{ $chamber->visiting_time }}</textarea>
+                                                    <textarea class="form-control"
+                                                        name="chambers[{{ $chamber->id }}][mobiles]"
+                                                        placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন "
+                                                        rows="4">{{ $chamber->mobiles }}</textarea>
+                                                </div>
+
+
                                             @endforeach
 
                                             <div id="newChamberInputFields">
@@ -187,7 +234,6 @@
                                             Chamber</span>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- textarea -->
                                         <div class="form-group">
                                             <label>ছবি</label>
                                             <br>
@@ -196,7 +242,9 @@
                                                 <small class="text text-danger">{{ $errors->first('image') }}</small>
                                             @endif
                                         </div>
+                                        <img src="{{ asset('/') }}{{ $doc_info->image }}" width="120px">
                                     </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">
@@ -218,19 +266,29 @@
 
 @stop
 @section('custom_script')
-    <script type="text/JavaScript">
+    <script>
+        let counter = 0
         //Add new chamber field
-                                                                                                                                        function createNewChamberInputFiled() {
-                                                                                                                                                                      var txtNewInputBox = document.createElement('div');
-                                                                                                                                                                        txtNewInputBox.innerHTML = '<br><span class="fas fa-times remove-btn" onclick="removeInput(this)"></span><textarea class="form-control" name="chamber[]" placeholder="চেম্বারের নাম,&#10ঠিকানা,&#10রোগী দেখার সময় ও সিরিয়াল দেয়ার নাম্বার লিখুন " rows="4">'
-                                                                                                                                                                                                                                        '</textarea>';
-                                                                                                                                                                        document.getElementById("newChamberInputFields").appendChild(txtNewInputBox);
-                                                                                                                                                                                                                                                           
-                                                                                                                                                                     }
-                                                                                                                                        //remove chamber input filed                             
-                                                                                                                                        function removeInput(element){
-                                                                                                                                        element.closest("div").remove();
-                                                                                                                                        }
-                                                                                                                                        
-                        </script>
+        function createNewChamberInputFiled() {
+            counter = counter + 1;
+            console.log(counter);
+            var txtNewInputBox = document.createElement('div');
+            txtNewInputBox.innerHTML =
+                '<br><span class="fas fa-times remove-btn" onclick="removeInput(this)"></span><div class="form-group"> <input type="text" name="chambers[' +
+                counter +
+                '][chamber]" class="form-control mb-2" placeholder="চেম্বারের নাম"> <textarea class="form-control mb-2" name="chambers[' +
+                counter +
+                '][address]" placeholder="ঠিকানা" rows="4"></textarea><textarea class="form-control mb-2" name="chambers[' +
+                counter +
+                '][visiting_time]"placeholder="রোগী দেখার সময়" rows="4"></textarea> <textarea class="form-control" name="chambers[' +
+                counter + '][mobiles]" placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন " rows="4">'
+            '</textarea></div>';
+            document.getElementById("newChamberInputFields").appendChild(txtNewInputBox);
+
+        }
+        //remove chamber input filed                             
+        function removeInput(element) {
+            element.closest("div").remove();
+        }
+    </script>
 @stop

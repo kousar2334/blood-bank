@@ -94,7 +94,6 @@ class DoctorRepository implements DoctorInterface
             $chm->mobiles = $chamber['mobiles'];
             $chm->save();
         }
-       
     }
     /**
      * Update single doctor information
@@ -104,29 +103,42 @@ class DoctorRepository implements DoctorInterface
      */
     public function update($request)
     {
-        if ($request->has('image')) {
-            $image = uploadDoctorImage($request);
-        } else {
-            $image = DB::table('doctors')->where('id', $request->id)->first()->image;
-        }
-        DB::table('doctors')->where('id', $request->id)->update([
-            'name' => $request->name,
-            'department' => $request->department,
-            'qualification' => $request->qualification,
-            'position' => $request->position,
-            'specialist' => $request->specialist,
-            'working_place' => $request->working_place,
-            'mobile' => $request->mobile,
-            'bmdc_no' => $request->bmdc_no,
-            'image' => $image,
-        ]);
+        try {
+            DB::beginTransaction();
+            if ($request->has('image')) {
+                $image = uploadDoctorImage($request);
+            } else {
+                $image = DB::table('doctors')->where('id', $request->id)->first()->image;
+            }
+            DB::table('doctors')->where('id', $request->id)->update([
+                'name' => $request->name,
+                'en_name' => $request->en_name,
+                'department' => $request->department,
+                'qualification' => $request->qualification,
+                'position' => $request->position,
+                'specialist' => $request->specialist,
+                'working_place' => $request->working_place,
+                'mobile' => $request->mobile,
+                'bmdc_no' => $request->bmdc_no,
+                'status' => $request->status,
+                'is_featured' => $request->is_featured,
+                'image' => $image,
+            ]);
 
-        DB::table('doctor_chambers')->where('doctor_id', $request->id)->delete();
-        foreach ($request->chamber as $chamber) {
-            $chm = new DoctorChamber;
-            $chm->doctor_id = $request->id;
-            $chm->chamber = $chamber;
-            $chm->save();
+            DB::table('doctor_chambers')->where('doctor_id', $request->id)->delete();
+
+            foreach ($request->chambers as $chamber) {
+                $chm = new DoctorChamber;
+                $chm->doctor_id = $request->id;
+                $chm->chamber = $chamber['chamber'];
+                $chm->address = $chamber['address'];
+                $chm->visiting_time = $chamber['visiting_time'];
+                $chm->mobiles = $chamber['mobiles'];
+                $chm->save();
+            }
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
     }
     /**
