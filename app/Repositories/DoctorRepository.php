@@ -94,6 +94,7 @@ class DoctorRepository implements DoctorInterface
             $chm->mobiles = $chamber['mobiles'];
             $chm->save();
         }
+       
     }
     /**
      * Update single doctor information

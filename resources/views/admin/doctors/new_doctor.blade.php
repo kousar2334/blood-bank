@@ -56,6 +56,8 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
+                                    <input type="hidden" name="status" value="1">
+                                    <input type="hidden" name="end" value="web">
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -72,6 +74,23 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
+                                            <label>নাম</label>
+                                            <input type="text" name="en_name" value="{{ old('name') }}"
+                                                class="form-control" placeholder="Enter Name">
+                                            @if ($errors->has('name'))
+                                                <small class="text text-danger">{{ $errors->first('name') }}</small>
+                                            @endif
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
                                             <label>বিভাগ<span class="text-danger">*</span></label>
                                             <select class="form-control" name="department"
                                                 value="{{ old('department') }}">
@@ -80,13 +99,22 @@
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('department'))
-                                                <small class="text text-danger">{{ $errors->first('department') }}</small>
+                                                <small
+                                                    class="text text-danger">{{ $errors->first('department') }}</small>
                                             @endif
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>বিএমডিসি রেজি. নং:</label>
+                                            <input type="text" class="form-control" name="bmdc_no"
+                                                placeholder="Enter BMDC No">{{ old('bmdc_no') }}</input>
+                                            @if ($errors->has('bmdc_no'))
+                                                <small class="text text-danger">{{ $errors->first('bmdc_no') }}</small>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
@@ -136,6 +164,7 @@
                                             @endif
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="row">
 
@@ -151,37 +180,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>বিএমডিসি রেজি. নং:</label>
-                                            <textarea class="form-control" name="bmdc_no" rows="4"
-                                                placeholder="Enter BMDC No">{{ old('bmdc_no') }}</textarea>
-                                            @if ($errors->has('bmdc_no'))
-                                                <small class="text text-danger">{{ $errors->first('bmdc_no') }}</small>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <!-- textarea -->
-                                        <div class="form-group">
-                                            <label>চেম্বার:</label>
-
-                                            <textarea class="form-control" name="chamber[]"
-                                                placeholder="চেম্বারের নাম,&#10 ঠিকানা,&#10 রোগী দেখার সময় ও সিরিয়াল দেয়ার নাম্বার লিখুন "
-                                                rows="4"></textarea>
-                                            <div id="newChamberInputFields">
-
-                                            </div>
-
-                                        </div>
-
-                                        <span class="btn btn-info btn-sm text-white mb-5"
-                                            onclick="createNewChamberInputFiled()"><span class="fas fa-plus"></span> New
-                                            Chamber</span>
-                                    </div>
-                                    <div class="col-sm-6">
                                         <!-- textarea -->
                                         <div class="form-group">
                                             <label>ছবি</label>
@@ -193,6 +191,30 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>চেম্বার:</label>
+                                            <input type="text" name="chambers[0][chamber]" class="form-control mb-2"
+                                                placeholder="চেম্বারের নাম">
+                                            <textarea class="form-control mb-2" name="chambers[0][address]"
+                                                placeholder="ঠিকানা" rows="4"></textarea>
+                                            <textarea class="form-control mb-2" name="chambers[0][visiting_time]"
+                                                placeholder="রোগী দেখার সময়" rows="4"></textarea>
+                                            <textarea class="form-control" name="chambers[0][mobiles]"
+                                                placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন " rows="4"></textarea>
+                                        </div>
+                                        <div id="newChamberInputFields">
+                                            <!--Dynamic chamber here-->
+                                        </div>
+                                        <span class="btn btn-info btn-sm text-white mb-5"
+                                            onclick="createNewChamberInputFiled()"><span class="fas fa-plus"></span> New
+                                            Chamber</span>
+                                    </div>
+
+                                </div>
+
+
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
@@ -213,18 +235,30 @@
 
 @stop
 @section('custom_script')
-    <script type="text/JavaScript">
+    <script>
         //Add new chamber field
-                                                        function createNewChamberInputFiled() {
-                                                                                      var txtNewInputBox = document.createElement('div');
-                                                                                        txtNewInputBox.innerHTML = '<br><span class="fas fa-times remove-btn" onclick="removeInput(this)"></span><textarea class="form-control" name="chamber[]" placeholder="চেম্বারের নাম,&#10ঠিকানা,&#10রোগী দেখার সময় ও সিরিয়াল দেয়ার নাম্বার লিখুন " rows="4">'
-                                                                                                                                                        '</textarea>';
-                                                                                        document.getElementById("newChamberInputFields").appendChild(txtNewInputBox);
-                                                                                                                                                                           
-                                                                                     }
-                                                        //remove chamber input filed                             
-                                                        function removeInput(element){
-                                                        element.closest("div").remove();
-                                                        }
-                                                        </script>
+        let counter = 0
+
+        function createNewChamberInputFiled() {
+            counter = counter + 1;
+            console.log(counter);
+            var txtNewInputBox = document.createElement('div');
+            txtNewInputBox.innerHTML =
+                '<br><span class="fas fa-times remove-btn" onclick="removeInput(this)"></span><div class="form-group"> <input type="text" name="chambers[' +
+                counter +
+                '][chamber]" class="form-control mb-2" placeholder="চেম্বারের নাম"> <textarea class="form-control mb-2" name="chambers[' +
+                counter +
+                '][address]" placeholder="ঠিকানা" rows="4"></textarea><textarea class="form-control mb-2" name="chambers[' +
+                counter +
+                '][visiting_time]"placeholder="রোগী দেখার সময়" rows="4"></textarea> <textarea class="form-control" name="chambers[' +
+                counter + '][mobiles]" placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন " rows="4">'
+            '</textarea></div>';
+            document.getElementById("newChamberInputFields").appendChild(txtNewInputBox);
+
+        }
+        //remove chamber input filed                             
+        function removeInput(element) {
+            element.closest("div").remove();
+        }
+    </script>
 @stop
