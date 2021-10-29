@@ -10,9 +10,50 @@ use Yajra\Datatables\Datatables;
 
 class DoctorRepository implements DoctorInterface
 {
-
-    public function all()
+    /**
+     * Return doctor list
+     *
+     *@param Arrary $request
+     *@return Arrary
+     */
+    public function all($request)
     {
+        $query = DB::table('doctors')
+            ->select([
+                'id',
+                'image',
+                'name',
+                'qualification',
+                'specialist',
+                'position',
+                'working_place',
+                'mobile',
+                'is_featured'
+            ])
+            ->where('status', 1)
+            ->orderBy('is_featured', 'DESC');
+        if (isset($request->department) && $request->department != null) {
+            $query = $query->where('department', $request->department);
+        }
+        return $query->paginate($request->perPage);
+    }
+    /**
+     * Return doctor chambers
+     * 
+     * @param Int $id
+     * @return Arrary
+     */
+    public function chambers($id)
+    {
+        return DB::table('doctor_chambers')
+            ->where('doctor_id', $id)
+            ->select([
+                'chamber',
+                'address',
+                'visiting_time',
+                'mobiles'
+            ])
+            ->get();
     }
 
     public function store($request)

@@ -20,3 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/get-all-blood-groups', 'Api\BloodBankController@getAllBloodGroups');
 Route::post('/store-new-blood-donor', 'Api\BloodBankController@storeNewBloodDonor');
 Route::post('/get-blood-donor-list', 'Api\BloodBankController@getBloodDonorList');
+
+//doctors
+Route::get('/get-doctors-departments', 'Api\DoctorController@getDoctorDeparments');
+Route::post('/get-doctor-list', 'Api\DoctorController@getDoctorList');
+Route::post('/get-doctor-chambers', 'Api\DoctorController@getDoctorChambers');

@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface DoctorInterface
 {
-    public function all();
+    public function all($request);
 
     public function store($request);
 
@@ -17,4 +17,6 @@ interface DoctorInterface
     public function dataTable();
 
     public function details($id);
+
+    public function chambers($id);
 }

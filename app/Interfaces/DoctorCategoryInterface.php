@@ -14,4 +14,6 @@ interface DoctorCategoryInterface
     public function update($data);
 
     public function delete($id);
+
+    public function list($status);
 }

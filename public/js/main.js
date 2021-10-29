@@ -3878,10 +3878,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "DoctorHero"
+  name: "DoctorHero",
+  props: {
+    departments: {
+      type: Array,
+      required: false
+    }
+  },
+  methods: {
+    setSelected: function setSelected(event) {
+      this.$emit("selectItem", event);
+    }
+  }
 });
 
 /***/ }),
@@ -3896,6 +3905,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Modal.vue */ "./resources/js/components/Modal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -3967,6 +3978,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3982,16 +4006,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       active: false,
-      modals: {
-        modal1: false,
-        modal2: false,
-        modal3: false
-      }
+      modal_show: false,
+      chambers: []
     };
   },
   methods: {
     viewDetails: function viewDetails() {
-      this.modals.modal1 = true;
+      var _this = this;
+
+      this.chambers = [];
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/get-doctor-chambers", {
+        id: this.doctor.id
+      }).then(function (response) {
+        if (response.data.success) {
+          _this.chambers = response.data.chambers;
+          _this.modal_show = true;
+        }
+      })["catch"](function (error) {});
     }
   }
 });
@@ -5119,6 +5150,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_doctor_DoctorHero_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/doctor/DoctorHero.vue */ "./resources/js/components/doctor/DoctorHero.vue");
 /* harmony import */ var _components_doctor_SingleDoctor_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/doctor/SingleDoctor.vue */ "./resources/js/components/doctor/SingleDoctor.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -5155,6 +5188,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5165,58 +5199,71 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      doctors: [{
-        name: "ডাঃ মোঃ শফিকুর রহমান পাটওয়ারী",
-        qualification: "এমবিবিএস; এমপিএইচ; ইওসি (অব্স এন্ড গাইনি)",
-        position: "সহকারী অধ্যাপক",
-        specialist: "মেডিসিন , বাতজর ও হৃদরোগ বিশেষজ্ঞ",
-        working_place: "জাতীয় হৃদরোগ ইন্সিটিউট ও হাসপাতাল, ঢাকা ।",
-        mobile: "০১৭১১-৬৭৫৮৪৬, ০১৯১৯৬৫৮৫৯৫",
-        bmdc_no: "564654",
-        image: "uploads/profile_image/doctor/10222021043027d.jpg",
-        chambers: [{
-          chamber: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর । মোবাইল : ০১৭৭৩৩৪০৯২ , সাক্ষাতের সময় : সকাল ৯ টা থেকে রাত ১০ টা , প্রতি শুক্রবার "
-        }]
-      }, {
-        name: "ডা. আরজিনা আক্তার লাবনী",
-        qualification: "এমবিবিএস; এমপিএইচ; ইওসি (অব্স এন্ড গাইনি)",
-        position: "সহকারী অধ্যাপক",
-        specialist: "প্রসূতি ও গাইনিরোগে অভিজ্ঞ",
-        working_place: "জাতীয় হৃদরোগ ইন্সিটিউট ও হাসপাতাল, ঢাকা ।",
-        mobile: "০১৭১১-৬৭৫৮৪৬, ০১৯১৯৬৫৮৫৯৫",
-        bmdc_no: "564654",
-        image: "uploads/profile_image/doctor/10222021043027d.jpg",
-        chambers: [{
-          chamber: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর । মোবাইল : ০১৭৭৩৩৪০৯২ , সাক্ষাতের সময় : সকাল ৯ টা থেকে রাত ১০ টা , প্রতি শুক্রবার "
-        }, {
-          chamber: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর । মোবাইল : ০১৭৭৩৩৪০৯২ , সাক্ষাতের সময় : সকাল ৯ টা থেকে রাত ১০ টা , প্রতি শুক্রবার "
-        }]
-      }, {
-        name: "ডা. মো. আসিফ ইকবাল",
-        qualification: "এমবিবিএস; বিসিএস; সিসিডি (বারডেম)",
-        position: "",
-        specialist: "জেনারেল ফিজিশিয়ান(মেডিসিন, হৃদরোগ, মা ও শিশু, ডায়াবেটিস, চর্ম ও যৌন রোগের চিকিৎসক।)",
-        working_place: "",
-        mobile: "",
-        bmdc_no: "564654",
-        image: "",
-        chambers: [{
-          chamber: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর । মোবাইল : ০১৭৭৩৩৪০৯২ , সাক্ষাতের সময় : সকাল ৯ টা থেকে রাত ১০ টা , প্রতি শুক্রবার "
-        }]
-      }, {
-        name: "ডা. মো. আসিফ ইকবাল",
-        qualification: "এমবিবিএস; বিসিএস; সিসিডি (বারডেম)",
-        position: "",
-        specialist: "জেনারেল ফিজিশিয়ান(মেডিসিন, হৃদরোগ, মা ও শিশু, ডায়াবেটিস, চর্ম ও যৌন রোগের চিকিৎসক।)",
-        working_place: "",
-        mobile: "",
-        bmdc_no: "564654",
-        image: "uploads/profile_image/doctor/10222021043027d.jpg",
-        chambers: [{
-          chamber: "চাঁদপুর মেডিকেল সেন্টার , ছলঘার ( ডি , সি অফিসের সামনে ) , চাঁদপুর । মোবাইল : ০১৭৭৩৩৪০৯২ , সাক্ষাতের সময় : সকাল ৯ টা থেকে রাত ১০ টা , প্রতি শুক্রবার "
-        }]
-      }]
+      title: "সকল বিভাগের ডাক্তার",
+      departments: [],
+      selectedDepartment: {},
+      currentPage: 1,
+      total: 0,
+      perPage: 12,
+      emptyMessage: "দুঃখিত !... কোন ডাক্তার খুঁজে পাওয়া যায় নি ।",
+      search_key: "",
+      doctors: []
     };
+  },
+  mounted: function mounted() {
+    this.getDocotorDepartments();
+    this.getDoctorList();
+  },
+  methods: {
+    /**
+     * Get doctos divisions
+     */
+    getDocotorDepartments: function getDocotorDepartments() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/get-doctors-departments").then(function (response) {
+        if (response.data.success) {
+          response.data.departments.unshift({
+            id: "",
+            name: "",
+            bn_name: "সকল বিভাগের ডাক্তার"
+          });
+          _this.departments = response.data.departments;
+        }
+      })["catch"](function (error) {});
+    },
+
+    /**
+     * Get selected department
+     */
+    getSelectedDepartment: function getSelectedDepartment(department) {
+      this.title = department.bn_name;
+      this.selectedDepartment = department;
+      this.currentPage = 1;
+      this.getDoctorList();
+    },
+
+    /**
+     * Get Doctors
+     */
+    getDoctorList: function getDoctorList() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/get-doctor-list", {
+        perPage: this.perPage,
+        page: this.currentPage,
+        department: this.selectedDepartment.id
+      }).then(function (response) {
+        if (response.data.success) {
+          _this2.doctors = response.data.doctors.data;
+          _this2.total = response.data.doctors.total;
+        }
+      })["catch"](function (error) {});
+    },
+    changePage: function changePage(page) {
+      this.currentPage = page;
+      this.getDoctorList();
+    }
   }
 });
 
@@ -15512,59 +15559,53 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "container shape-container d-flex" }, [
-      _c("div", { staticClass: "col px-0" }, [
+      _c("div", { staticClass: "col px-0 mt-lg-5" }, [
         _c(
           "div",
-          { staticClass: "row justify-content-center align-items-center mt-3" },
+          {
+            staticClass:
+              "\n\t\t\t\t\trow\n\t\t\t\t\tjustify-content-center\n\t\t\t\t\talign-items-center\n\t\t\t\t\tmb-4 mb-md-0 mb-lg-0\n\t\t\t\t\tmt-0 mt-lg-5 mt-md-5\n\t\t\t\t"
+          },
           [
-            _c("div", { staticClass: "col-lg-12 text-center pt-5 pb-5" }, [
-              _c("h1", { staticClass: "bangla-font text-white" }, [
-                _vm._v("এখানে আপনার ডাক্তার খুঁজুন")
-              ]),
-              _vm._v(" "),
-              _c("div", { attrs: { id: "inputWrapper" } }, [
-                _c("input", {
-                  staticClass: "bangla-font",
-                  attrs: {
-                    id: "searchinput",
-                    type: "search",
-                    autocomplete: "off",
-                    spellcheck: "false",
-                    role: "combobox",
-                    "aria-live": "polite",
-                    placeholder: "এখানে খুঁজুন"
-                  }
-                }),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "offset-lg-2 col-lg-8 text-center pt-0 pt-lg-5 pt-md-5 pb-5"
+              },
+              [
+                _c("h1", { staticClass: "bangla-font text-white" }, [
+                  _vm._v("এখানে আপনার ডাক্তার খুঁজুন")
+                ]),
                 _vm._v(" "),
                 _c(
-                  "button",
-                  { attrs: { id: "search-button", title: "Search by voice" } },
+                  "div",
+                  { attrs: { id: "inputWrapper" } },
                   [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "bi bi-search",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          width: "16",
-                          height: "16",
-                          fill: "currentColor",
-                          viewBox: "0 0 16 16"
-                        }
+                    _c("v-select", {
+                      key: _vm.departments.id,
+                      staticClass: "bangla-font",
+                      attrs: {
+                        single: "",
+                        options: _vm.departments,
+                        label: "bn_name",
+                        placeholder: "বিভাগ বাছাই করুন",
+                        clearable: false
                       },
-                      [
-                        _c("path", {
-                          attrs: {
-                            d:
-                              "M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                          }
-                        })
-                      ]
-                    )
-                  ]
+                      on: {
+                        "update:options": function($event) {
+                          _vm.departments = $event
+                        },
+                        input: function($event) {
+                          return _vm.setSelected($event)
+                        }
+                      }
+                    })
+                  ],
+                  1
                 )
-              ])
-            ])
+              ]
+            )
           ]
         )
       ])
@@ -15668,12 +15709,12 @@ var render = function() {
             "modal",
             {
               attrs: {
-                show: _vm.modals.modal1,
+                show: _vm.modal_show,
                 "modal-classes": "modal-dialog-top"
               },
               on: {
                 "update:show": function($event) {
-                  return _vm.$set(_vm.modals, "modal1", $event)
+                  _vm.modal_show = $event
                 }
               }
             },
@@ -15684,74 +15725,128 @@ var render = function() {
                 slot: "header"
               }),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col-12 text-center p-1" },
-                [
-                  _vm.doctor.image
-                    ? _c("img", {
-                        staticClass:
-                          "\n\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\tmb-2\n\t\t\t\t\t\t",
-                        staticStyle: { width: "100px" },
-                        attrs: {
-                          src: "/" + _vm.doctor.image,
-                          alt: _vm.doctor.name
+              _c("div", { staticClass: "col-12 text-center p-1" }, [
+                _vm.doctor.image
+                  ? _c("img", {
+                      staticClass:
+                        "\n\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\tmb-2\n\t\t\t\t\t\t",
+                      staticStyle: { width: "100px" },
+                      attrs: {
+                        src: "/" + _vm.doctor.image,
+                        alt: _vm.doctor.name
+                      }
+                    })
+                  : _c("img", {
+                      directives: [
+                        {
+                          name: "lazy",
+                          rawName: "v-lazy",
+                          value: "img/theme/doctor.jpg",
+                          expression: "'img/theme/doctor.jpg'"
                         }
-                      })
-                    : _c("img", {
-                        directives: [
-                          {
-                            name: "lazy",
-                            rawName: "v-lazy",
-                            value: "img/theme/doctor.jpg",
-                            expression: "'img/theme/doctor.jpg'"
-                          }
-                        ],
-                        staticClass:
-                          "\n\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\tmb-2\n\t\t\t\t\t\t",
-                        staticStyle: { width: "100px" }
-                      }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    { staticClass: "bangla-font name font-weight-bold" },
-                    [_vm._v(_vm._s(_vm.doctor.name))]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font qualification" }, [
-                    _vm._v(_vm._s(_vm.doctor.qualification))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font specialist" }, [
-                    _vm._v(_vm._s(_vm.doctor.specialist))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font position" }, [
-                    _vm._v(_vm._s(_vm.doctor.position))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font working_place" }, [
-                    _vm._v(_vm._s(_vm.doctor.working_place))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font mobile" }, [
-                    _vm._v(_vm._s(_vm.doctor.mobile))
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.doctor.chambers, function(chamber, index) {
-                    return _c("div", { key: index, staticClass: "mt-3" }, [
-                      _c("p", { staticClass: "bangla-font mobile" }, [
-                        _vm._v(
-                          "\n\t\t\t\t\t\t\t" +
-                            _vm._s(chamber.chamber) +
-                            "\n\t\t\t\t\t\t"
-                        )
-                      ])
-                    ])
-                  })
-                ],
-                2
-              )
+                      ],
+                      staticClass:
+                        "\n\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\tmb-2\n\t\t\t\t\t\t",
+                      staticStyle: { width: "100px" }
+                    }),
+                _vm._v(" "),
+                _c("p", { staticClass: "bangla-font name font-weight-bold" }, [
+                  _vm._v(_vm._s(_vm.doctor.name))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bangla-font qualification" }, [
+                  _vm._v(_vm._s(_vm.doctor.qualification))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bangla-font specialist" }, [
+                  _vm._v(_vm._s(_vm.doctor.specialist))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bangla-font position" }, [
+                  _vm._v(_vm._s(_vm.doctor.position))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bangla-font working_place" }, [
+                  _vm._v(_vm._s(_vm.doctor.working_place))
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "bangla-font mobile" }, [
+                  _vm._v(_vm._s(_vm.doctor.mobile))
+                ]),
+                _vm._v(" "),
+                _vm.chambers.length > 0
+                  ? _c(
+                      "div",
+                      [
+                        _c(
+                          "p",
+                          { staticClass: "bangla-font success mb-0 bottom-0" },
+                          [_vm._v("চেম্বার")]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.chambers, function(chamber, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "mb-3" },
+                            [
+                              _c(
+                                "p",
+                                {
+                                  staticClass:
+                                    "bangla-font mobile font-weight-bold"
+                                },
+                                [
+                                  _vm._v(
+                                    "\n\t\t\t\t\t\t\t\t" +
+                                      _vm._s(chamber.chamber) +
+                                      "\n\t\t\t\t\t\t\t"
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("p", { staticClass: "bangla-font mobile" }, [
+                                _vm._v(
+                                  "\n\t\t\t\t\t\t\t\t" +
+                                    _vm._s(chamber.address) +
+                                    "\n\t\t\t\t\t\t\t"
+                                )
+                              ]),
+                              _vm._v(" "),
+                              chamber.visiting_time
+                                ? _c(
+                                    "p",
+                                    { staticClass: "bangla-font mobile" },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\tরোগী দেখার সময়ঃ " +
+                                          _vm._s(chamber.visiting_time) +
+                                          "\n\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              chamber.mobiles
+                                ? _c(
+                                    "p",
+                                    { staticClass: "bangla-font mobile" },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\tসিরিয়ালের জন্যঃ " +
+                                          _vm._s(chamber.mobiles) +
+                                          "\n\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  : _vm._e()
+              ])
             ]
           )
         ],
@@ -17630,15 +17725,26 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("doctor-hero"),
+      _c("doctor-hero", {
+        attrs: { departments: _vm.departments },
+        on: {
+          selectItem: function($event) {
+            return _vm.getSelectedDepartment($event)
+          }
+        }
+      }),
       _vm._v(" "),
-      _c("section", { staticClass: "section section-lg pt-lg-0" }, [
+      _c("section", { staticClass: "section section-lg pt-0" }, [
         _c("div", { staticClass: "p-3" }, [
           _c(
             "div",
             { staticClass: "row" },
             [
-              _vm._m(0),
+              _c("div", { staticClass: "col-12 page-header pb-4" }, [
+                _c("h2", { staticClass: "bangla-font text-center mb-2 mt-2" }, [
+                  _vm._v("\n\t\t\t\t\t\t" + _vm._s(_vm.title) + "\n\t\t\t\t\t")
+                ])
+              ]),
               _vm._v(" "),
               _vm._l(_vm.doctors, function(doctor, index) {
                 return _c(
@@ -17650,6 +17756,28 @@ var render = function() {
               })
             ],
             2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-center mb-2 mt-4" },
+            [
+              _c("base-pagination", {
+                attrs: {
+                  total: _vm.total,
+                  perPage: _vm.perPage,
+                  value: _vm.currentPage,
+                  align: "center",
+                  "empty-message": _vm.emptyMessage
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.changePage($event)
+                  }
+                }
+              })
+            ],
+            1
           )
         ])
       ])
@@ -17657,18 +17785,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 page-header pb-4" }, [
-      _c("h2", { staticClass: "bangla-font text-center mb-2 mt-2" }, [
-        _vm._v("সকল ডাক্তার")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

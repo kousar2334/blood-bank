@@ -11,7 +11,7 @@
 		<!--Details Modal-->
 		<div class="row">
 			<div class="col-md-4">
-				<modal :show.sync="modals.modal1" modal-classes="modal-dialog-top">
+				<modal :show.sync="modal_show" modal-classes="modal-dialog-top">
 					<h6 slot="header" class="modal-title" id="modal-title-default"></h6>
 
 					<div class="col-12 text-center p-1">
@@ -47,14 +47,26 @@
 						<p class="bangla-font position">{{ doctor.position }}</p>
 						<p class="bangla-font working_place">{{ doctor.working_place }}</p>
 						<p class="bangla-font mobile">{{ doctor.mobile }}</p>
-						<div
-							v-for="(chamber, index) in doctor.chambers"
-							:key="index"
-							class="mt-3"
-						>
-							<p class="bangla-font mobile">
-								{{ chamber.chamber }}
-							</p>
+						<div v-if="chambers.length > 0">
+							<p class="bangla-font success mb-0 bottom-0">চেম্বার</p>
+							<div
+								v-for="(chamber, index) in chambers"
+								:key="index"
+								class="mb-3"
+							>
+								<p class="bangla-font mobile font-weight-bold">
+									{{ chamber.chamber }}
+								</p>
+								<p class="bangla-font mobile">
+									{{ chamber.address }}
+								</p>
+								<p class="bangla-font mobile" v-if="chamber.visiting_time">
+									রোগী দেখার সময়ঃ {{ chamber.visiting_time }}
+								</p>
+								<p class="bangla-font mobile" v-if="chamber.mobiles">
+									সিরিয়ালের জন্যঃ {{ chamber.mobiles }}
+								</p>
+							</div>
 						</div>
 					</div>
 				</modal>
@@ -71,6 +83,7 @@
 </template>
 <script>
 import Modal from "../Modal.vue";
+import axios from "axios";
 export default {
 	components: {
 		Modal,
@@ -85,16 +98,24 @@ export default {
 	data() {
 		return {
 			active: false,
-			modals: {
-				modal1: false,
-				modal2: false,
-				modal3: false,
-			},
+			modal_show: false,
+			chambers: [],
 		};
 	},
 	methods: {
 		viewDetails() {
-			this.modals.modal1 = true;
+			this.chambers = [];
+			axios
+				.post("/api/get-doctor-chambers", {
+					id: this.doctor.id,
+				})
+				.then((response) => {
+					if (response.data.success) {
+						this.chambers = response.data.chambers;
+						this.modal_show = true;
+					}
+				})
+				.catch((error) => {});
 		},
 	},
 };

@@ -9,6 +9,18 @@ use App\Interfaces\DoctorCategoryInterface;
 class DoctorCategoryRepository implements DoctorCategoryInterface
 {
     /**
+     * Get list of categories
+     *
+     *@param Int $status
+     *@return Arrary
+     */
+    public function list($status)
+    {
+        return DoctorCategory::where('status', $status)
+            ->select('id', 'bn_name', 'name', 'icon')
+            ->get();
+    }
+    /**
      * Get all docotor category
      * @return Arrary
      */
