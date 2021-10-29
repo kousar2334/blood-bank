@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DoctorApiRequest;
 use App\Interfaces\DoctorCategoryInterface;
 use App\Interfaces\DoctorInterface;
 use Illuminate\Http\Request;
@@ -72,6 +73,26 @@ class DoctorController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
+            ]);
+        }
+    }
+    /**
+     * Store New Doctor
+     * 
+     * @param \App\Http\Requests\DoctorApiRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function storeNewDoctor(DoctorApiRequest $request)
+    {
+        try {
+            $this->doctor_repository->store($request);
+            return response()->json([
+                'success' => true
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'e' => $e->getMessage()
             ]);
         }
     }

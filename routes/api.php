@@ -25,3 +25,4 @@ Route::post('/get-blood-donor-list', 'Api\BloodBankController@getBloodDonorList'
 Route::get('/get-doctors-departments', 'Api\DoctorController@getDoctorDeparments');
 Route::post('/get-doctor-list', 'Api\DoctorController@getDoctorList');
 Route::post('/get-doctor-chambers', 'Api\DoctorController@getDoctorChambers');
+Route::post('/store-new-doctor', 'Api\DoctorController@storeNewDoctor');

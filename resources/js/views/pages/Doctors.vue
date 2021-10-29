@@ -112,5 +112,9 @@ export default {
 			this.getDoctorList();
 		},
 	},
+	metaInfo: {
+		title: "ডাক্তার",
+		meta: [{ name: "description", content: "foo" }],
+	},
 };
 </script>

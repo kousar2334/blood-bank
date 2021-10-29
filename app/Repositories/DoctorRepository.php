@@ -55,16 +55,21 @@ class DoctorRepository implements DoctorInterface
             ])
             ->get();
     }
-
+    /**
+     * Store new doctor
+     *
+     *@param Arrary $request
+     */
     public function store($request)
     {
-        if ($request->has('image')) {
+        if ($request->image != null) {
             $image = uploadDoctorImage($request);
         } else {
             $image = NULL;
         }
         $bd = new Doctor();
         $bd->name = $request->name;
+        $bd->en_name = $request->en_name;
         $bd->department = $request->department;
         $bd->qualification = $request->qualification;
         $bd->position = $request->position;
@@ -73,13 +78,20 @@ class DoctorRepository implements DoctorInterface
         $bd->working_place = $request->working_place;
         $bd->mobile = $request->mobile;
         $bd->bmdc_no = $request->bmdc_no;
-        $bd->status = 1;
+        $bd->status = $request->status;
         $bd->save();
-
-        foreach ($request->chamber as $chamber) {
+        if ($request->end === 'api') {
+            $chambers = json_decode($request->chambers, true);
+        } else {
+            $chambers = $request->chambers;
+        }
+        foreach ($chambers as $chamber) {
             $chm = new DoctorChamber;
             $chm->doctor_id = $bd->id;
-            $chm->chamber = $chamber;
+            $chm->chamber = $chamber['chamber'];
+            $chm->address = $chamber['address'];
+            $chm->visiting_time = $chamber['visiting_time'];
+            $chm->mobiles = $chamber['mobiles'];
             $chm->save();
         }
     }

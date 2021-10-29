@@ -194,7 +194,7 @@
 								/>
 							</svg>
 						</span>
-						<span class="nav-link-inner--text bangla-font ml-2"
+						<span class="nav-link-inner--text bangla-font ml-2 danger"
 							>রক্ত প্রয়োজন</span
 						>
 					</router-link>
