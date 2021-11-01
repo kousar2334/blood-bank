@@ -24,19 +24,21 @@ class HospitalRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
-            'cat_id'=>'required',
-            'mobile_1'=>'required',
+            'name' => 'required',
+            'bn_name' => 'required',
+            'cat_id' => 'required',
+            'mobile_1' => 'required',
         ];
     }
     /**
      * custom message
      * @return array
      */
-    public function message(){
+    public function message()
+    {
         return [
-        'cat_id'=>'Please Select a Hospital Category',
-        'mobile_1'=>'Please Insert Valid Mobile Number'
+            'cat_id' => 'Please Select a Hospital Category',
+            'mobile_1' => 'Please Insert Valid Mobile Number'
         ];
     }
 }

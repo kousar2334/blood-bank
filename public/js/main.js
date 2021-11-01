@@ -3383,15 +3383,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -4036,6 +4027,225 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/HospitalHero.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hospital/HospitalHero.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "HospitalHero",
+  props: {
+    categories: {
+      type: Array,
+      required: false
+    }
+  },
+  methods: {
+    setSelected: function setSelected(event) {
+      this.$emit("selectItem", event);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hospital/SingleHospital.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Modal.vue */ "./resources/js/components/Modal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Modal: _Modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  name: "single-hospital",
+  props: {
+    hospital: {
+      type: Object,
+      "default": ""
+    }
+  },
+  data: function data() {
+    return {
+      active: false,
+      modal_show: false,
+      hospital_details: ""
+    };
+  },
+  methods: {
+    viewDetails: function viewDetails() {
+      var _this = this;
+
+      this.hospital_details = "";
+      axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/get-hospital-details", {
+        id: this.hospital.id
+      }).then(function (response) {
+        if (response.data.success) {
+          _this.hospital_details = response.data.hospital_details;
+          _this.modal_show = true;
+        }
+      })["catch"](function (error) {});
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layout/AppFooter.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layout/AppFooter.vue?vue&type=script&lang=js& ***!
@@ -4407,6 +4617,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -4415,6 +4627,481 @@ __webpack_require__.r(__webpack_exports__);
     BaseNav: _components_BaseNav__WEBPACK_IMPORTED_MODULE_0__["default"],
     CloseButton: _components_CloseButton__WEBPACK_IMPORTED_MODULE_2__["default"],
     BaseDropdown: _components_BaseDropdown__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/AddHospital.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/pages/AddHospital.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es6.function.name */ "./node_modules/core-js/modules/es6.function.name.js");
+/* harmony import */ var core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_function_name__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var _components_Modal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Modal.vue */ "./resources/js/components/Modal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "HospitalForm",
+  components: {
+    Modal: _components_Modal_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      notification_modal: false,
+      notifination_header: "",
+      notifination_message: "",
+      categories: [],
+      name: "",
+      bn_name: "",
+      cat_id: "",
+      address: "",
+      description: "",
+      phone: "",
+      mobile_1: "",
+      mobile_2: ""
+    }, Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "phone", ""), Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "image", ""), Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "email", ""), Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "status", 0), Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "web", ""), Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "fb_link", ""), Object(_mnt_e632d026_5858_4e33_8e62_2946578fcfb1_htdocs_personal_bogura_node_modules_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref, "errors", []), _ref;
+  },
+  mounted: function mounted() {
+    this.getAllCetegories();
+  },
+  methods: {
+    /**
+     * Get all categories
+     */
+    getAllCetegories: function getAllCetegories() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/get-all-hospital-categories").then(function (response) {
+        if (response.data.success) {
+          _this.categories = response.data.categories;
+        }
+      })["catch"](function (error) {});
+    },
+
+    /**
+     * Get selected category
+     */
+    setCategory: function setCategory(event) {
+      this.cat_id = event.target.value;
+    },
+
+    /**
+     * Get hospital image
+     */
+    getImage: function getImage(event) {
+      this.image = event.target.files[0];
+    },
+
+    /**
+     * Store new hospital
+     */
+    createNewHospital: function createNewHospital() {
+      var _this2 = this;
+
+      this.errors = [];
+      var form_data = new FormData();
+      form_data.append("name", this.name);
+      form_data.append("bn_name", this.bn_name);
+      form_data.append("description", this.description);
+      form_data.append("phone", this.phone);
+      form_data.append("mobile_1", this.mobile_1);
+      form_data.append("mobile_2", this.mobile_2);
+      form_data.append("image", this.image);
+      form_data.append("address", this.address);
+      form_data.append("email", this.email);
+      form_data.append("web", this.web);
+      form_data.append("fb_link", this.fb_link);
+      form_data.append("status", this.status);
+      form_data.append("cat_id", this.cat_id);
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("/api/store-new-hospital", form_data).then(function (response) {
+        if (response.data.success) {
+          _this2.notifination_header = "ধন্যবাদ";
+          _this2.notifination_message = "আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।";
+          _this2.name = "";
+          _this2.bn_name = "";
+          _this2.description = "";
+          _this2.name = "";
+          _this2.phone = "";
+          _this2.image = "";
+          _this2.mobile_1 = "";
+          _this2.mobile_2 = "";
+          _this2.email = "";
+          _this2.address = "";
+          _this2.web = "";
+          _this2.web = "";
+          _this2.fb_link = "";
+          _this2.cat_id = "";
+          _this2.$refs.image.type = "text";
+          _this2.$refs.image.type = "file";
+        } else {
+          _this2.notifination_header = "দুঃখিত";
+          _this2.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+        }
+
+        _this2.notification_modal = true;
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this2.errors = error.response.data.errors;
+        } else {
+          _this2.notifination_header = "দুঃখিত";
+          _this2.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+          _this2.notification_modal = true;
+        }
+      });
+    }
+  },
+  metaInfo: {
+    title: "হাসপাতাল ও ক্লিনিক নিবন্ধন"
   }
 });
 
@@ -4434,8 +5121,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_bloodBank_BloodBankHero_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/bloodBank/BloodBankHero.vue */ "./resources/js/components/bloodBank/BloodBankHero.vue");
 /* harmony import */ var _components_bloodBank_SingleDonor_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/bloodBank/SingleDonor.vue */ "./resources/js/components/bloodBank/SingleDonor.vue");
 /* harmony import */ var _components_BasePagination_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/BasePagination.vue */ "./resources/js/components/BasePagination.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-loading-overlay */ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js");
+/* harmony import */ var vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-loading-overlay/dist/vue-loading.css */ "./node_modules/vue-loading-overlay/dist/vue-loading.css");
+/* harmony import */ var vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_loading_overlay_dist_vue_loading_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_6__);
 
 //
 //
@@ -4473,6 +5164,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -4482,7 +5182,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     BloodbankHero: _components_bloodBank_BloodBankHero_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     SingleDonor: _components_bloodBank_SingleDonor_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    BasePagination: _components_BasePagination_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    BasePagination: _components_BasePagination_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Loading: vue_loading_overlay__WEBPACK_IMPORTED_MODULE_4___default.a
   },
   data: function data() {
     return {
@@ -4493,7 +5194,10 @@ __webpack_require__.r(__webpack_exports__);
       currentPage: 1,
       total: 0,
       perPage: 12,
-      selected_group: ""
+      selected_group: "",
+      isLoading: false,
+      fullPage: true,
+      docts: "docts"
     };
   },
   mounted: function mounted() {
@@ -4507,7 +5211,7 @@ __webpack_require__.r(__webpack_exports__);
     getAllBloodGroup: function getAllBloodGroup() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api/get-all-blood-groups").then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.get("/api/get-all-blood-groups").then(function (response) {
         if (response.data.success) {
           response.data.blood_groups.unshift({
             name: "সকল গ্রুপের",
@@ -4534,7 +5238,8 @@ __webpack_require__.r(__webpack_exports__);
     getDonorList: function getDonorList() {
       var _this2 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_4___default.a.post("/api/get-blood-donor-list", {
+      this.isLoading = true;
+      axios__WEBPACK_IMPORTED_MODULE_6___default.a.post("/api/get-blood-donor-list", {
         perPage: this.perPage,
         page: this.currentPage,
         blood_group: this.selected_group
@@ -4542,8 +5247,13 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data.success) {
           _this2.blood_donors = response.data.blood_donors.data;
           _this2.total = response.data.blood_donors.total;
+          _this2.isLoading = false;
+        } else {
+          _this2.isLoading = false;
         }
-      })["catch"](function (error) {});
+      })["catch"](function (error) {
+        _this2.isLoading = false;
+      });
     },
     changePage: function changePage(page) {
       this.currentPage = page;
@@ -5571,8 +6281,9 @@ __webpack_require__.r(__webpack_exports__);
   metaInfo: {
     title: "ডাক্তার",
     meta: [{
+      vmid: "description",
       name: "description",
-      content: "foo"
+      content: "The home page"
     }]
   }
 });
@@ -6045,11 +6756,151 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
   components: {
     Hero: _components_Hero__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/Hospitals.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/pages/Hospitals.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_hospital_HospitalHero_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/hospital/HospitalHero.vue */ "./resources/js/components/hospital/HospitalHero.vue");
+/* harmony import */ var _components_hospital_SingleHospital_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/hospital/SingleHospital.vue */ "./resources/js/components/hospital/SingleHospital.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Hospitals",
+  components: {
+    HospitalHero: _components_hospital_HospitalHero_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SingleHospital: _components_hospital_SingleHospital_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      title: "হাসপাতাল ও ক্লিনিক",
+      categories: [],
+      selectedDepartment: {},
+      currentPage: 1,
+      total: 0,
+      perPage: 12,
+      emptyMessage: "দুঃখিত !... কোন হাসপাতাল/ ক্লিনিক খুঁজে পাওয়া যায় নি ।",
+      search_key: "",
+      hospitals: [],
+      cat_id: ""
+    };
+  },
+  mounted: function mounted() {
+    this.getAllCetegories();
+    this.getHospitalList();
+  },
+  methods: {
+    /**
+     * Get all categories
+     */
+    getAllCetegories: function getAllCetegories() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/get-all-hospital-categories").then(function (response) {
+        if (response.data.success) {
+          response.data.categories.unshift({
+            id: "",
+            bn_name: "সকল হাসপাতাল ও ক্লিনিক"
+          });
+          _this.categories = response.data.categories;
+        }
+      })["catch"](function (error) {});
+    },
+
+    /**
+     * Get selected category
+     */
+    getSelectvalue: function getSelectvalue(category) {
+      this.title = category.bn_name;
+      this.cat_id = category;
+      this.currentPage = 1;
+      this.getHospitalList();
+    },
+
+    /**
+     * Get hospitals
+     */
+    getHospitalList: function getHospitalList() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/get-hospital-list", {
+        perPage: this.perPage,
+        page: this.currentPage,
+        cat_id: this.cat_id.id
+      }).then(function (response) {
+        if (response.data.success) {
+          _this2.hospitals = response.data.hospitals.data;
+          _this2.total = response.data.hospitals.total;
+        }
+      })["catch"](function (error) {});
+    },
+    changePage: function changePage(page) {
+      this.currentPage = page;
+      this.getHospitalList();
+    }
+  },
+  metaInfo: {
+    title: "হাসপাতাল ও ক্লিনিক",
+    meta: [{
+      vmid: "description",
+      name: "description",
+      content: "The home page"
+    }]
   }
 });
 
@@ -8562,6 +9413,25 @@ exports.push([module.i, "@charset \"UTF-8\";\n/*!\n\n===========================
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loading-overlay/dist/vue-loading.css":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loading-overlay/dist/vue-loading.css ***!
+  \***********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".vld-shown {\n  overflow: hidden;\n}\n\n.vld-overlay {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  align-items: center;\n  display: none;\n  justify-content: center;\n  overflow: hidden;\n  z-index: 9999;\n}\n\n.vld-overlay.is-active {\n  display: flex;\n}\n\n.vld-overlay.is-full-page {\n  z-index: 9999;\n  position: fixed;\n}\n\n.vld-overlay .vld-background {\n  bottom: 0;\n  left: 0;\n  position: absolute;\n  right: 0;\n  top: 0;\n  background: #fff;\n  opacity: 0.5;\n}\n\n.vld-overlay .vld-icon, .vld-parent {\n  position: relative;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-slick-carousel/dist/vue-slick-carousel-theme.css":
 /*!***********************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-slick-carousel/dist/vue-slick-carousel-theme.css ***!
@@ -8701,6 +9571,25 @@ exports.push([module.i, "\np {\n\tmargin-bottom: 2px;\n}\n", ""]);
 /*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/doctor/SingleDoctor.vue?vue&type=style&index=0&lang=css& ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\np {\n\tmargin-bottom: 2px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11822,6 +12711,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleDoctor.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/doctor/SingleDoctor.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleHospital.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -15361,23 +16280,6 @@ var render = function() {
                   ),
                   [
                     _c("div", [
-                      _c("img", {
-                        directives: [
-                          {
-                            name: "lazy",
-                            rawName: "v-lazy",
-                            value:
-                              "https://hw.menardc.com/main/store/20090519001/assets/images6/lightbulbs/Responsive/1_Title_Image_rev.jpg",
-                            expression:
-                              "\n\t\t\t\t\t\t\t\t\t'https://hw.menardc.com/main/store/20090519001/assets/images6/lightbulbs/Responsive/1_Title_Image_rev.jpg'\n\t\t\t\t\t\t\t\t"
-                          }
-                        ],
-                        staticClass: "img-center img-fluid mb-2",
-                        staticStyle: { width: "100px,max-heigth:200px" }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", [
                       _c("h1", { staticClass: "bangla-font text-white" }, [
                         _vm._v("দুটি সন্তানের বেশী নয়")
                       ]),
@@ -16186,6 +17088,358 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/HospitalHero.vue?vue&type=template&id=2f29a524&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hospital/HospitalHero.vue?vue&type=template&id=2f29a524& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "section-hero section-shaped my-0" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container shape-container d-flex" }, [
+      _c("div", { staticClass: "col px-0 mt-lg-5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "\n\t\t\t\t\trow\n\t\t\t\t\tjustify-content-center\n\t\t\t\t\talign-items-center\n\t\t\t\t\tmb-4 mb-md-0 mb-lg-0\n\t\t\t\t\tmt-0 mt-lg-5 mt-md-5\n\t\t\t\t"
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "offset-lg-2 col-lg-8 text-center pt-0 pt-lg-5 pt-md-5 pb-5"
+              },
+              [
+                _c("h1", { staticClass: "bangla-font text-white" }, [
+                  _vm._v("হাসপাতাল ও ক্লিনিক খুঁজুন")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { attrs: { id: "inputWrapper" } },
+                  [
+                    _c("v-select", {
+                      key: _vm.categories.id,
+                      staticClass: "bangla-font",
+                      attrs: {
+                        single: "",
+                        options: _vm.categories,
+                        label: "bn_name",
+                        placeholder: "ক্যাটেগরি বাছাই করুন",
+                        clearable: false
+                      },
+                      on: {
+                        "update:options": function($event) {
+                          _vm.categories = $event
+                        },
+                        input: function($event) {
+                          return _vm.setSelected($event)
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "shape shape-style-1 shape-primary" }, [
+      _c("span", { staticClass: "span-150" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-75" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-100" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-75" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-100" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-100" })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=template&id=4185873c&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/hospital/SingleHospital.vue?vue&type=template&id=4185873c& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "single-doctor" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-12 text-center p-1",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.viewDetails()
+            }
+          }
+        },
+        [
+          _c("p", { staticClass: "bangla-font name font-weight-bold" }, [
+            _vm._v(_vm._s(_vm.hospital.name))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "bangla-font specialist" }, [
+            _vm._v(_vm._s(_vm.hospital.category))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "bangla-font qualification" }, [
+            _vm._v(_vm._s(_vm.hospital.address))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "bangla-font mobile" }, [
+            _vm._v("ফোনঃ " + _vm._s(_vm.hospital.phone))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "bangla-font mobile" }, [
+            _vm._v(
+              "\n\t\t\t\tমোবাইলঃ " +
+                _vm._s(_vm.hospital.mobile_1) +
+                "," +
+                _vm._s(_vm.hospital.mobile_2) +
+                "\n\t\t\t"
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "bangla-font working_place" }, [
+            _vm._v("ইমেইলঃ " + _vm._s(_vm.hospital.email))
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "p",
+        {
+          staticClass: "cursor-pointer bangla-font success mb-0 bottom-0",
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.viewDetails()
+            }
+          }
+        },
+        [_vm._v("\n\t\t\tবিস্তারিত দেখুন\n\t\t")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "col-lg-12" },
+        [
+          _c(
+            "modal",
+            {
+              attrs: {
+                show: _vm.modal_show,
+                "modal-classes": "modal-dialog-top modal-lg"
+              },
+              on: {
+                "update:show": function($event) {
+                  _vm.modal_show = $event
+                }
+              }
+            },
+            [
+              _c("h6", {
+                staticClass: "modal-title",
+                attrs: { slot: "header", id: "modal-title-default" },
+                slot: "header"
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-5 col-sm-12" }, [
+                  _vm.hospital_details.image
+                    ? _c("img", {
+                        staticClass: "mb-2",
+                        staticStyle: { width: "100%", "max-height": "250px" },
+                        attrs: {
+                          src: "/" + _vm.hospital_details.image,
+                          alt: _vm.hospital.name
+                        }
+                      })
+                    : _c("img", {
+                        directives: [
+                          {
+                            name: "lazy",
+                            rawName: "v-lazy",
+                            value: "img/theme/doctor.jpg",
+                            expression: "'img/theme/doctor.jpg'"
+                          }
+                        ],
+                        staticClass: "mb-2",
+                        staticStyle: { width: "100%", "max-height": "250px" }
+                      })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-7 col-sm-12" }, [
+                  _c(
+                    "h5",
+                    {
+                      staticClass: "bangla-font success font-weight-bold mb-0"
+                    },
+                    [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t" +
+                          _vm._s(_vm.hospital.name) +
+                          "\n\t\t\t\t\t\t"
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bangla-font specialist" }, [
+                    _vm._v(_vm._s(_vm.hospital.category))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bangla-font mobile" }, [
+                    _vm._v("ফোনঃ " + _vm._s(_vm.hospital.phone))
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bangla-font mobile" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\tমোবাইলঃ " +
+                        _vm._s(_vm.hospital.mobile_1) +
+                        "," +
+                        _vm._s(_vm.hospital.mobile_2) +
+                        "\n\t\t\t\t\t\t"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bangla-font working_place" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\tইমেইলঃ " +
+                        _vm._s(_vm.hospital.email) +
+                        "\n\t\t\t\t\t\t"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "bangla-font qualification" }, [
+                    _vm._v(_vm._s(_vm.hospital.address))
+                  ]),
+                  _vm._v(" "),
+                  _vm.hospital_details.fb_link
+                    ? _c(
+                        "a",
+                        {
+                          attrs: {
+                            href: _vm.hospital_details.fb_link,
+                            target: "_blank",
+                            rel: "noopener",
+                            "data-toggle": "tooltip",
+                            title: "Like us on Facebook"
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-facebook-square" }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            { staticClass: "nav-link-inner--text bangla-font" },
+                            [_vm._v("ফেসবুক")]
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.hospital_details.web
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "ml-2",
+                          attrs: {
+                            href: _vm.hospital_details.web,
+                            target: "_blank",
+                            rel: "noopener",
+                            "data-toggle": "tooltip",
+                            title: "Follow us on web"
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-dribbble" }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            { staticClass: "nav-link-inner--text bangla-font" },
+                            [_vm._v("ওয়েব সাইট ")]
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("p", { staticClass: "bangla-font mobile" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t" +
+                      _vm._s(_vm.hospital_details.description) +
+                      "\n\t\t\t\t\t"
+                  )
+                ])
+              ])
+            ]
+          )
+        ],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/layout/AppFooter.vue?vue&type=template&id=0dbd2355&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/layout/AppFooter.vue?vue&type=template&id=0dbd2355& ***!
@@ -16590,7 +17844,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "dropdown-item bangla-font",
-                      attrs: { to: "/register" }
+                      attrs: { to: "/add-new-hospital-clinic" }
                     },
                     [_vm._v("হাসপাতাল/ক্লিনিক\n\t\t\t\t")]
                   ),
@@ -16784,6 +18038,982 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/AddHospital.vue?vue&type=template&id=4c452dbe&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/pages/AddHospital.vue?vue&type=template&id=4c452dbe& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "section section-shaped section-lg my-0" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "container pt-lg-md" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-lg-8" },
+            [
+              _c(
+                "card",
+                {
+                  staticClass: "border-0",
+                  attrs: {
+                    type: "secondary",
+                    shadow: "",
+                    "header-classes": "bg-white pb-5",
+                    "body-classes": "px-lg-5 py-lg-5"
+                  }
+                },
+                [
+                  [
+                    _c("div", { staticClass: "btn-wrapper text-center mb-5" }, [
+                      _c("h3", { staticClass: "bangla-font" }, [
+                        _vm._v("হাসপাতাল ও ক্লিনিক নিবন্ধন")
+                      ])
+                    ])
+                  ],
+                  _vm._v(" "),
+                  [
+                    _c("form", [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-12" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [
+                                _vm._v("ক্যাটেগরি"),
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control bangla-font",
+                                on: {
+                                  change: function($event) {
+                                    return _vm.setCategory($event)
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "option",
+                                  { domProps: { selected: _vm.cat_id === "" } },
+                                  [
+                                    _vm._v(
+                                      "\n\t\t\t\t\t\t\t\t\t\t\t\tক্যাটেগরি বাছাই করুন\n\t\t\t\t\t\t\t\t\t\t\t"
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm._l(_vm.categories, function(cat, index) {
+                                  return _c(
+                                    "option",
+                                    { key: index, domProps: { value: cat.id } },
+                                    [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(cat.bn_name) +
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]
+                                  )
+                                })
+                              ],
+                              2
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.cat_id
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.cat_id, function(
+                                    cat_idError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(cat_idError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [
+                                _vm._v("হাসপাতাল / ক্লিনিকের নাম"),
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.bn_name,
+                                  expression: "bn_name"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: { type: "text", placeholder: "নাম লিখুন" },
+                              domProps: { value: _vm.bn_name },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.bn_name = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.bn_name
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.bn_name, function(
+                                    bn_name,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(bn_name) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [
+                                _vm._v(
+                                  "হাসপাতাল / ক্লিনিকের নাম (ইংরেজিতে)\n\t\t\t\t\t\t\t\t\t\t\t"
+                                ),
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.name,
+                                  expression: "name"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: { type: "text", placeholder: "নাম লিখুন" },
+                              domProps: { value: _vm.name },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.name = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.name
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.name, function(
+                                    nameError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(nameError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [
+                                _vm._v("মোবাইল"),
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.mobile_1,
+                                  expression: "mobile_1"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "text",
+                                placeholder: "মোবাইল নাম্বার দিন "
+                              },
+                              domProps: { value: _vm.mobile_1 },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.mobile_1 = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.mobile_1
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.mobile_1, function(
+                                    mobileError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(mobileError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [_vm._v("বিকল্প মোবাইল")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.mobile_2,
+                                  expression: "mobile_2"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "text",
+                                placeholder:
+                                  "বিকল্প মোবাইল নাম্বার দিন, যদি থাকে "
+                              },
+                              domProps: { value: _vm.mobile_2 },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.mobile_2 = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.mobile_2
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.mobile_2, function(
+                                    mobile_2Error,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(mobile_2Error) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [_vm._v("টেলিফোন নাম্বার")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.phone,
+                                  expression: "phone"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "text",
+                                placeholder: "টেলিফোন নাম্বার , যদি থাকে "
+                              },
+                              domProps: { value: _vm.phone },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.phone = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.phone
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.phone, function(
+                                    phoneError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(phoneError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [_vm._v("ইমেইল")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.email,
+                                  expression: "email"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "email",
+                                placeholder: "ইমেইল দিন , যদি থাকে "
+                              },
+                              domProps: { value: _vm.email },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.email = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.email
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.email, function(
+                                    emailError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(emailError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [
+                                _vm._v(
+                                  "হাসপাতাল / ক্লিনিকের বর্ণনা\n\t\t\t\t\t\t\t\t\t\t\t"
+                                ),
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.description,
+                                  expression: "description"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                rows: "4",
+                                placeholder:
+                                  "হাসপাতাল / ক্লিনিকের বর্ণনা লিখুন "
+                              },
+                              domProps: { value: _vm.description },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.description = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.description
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.description, function(
+                                    descriptionerror,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(descriptionerror) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [
+                                _vm._v("ঠিকানা"),
+                                _c("span", { staticClass: "text-danger" }, [
+                                  _vm._v("*")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("textarea", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.address,
+                                  expression: "address"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                rows: "3",
+                                placeholder:
+                                  "হাসপাতাল / ক্লিনিকের বর্তমান ঠিকানা লিখুন "
+                              },
+                              domProps: { value: _vm.address },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.address = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.address
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.address, function(
+                                    addressError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(addressError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [_vm._v("ওয়েব সাইটের লিঙ্ক")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.web,
+                                  expression: "web"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "text",
+                                placeholder:
+                                  "ওয়েব সাইটের লিঙ্ক দিন  , যদি থাকে "
+                              },
+                              domProps: { value: _vm.web },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.web = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.web
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.web, function(
+                                    webError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(webError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [_vm._v("ফেইসবুক পেজের লিঙ্ক")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.fb_link,
+                                  expression: "fb_link"
+                                }
+                              ],
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "text",
+                                placeholder:
+                                  "ফেইসবুক পেজের লিঙ্ক দিন , যদি থাকে "
+                              },
+                              domProps: { value: _vm.fb_link },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.fb_link = $event.target.value
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.fb_link
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.fb_link, function(
+                                    fb_linkError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(fb_linkError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "label",
+                              {
+                                staticClass: "bangla-font mb-0 font-weight-bold"
+                              },
+                              [_vm._v("ছবি")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              ref: "image",
+                              staticClass: "form-control bangla-font",
+                              attrs: {
+                                type: "file",
+                                placeholder:
+                                  "বিকল্প মোবাইল নাম্বার দিন যদি থাকে "
+                              },
+                              on: {
+                                change: function($event) {
+                                  return _vm.getImage($event)
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.image
+                              ? _c(
+                                  "div",
+                                  _vm._l(_vm.errors.image, function(
+                                    imageError,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "p",
+                                      {
+                                        key: index,
+                                        staticClass:
+                                          "text-danger bangla-font font-size-13 mb-0 mb-0"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n\t\t\t\t\t\t\t\t\t\t\t\t" +
+                                            _vm._s(imageError) +
+                                            "\n\t\t\t\t\t\t\t\t\t\t\t"
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                )
+                              : _vm._e()
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("p", { staticClass: "bangla-font" }, [
+                              _c("span", { staticClass: "text-danger" }, [
+                                _vm._v("*")
+                              ]),
+                              _vm._v(
+                                " চিহ্নিত স্থান গুলো\n\t\t\t\t\t\t\t\t\t\t\tঅবশ্যই পূরণ করতে হবে।\n\t\t\t\t\t\t\t\t\t\t"
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-center" },
+                            [
+                              _c(
+                                "base-button",
+                                {
+                                  staticClass: "my-4 bangla-font",
+                                  attrs: { type: "primary" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.createNewHospital($event)
+                                    }
+                                  }
+                                },
+                                [_vm._v("জমা দিন")]
+                              )
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    ])
+                  ]
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-4" },
+            [
+              _c(
+                "modal",
+                {
+                  attrs: {
+                    show: _vm.notification_modal,
+                    gradient: "danger",
+                    "modal-classes": "modal-danger modal-dialog-top"
+                  },
+                  on: {
+                    "update:show": function($event) {
+                      _vm.notification_modal = $event
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "py-3 text-center" }, [
+                    _c("i", { staticClass: "ni ni-bell-55 ni-3x" }),
+                    _vm._v(" "),
+                    _c("h1", { staticClass: "mt-4 bangla-font" }, [
+                      _vm._v(_vm._s(_vm.notifination_header))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "bangla-font" }, [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t" +
+                          _vm._s(_vm.notifination_message) +
+                          "\n\t\t\t\t\t\t"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "template",
+                    { slot: "footer" },
+                    [
+                      _c(
+                        "base-button",
+                        {
+                          staticClass: "bangla-font",
+                          attrs: { type: "white" },
+                          on: {
+                            click: function($event) {
+                              _vm.notification_modal = false
+                            }
+                          }
+                        },
+                        [_vm._v("কেটে দিন")]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "shape shape-style-1 bg-gradient-default" },
+      [
+        _c("span"),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("span"),
+        _vm._v(" "),
+        _c("span")
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/BloodBank.vue?vue&type=template&id=93390f08&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/pages/BloodBank.vue?vue&type=template&id=93390f08& ***!
@@ -16835,27 +19065,29 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "text-center mb-2 mt-4" },
-            [
-              _c("base-pagination", {
-                attrs: {
-                  total: _vm.total,
-                  perPage: _vm.perPage,
-                  value: _vm.currentPage,
-                  align: "center",
-                  "empty-message": _vm.emptyMessage
-                },
-                on: {
-                  input: function($event) {
-                    return _vm.changePage($event)
-                  }
-                }
-              })
-            ],
-            1
-          )
+          !_vm.isLoading
+            ? _c(
+                "div",
+                { staticClass: "text-center mb-2 mt-4" },
+                [
+                  _c("base-pagination", {
+                    attrs: {
+                      total: _vm.total,
+                      perPage: _vm.perPage,
+                      value: _vm.currentPage,
+                      align: "center",
+                      "empty-message": _vm.emptyMessage
+                    },
+                    on: {
+                      input: function($event) {
+                        return _vm.changePage($event)
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            : _vm._e()
         ])
       ])
     ],
@@ -18727,32 +20959,43 @@ var render = function() {
                   { staticClass: "col-lg-4" },
                   [
                     _c(
-                      "card",
-                      {
-                        staticClass: "border-0",
-                        attrs: { hover: "", shadow: "", "body-classes": "py-5" }
-                      },
+                      "router-link",
+                      { attrs: { to: "/hospitals-clinics" } },
                       [
-                        _c("img", {
-                          directives: [
-                            {
-                              name: "lazy",
-                              rawName: "v-lazy",
-                              value: "img/theme/doctor.jpg",
-                              expression: "'img/theme/doctor.jpg'"
-                            }
-                          ],
-                          staticClass:
-                            "\n\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t",
-                          staticStyle: { width: "200px" }
-                        }),
-                        _vm._v(" "),
                         _c(
-                          "h2",
-                          { staticClass: "bangla-font text-center mt-5" },
-                          [_vm._v("হাসপাতাল")]
+                          "card",
+                          {
+                            staticClass: "border-0",
+                            attrs: {
+                              hover: "",
+                              shadow: "",
+                              "body-classes": "py-5"
+                            }
+                          },
+                          [
+                            _c("img", {
+                              directives: [
+                                {
+                                  name: "lazy",
+                                  rawName: "v-lazy",
+                                  value: "img/theme/doctor.jpg",
+                                  expression: "'img/theme/doctor.jpg'"
+                                }
+                              ],
+                              staticClass:
+                                "\n\t\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t\t",
+                              staticStyle: { width: "200px" }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "h2",
+                              { staticClass: "bangla-font text-center mt-5" },
+                              [_vm._v("হাসপাতাল")]
+                            )
+                          ]
                         )
-                      ]
+                      ],
+                      1
                     )
                   ],
                   1
@@ -19804,6 +22047,91 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/Hospitals.vue?vue&type=template&id=4e8275c2&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/pages/Hospitals.vue?vue&type=template&id=4e8275c2& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("hospital-hero", {
+        attrs: { categories: _vm.categories },
+        on: {
+          selectItem: function($event) {
+            return _vm.getSelectvalue($event)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("section", { staticClass: "section section-lg pt-0" }, [
+        _c("div", { staticClass: "p-3" }, [
+          _c(
+            "div",
+            { staticClass: "row" },
+            [
+              _c("div", { staticClass: "col-12 page-header pb-4" }, [
+                _c("h2", { staticClass: "bangla-font text-center mb-2 mt-2" }, [
+                  _vm._v("\n\t\t\t\t\t\t" + _vm._s(_vm.title) + "\n\t\t\t\t\t")
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.hospitals, function(hospital, index) {
+                return _c(
+                  "div",
+                  { key: index, staticClass: "col-lg-3 p-3" },
+                  [_c("single-hospital", { attrs: { hospital: hospital } })],
+                  1
+                )
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-center mb-2 mt-4" },
+            [
+              _c("base-pagination", {
+                attrs: {
+                  total: _vm.total,
+                  perPage: _vm.perPage,
+                  value: _vm.currentPage,
+                  align: "center",
+                  "empty-message": _vm.emptyMessage
+                },
+                on: {
+                  input: function($event) {
+                    return _vm.changePage($event)
+                  }
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ])
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/Login.vue?vue&type=template&id=eaaf2be2&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/pages/Login.vue?vue&type=template&id=eaaf2be2& ***!
@@ -20522,6 +22850,47 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-loading-overlay/dist/vue-loading.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue-loading-overlay/dist/vue-loading.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./vue-loading.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loading-overlay/dist/vue-loading.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loading-overlay/dist/vue-loading.min.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/vue-loading-overlay/dist/vue-loading.min.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}("undefined"!=typeof self?self:this,(function(){return function(t){var e={};function i(n){if(e[n])return e[n].exports;var r=e[n]={i:n,l:!1,exports:{}};return t[n].call(r.exports,r,r.exports,i),r.l=!0,r.exports}return i.m=t,i.c=e,i.d=function(t,e,n){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(i.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)i.d(n,r,function(e){return t[e]}.bind(null,r));return n},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=1)}([function(t,e,i){},function(t,e,i){"use strict";i.r(e);var n="undefined"!=typeof window?window.HTMLElement:Object,r={mounted:function(){this.enforceFocus&&document.addEventListener("focusin",this.focusIn)},methods:{focusIn:function(t){if(this.isActive&&t.target!==this.$el&&!this.$el.contains(t.target)){var e=this.container?this.container:this.isFullPage?null:this.$el.parentElement;(this.isFullPage||e&&e.contains(t.target))&&(t.preventDefault(),this.$el.focus())}}},beforeDestroy:function(){document.removeEventListener("focusin",this.focusIn)}};function a(t,e,i,n,r,a,o,s){var l,u="function"==typeof t?t.options:t;if(e&&(u.render=e,u.staticRenderFns=i,u._compiled=!0),n&&(u.functional=!0),a&&(u._scopeId="data-v-"+a),o?(l=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(o)},u._ssrRegister=l):r&&(l=s?function(){r.call(this,(u.functional?this.parent:this).$root.$options.shadowRoot)}:r),l)if(u.functional){u._injectStyles=l;var c=u.render;u.render=function(t,e){return l.call(e),c(t,e)}}else{var d=u.beforeCreate;u.beforeCreate=d?[].concat(d,l):[l]}return{exports:t,options:u}}var o=a({name:"spinner",props:{color:{type:String,default:"#000"},height:{type:Number,default:64},width:{type:Number,default:64}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 38 38",xmlns:"http://www.w3.org/2000/svg",width:this.width,height:this.height,stroke:this.color}},[e("g",{attrs:{fill:"none","fill-rule":"evenodd"}},[e("g",{attrs:{transform:"translate(1 1)","stroke-width":"2"}},[e("circle",{attrs:{"stroke-opacity":".25",cx:"18",cy:"18",r:"18"}}),e("path",{attrs:{d:"M36 18c0-9.94-8.06-18-18-18"}},[e("animateTransform",{attrs:{attributeName:"transform",type:"rotate",from:"0 18 18",to:"360 18 18",dur:"0.8s",repeatCount:"indefinite"}})],1)])])])}),[],!1,null,null,null).exports,s=a({name:"dots",props:{color:{type:String,default:"#000"},height:{type:Number,default:240},width:{type:Number,default:60}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{viewBox:"0 0 120 30",xmlns:"http://www.w3.org/2000/svg",fill:this.color,width:this.width,height:this.height}},[e("circle",{attrs:{cx:"15",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"60",cy:"15",r:"9","fill-opacity":"0.3"}},[e("animate",{attrs:{attributeName:"r",from:"9",to:"9",begin:"0s",dur:"0.8s",values:"9;15;9",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"0.5",to:"0.5",begin:"0s",dur:"0.8s",values:".5;1;.5",calcMode:"linear",repeatCount:"indefinite"}})]),e("circle",{attrs:{cx:"105",cy:"15",r:"15"}},[e("animate",{attrs:{attributeName:"r",from:"15",to:"15",begin:"0s",dur:"0.8s",values:"15;9;15",calcMode:"linear",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"fill-opacity",from:"1",to:"1",begin:"0s",dur:"0.8s",values:"1;.5;1",calcMode:"linear",repeatCount:"indefinite"}})])])}),[],!1,null,null,null).exports,l=a({name:"bars",props:{color:{type:String,default:"#000"},height:{type:Number,default:40},width:{type:Number,default:40}}},(function(){var t=this.$createElement,e=this._self._c||t;return e("svg",{attrs:{xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 30 30",height:this.height,width:this.width,fill:this.color}},[e("rect",{attrs:{x:"0",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"10",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.15s",dur:"0.6s",repeatCount:"indefinite"}})]),e("rect",{attrs:{x:"20",y:"13",width:"4",height:"5"}},[e("animate",{attrs:{attributeName:"height",attributeType:"XML",values:"5;21;5",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}}),e("animate",{attrs:{attributeName:"y",attributeType:"XML",values:"13; 5; 13",begin:"0.3s",dur:"0.6s",repeatCount:"indefinite"}})])])}),[],!1,null,null,null).exports,u=a({name:"vue-loading",mixins:[r],props:{active:Boolean,programmatic:Boolean,container:[Object,Function,n],isFullPage:{type:Boolean,default:!0},enforceFocus:{type:Boolean,default:!0},lockScroll:{type:Boolean,default:!1},transition:{type:String,default:"fade"},canCancel:Boolean,onCancel:{type:Function,default:function(){}},color:String,backgroundColor:String,blur:{type:String,default:"2px"},opacity:Number,width:Number,height:Number,zIndex:Number,loader:{type:String,default:"spinner"}},data:function(){return{isActive:this.active}},components:{Spinner:o,Dots:s,Bars:l},beforeMount:function(){this.programmatic&&(this.container?(this.isFullPage=!1,this.container.appendChild(this.$el)):document.body.appendChild(this.$el))},mounted:function(){this.programmatic&&(this.isActive=!0),document.addEventListener("keyup",this.keyPress)},methods:{cancel:function(){this.canCancel&&this.isActive&&(this.hide(),this.onCancel.apply(null,arguments))},hide:function(){var t=this;this.$emit("hide"),this.$emit("update:active",!1),this.programmatic&&(this.isActive=!1,setTimeout((function(){var e;t.$destroy(),void 0!==(e=t.$el).remove?e.remove():e.parentNode.removeChild(e)}),150))},disableScroll:function(){this.isFullPage&&this.lockScroll&&document.body.classList.add("vld-shown")},enableScroll:function(){this.isFullPage&&this.lockScroll&&document.body.classList.remove("vld-shown")},keyPress:function(t){27===t.keyCode&&this.cancel()}},watch:{active:function(t){this.isActive=t},isActive:function(t){t?this.disableScroll():this.enableScroll()}},computed:{bgStyle:function(){return{background:this.backgroundColor,opacity:this.opacity,backdropFilter:"blur(".concat(this.blur,")")}}},beforeDestroy:function(){document.removeEventListener("keyup",this.keyPress)}},(function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("transition",{attrs:{name:t.transition}},[i("div",{directives:[{name:"show",rawName:"v-show",value:t.isActive,expression:"isActive"}],staticClass:"vld-overlay is-active",class:{"is-full-page":t.isFullPage},style:{zIndex:t.zIndex},attrs:{tabindex:"0","aria-busy":t.isActive,"aria-label":"Loading"}},[i("div",{staticClass:"vld-background",style:t.bgStyle,on:{click:function(e){return e.preventDefault(),t.cancel(e)}}}),i("div",{staticClass:"vld-icon"},[t._t("before"),t._t("default",[i(t.loader,{tag:"component",attrs:{color:t.color,width:t.width,height:t.height}})]),t._t("after")],2)])])}),[],!1,null,null,null).exports,c=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{};return{show:function(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:e,r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:i,a={programmatic:!0},o=Object.assign({},e,n,a),s=new(t.extend(u))({el:document.createElement("div"),propsData:o}),l=Object.assign({},i,r);return Object.keys(l).map((function(t){s.$slots[t]=l[t]})),s}}};i(0);u.install=function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},i=arguments.length>2&&void 0!==arguments[2]?arguments[2]:{},n=c(t,e,i);t.$loading=n,t.prototype.$loading=n};e.default=u}]).default}));
 
 /***/ }),
 
@@ -51381,6 +53750,162 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/hospital/HospitalHero.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/hospital/HospitalHero.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _HospitalHero_vue_vue_type_template_id_2f29a524___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HospitalHero.vue?vue&type=template&id=2f29a524& */ "./resources/js/components/hospital/HospitalHero.vue?vue&type=template&id=2f29a524&");
+/* harmony import */ var _HospitalHero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HospitalHero.vue?vue&type=script&lang=js& */ "./resources/js/components/hospital/HospitalHero.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HospitalHero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _HospitalHero_vue_vue_type_template_id_2f29a524___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _HospitalHero_vue_vue_type_template_id_2f29a524___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/hospital/HospitalHero.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/hospital/HospitalHero.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/hospital/HospitalHero.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HospitalHero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./HospitalHero.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/HospitalHero.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HospitalHero_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/hospital/HospitalHero.vue?vue&type=template&id=2f29a524&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/hospital/HospitalHero.vue?vue&type=template&id=2f29a524& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HospitalHero_vue_vue_type_template_id_2f29a524___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./HospitalHero.vue?vue&type=template&id=2f29a524& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/HospitalHero.vue?vue&type=template&id=2f29a524&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HospitalHero_vue_vue_type_template_id_2f29a524___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HospitalHero_vue_vue_type_template_id_2f29a524___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/hospital/SingleHospital.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/hospital/SingleHospital.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SingleHospital_vue_vue_type_template_id_4185873c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SingleHospital.vue?vue&type=template&id=4185873c& */ "./resources/js/components/hospital/SingleHospital.vue?vue&type=template&id=4185873c&");
+/* harmony import */ var _SingleHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SingleHospital.vue?vue&type=script&lang=js& */ "./resources/js/components/hospital/SingleHospital.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SingleHospital.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _SingleHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SingleHospital_vue_vue_type_template_id_4185873c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SingleHospital_vue_vue_type_template_id_4185873c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/hospital/SingleHospital.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/hospital/SingleHospital.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/hospital/SingleHospital.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleHospital.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleHospital.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/hospital/SingleHospital.vue?vue&type=template&id=4185873c&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/hospital/SingleHospital.vue?vue&type=template&id=4185873c& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_template_id_4185873c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./SingleHospital.vue?vue&type=template&id=4185873c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/hospital/SingleHospital.vue?vue&type=template&id=4185873c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_template_id_4185873c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SingleHospital_vue_vue_type_template_id_4185873c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/stringUtils.js":
 /*!************************************************!*\
   !*** ./resources/js/components/stringUtils.js ***!
@@ -51759,9 +54284,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_pages_BloodBank_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/pages/BloodBank.vue */ "./resources/js/views/pages/BloodBank.vue");
 /* harmony import */ var _views_pages_BloodDonorForm_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/pages/BloodDonorForm.vue */ "./resources/js/views/pages/BloodDonorForm.vue");
 /* harmony import */ var _views_pages_DoctorAddForm_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/pages/DoctorAddForm.vue */ "./resources/js/views/pages/DoctorAddForm.vue");
-/* harmony import */ var _views_pages_Login_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/pages/Login.vue */ "./resources/js/views/pages/Login.vue");
-/* harmony import */ var _views_pages_Register_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/pages/Register.vue */ "./resources/js/views/pages/Register.vue");
-/* harmony import */ var _views_pages_Profile_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views//pages/Profile.vue */ "./resources/js/views/pages/Profile.vue");
+/* harmony import */ var _views_pages_Hospitals_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/pages/Hospitals.vue */ "./resources/js/views/pages/Hospitals.vue");
+/* harmony import */ var _views_pages_AddHospital_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/pages/AddHospital.vue */ "./resources/js/views/pages/AddHospital.vue");
+/* harmony import */ var _views_pages_Login_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/pages/Login.vue */ "./resources/js/views/pages/Login.vue");
+/* harmony import */ var _views_pages_Register_vue__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/pages/Register.vue */ "./resources/js/views/pages/Register.vue");
+/* harmony import */ var _views_pages_Profile_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views//pages/Profile.vue */ "./resources/js/views/pages/Profile.vue");
+
+
 
 
 
@@ -51819,11 +54348,27 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
       footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   }, {
+    path: "/hospitals-clinics",
+    name: "Hospitals",
+    components: {
+      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
+      "default": _views_pages_Hospitals_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
+    }
+  }, {
+    path: "/add-new-hospital-clinic",
+    name: "Hospitals",
+    components: {
+      header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
+      "default": _views_pages_AddHospital_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+      footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
+    }
+  }, {
     path: "/login",
     name: "login",
     components: {
       header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_pages_Login_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+      "default": _views_pages_Login_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
       footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   }, {
@@ -51831,7 +54376,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: "register",
     components: {
       header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_pages_Register_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+      "default": _views_pages_Register_vue__WEBPACK_IMPORTED_MODULE_12__["default"],
       footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   }, {
@@ -51839,7 +54384,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: "profile",
     components: {
       header: _layout_AppHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
-      "default": _views_pages_Profile_vue__WEBPACK_IMPORTED_MODULE_11__["default"],
+      "default": _views_pages_Profile_vue__WEBPACK_IMPORTED_MODULE_13__["default"],
       footer: _layout_AppFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   }],
@@ -51856,6 +54401,75 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     }
   }
 }));
+
+/***/ }),
+
+/***/ "./resources/js/views/pages/AddHospital.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/views/pages/AddHospital.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AddHospital_vue_vue_type_template_id_4c452dbe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddHospital.vue?vue&type=template&id=4c452dbe& */ "./resources/js/views/pages/AddHospital.vue?vue&type=template&id=4c452dbe&");
+/* harmony import */ var _AddHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddHospital.vue?vue&type=script&lang=js& */ "./resources/js/views/pages/AddHospital.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AddHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AddHospital_vue_vue_type_template_id_4c452dbe___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AddHospital_vue_vue_type_template_id_4c452dbe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/pages/AddHospital.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/pages/AddHospital.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/views/pages/AddHospital.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AddHospital.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/AddHospital.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AddHospital_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/pages/AddHospital.vue?vue&type=template&id=4c452dbe&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/views/pages/AddHospital.vue?vue&type=template&id=4c452dbe& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddHospital_vue_vue_type_template_id_4c452dbe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./AddHospital.vue?vue&type=template&id=4c452dbe& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/AddHospital.vue?vue&type=template&id=4c452dbe&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddHospital_vue_vue_type_template_id_4c452dbe___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddHospital_vue_vue_type_template_id_4c452dbe___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -52199,6 +54813,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_4592b1a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_4592b1a9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/views/pages/Hospitals.vue":
+/*!************************************************!*\
+  !*** ./resources/js/views/pages/Hospitals.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Hospitals_vue_vue_type_template_id_4e8275c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Hospitals.vue?vue&type=template&id=4e8275c2& */ "./resources/js/views/pages/Hospitals.vue?vue&type=template&id=4e8275c2&");
+/* harmony import */ var _Hospitals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Hospitals.vue?vue&type=script&lang=js& */ "./resources/js/views/pages/Hospitals.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Hospitals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Hospitals_vue_vue_type_template_id_4e8275c2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Hospitals_vue_vue_type_template_id_4e8275c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/views/pages/Hospitals.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/views/pages/Hospitals.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/views/pages/Hospitals.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Hospitals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Hospitals.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/Hospitals.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Hospitals_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/views/pages/Hospitals.vue?vue&type=template&id=4e8275c2&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/views/pages/Hospitals.vue?vue&type=template&id=4e8275c2& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Hospitals_vue_vue_type_template_id_4e8275c2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Hospitals.vue?vue&type=template&id=4e8275c2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/pages/Hospitals.vue?vue&type=template&id=4e8275c2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Hospitals_vue_vue_type_template_id_4e8275c2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Hospitals_vue_vue_type_template_id_4e8275c2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

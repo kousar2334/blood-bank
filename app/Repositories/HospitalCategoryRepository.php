@@ -10,6 +10,15 @@ class HospitalCategoryRepository implements HospitalCategoryInterface
 {
 
     /**
+     * This method will return active categories list
+     * 
+     * @return Collection
+     */
+    public function list()
+    {
+        return HospitalCategory::where('status', 1)->get();
+    }
+    /**
      * This method will return hospital category list
      * 
      * @return Arrary

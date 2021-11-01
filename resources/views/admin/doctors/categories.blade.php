@@ -70,8 +70,8 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $counter }}</td>
-                                            <td>{{ $cat->name }}</td>
-                                            <td>{{ $cat->bn_name }}</td>
+                                            <td class="bangla-font">{{ $cat->name }}</td>
+                                            <td class="bangla-font">{{ $cat->bn_name }}</td>
                                             <td>
                                                 @if ($cat->icon)
                                                     <img src="{{ asset('/') }}{{ $cat->icon }}" border="0"

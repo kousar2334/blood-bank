@@ -1,11 +1,11 @@
-<nav class="main-header navbar navbar-expand navbar-red layout-navbar-fixed navbar-dark navbar-gray-dark">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light border-bottom-0">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('frontpage')}}" class="nav-link" target="_blank"><i class="fas fa-globe"></i></a>
+            <a href="{{ route('frontpage') }}" class="nav-link" target="_blank"><i class="fas fa-globe"></i></a>
         </li>
     </ul>
 
@@ -111,8 +111,8 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
-         <!-- User manu -->
-         <li class="nav-item dropdown">
+        <!-- User manu -->
+        <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="fas fa-user-circle"></i>
             </a>
@@ -121,11 +121,12 @@
                     <!-- Message Start -->
                     <div class="media">
                         @if (!empty(Auth::user()->image))
-                        <img src="{{ asset(Auth::user()->image) }}" class="img-size-50 mr-3 img-circle" alt="User Image">
-                    @else
-                        <img src="{{ asset('/backend/dist/img/user1-160x160.jpg') }}" class="img-size-50 mr-3 img-circle"
-                            alt="User Image">
-                    @endif
+                            <img src="{{ asset(Auth::user()->image) }}" class="img-size-50 mr-3 img-circle"
+                                alt="User Image">
+                        @else
+                            <img src="{{ asset('/backend/dist/img/user1-160x160.jpg') }}"
+                                class="img-size-50 mr-3 img-circle" alt="User Image">
+                        @endif
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}

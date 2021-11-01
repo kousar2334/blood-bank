@@ -7,6 +7,8 @@ import Doctors from "./views/pages/Doctors.vue";
 import BloodBank from "./views/pages/BloodBank.vue";
 import BloodDonorForm from "./views/pages/BloodDonorForm.vue";
 import DoctorAddForm from "./views/pages/DoctorAddForm.vue";
+import Hospitals from "./views/pages/Hospitals.vue";
+import AddHospital from "./views/pages/AddHospital.vue";
 import Login from "./views/pages/Login.vue";
 import Register from "./views/pages/Register.vue";
 import Profile from "./views//pages/Profile.vue";
@@ -58,6 +60,24 @@ export default new Router({
             components: {
                 header: AppHeader,
                 default: BloodDonorForm,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/hospitals-clinics",
+            name: "Hospitals",
+            components: {
+                header: AppHeader,
+                default: Hospitals,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/add-new-hospital-clinic",
+            name: "Hospitals",
+            components: {
+                header: AppHeader,
+                default: AddHospital,
                 footer: AppFooter
             }
         },

@@ -26,3 +26,9 @@ Route::get('/get-doctors-departments', 'Api\DoctorController@getDoctorDeparments
 Route::post('/get-doctor-list', 'Api\DoctorController@getDoctorList');
 Route::post('/get-doctor-chambers', 'Api\DoctorController@getDoctorChambers');
 Route::post('/store-new-doctor', 'Api\DoctorController@storeNewDoctor');
+
+//hspital
+Route::get('/get-all-hospital-categories', 'Api\HospitalController@getAllCategories');
+Route::post('/store-new-hospital', 'Api\HospitalController@storeNewHospital');
+Route::post('/get-hospital-list', 'Api\HospitalController@hospitalList');
+Route::post('/get-hospital-details', 'Api\HospitalController@hospitalDetails');

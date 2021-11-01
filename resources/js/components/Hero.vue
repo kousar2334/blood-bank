@@ -18,15 +18,6 @@
 					<div class="col-lg-12 text-center pt-0 mt-0 mt-lg-3 mt-md-3 pb-0">
 						<VueSlickCarousel :arrows="false" :dots="false" v-bind="settings">
 							<div>
-								<img
-									v-lazy="
-										'https://hw.menardc.com/main/store/20090519001/assets/images6/lightbulbs/Responsive/1_Title_Image_rev.jpg'
-									"
-									class="img-center img-fluid mb-2"
-									style="width: 100px,max-heigth:200px"
-								/>
-							</div>
-							<div>
 								<h1 class="bangla-font text-white">দুটি সন্তানের বেশী নয়</h1>
 								<h1 class="bangla-font text-white">একটি হলে ভাল হয়</h1>
 							</div>

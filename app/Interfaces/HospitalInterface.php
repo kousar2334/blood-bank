@@ -7,6 +7,8 @@ interface HospitalInterface
 
     public function all();
 
+    public function list($request);
+
     public function store($request);
 
     public function update($request);

@@ -26,20 +26,22 @@
 								</router-link>
 							</div>
 							<div class="col-lg-4">
-								<card class="border-0" hover shadow body-classes="py-5">
-									<img
-										v-lazy="'img/theme/doctor.jpg'"
-										class="
-											rounded-circle
-											img-center img-fluid
-											shadow
-											shadow-lg--hover
-										"
-										style="width: 200px"
-									/>
+								<router-link to="/hospitals-clinics">
+									<card class="border-0" hover shadow body-classes="py-5">
+										<img
+											v-lazy="'img/theme/doctor.jpg'"
+											class="
+												rounded-circle
+												img-center img-fluid
+												shadow
+												shadow-lg--hover
+											"
+											style="width: 200px"
+										/>
 
-									<h2 class="bangla-font text-center mt-5">হাসপাতাল</h2>
-								</card>
+										<h2 class="bangla-font text-center mt-5">হাসপাতাল</h2>
+									</card>
+								</router-link>
 							</div>
 							<div class="col-lg-4">
 								<router-link to="/blood-bank">

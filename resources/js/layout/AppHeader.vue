@@ -118,7 +118,9 @@
 					<router-link to="/add-new-doctor" class="dropdown-item bangla-font"
 						>ডাক্তার
 					</router-link>
-					<router-link to="/register" class="dropdown-item bangla-font"
+					<router-link
+						to="/add-new-hospital-clinic"
+						class="dropdown-item bangla-font"
 						>হাসপাতাল/ক্লিনিক
 					</router-link>
 					<router-link to="/register" class="dropdown-item bangla-font"

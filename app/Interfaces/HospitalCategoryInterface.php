@@ -5,6 +5,8 @@ namespace App\Interfaces;
 interface HospitalCategoryInterface
 {
 
+    public function list();
+
     public function all();
 
     public function store($request);

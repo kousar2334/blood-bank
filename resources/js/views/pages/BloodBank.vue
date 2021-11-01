@@ -12,6 +12,13 @@
 							{{ title }}
 						</h2>
 					</div>
+					<!-- <loading
+						:active="isLoading"
+						:can-cancel="true"
+						color="red"
+						:is-full-page="fullPage"
+					/> -->
+
 					<div
 						v-for="(donor, index) in blood_donors"
 						:key="index"
@@ -20,7 +27,7 @@
 						<single-donor :donor="donor"> </single-donor>
 					</div>
 				</div>
-				<div class="text-center mb-2 mt-4">
+				<div class="text-center mb-2 mt-4" v-if="!isLoading">
 					<base-pagination
 						:total="total"
 						:perPage="perPage"
@@ -38,6 +45,8 @@
 import BloodbankHero from "../../components/bloodBank/BloodBankHero.vue";
 import SingleDonor from "../../components/bloodBank/SingleDonor.vue";
 import BasePagination from "../../components/BasePagination.vue";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 import axios from "axios";
 export default {
 	name: "BloodBank",
@@ -45,6 +54,7 @@ export default {
 		BloodbankHero,
 		SingleDonor,
 		BasePagination,
+		Loading,
 	},
 	data() {
 		return {
@@ -56,6 +66,9 @@ export default {
 			total: 0,
 			perPage: 12,
 			selected_group: "",
+			isLoading: false,
+			fullPage: true,
+			docts: "docts",
 		};
 	},
 	mounted() {
@@ -93,6 +106,7 @@ export default {
 		 * Get blood donors
 		 */
 		getDonorList() {
+			this.isLoading = true;
 			axios
 				.post("/api/get-blood-donor-list", {
 					perPage: this.perPage,
@@ -103,9 +117,14 @@ export default {
 					if (response.data.success) {
 						this.blood_donors = response.data.blood_donors.data;
 						this.total = response.data.blood_donors.total;
+						this.isLoading = false;
+					} else {
+						this.isLoading = false;
 					}
 				})
-				.catch((error) => {});
+				.catch((error) => {
+					this.isLoading = false;
+				});
 		},
 		changePage(page) {
 			this.currentPage = page;

@@ -9,6 +9,35 @@ use App\Interfaces\HospitalInterface;
 
 class HospitalRepository implements HospitalInterface
 {
+    /**
+     * Get filterd hospitals list
+     * 
+     * @param Arrary $request
+     * @return Arrary
+     */
+    public function list($request)
+    {
+        $query = DB::table('hospitals')
+            ->join('hospital_categories', 'hospital_categories.id', '=', 'hospitals.cat_id')
+            ->select([
+                'hospitals.id',
+                'hospitals.name as name',
+                'hospital_categories.bn_name as category',
+                'hospitals.address',
+                'hospitals.mobile_1',
+                'hospitals.mobile_2',
+                'hospitals.phone',
+                'hospitals.email',
+            ]);
+
+
+        if (isset($request->cat_id) && $request->cat_id != null) {
+            $query = $query->where('hospitals.cat_id', $request->cat_id);
+        }
+
+        return $query->where('hospitals.status', 1)->orderBy('hospitals.featured', 'DESC')->paginate($request->perPage);
+    }
+
     public function all()
     {
     }
@@ -20,7 +49,7 @@ class HospitalRepository implements HospitalInterface
      */
     public function store($request)
     {
-        if ($request->has('image')) {
+        if ($request->image != null) {
             $image = uploadHospitalImage($request);
         } else {
             $image = NULL;
@@ -35,7 +64,10 @@ class HospitalRepository implements HospitalInterface
         $hospital->mobile_2 = $request->mobile_2;
         $hospital->address = $request->address;
         $hospital->description = $request->description;
+        $hospital->web = $request->web;
+        $hospital->fb_link = $request->fb_link;
         $hospital->image = $image;
+        $hospital->status = $request->status;
         $hospital->save();
     }
     /**
@@ -68,6 +100,9 @@ class HospitalRepository implements HospitalInterface
                     'mobile_2' => $request->mobile_2,
                     'address' => $request->address,
                     'description' => $request->description,
+                    'web' => $request->web,
+                    'fb_link' => $request->fb_link,
+                    'featured' => $request->featured,
                     'cat_id' => $request->cat_id,
                     'status' => $request->status,
                     'image' => $image,

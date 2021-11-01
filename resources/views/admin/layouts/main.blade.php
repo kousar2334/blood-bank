@@ -38,7 +38,7 @@
     <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
     @yield('custom_css')
     <style>
-        .content-header .breadcrumb {
+        /* .content-header .breadcrumb {
             line-height: 1.5rem;
         }
 
@@ -49,7 +49,7 @@
         [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item .nav-treeview,
         [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item>.nav-treeview {
             background: #000408;
-        }
+        } */
 
         .del-modal {
             position: absolute;
@@ -83,9 +83,9 @@
             border-color: #808080a6;
         }
 
-        .nav-icon {
+        /* .nav-icon {
             color: #d81b60
-        }
+        } */
 
     </style>
 </head>

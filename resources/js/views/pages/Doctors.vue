@@ -114,7 +114,9 @@ export default {
 	},
 	metaInfo: {
 		title: "ডাক্তার",
-		meta: [{ name: "description", content: "foo" }],
+		meta: [
+			{ vmid: "description", name: "description", content: "The home page" },
+		],
 	},
 };
 </script>
