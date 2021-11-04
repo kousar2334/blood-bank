@@ -172,8 +172,10 @@
                 <!--End Doctor Module-->
 
                 <!--Ambulance Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li
+                    class="{{ Request::routeIs(['admin.ambulance.category.add', 'admin.ambulance.category.list', 'admin.ambulance.category.edit', 'admin.ambulance.add', 'admin.ambulance.all', 'admin.ambulance.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs([]) ? 'active' : 'admin.ambulance.category.add', 'admin.ambulance.category.list', 'admin.ambulance.category.edit', 'admin.ambulance.add', 'admin.ambulance.all', 'admin.ambulance.edit' }} nav-link">
                         <i class="nav-icon fas fa-ambulance"></i>
                         <p>
                             Ambulance
@@ -182,24 +184,31 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.ambulance.all') }}"
+                                class="{{ Request::routeIs('admin.ambulance.all') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Ambulance</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.ambulance.add') }}"
+                                class="{{ Request::routeIs('admin.ambulance.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add Ambulance</p>
+                                <p>New Ambulance</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.ambulance.category.list') }}"
+                                class="{{ Request::routeIs('admin.ambulance.category.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Ambulance Types</p>
+                                <p>Ambulance Categories</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.ambulance.category.add') }}"
+                                class="{{ Request::routeIs('admin.ambulance.category.add') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>New Category</p>
                             </a>
                         </li>
                     </ul>

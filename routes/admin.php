@@ -60,4 +60,18 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/edit-doctor-details/{id}', 'DoctorController@editDoctor')->name('admin.doctor.edit');
     Route::post('/update-doctor', 'DoctorController@updateDoctor')->name('admin.doctor.update');
     Route::post('/delete-doctor', 'DoctorController@deleteDoctor')->name('admin.doctor.delete');
+    //Ambulance Rutes
+    Route::view('/new-ambulance-category', 'admin.ambulance.new_category')->name('admin.ambulance.category.add');
+    Route::post('/store-new-ambulance-category', 'AmbulanceController@storeCategory')->name('admin.ambulance.category.store');
+    Route::get('/ambulance-categories', 'AmbulanceController@allCategory')->name('admin.ambulance.category.list');
+    Route::get('/edit-ambulance-category/{id}', 'AmbulanceController@editCategory')->name('admin.ambulance.category.edit');
+    Route::post('/update-ambulance-category', 'AmbulanceController@updateCategory')->name('admin.ambulance.category.update');
+    Route::post('/delete-ambulance-category', 'AmbulanceController@deleteCategory')->name('admin.ambulance.category.delete');
+
+    Route::get('/add-new-ambulance', 'AmbulanceController@newAmbulance')->name('admin.ambulance.add');
+    Route::post('/store-new-ambulance', 'AmbulanceController@storeNewAmbulance')->name('admin.ambulance.store');
+    Route::get('/all-ambulance', 'AmbulanceController@allAmbulance')->name('admin.ambulance.all');
+    Route::get('/edit-ambulance/{id}', 'AmbulanceController@editAmbulance')->name('admin.ambulance.edit');
+    Route::post('/update-ambulance', 'AmbulanceController@updateAmbulance')->name('admin.ambulance.update');
+    Route::post('/delete-ambulance', 'AmbulanceController@deleteAmbulance')->name('admin.ambulance.delete');
 });

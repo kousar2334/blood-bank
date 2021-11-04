@@ -38,6 +38,19 @@ if (!function_exists('uploadHospitalImage')) {
         return $image;
     }
 }
+if (!function_exists('uploadAmbulanceImage')) {
+    function uploadAmbulanceImage($request)
+    {
+        $directory = 'uploads/ambulance/';
+        $image = $request->file('image');
+        $imageName = $image->getClientOriginalName();
+        $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+        $imageName = date('mdYHis') . 'hos.' . $extension;
+        $image->move(public_path($directory), $imageName);
+        $image = $directory . '' . $imageName;
+        return $image;
+    }
+}
 if (!function_exists('uploadDoctorCategoryImage')) {
     function uploadDoctorCategoryImage($request)
     {

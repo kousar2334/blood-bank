@@ -4359,36 +4359,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app-footer",
   data: function data() {
@@ -17471,25 +17441,14 @@ var render = function() {
               _c(
                 "a",
                 {
+                  staticClass: "bangla-font",
                   attrs: {
                     href: "https://www.creative-tim.com",
                     target: "_blank",
                     rel: "noopener"
                   }
                 },
-                [_vm._v("Creative Tim")]
-              ),
-              _vm._v("\n\t\t\t\t\t\t&\n\t\t\t\t\t\t"),
-              _c(
-                "a",
-                {
-                  attrs: {
-                    href: "https://www.binarcode.com",
-                    target: "_blank",
-                    rel: "noopener"
-                  }
-                },
-                [_vm._v("Binar Code")]
+                [_vm._v("আমার বগুড়া")]
               )
             ])
           ]),
@@ -17593,58 +17552,17 @@ var staticRenderFns = [
             {
               staticClass: "nav-link",
               attrs: {
-                href: "https://www.creative-tim.com",
+                href: "https://www.facebook.com/kousarrahman",
                 target: "_blank",
                 rel: "noopener"
               }
             },
-            [_vm._v("Creative Tim")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "nav-link",
-              attrs: {
-                href: "https://www.creative-tim.com/presentation",
-                target: "_blank",
-                rel: "noopener"
-              }
-            },
-            [_vm._v("About Us")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "nav-link",
-              attrs: {
-                href: "http://blog.creative-tim.com",
-                target: "_blank",
-                rel: "noopener"
-              }
-            },
-            [_vm._v("Blog")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "nav-link",
-              attrs: {
-                href:
-                  "https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md",
-                target: "_blank",
-                rel: "noopener"
-              }
-            },
-            [_vm._v("MIT License")]
+            [
+              _vm._v("Developed By "),
+              _c("strong", { staticClass: "success" }, [
+                _vm._v("Kousar Rahman")
+              ])
+            ]
           )
         ])
       ])
@@ -20978,13 +20896,16 @@ var render = function() {
                                 {
                                   name: "lazy",
                                   rawName: "v-lazy",
-                                  value: "img/theme/doctor.jpg",
-                                  expression: "'img/theme/doctor.jpg'"
+                                  value: "img/theme/hospital.png",
+                                  expression: "'img/theme/hospital.png'"
                                 }
                               ],
                               staticClass:
                                 "\n\t\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t\t",
-                              staticStyle: { width: "200px" }
+                              staticStyle: {
+                                width: "200px",
+                                "min-height": "200px"
+                              }
                             }),
                             _vm._v(" "),
                             _c(
@@ -21025,13 +20946,16 @@ var render = function() {
                                 {
                                   name: "lazy",
                                   rawName: "v-lazy",
-                                  value: "img/theme/doctor.jpg",
-                                  expression: "'img/theme/doctor.jpg'"
+                                  value: "img/theme/blood_bank.png",
+                                  expression: "'img/theme/blood_bank.png'"
                                 }
                               ],
                               staticClass:
                                 "\n\t\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t\t",
-                              staticStyle: { width: "200px" }
+                              staticStyle: {
+                                width: "200px",
+                                "min-height": "200px"
+                              }
                             }),
                             _vm._v(" "),
                             _c(
@@ -21070,13 +20994,13 @@ var render = function() {
                             {
                               name: "lazy",
                               rawName: "v-lazy",
-                              value: "img/theme/doctor.jpg",
-                              expression: "'img/theme/doctor.jpg'"
+                              value: "img/theme/ambulance.png",
+                              expression: "'img/theme/ambulance.png'"
                             }
                           ],
                           staticClass:
                             "\n\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t",
-                          staticStyle: { width: "200px" }
+                          staticStyle: { width: "200px", "min-height": "200px" }
                         }),
                         _vm._v(" "),
                         _c(
@@ -21106,13 +21030,13 @@ var render = function() {
                             {
                               name: "lazy",
                               rawName: "v-lazy",
-                              value: "img/theme/doctor.jpg",
-                              expression: "'img/theme/doctor.jpg'"
+                              value: "img/theme/fire_stattion.jpg",
+                              expression: "'img/theme/fire_stattion.jpg'"
                             }
                           ],
                           staticClass:
                             "\n\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t",
-                          staticStyle: { width: "200px" }
+                          staticStyle: { width: "200px", "min-height": "200px" }
                         }),
                         _vm._v(" "),
                         _c(
@@ -21142,13 +21066,13 @@ var render = function() {
                             {
                               name: "lazy",
                               rawName: "v-lazy",
-                              value: "img/theme/doctor.jpg",
-                              expression: "'img/theme/doctor.jpg'"
+                              value: "img/theme/police.png",
+                              expression: "'img/theme/police.png'"
                             }
                           ],
                           staticClass:
                             "\n\t\t\t\t\t\t\t\t\t\trounded-circle\n\t\t\t\t\t\t\t\t\t\timg-center img-fluid\n\t\t\t\t\t\t\t\t\t\tshadow\n\t\t\t\t\t\t\t\t\t\tshadow-lg--hover\n\t\t\t\t\t\t\t\t\t",
-                          staticStyle: { width: "200px" }
+                          staticStyle: { width: "200px", "min-height": "200px" }
                         }),
                         _vm._v(" "),
                         _c(

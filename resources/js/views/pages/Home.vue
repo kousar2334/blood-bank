@@ -29,14 +29,14 @@
 								<router-link to="/hospitals-clinics">
 									<card class="border-0" hover shadow body-classes="py-5">
 										<img
-											v-lazy="'img/theme/doctor.jpg'"
+											v-lazy="'img/theme/hospital.png'"
 											class="
 												rounded-circle
 												img-center img-fluid
 												shadow
 												shadow-lg--hover
 											"
-											style="width: 200px"
+											style="width: 200px; min-height: 200px"
 										/>
 
 										<h2 class="bangla-font text-center mt-5">হাসপাতাল</h2>
@@ -47,14 +47,14 @@
 								<router-link to="/blood-bank">
 									<card class="border-0" hover shadow body-classes="py-5">
 										<img
-											v-lazy="'img/theme/doctor.jpg'"
+											v-lazy="'img/theme/blood_bank.png'"
 											class="
 												rounded-circle
 												img-center img-fluid
 												shadow
 												shadow-lg--hover
 											"
-											style="width: 200px"
+											style="width: 200px; min-height: 200px"
 										/>
 										<h2 class="bangla-font text-center mt-5">ব্লাড ব্যাংক</h2>
 									</card>
@@ -69,14 +69,14 @@
 							<div class="col-lg-4">
 								<card class="border-0" hover shadow body-classes="py-5">
 									<img
-										v-lazy="'img/theme/doctor.jpg'"
+										v-lazy="'img/theme/ambulance.png'"
 										class="
 											rounded-circle
 											img-center img-fluid
 											shadow
 											shadow-lg--hover
 										"
-										style="width: 200px"
+										style="width: 200px; min-height: 200px"
 									/>
 
 									<h2 class="bangla-font text-center mt-5">অ্যাম্বুলেন্স</h2>
@@ -85,14 +85,14 @@
 							<div class="col-lg-4">
 								<card class="border-0" hover shadow body-classes="py-5">
 									<img
-										v-lazy="'img/theme/doctor.jpg'"
+										v-lazy="'img/theme/fire_stattion.jpg'"
 										class="
 											rounded-circle
 											img-center img-fluid
 											shadow
 											shadow-lg--hover
 										"
-										style="width: 200px"
+										style="width: 200px; min-height: 200px"
 									/>
 
 									<h2 class="bangla-font text-center mt-5">ফায়ার সার্ভিস</h2>
@@ -101,14 +101,14 @@
 							<div class="col-lg-4">
 								<card class="border-0" hover shadow body-classes="py-5">
 									<img
-										v-lazy="'img/theme/doctor.jpg'"
+										v-lazy="'img/theme/police.png'"
 										class="
 											rounded-circle
 											img-center img-fluid
 											shadow
 											shadow-lg--hover
 										"
-										style="width: 200px"
+										style="width: 200px; min-height: 200px"
 									/>
 									<h2 class="bangla-font text-center mt-5">পুলিশ</h2>
 								</card>
