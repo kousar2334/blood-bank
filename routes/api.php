@@ -27,8 +27,13 @@ Route::post('/get-doctor-list', 'Api\DoctorController@getDoctorList');
 Route::post('/get-doctor-chambers', 'Api\DoctorController@getDoctorChambers');
 Route::post('/store-new-doctor', 'Api\DoctorController@storeNewDoctor');
 
-//hspital
+//hospital
 Route::get('/get-all-hospital-categories', 'Api\HospitalController@getAllCategories');
 Route::post('/store-new-hospital', 'Api\HospitalController@storeNewHospital');
 Route::post('/get-hospital-list', 'Api\HospitalController@hospitalList');
 Route::post('/get-hospital-details', 'Api\HospitalController@hospitalDetails');
+
+//Ambulance
+Route::get('/get-all-ambulance-categories', 'Api\AmbulanceController@getAllCategories');
+Route::post('/store-new-ambulance', 'Api\AmbulanceController@storeNewAmbulance');
+Route::post('/get-ambulance-list', 'Api\AmbulanceController@ambulanceList');

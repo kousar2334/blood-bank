@@ -33,6 +33,15 @@ class AmbulanceRepository implements AmbulanceInterface
         return AmbulanceCategory::all();
     }
     /**
+     * Get categories list
+     * 
+     * @return Arrary
+     */
+    public function activeCategoriesList()
+    {
+        return AmbulanceCategory::where('status', 1)->get();
+    }
+    /**
      * Get category details
      * 
      * @param Int $id
@@ -149,7 +158,12 @@ class AmbulanceRepository implements AmbulanceInterface
             DB::rollBack();
         }
     }
-
+    /**
+     *Delete Ambulance
+     *
+     *@param Int $id
+     *@return void
+     */
     public function deleteAmbulance($id)
     {
         try {
@@ -159,5 +173,30 @@ class AmbulanceRepository implements AmbulanceInterface
         } catch (\Exception $e) {
             DB::rollBack();
         }
+    }
+    /**
+     * Filter ambulance list
+     * 
+     * @param Object $request
+     * @return Collection
+     */
+    public function filterAmbulance($request)
+    {
+        $query = DB::table('ambulance')
+            ->join('ambulance_categories', 'ambulance_categories.id', '=', 'ambulance.cat_id')
+            ->select([
+                'ambulance.bn_name as name',
+                'ambulance.phone',
+                'ambulance.mobile_1',
+                'ambulance.mobile_2',
+                'ambulance.email',
+                'ambulance.image',
+                'ambulance_categories.bn_name as category'
+            ])->where('ambulance.status', 1)
+            ->orderBy('ambulance.is_featured', 'DESC');
+        if (isset($request->cat_id) && $request->cat_id != null) {
+            $query = $query->where('ambulance.cat_id', $request->cat_id);
+        }
+        return $query->paginate($request->perPage);
     }
 }

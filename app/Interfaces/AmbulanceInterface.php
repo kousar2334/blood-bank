@@ -23,4 +23,8 @@ interface AmbulanceInterface
     public function allAmbulance();
 
     public function updateAmbulance($request);
+
+    public function activeCategoriesList();
+
+    public function filterAmbulance($request);
 }

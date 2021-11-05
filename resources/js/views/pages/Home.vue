@@ -67,20 +67,22 @@
 					<div class="col-lg-12">
 						<div class="row row-grid">
 							<div class="col-lg-4">
-								<card class="border-0" hover shadow body-classes="py-5">
-									<img
-										v-lazy="'img/theme/ambulance.png'"
-										class="
-											rounded-circle
-											img-center img-fluid
-											shadow
-											shadow-lg--hover
-										"
-										style="width: 200px; min-height: 200px"
-									/>
+								<router-link to="/all-ambulance">
+									<card class="border-0" hover shadow body-classes="py-5">
+										<img
+											v-lazy="'img/theme/ambulance.png'"
+											class="
+												rounded-circle
+												img-center img-fluid
+												shadow
+												shadow-lg--hover
+											"
+											style="width: 200px; min-height: 200px"
+										/>
 
-									<h2 class="bangla-font text-center mt-5">অ্যাম্বুলেন্স</h2>
-								</card>
+										<h2 class="bangla-font text-center mt-5">অ্যাম্বুলেন্স</h2>
+									</card>
+								</router-link>
 							</div>
 							<div class="col-lg-4">
 								<card class="border-0" hover shadow body-classes="py-5">

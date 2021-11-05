@@ -123,7 +123,7 @@
 						class="dropdown-item bangla-font"
 						>হাসপাতাল/ক্লিনিক
 					</router-link>
-					<router-link to="/register" class="dropdown-item bangla-font"
+					<router-link to="/add-new-ambulance" class="dropdown-item bangla-font"
 						>অ্যাম্বুলেন্স
 					</router-link>
 				</base-dropdown>
