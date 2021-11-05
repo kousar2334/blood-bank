@@ -5,8 +5,7 @@
 @section('custom_css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -38,7 +37,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Blood Groups List</h3>
+                            <h3 class="card-title">Hospitals Categories</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -50,7 +49,8 @@
                                         <th>Bangla Name</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
+                                        <th class="text-right">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,32 +68,25 @@
                                             <td>{{ $hospital_cat->bn_name }}</td>
                                             <td>{{ $hospital_cat->description }}</td>
                                             <td>
-                                                @if($hospital_cat->status==1)
-                                                <p class="badge badge-success">Actice</p>
+                                                @if ($hospital_cat->status == 1)
+                                                    <p class="badge badge-success">Actice</p>
                                                 @else
-                                                <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">Inactive</p>
                                                 @endif
                                             </td>
                                             <td class="text-right text-white">
                                                 <a href="{{ route('admin.hospital.category.edit', $hospital_cat->id) }}"
                                                     class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                                <div
-                                                    class="del-modal <?php echo 'modal' . $counter; ?>">
-                                                    <p><b>Record delete confirmation.</b></p>
-                                                    <p>Are you want to really delete ?</p>
-
-                                                    <button
-                                                        class="btn btn-info py-1 del-close float-left delete-model-cansel-btn">Cancel</button>
-                                                    <form method="post" action="{{ route('admin.hospital.category.delete') }}"
-                                                        style="float:right;">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $hospital_cat->id }}">
-                                                        <button class="btn btn-danger py-1">Confirm</button>
-                                                    </form>
-                                                </div>
-                                                <a href="#" class="btn btn-sm btn-danger"
-                                                    onclick="displayDeleteModal({{ $hospital_cat->id }})"
-                                                    title="Delete Item"> <i class="fas fa-trash"></i></a>
+                                            </td>
+                                            <td class="text-right">
+                                                <form method="post" action="{{ route('admin.hospital.category.delete') }}"
+                                                    style="float:right;">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $hospital_cat->id }}">
+                                                    <button class="btn btn-sm ml-1">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -128,6 +121,7 @@
 
 
         });
+
         function displayDeleteModal(id) {
             $(".del-modal").hide('fadeIn');
             $(".modal" + id).show('fadeOut');

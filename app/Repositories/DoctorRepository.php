@@ -211,16 +211,24 @@ class DoctorRepository implements DoctorInterface
                     <div class="dropdown-menu dropdown-menu-right">
                         <button class="dropdown-item" type="button" onclick=viewDetails(' . $doctor->id . ')>View Details</button>
                         <a href="' . route('admin.doctor.edit', $doctor->id) . '" class="dropdown-item" type="button">Edit Doctor</a>
-                        <form method="post" action="' . route('admin.doctor.delete') . '">
+                    </div>
+                 </div>
+                ';
+            })
+            ->editColumn('remove', function ($doctor) {
+                return '
+                <div>
+                    <form method="post" action="' . route('admin.doctor.delete') . '">
                          <input type="hidden" name="id" value="' . $doctor->id . '">
                          <input type="hidden" name="_token" value="' . csrf_token() . '">
-                        <input class="dropdown-item" type="submit" value="Delete" />
+                        <button class="btn btn-sm ml-1"><i
+                        class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>
                  </div>
                 ';
             })
-            ->rawColumns(['image', 'status', 'action'])->make(true);
+            ->rawColumns(['image', 'status', 'action', 'remove'])->make(true);
     }
 
     public function details($id)

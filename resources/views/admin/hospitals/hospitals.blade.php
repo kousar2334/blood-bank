@@ -4,15 +4,15 @@
 @stop
 @section('custom_css')
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <style>
         .img-hospital {
             float: left;
             height: 150px;
             width: 250px;
         }
-        .custom_td{
+
+        .custom_td {
             padding-left: 1px;
             padding-right: 1px;
         }
@@ -49,7 +49,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Hospitals & Clinics</h3>
+                            {{-- <h3 class="card-title">Hospitals & Clinics</h3> --}}
                             <a href="{{ route('admin.hospital.add') }}"
                                 class="btn btn-info btn-sm float-right text-white">Add New Hospital</a>
                         </div>
@@ -67,7 +67,8 @@
                                         <th>Mobile 2</th>
                                         <th>Address</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
+                                        <th class="text-right">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -204,7 +205,14 @@
                             name: 'action',
                             orderable: false,
                             searchable: false,
-                            class:'custom_td'
+                            class: 'custom_td'
+                        },
+                        {
+                            data: 'remove',
+                            name: 'remove',
+                            orderable: false,
+                            searchable: false,
+                            class: 'custom_td'
                         }
                     ],
                     order: [0, 'desc']

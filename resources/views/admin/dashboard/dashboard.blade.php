@@ -31,54 +31,54 @@
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-success">
                         <div class="inner">
-                          <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
-                          <p>Blood Donors</p>
+                            <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
+                            <p>Blood Donors</p>
                         </div>
                         <div class="icon">
-                          <i class="fas fa-users"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                      </div>
+                    </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-info">
                         <div class="inner">
-                          <h3>53<sup style="font-size: 20px"></sup></h3>
-          
-                          <p>Doctors</p>
+                            <h3>{{ $total_doctor }}<sup style="font-size: 20px"></sup></h3>
+
+                            <p>Doctors</p>
                         </div>
                         <div class="icon">
-                          <i class="fas fa-user-md"></i>
+                            <i class="fas fa-user-md"></i>
                         </div>
-                      </div>
+                    </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
-                          <h3>{{ $total_hospital }}<sup style="font-size: 20px"></sup></h3>
-          
-                          <p>Hospitals</p>
+                            <h3>{{ $total_hospital }}<sup style="font-size: 20px"></sup></h3>
+
+                            <p>Hospitals</p>
                         </div>
                         <div class="icon">
-                          <i class="fas fa-hospital"></i>
+                            <i class="fas fa-hospital"></i>
                         </div>
-                      </div>
+                    </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-danger">
                         <div class="inner">
-                          <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
-                          <p>Visitor</p>
+                            <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
+                            <p>Visitor</p>
                         </div>
                         <div class="icon">
-                          <i class="fas fa-glasses"></i>
+                            <i class="fas fa-glasses"></i>
                         </div>
-                      </div>
+                    </div>
                     <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
@@ -87,10 +87,10 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header border-0">
-                            <h3 class="card-title font-weight-bold">Leatest Blood Requests</h3>
+                            <h3 class="card-title">Leatest Doctors</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-sm btn-info">
-                                    All Requests
+                                <a href="{{ route('admin.doctor.list') }}" class="btn btn-sm btn-success">
+                                    All Doctors
                                 </a>
                             </div>
                         </div>
@@ -98,40 +98,36 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Blood Group</th>
-                                        <th>Quantity(Bag)</th>
-                                        <th>Time</th>
-                                        <th>Mobile</th>
-                                        <th>status</th>
+                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">Specialist</th>
+                                        <th class="font-weight-normal">Status</th>
+                                        <th class="font-weight-normal">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($leatest_blood_donors as $donor)
+                                    @foreach ($leatest_doctors as $doctor)
                                         <tr>
                                             <td>
-                                                @if ($donor->status == 1)
-                                                <img src="{{ asset('/') }}backend/static/icon/blood2.png"
-                                                alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
-                                            @else
-                                            <img src="{{ asset('/') }}backend/static/icon/blood1.gif"
-                                            alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
-                                            @endif
-                                                
-                                                {{ $donor->name }}
+                                                @if ($doctor->image)
+                                                    <img src="{{ asset('/') }}{{ $doctor->image }}"
+                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                @else
+                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                @endif
+                                                {{ $doctor->name }}
                                             </td>
-                                            <td>{{ $donor->group }}</td>
-                                            <td>{{ $donor->id }}</td>
-                                            <td>Friday 5 PM</td>
+                                            <td>{{ $doctor->specialist }}</td>
                                             <td>
-                                                {{ $donor->mobile }}
-                                            </td>
-                                            <td>
-                                                @if ($donor->status == 1)
-                                                    <span class="badge badge-success">Solved</span>
+                                                @if ($doctor->status == 1)
+                                                    <span class="badge badge-success">Active</span>
                                                 @else
                                                     <span class="badge badge-danger">Pending</span>
                                                 @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
+                                                    class="btn btn-sm btn-light">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -139,57 +135,12 @@
                             </table>
                         </div>
                     </div>
-                    <!-- /.card -->
                     <div class="card">
                         <div class="card-header border-0">
-                            <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Online Visitors</h3>
-                                <a href="javascript:void(0);">View Report</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <p class="d-flex flex-column">
-                                    <span class="text-bold text-lg">820</span>
-                                    <span>Visitors Over Time</span>
-                                </p>
-                                <p class="ml-auto d-flex flex-column text-right">
-                                    <span class="text-success">
-                                        <i class="fas fa-arrow-up"></i> 12.5%
-                                    </span>
-                                    <span class="text-muted">Since last week</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-
-                            <div class="position-relative mb-4">
-                                <canvas id="visitors-chart" height="200"></canvas>
-                            </div>
-
-                            <div class="d-flex flex-row justify-content-end">
-                                <span class="mr-2">
-                                    <i class="fas fa-square text-primary"></i> This Week
-                                </span>
-
-                                <span>
-                                    <i class="fas fa-square text-gray"></i> Last Week
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- /.card -->
-                </div>
-
-                <!-- /.col-md-6 -->
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <h3 class="card-title font-weight-bold">Leatest Blood Donors</h3>
+                            <h3 class="card-title">Leatest Hospital & Clinics</h3>
                             <div class="card-tools">
-                                <a href="#" class="btn btn-sm btn-info">
-                                    All Donors
+                                <a href="{{ route('admin.hospital.list') }}" class="btn btn-sm btn-warning">
+                                    Hospital & Clinics
                                 </a>
                             </div>
                         </div>
@@ -197,10 +148,65 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Blood Group</th>
-                                        <th>Mobile</th>
-                                        <th>status</th>
+                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">Specialist</th>
+                                        <th class="font-weight-normal">Status</th>
+                                        <th class="font-weight-normal">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($leatest_doctors as $doctor)
+                                        <tr>
+                                            <td>
+                                                @if ($doctor->image)
+                                                    <img src="{{ asset('/') }}{{ $doctor->image }}"
+                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                @else
+                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                @endif
+                                                {{ $doctor->name }}
+                                            </td>
+                                            <td>{{ $doctor->specialist }}</td>
+                                            <td>
+                                                @if ($doctor->status == 1)
+                                                    <span class="badge badge-success">Active</span>
+                                                @else
+                                                    <span class="badge badge-danger">Pending</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
+                                                    class="btn btn-sm btn-light">Edit</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.col-md-6 -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title">Leatest Blood Donors</h3>
+                            <div class="card-tools">
+                                <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-sm btn-danger">
+                                    All Blood Donors
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-striped table-valign-middle">
+                                <thead>
+                                    <tr>
+                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">Blood Group</th>
+                                        <th class="font-weight-normal">Mobile</th>
+                                        <th class="font-weight-normal">status</th>
+                                        <th class="font-weight-normal">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -211,8 +217,8 @@
                                                     <img src="{{ asset('/') }}{{ $donor->image }}"
                                                         alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
-                                                    <img src="{{ asset('/') }}backend/static/icon/blood.jpeg"
-                                                    alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
+                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                        alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $donor->name }}
                                             </td>
@@ -226,6 +232,10 @@
                                                 @else
                                                     <span class="badge badge-danger">Inactive</span>
                                                 @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('admin.blood.donar.edit', $donor->id) }}"
+                                                    class="btn btn-sm btn-light">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach

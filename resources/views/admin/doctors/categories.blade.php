@@ -47,7 +47,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="doctor_department_table" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -57,7 +57,8 @@
                                         <th>Image</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
+                                        <th class="text-right">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,26 +99,19 @@
                                                     <p class="badge badge-danger">Inactive</p>
                                                 @endif
                                             </td>
-                                            <td class="text-right text-white">
+                                            <td class="text-center text-white">
                                                 <a href="{{ route('admin.doctor.category.edit', $cat->id) }}"
                                                     class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                                <div class="del-modal <?php echo 'modal' . $counter; ?>">
-                                                    <p><b>Record delete confirmation.</b></p>
-                                                    <p>Are you want to really delete ?</p>
 
-                                                    <button
-                                                        class="btn btn-info py-1 del-close float-left delete-model-cansel-btn">Cancel</button>
-                                                    <form method="post"
-                                                        action="{{ route('admin.hospital.category.delete') }}"
-                                                        style="float:right;">
-                                                        @csrf
-                                                        <input type="hidden" name="id" value="{{ $cat->id }}">
-                                                        <button class="btn btn-danger py-1">Confirm</button>
-                                                    </form>
-                                                </div>
-                                                <a href="#" class="btn btn-sm btn-danger"
-                                                    onclick="displayDeleteModal({{ $cat->id }})" title="Delete Item">
-                                                    <i class="fas fa-trash"></i></a>
+                                            </td>
+                                            <td class="text-right">
+                                                <form method="post" action="{{ route('admin.doctor.category.delete') }}"
+                                                    style="float:right;">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $cat->id }}">
+                                                    <button class="btn btn-sm ml-1"><i
+                                                            class="fas fa-trash-alt"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -144,16 +138,17 @@
     <script src="{{ asset('/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            $(".del-close").click(function() {
-                $(".del-modal").hide('fadeIn');
-
+        $(function() {
+            $("#doctor_department_table").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
             });
-        });
 
-        function displayDeleteModal(id) {
-            $(".del-modal").hide('fadeIn');
-            $(".modal" + id).show('fadeOut');
-        }
+        });
     </script>
 @stop

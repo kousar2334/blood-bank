@@ -40,7 +40,7 @@
 
         .chamber-list {
             /* border: 1px solid;
-                    border-style: dotted; */
+                            border-style: dotted; */
             padding: 15px;
         }
 
@@ -92,7 +92,8 @@
                                         <th>Institution</th>
                                         <th>Mobile</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
+                                        <th class="text-right">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -203,6 +204,11 @@
                             name: 'action',
                             orderable: false,
                             searchable: false,
+                            class: 'action'
+                        },
+                        {
+                            data: 'remove',
+                            name: 'remove',
                             class: 'action'
                         }
                     ],

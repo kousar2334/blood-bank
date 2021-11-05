@@ -104,7 +104,7 @@ class HospitalController extends Controller
     {
         try {
             $this->hospital_category_repository->delete($request->id);
-            Toastr::success('Hospital category Updated Successfully');
+            Toastr::warning('Hospital category deleted successfully');
             return redirect()->route('admin.hospital.category.list');
         } catch (\Exception $e) {
             Toastr::error('Something went wrong' . $e->getMessage());

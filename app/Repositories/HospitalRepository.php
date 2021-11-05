@@ -189,15 +189,23 @@ class HospitalRepository implements HospitalInterface
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" type="button" onclick=viewDetails(' . $hospital->id . ')>View Details</button>
                             <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="dropdown-item" type="button">Edit Doctor</a>
-                            <form method="post" action="' . route('admin.hospital.delete') . '">
-                            <input type="hidden" name="id" value="' . $hospital->id . '">
-                            <input type="hidden" name="_token" value="' . csrf_token() . '">
-                            <input class="dropdown-item" type="submit" value="Delete" />
-                            </form>
                         </div>
                     </div>
             ';
             })
-            ->rawColumns(['image', 'status', 'action'])->make(true);
+            ->editColumn('remove', function ($hospital) {
+                return '
+                <div>
+                    <form method="post" action="' . route('admin.hospital.delete') . '">
+                         <input type="hidden" name="id" value="' . $hospital->id . '">
+                         <input type="hidden" name="_token" value="' . csrf_token() . '">
+                        <button class="btn btn-sm ml-1"><i
+                        class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                 </div>
+                ';
+            })
+            ->rawColumns(['image', 'status', 'action', 'remove'])->make(true);
     }
 }

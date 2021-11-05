@@ -170,24 +170,22 @@ class BloodDonorRepository implements BloodDonorInterface
                 }
             })
             ->editColumn('action', function ($donor) {
-                return '<a href="' . route('admin.blood.donar.edit', $donor->id) . '" class="btn btn-sm btn-info edit-info"><i class="fas fa-edit"></i></a> 
-                <div
-                class="del-modal modal' . $donor->id . '">
-                <p><b>Record delete confirmation.</b></p>
-                <p>Are you want to really delete ?</p>
-                <button class="btn btn-info py-1 del-close float-left delete-model-cansel-btn" onclick="hideDeleteAlert()">Cancel</button>
-                <form method="post" action="' . route('admin.blood.donar.delete') . '"
-                    style="float:right;">
-                    <input name="_token" type="hidden" value=" ' . csrf_token() . ' ">
-                    <input type="hidden" name="id" value="' . $donor->id . '">
-                    <button class="btn btn-danger py-1">Confirm</button>
-                </form>
-            </div>
-                <a href="#" class="btn btn-sm btn-danger"
-                onclick="displayDeleteModal(' . $donor->id . ')" title="Delete Item">
-                <i class="fas fa-trash"></i></a>';
+                return '<a href="' . route('admin.blood.donar.edit', $donor->id) . '" class="btn btn-sm btn-info edit-info"><i class="fas fa-edit"></i></a>';
             })
-            ->rawColumns(['image', 'status', 'action'])->make(true);
+            ->editColumn('remove', function ($donor) {
+                return '
+                <div>
+                    <form method="post" action="' . route('admin.blood.donar.delete') . '">
+                         <input type="hidden" name="id" value="' . $donor->id . '">
+                         <input type="hidden" name="_token" value="' . csrf_token() . '">
+                        <button class="btn btn-sm ml-1"><i
+                        class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                 </div>
+                ';
+            })
+            ->rawColumns(['image', 'status', 'action', 'remove'])->make(true);
     }
     /**
      * Inactive blood donor

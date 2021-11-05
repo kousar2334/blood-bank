@@ -45,7 +45,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="ambulance_table" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -122,18 +122,17 @@
     <script src="{{ asset('/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            $(".del-close").click(function() {
-                $(".del-modal").hide('fadeIn');
-
+        $(function() {
+            $("#ambulance_table").DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
             });
 
-
         });
-
-        function displayDeleteModal(id) {
-            $(".del-modal").hide('fadeIn');
-            $(".modal" + id).show('fadeOut');
-        }
     </script>
 @stop

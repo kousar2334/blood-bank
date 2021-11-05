@@ -5,8 +5,7 @@
 @section('custom_css')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">  
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -41,14 +40,15 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="blood_group_table" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
                                         <th>Bangla Name</th>
                                         <th>Description</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
+                                        <th class="text-right">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,21 +65,20 @@
                                             </td>
                                             <td>{{ $bg->bn_name }}</td>
                                             <td>{{ $bg->description }}</td>
-                                            <td class="text-right text-white">
+                                            <td class="text-center text-white">
                                                 <a href="{{ route('admin.blood.group.edit', $bg->id) }}"
-                                                    class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                                    <div class="del-modal <?php echo 'modal'.$counter?>">
-                                                        <p><b>Record delete confirmation.</b></p>
-                                                        <p>Are you want to really delete ?</p>
-                
-                                                        <button class="btn btn-info py-1 del-close float-left delete-model-cansel-btn">Cancel</button>
-                                                        <form method="post"  action="{{route('admin.blood.group.delete')}}" style="float:right;">
-                                                            @csrf
-                                                            <input type="hidden" name="id" value="{{$bg->id}}">
-                                                            <button class="btn btn-danger py-1">Confirm</button>
-                                                        </form>
-                                                    </div>           
-                                            <a  href="#" class="btn btn-sm btn-danger"  onclick="displayDeleteModal({{$bg->id}})" title="Delete Item"> <i class="fas fa-trash"></i></a>
+                                                    class="btn btn-sm btn-info"><i class="fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td class="text-right">
+                                                <form method="post" action="{{ route('admin.blood.group.delete') }}"
+                                                    style="float:right;">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $bg->id }}">
+                                                    <button class="btn btn-sm ml-1">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -107,34 +106,17 @@
     <script src="{{ asset('/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script>
         $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "autoWidth": false,
-            });
-            $('#example2').DataTable({
+            $("#blood_group_table").DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
             });
-        });
 
+        });
     </script>
-     <script>
-        $(document).ready(function(){
-            $(".del-close").click(function(){
-                $(".del-modal").hide('fadeIn');
 
-            });
-
-          
-        });
-        function displayDeleteModal(id){
-            $(".del-modal").hide('fadeIn');
-           $(".modal"+id).show('fadeOut');
-         }  
-    </script> 
 @stop

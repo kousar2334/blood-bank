@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"> --}}
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -39,8 +38,8 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Blood Donor's List</h3>
-                            <a href="{{ route('admin.blood.donar.add') }}" class="btn btn-info btn-sm float-right text-white">Add New Blood Donor</a>
+                            <a href="{{ route('admin.blood.donar.add') }}"
+                                class="btn btn-info btn-sm float-right text-white">Add New Blood Donor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -56,7 +55,8 @@
                                         <th>Mobile 2</th>
                                         <th>Address</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
+                                        <th class="text-right">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -138,6 +138,12 @@
                             name: 'action',
                             orderable: false,
                             searchable: false
+                        },
+                        {
+                            data: 'remove',
+                            name: 'remove',
+                            orderable: false,
+                            searchable: false
                         }
                     ],
                     order: [0, 'desc']
@@ -154,6 +160,5 @@
         function hideDeleteAlert() {
             $(".del-modal").hide('fadeIn');
         };
-
     </script>
 @stop

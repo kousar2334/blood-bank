@@ -95,7 +95,7 @@ class DoctorController extends Controller
     public function deleteCategory(Request $request)
     {
         try {
-            $this->doctor_category_repository->update($request);
+            $this->doctor_category_repository->delete($request->id);
             Toastr::success('Category delete successfully');
             return redirect()->route('admin.doctor.category.list');
         } catch (\Exception $e) {
