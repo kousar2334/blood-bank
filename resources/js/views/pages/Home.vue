@@ -85,35 +85,39 @@
 								</router-link>
 							</div>
 							<div class="col-lg-4">
-								<card class="border-0" hover shadow body-classes="py-5">
-									<img
-										v-lazy="'img/theme/fire_stattion.jpg'"
-										class="
-											rounded-circle
-											img-center img-fluid
-											shadow
-											shadow-lg--hover
-										"
-										style="width: 200px; min-height: 200px"
-									/>
+								<router-link to="/fire-stations">
+									<card class="border-0" hover shadow body-classes="py-5">
+										<img
+											v-lazy="'img/theme/fire_stattion.jpg'"
+											class="
+												rounded-circle
+												img-center img-fluid
+												shadow
+												shadow-lg--hover
+											"
+											style="width: 200px; min-height: 200px"
+										/>
 
-									<h2 class="bangla-font text-center mt-5">ফায়ার সার্ভিস</h2>
-								</card>
+										<h2 class="bangla-font text-center mt-5">ফায়ার সার্ভিস</h2>
+									</card>
+								</router-link>
 							</div>
 							<div class="col-lg-4">
-								<card class="border-0" hover shadow body-classes="py-5">
-									<img
-										v-lazy="'img/theme/police.png'"
-										class="
-											rounded-circle
-											img-center img-fluid
-											shadow
-											shadow-lg--hover
-										"
-										style="width: 200px; min-height: 200px"
-									/>
-									<h2 class="bangla-font text-center mt-5">পুলিশ</h2>
-								</card>
+								<router-link to="/police-stattons">
+									<card class="border-0" hover shadow body-classes="py-5">
+										<img
+											v-lazy="'img/theme/police.png'"
+											class="
+												rounded-circle
+												img-center img-fluid
+												shadow
+												shadow-lg--hover
+											"
+											style="width: 200px; min-height: 200px"
+										/>
+										<h2 class="bangla-font text-center mt-5">পুলিশ</h2>
+									</card>
+								</router-link>
 							</div>
 						</div>
 					</div>
@@ -133,7 +137,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="'https://www.999.gov.bd/img/nhd_logo2.png'"
+										v-lazy="'/img/govt_call_centers/nhd_logo2.png'"
 										class="img-center img-fluid"
 										style="width: 100px"
 									/>
@@ -151,9 +155,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_acc.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_acc.png'"
 										class="img-center img-fluid"
 										style="width: 130px; min-height: 120px"
 									/>
@@ -171,9 +173,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_agriculture.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_agriculture.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -191,9 +191,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_health.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_health.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -211,9 +209,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_btcl.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_btcl.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -232,7 +228,7 @@
 								<card class="border-1">
 									<img
 										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_national_female.png'
+											'/img/govt_call_centers/ic_call_national_female.png'
 										"
 										class="img-center img-fluid"
 										style="width: 120px"
@@ -251,9 +247,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_durjog.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_durjog.png'"
 										class="img-center img-fluid"
 										style="width: 130px; min-height: 120px"
 									/>
@@ -271,9 +265,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_child.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_child.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -291,9 +283,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_bank.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_bank.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -311,9 +301,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_mohila_sisu.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_mohila_sisu.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -332,7 +320,7 @@
 								<card class="border-1">
 									<img
 										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_jatio_help_desk.png'
+											'/img/govt_call_centers/ic_call_jatio_help_desk.png'
 										"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
@@ -352,9 +340,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_probasi_collan.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_probasi_collan.png'"
 										class="img-center img-fluid"
 										style="width: 100px"
 									/>
@@ -373,9 +359,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_vote.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_vote.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -394,7 +378,7 @@
 								<card class="border-1">
 									<img
 										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_sorkari_ayn_seba.png'
+											'/img/govt_call_centers/ic_call_sorkari_ayn_seba.png'
 										"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
@@ -413,9 +397,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_union_porishod.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_union_porishod.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>
@@ -433,9 +415,7 @@
 							<div class="col-lg-3 call-center-box">
 								<card class="border-1">
 									<img
-										v-lazy="
-											'https://www.999.gov.bd/img/call_centre_logo/ic_call_btrc.png'
-										"
+										v-lazy="'/img/govt_call_centers/ic_call_btrc.png'"
 										class="img-center img-fluid"
 										style="width: 120px; min-height: 120px"
 									/>

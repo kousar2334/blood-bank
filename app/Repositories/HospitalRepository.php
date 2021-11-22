@@ -21,7 +21,7 @@ class HospitalRepository implements HospitalInterface
             ->join('hospital_categories', 'hospital_categories.id', '=', 'hospitals.cat_id')
             ->select([
                 'hospitals.id',
-                'hospitals.name as name',
+                'hospitals.bn_name as name',
                 'hospital_categories.bn_name as category',
                 'hospitals.address',
                 'hospitals.mobile_1',
@@ -160,7 +160,7 @@ class HospitalRepository implements HospitalInterface
     {
         $hospitals = DB::table('hospitals')
             ->join('hospital_categories', 'hospital_categories.id', '=', 'hospitals.cat_id')
-            ->select('hospitals.name', 'hospitals.id', 'hospitals.email', 'hospitals.address', 'hospitals.mobile_1', 'hospitals.image', 'hospitals.status', 'hospitals.mobile_2', 'hospital_categories.name as category')
+            ->select('hospitals.bn_name as name', 'hospitals.id', 'hospitals.email', 'hospitals.address', 'hospitals.mobile_1', 'hospitals.image', 'hospitals.status', 'hospitals.mobile_2', 'hospital_categories.name as category')
             ->orderBy('hospitals.id', 'DESC')
             ->get();
         return Datatables::of($hospitals)
@@ -188,7 +188,7 @@ class HospitalRepository implements HospitalInterface
                         </p>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" type="button" onclick=viewDetails(' . $hospital->id . ')>View Details</button>
-                            <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="dropdown-item" type="button">Edit Doctor</a>
+                            <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="dropdown-item" type="button">Edit Hospital</a>
                         </div>
                     </div>
             ';

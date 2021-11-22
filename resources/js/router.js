@@ -11,6 +11,9 @@ import Hospitals from "./views/pages/Hospitals.vue";
 import AddHospital from "./views/pages/AddHospital.vue";
 import AddAmbulance from "./views/pages/NewAmbulance.vue";
 import Ambulance from "./views/pages/Ambulance.vue";
+import AboutUs from "./views/pages/AboutUs.vue";
+import FireStation from "./views/pages/FireStation.vue";
+import Police from "./views/pages/Police.vue";
 import Login from "./views/pages/Login.vue";
 import Register from "./views/pages/Register.vue";
 import Profile from "./views//pages/Profile.vue";
@@ -18,7 +21,7 @@ import Profile from "./views//pages/Profile.vue";
 Vue.use(Router);
 export default new Router({
     linkExactActiveClass: "active",
-    //mode: "history",
+    mode: "history",
     routes: [
         {
             path: "/",
@@ -98,6 +101,33 @@ export default new Router({
             components: {
                 header: AppHeader,
                 default: Ambulance,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/about-us",
+            name: "AboutUs",
+            components: {
+                header: AppHeader,
+                default: AboutUs,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/fire-stations",
+            name: "FireStation",
+            components: {
+                header: AppHeader,
+                default: FireStation,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/police-stattons",
+            name: "Police",
+            components: {
+                header: AppHeader,
+                default: Police,
                 footer: AppFooter
             }
         },

@@ -128,7 +128,7 @@
 					</router-link>
 				</base-dropdown>
 				<li class="nav-item">
-					<router-link class="nav-link nav-link-icon" to="/login">
+					<router-link class="nav-link nav-link-icon" to="/about-us">
 						<span class="nav-link-inner--text bangla-font"
 							>আমাদের সম্পর্কে
 						</span>

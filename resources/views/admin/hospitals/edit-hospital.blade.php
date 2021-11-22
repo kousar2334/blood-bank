@@ -78,9 +78,11 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Category<span class="text-danger">*</span></label>
-                                            <select class="form-control" name="cat_id" @foreach ($hos_cats as $cat)
-                                                <option {{ $hospital->cat_id === $cat->id ? 'selected' : '' }}
-                                                    value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                            <select class="form-control" name="cat_id">
+                                                @foreach ($hos_cats as $cat)
+                                                    <option {{ $hospital->cat_id === $cat->id ? 'selected' : '' }}
+                                                        value="{{ $cat->id }}">{{ $cat->bn_name }}
+                                                    </option>
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('cat_id'))

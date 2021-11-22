@@ -4,9 +4,11 @@ import router from "./router";
 import Argon from "./plugins/argon-kit";
 import "./registerServiceWorker";
 import vSelect from "vue-select";
-//import "vue-select/dist/vue-select.css";
 import VueMeta from "vue-meta";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 Vue.use(VueMeta);
 Vue.component("v-select", vSelect);
 Vue.config.productionTip = false;
