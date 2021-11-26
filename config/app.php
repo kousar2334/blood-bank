@@ -182,6 +182,7 @@ return [
         App\Providers\HospitalProvider::class,
         App\Providers\DoctorProvider::class,
         App\Providers\AmbulanceProvider::class,
+        App\Providers\FireserviceProvider::class,
 
     ],
 

@@ -9,7 +9,6 @@
         }
 
     </style>
-
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -38,9 +37,7 @@
                             <i class="fas fa-users"></i>
                         </div>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-info">
                         <div class="inner">
@@ -52,9 +49,7 @@
                             <i class="fas fa-user-md"></i>
                         </div>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-warning">
                         <div class="inner">
@@ -66,9 +61,7 @@
                             <i class="fas fa-hospital"></i>
                         </div>
                     </div>
-                    <!-- /.info-box -->
                 </div>
-                <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-12">
                     <div class="small-box bg-danger">
                         <div class="inner">
@@ -79,9 +72,8 @@
                             <i class="fas fa-glasses"></i>
                         </div>
                     </div>
-                    <!-- /.info-box -->
+
                 </div>
-                <!-- /.col -->
             </div>
             <div class="row">
                 <div class="col-lg-6">
@@ -127,7 +119,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm btn-light">Edit</a>
+                                                    class="btn btn-sm btn-info">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -177,7 +169,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm btn-light">Edit</a>
+                                                    class="btn btn-sm  btn-info">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -186,8 +178,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- /.col-md-6 -->
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-header border-0">
@@ -235,7 +225,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.blood.donar.edit', $donor->id) }}"
-                                                    class="btn btn-sm btn-light">Edit</a>
+                                                    class="btn btn-sm btn-info">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -243,8 +233,6 @@
                             </table>
                         </div>
                     </div>
-                    <!-- /.card -->
-
                     <div class="card">
                         <div class="card-header border-0">
                             <h3 class="card-title">Quick Access</h3>
@@ -269,7 +257,6 @@
                                     <span class="text-muted">CONVERSION RATE</span>
                                 </p>
                             </div>
-                            <!-- /.d-flex -->
                             <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
                                 <p class="text-warning text-xl">
                                     <i class="ion ion-ios-cart-outline"></i>
@@ -281,7 +268,6 @@
                                     <span class="text-muted">SALES RATE</span>
                                 </p>
                             </div>
-                            <!-- /.d-flex -->
                             <div class="d-flex justify-content-between align-items-center mb-0">
                                 <p class="text-danger text-xl">
                                     <i class="ion ion-ios-people-outline"></i>
@@ -293,13 +279,10 @@
                                     <span class="text-muted">REGISTRATION RATE</span>
                                 </p>
                             </div>
-                            <!-- /.d-flex -->
                         </div>
                     </div>
                 </div>
-                <!-- /.col-md-6 -->
             </div>
-            <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
     </div>

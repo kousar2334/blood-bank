@@ -37,3 +37,6 @@ Route::post('/get-hospital-details', 'Api\HospitalController@hospitalDetails');
 Route::get('/get-all-ambulance-categories', 'Api\AmbulanceController@getAllCategories');
 Route::post('/store-new-ambulance', 'Api\AmbulanceController@storeNewAmbulance');
 Route::post('/get-ambulance-list', 'Api\AmbulanceController@ambulanceList');
+
+//fire service
+Route::post('/get-fire-service-list', 'Api\FireserviceController@fireServiceList');

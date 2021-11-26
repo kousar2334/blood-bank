@@ -74,4 +74,11 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/edit-ambulance/{id}', 'AmbulanceController@editAmbulance')->name('admin.ambulance.edit');
     Route::post('/update-ambulance', 'AmbulanceController@updateAmbulance')->name('admin.ambulance.update');
     Route::post('/delete-ambulance', 'AmbulanceController@deleteAmbulance')->name('admin.ambulance.delete');
+    //Fire service routes
+    Route::view('/new-fire-service', 'admin.fireService.new_fire_service')->name('admin.fireservice.add');
+    Route::post('/store-new-fire-service', 'FireserviceController@storeNewFireService')->name('admin.fireservice.store');
+    Route::get('/get-fire-service-list', 'FireserviceController@fireServiceList')->name('admin.fireservice.list');
+    Route::get('/edit-fire-service/{id}', 'FireserviceController@editFireService')->name('admin.fireservice.edit');
+    Route::post('/update-fire-service', 'FireserviceController@updateFireService')->name('admin.fireservice.update');
+    Route::post('/delete-fire-service', 'FireserviceController@deleteFireService')->name('admin.fireservice.delete');
 });

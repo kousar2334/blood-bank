@@ -215,8 +215,10 @@
                 </li>
                 <!--End Ambulance Module-->
                 <!--Fire Service Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li
+                    class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-shower"></i>
                         <p>
                             Fire Stations
@@ -225,15 +227,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.fireservice.list') }}"
+                                class="{{ Request::routeIs('admin.fireservice.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p> Fire Stations</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.fireservice.add') }}"
+                                class="{{ Request::routeIs('admin.fireservice.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Add Fire Stations</p>
                             </a>

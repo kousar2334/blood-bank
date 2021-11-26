@@ -8,21 +8,37 @@
 						{{ title }}
 					</h2>
 				</div>
-				<div class="col-lg-12 p-3">
+				<div class="col-lg-12 p-3" v-if="fire_services.length > 0">
 					<b-table
 						bordered
 						class="bangla-font"
-						:items="items"
+						:items="fire_services"
 						:fields="fields"
-					></b-table>
-					<div class="text-right">
+					>
+						<template v-slot:cell(no)="data">
+							{{ bangla_number(data.index + 1) }}
+						</template>
+						<template v-slot:cell(mobile)="data">
+							{{ data.item.phone
+							}}<span v-if="data.item.mobile_1 && data.item.phone">, </span
+							>{{ data.item.mobile_1
+							}}<span v-if="data.item.mobile_2 && data.item.mobile_1">, </span
+							>{{ data.item.mobile_2 }}
+						</template>
+					</b-table>
+					<!-- <div class="text-right">
 						<a
 							href="http://www.fireservice.gov.bd/"
 							target="_blank"
 							class="bangla-font"
 							>তথ্য সূত্রঃ বাংলাদেশ ফায়ার সার্ভিস ও সিভিল ডিফেন্স অধিদপ্তর</a
 						>
-					</div>
+					</div> -->
+				</div>
+				<div class="col-lg-12 p-3" v-else>
+					<p class="bangla-font text-danger text-center">
+						{{ emptyMessage }}
+					</p>
 				</div>
 			</div>
 		</section>
@@ -30,6 +46,7 @@
 </template>
 <script>
 import Hero from "../../components/Hero.vue";
+import axios from "axios";
 export default {
 	name: "FireStation",
 	components: {
@@ -38,88 +55,44 @@ export default {
 	data() {
 		return {
 			title: "ফায়ার সার্ভিস",
+			emptyMessage: "দুঃখিত !... কোন ফায়ার সার্ভিস খুঁজে পাওয়া যায় নি ।",
 			fields: [
-				{
-					key: "no",
-					label: "ক্রমিক নং",
-				},
+				// {
+				// 	key: "no",
+				// 	label: "ক্রমিক নং",
+				// },
 				{
 					key: "name",
 					label: "অফিস / ফায়ার স্টেশনের নাম ",
 				},
 				{
-					key: "mobiles",
+					key: "mobile",
 					label: "যোগাযোগের নাম্বার",
 				},
 			],
-			items: [
-				{
-					no: "০১",
-					name: "সহকারী পরিচালক , বগুড়া",
-					mobiles: "০৫১-৬৫১০১, ০১৭৩০-০০২৪৯৬",
-				},
-				{
-					no: "০২ ",
-					name: "বগুড়া ফায়ার স্টেশন",
-					mobiles: "০৫১-৬৩৩৩৩ , ০১৭৩-০০২৪৯৭ ",
-				},
-				{
-					no: "০৩",
-					name: "সোনাতলা ফায়ার স্টেশন",
-					mobiles: "০৫৩২-৭৯০০৯, ০১৭৩০-০০২৪৯৮",
-				},
-				{
-					no: "০৪",
-					name: "সারিয়াকান্দি ফায়ার স্টেশন",
-					mobiles: "০৫০২৮-৫৬২০০, ০১৭৩২-৫৩৫৫১১",
-				},
-				{
-					no: "০৫",
-					name: "শেরপুর ফায়ার স্টেশন",
-					mobiles: "০৫০২৯-৭৭৩৩৩, ০১৭৩০-০০২৩৩২",
-				},
-				{
-					no: "০৬",
-					name: "ধুনট ফায়ার স্টেশন",
-					mobiles: "০৫০২৩-৫৬২০০, ০১৭৫৮-৮০৭৮১৭",
-				},
-				{
-					no: "০৭",
-					name: "গাবতলি ফায়ার স্টেশন",
-					mobiles: "০১৭৩০-০৮২২২৪",
-				},
-				{
-					no: "০৮",
-					name: "কাহালু ফায়ার স্টেশন",
-					mobiles: "০৫০২৬৫৬২২২, ০১৭৫১-৫২২২৬০",
-				},
-				{
-					no: "০৯",
-					name: "নন্দীগ্রাম ফায়ার স্টেশন",
-					mobiles: "০১৩০৪-১৭১৭৩৬",
-				},
-				{
-					no: "১০",
-					name: "শিবগঞ্জ ফায়ার স্টেশন",
-					mobiles: "০১৭৪৭-৪১৫৮৭২",
-				},
-				{
-					no: "১১",
-					name: "দুপচাঁচিয়া ফায়ার স্টেশন",
-					mobiles: "০১৭৪৭-১৬৫০৬২",
-				},
-				{
-					no: "১২",
-					name: "শাহজানপুর ফায়ার স্টেশন",
-					mobiles: "০১৭৯৯-৫৫৪৪৪০",
-				},
-				{
-					no: "১৩",
-					name: "শাহজানপুর ফায়ার স্টেশন",
-					mobiles: "০১৭২৬-১৪২৯২৯",
-				},
-			],
+			fire_services: [],
 		};
+	},
+	mounted() {
+		this.getFireServices();
+	},
+	methods: {
+		/**
+		 * Get fire services
+		 */
+		getFireServices() {
+			axios
+				.post("/api/get-fire-service-list")
+				.then((response) => {
+					if (response.data.success) {
+						this.fire_services = response.data.fire_services;
+					}
+				})
+				.catch((error) => {});
+		},
+		bangla_number(input) {
+			return input;
+		},
 	},
 	metaInfo: {
 		title: "ফায়ার সার্ভিস",
