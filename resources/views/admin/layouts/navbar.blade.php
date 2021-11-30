@@ -244,8 +244,10 @@
                 </li>
                 <!--End Fire Service Module-->
                 <!--Police Stations Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li
+                    class="{{ Request::routeIs(['admin.police.add', 'admin.police.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs(['admin.police.add', 'admin.police.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
                             Police Stations
@@ -254,15 +256,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.police.list') }}"
+                                class="{{ Request::routeIs('admin.police.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Police Stations</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.police.add') }}"
+                                class="{{ Request::routeIs('admin.police.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Add Police Stations</p>
                             </a>
@@ -271,7 +273,7 @@
                 </li>
                 <!--End Police Stations Module-->
                 <!--Blog Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
+                {{-- <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fa fa-file"></i>
                         <p>
@@ -335,14 +337,14 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <!--End Gallery Module-->
                 <!--Users Module-->
                 <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Staffs
+                            Users
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>

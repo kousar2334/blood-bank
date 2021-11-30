@@ -81,4 +81,12 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/edit-fire-service/{id}', 'FireserviceController@editFireService')->name('admin.fireservice.edit');
     Route::post('/update-fire-service', 'FireserviceController@updateFireService')->name('admin.fireservice.update');
     Route::post('/delete-fire-service', 'FireserviceController@deleteFireService')->name('admin.fireservice.delete');
+
+    //police station
+    Route::view('/new-police-station', 'admin.police.new_police_station')->name('admin.police.add');
+    Route::post('/store-new-police-station', 'PoliceStationController@storeNewPoliceStation')->name('admin.police.store');
+    Route::get('/police-station-list', 'PoliceStationController@policeStationList')->name('admin.police.list');
+    Route::get('/edit-police-station/{id}', 'PoliceStationController@policeStationDetails')->name('admin.police.edit');
+    Route::post('/update-police-station', 'PoliceStationController@updatePoliceStation')->name('admin.police.update');
+    Route::post('/delete-police-station', 'PoliceStationController@deletePoliceStation')->name('admin.police.delete');
 });

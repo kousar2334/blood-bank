@@ -8,6 +8,20 @@
             height: 32px;
         }
 
+        .btn-circle {
+            border-radius: 50%;
+            padding: 1.2em 1.5em;
+            background-color: rgba(247, 123, 11, 0.15);
+            color: #F77B0B;
+            border: 0px;
+            font-size: 10px;
+        }
+
+        .btn-circle:hover {
+            background-color: #F77B0B;
+            color: white
+        }
+
     </style>
 @stop
 @section('admin_content')
@@ -99,7 +113,7 @@
                                 <tbody>
                                     @foreach ($leatest_doctors as $doctor)
                                         <tr>
-                                            <td>
+                                            <td class="bangla-font">
                                                 @if ($doctor->image)
                                                     <img src="{{ asset('/') }}{{ $doctor->image }}"
                                                         alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
@@ -109,7 +123,7 @@
                                                 @endif
                                                 {{ $doctor->name }}
                                             </td>
-                                            <td>{{ $doctor->specialist }}</td>
+                                            <td class="bangla-font">{{ $doctor->specialist }}</td>
                                             <td>
                                                 @if ($doctor->status == 1)
                                                     <span class="badge badge-success">Active</span>
@@ -119,7 +133,8 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm btn-info">Edit</a>
+                                                    class="btn btn-sm btn-info btn-circle"><i
+                                                        class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -131,7 +146,7 @@
                         <div class="card-header border-0">
                             <h3 class="card-title">Leatest Hospital & Clinics</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.hospital.list') }}" class="btn btn-sm btn-warning">
+                                <a href="{{ route('admin.hospital.list') }}" class="btn btn-sm btn-success">
                                     Hospital & Clinics
                                 </a>
                             </div>
@@ -149,7 +164,7 @@
                                 <tbody>
                                     @foreach ($leatest_doctors as $doctor)
                                         <tr>
-                                            <td>
+                                            <td class="bangla-font">
                                                 @if ($doctor->image)
                                                     <img src="{{ asset('/') }}{{ $doctor->image }}"
                                                         alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
@@ -159,7 +174,7 @@
                                                 @endif
                                                 {{ $doctor->name }}
                                             </td>
-                                            <td>{{ $doctor->specialist }}</td>
+                                            <td class="bangla-font">{{ $doctor->specialist }}</td>
                                             <td>
                                                 @if ($doctor->status == 1)
                                                     <span class="badge badge-success">Active</span>
@@ -169,7 +184,8 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm  btn-info">Edit</a>
+                                                    class="btn btn-sm  btn-info btn-circle"><i
+                                                        class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -183,7 +199,7 @@
                         <div class="card-header border-0">
                             <h3 class="card-title">Leatest Blood Donors</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-sm btn-danger">
+                                <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-sm btn-success">
                                     All Blood Donors
                                 </a>
                             </div>
@@ -202,7 +218,7 @@
                                 <tbody>
                                     @foreach ($leatest_blood_donors as $donor)
                                         <tr>
-                                            <td>
+                                            <td class="bangla-font">
                                                 @if ($donor->image)
                                                     <img src="{{ asset('/') }}{{ $donor->image }}"
                                                         alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
@@ -211,9 +227,9 @@
                                                         alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $donor->name }}
-                                            </td>
+                                            </td class="bangla-font">
                                             <td>{{ $donor->group }}</td>
-                                            <td>
+                                            <td class="bangla-font">
                                                 {{ $donor->mobile }}
                                             </td>
                                             <td>
@@ -225,7 +241,8 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.blood.donar.edit', $donor->id) }}"
-                                                    class="btn btn-sm btn-info">Edit</a>
+                                                    class="btn btn-sm btn-info btn-circle"><i
+                                                        class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -77,7 +77,7 @@ class FireServiceRepository implements FireServiceInterface
      */
     public function deleteFireService($id)
     {
-        return DB::table('fire_services')
+        DB::table('fire_services')
             ->where('id', $id)
             ->delete();
     }

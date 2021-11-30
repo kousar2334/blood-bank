@@ -37,7 +37,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="{{ route('admin.fireservice.add') }}"
-                                class="btn btn-info btn-sm float-right text-white">Add NewFire service</a>
+                                class="btn btn-info btn-sm float-right text-white">Add New Fire service</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

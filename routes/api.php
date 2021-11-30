@@ -40,3 +40,6 @@ Route::post('/get-ambulance-list', 'Api\AmbulanceController@ambulanceList');
 
 //fire service
 Route::post('/get-fire-service-list', 'Api\FireserviceController@fireServiceList');
+
+//police station
+Route::post('/get-police-station-list', 'Api\PoliceStationController@policeStationList');

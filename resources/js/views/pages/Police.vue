@@ -8,21 +8,37 @@
 						{{ title }}
 					</h2>
 				</div>
-				<div class="col-lg-12 p-3">
+				<div class="col-lg-12 p-3" v-if="police_stations.length > 0">
 					<b-table
 						bordered
 						class="bangla-font"
-						:items="items"
+						:items="police_stations"
 						:fields="fields"
-					></b-table>
-					<div class="text-right">
+					>
+						<template v-slot:cell(no)="data">
+							{{ bangla_number(data.index + 1) }}
+						</template>
+						<template v-slot:cell(mobile)="data">
+							{{ data.item.phone
+							}}<span v-if="data.item.mobile_1 && data.item.phone">, </span
+							>{{ data.item.mobile_1
+							}}<span v-if="data.item.mobile_2 && data.item.mobile_1">, </span
+							>{{ data.item.mobile_2 }}
+						</template>
+					</b-table>
+					<!-- <div class="text-right">
 						<a
-							href="https://www.google.com/search?q=police+station+information+of+bogra+district&client=ubuntu&hs=mdD&tbm=lcl&sxsrf=AOaemvLaWacHjcaT5_33xpqma11plUXHVw%3A1636477367465&ei=t6mKYcrhG_zdz7sP8cOn2A0&oq=police+station+information+of+bogra+district&gs_l=psy-ab.3...0.0.0.1601394.0.0.0.0.0.0.0.0..0.0....0...1c..64.psy-ab..0.0.0....0.3gwp5ytkF-4#rlfi=hd:;si:;mv:[[25.0609866,89.6044077],[24.622163099999998,88.9512468]];tbs:lrf:!1m4!1u2!2m2!2m1!1e1!2m1!1e2!3sIAE,lf:1,lf_ui:2"
+							href="http://www.fireservice.gov.bd/"
 							target="_blank"
 							class="bangla-font"
-							>তথ্য সূত্রঃ গুগল ম্যাপ</a
+							>তথ্য সূত্রঃ বাংলাদেশ ফায়ার সার্ভিস ও সিভিল ডিফেন্স অধিদপ্তর</a
 						>
-					</div>
+					</div> -->
+				</div>
+				<div class="col-lg-12 p-3" v-else>
+					<p class="bangla-font text-danger text-center">
+						{{ emptyMessage }}
+					</p>
 				</div>
 			</div>
 		</section>
@@ -30,6 +46,7 @@
 </template>
 <script>
 import Hero from "../../components/Hero.vue";
+import axios from "axios";
 export default {
 	name: "Police",
 	components: {
@@ -38,20 +55,18 @@ export default {
 	data() {
 		return {
 			title: "পুলিশ স্টেশন ",
+			emptyMessage: "দুঃখিত !... কোন পুলিশ স্টেশন খুঁজে পাওয়া যায় নি ।",
 			fields: [
-				{
-					key: "no",
-					label: "ক্রমিক নং",
-				},
 				{
 					key: "name",
 					label: "অফিস / পুলিশ স্টেশনের নাম ",
 				},
 				{
-					key: "mobiles",
+					key: "mobile",
 					label: "যোগাযোগের নাম্বার",
 				},
 			],
+			police_stations: [],
 			items: [
 				{
 					no: "০১",
@@ -155,6 +170,28 @@ export default {
 				},
 			],
 		};
+	},
+	mounted() {
+		this.getPoliceStations();
+	},
+	methods: {
+		/**
+		 * Get police stations
+		 */
+		getPoliceStations() {
+			axios
+				.post("/api/get-police-station-list")
+				.then((response) => {
+					console.log(response.data);
+					if (response.data.success) {
+						this.police_stations = response.data.police_stations;
+					}
+				})
+				.catch((error) => {});
+		},
+		bangla_number(input) {
+			return input;
+		},
 	},
 	metaInfo: {
 		title: "পুলিশ স্টেশন",
