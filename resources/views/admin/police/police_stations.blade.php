@@ -7,33 +7,6 @@
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <style>
-        .btn-circle {
-            border-radius: 50%;
-            padding: 1.2em 1.5em;
-            border: 0px;
-            font-size: 10px;
-        }
-
-        .primary-soft:hover {
-            background-color: #F77B0B;
-            color: white
-        }
-
-        .primary-soft {
-            background-color: rgba(247, 123, 11, 0.15);
-            color: #F77B0B;
-        }
-
-        .danger-soft:hover {
-            background-color: #f71b0b;
-            color: white
-        }
-
-        .danger-soft {
-            background-color: rgba(247, 39, 11, 0.15);
-            color: #f71b0b;
-        }
-
     </style>
 @stop
 @section('admin_content')

@@ -51,7 +51,7 @@
                         <div class="card-header">
                             {{-- <h3 class="card-title">Hospitals & Clinics</h3> --}}
                             <a href="{{ route('admin.hospital.add') }}"
-                                class="btn btn-info btn-sm float-right text-white">Add New Hospital</a>
+                                class="btn btn-success btn-sm float-right text-white">Add New Hospital</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

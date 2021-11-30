@@ -183,7 +183,7 @@ class HospitalRepository implements HospitalInterface
             ->editColumn('action', function ($hospital) {
                 return '
                     <div class="btn-group">
-                        <p class="mb-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <p class="mb-0 cursor-pointer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-tasks"></i>
                         </p>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -199,7 +199,7 @@ class HospitalRepository implements HospitalInterface
                     <form method="post" action="' . route('admin.hospital.delete') . '">
                          <input type="hidden" name="id" value="' . $hospital->id . '">
                          <input type="hidden" name="_token" value="' . csrf_token() . '">
-                        <button class="btn btn-sm ml-1"><i
+                        <button class="btn btn-sm ml-1 btn-circle danger-soft"><i
                         class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>

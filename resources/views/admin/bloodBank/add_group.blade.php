@@ -3,7 +3,7 @@
     Admin | Blood Bank- Add Groups
 @stop
 @section('custom_css')
-  
+
 @stop
 @section('admin_content')
     <!-- Content Header (Page header) -->
@@ -11,14 +11,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">Add Blood Groups</h4>
+                    <h4 class="m-0 text-dark">Add Blood Group</h4>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Blood Bank</a></li>
-                        <li class="breadcrumb-item active">Add Blood Groups</li>
+                        <li class="breadcrumb-item active">Add Blood Group</li>
                     </ol>
                 </div>
             </div>
@@ -35,7 +35,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Blood Group Information</h3>
-                            <a href="{{ route('admin.blood.group.list') }}" class="btn btn-info btn-sm float-right text-white">Blood Group's List</a>
+                            <a href="{{ route('admin.blood.group.list') }}"
+                                class="btn btn-danger btn-sm float-right text-white">Blood Group's List</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -47,8 +48,8 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                                placeholder="Enter ...">
+                                            <input type="text" name="name" value="{{ old('name') }}"
+                                                class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif

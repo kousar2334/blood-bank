@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="{{ asset('/backend/dist/css/adminlte.min.css') }}">
     <!--bangla font-->
     <link rel="stylesheet" href="{{ asset('/common/bangla_font.css') }}">
+    <!--custom btn style-->
+    <link rel="stylesheet" href="{{ asset('/common/css/btn.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ asset('/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Google Font: Source Sans Pro -->

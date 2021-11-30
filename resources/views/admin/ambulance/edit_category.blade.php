@@ -35,8 +35,8 @@
                     <div class="card">
                         <div class="card-header">
 
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="btn btn-info btn-sm float-right text-white">Ambulance List</a>
+                            <a href="{{ route('admin.ambulance.all') }}"
+                                class="btn btn-success btn-sm float-right text-white">Ambulance List</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">

@@ -8,20 +8,6 @@
             height: 32px;
         }
 
-        .btn-circle {
-            border-radius: 50%;
-            padding: 1.2em 1.5em;
-            background-color: rgba(247, 123, 11, 0.15);
-            color: #F77B0B;
-            border: 0px;
-            font-size: 10px;
-        }
-
-        .btn-circle:hover {
-            background-color: #F77B0B;
-            color: white
-        }
-
     </style>
 @stop
 @section('admin_content')
@@ -133,7 +119,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm btn-info btn-circle"><i
+                                                    class="btn btn-sm btn-circle primary-soft"><i
                                                         class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>
@@ -184,7 +170,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm  btn-info btn-circle"><i
+                                                    class="btn btn-sm  primary-soft btn-circle"><i
                                                         class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>
@@ -241,7 +227,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.blood.donar.edit', $donor->id) }}"
-                                                    class="btn btn-sm btn-info btn-circle"><i
+                                                    class="btn btn-sm primary-soft btn-circle"><i
                                                         class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>

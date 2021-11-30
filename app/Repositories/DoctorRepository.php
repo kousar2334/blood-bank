@@ -221,7 +221,7 @@ class DoctorRepository implements DoctorInterface
                     <form method="post" action="' . route('admin.doctor.delete') . '">
                          <input type="hidden" name="id" value="' . $doctor->id . '">
                          <input type="hidden" name="_token" value="' . csrf_token() . '">
-                        <button class="btn btn-sm ml-1"><i
+                        <button class="btn btn-sm ml-1 btn-circle danger-soft"><i
                         class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>

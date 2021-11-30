@@ -37,7 +37,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="{{ route('admin.fireservice.add') }}"
-                                class="btn btn-info btn-sm float-right text-white">Add New Fire service</a>
+                                class="btn btn-danger btn-sm float-right text-white">Add New Fire service</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -78,7 +78,8 @@
                                             </td>
                                             <td class="text-center text-white">
                                                 <a href="{{ route('admin.fireservice.edit', $fire_service->id) }}"
-                                                    class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                                                    class="btn btn-sm btn-circle primary-soft"><i
+                                                        class="fas fa-edit"></i></a>
 
                                             </td>
                                             <td class="text-right">
@@ -86,7 +87,7 @@
                                                     style="float:right;">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $fire_service->id }}">
-                                                    <button class="btn btn-sm ml-1"><i
+                                                    <button class="btn btn-sm btn-circle danger-soft ml-1"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>
                                             </td>

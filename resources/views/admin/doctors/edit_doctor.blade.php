@@ -242,7 +242,9 @@
                                                 <small class="text text-danger">{{ $errors->first('image') }}</small>
                                             @endif
                                         </div>
-                                        <img src="{{ asset('/') }}{{ $doc_info->image }}" width="120px">
+                                        @if ($doc_info->image)
+                                            <img src="{{ asset('/') }}{{ $doc_info->image }}" width="120px">
+                                        @endif
                                     </div>
 
                                 </div>

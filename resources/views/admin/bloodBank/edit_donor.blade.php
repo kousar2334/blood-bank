@@ -34,7 +34,10 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Blood Donor Information</h3>
-                            <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-info btn-sm float-right text-white">Blood Donor List</a>
+                            <a href="{{ route('admin.blood.donar.list') }}"
+                                class="btn btn-danger btn-sm float-right text-white">Blood Donor's List</a>
+                            <a href="{{ route('admin.blood.donar.add') }}"
+                                class="btn btn-success btn-sm float-right text-white mr-2">Add New Donor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -172,54 +175,57 @@
                                 <div class="card card-widget widget-user mt-4">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-info">
-                                      <h3 class="widget-user-username">{{$donor->name}}</h3>
-                                      <h5 class="widget-user-desc">Blood Donor</h5>
+                                        <h3 class="widget-user-username">{{ $donor->name }}</h3>
+                                        <h5 class="widget-user-desc">Blood Donor</h5>
                                     </div>
                                     <div class="widget-user-image">
-                                      <img class="img-circle elevation-2" src="{{ asset('/' . $donor->image) }}" alt="User Avatar">
+                                        @if ($donor->image)
+                                            <img class="img-circle elevation-2" src="{{ asset('/' . $donor->image) }}"
+                                                alt="User Avatar">
+                                        @endif
                                     </div>
                                     <div class="card-footer">
-                                      <div class="row">
-                                        <div class="col-sm-4 border-right">
-                                          <div class="description-block">
-                                            <h5 class="description-header">{{$donor->mobile}}</h5>
-                                            <span class="description-text">Mobile</span>
-                                          </div>
-                                          <!-- /.description-block -->
+                                        <div class="row">
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                    <h5 class="description-header">{{ $donor->mobile }}</h5>
+                                                    <span class="description-text">Mobile</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+                                            <!-- /.col -->
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                    <h5 class="description-header">
+                                                        @foreach ($b_groups as $bg)
+                                                            @if ($donor->blood_group == $bg->id)
+                                                                {{ $bg->name }}
+                                                            @endif
+                                                        @endforeach
+                                                    </h5>
+                                                    <span class="description-text">Blood Group</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+                                            <!-- /.col -->
+                                            <div class="col-sm-4">
+                                                <div class="description-block">
+                                                    <h5 class="description-header">
+                                                        @if ($donor->status == 1)
+                                                            <span class="badge badge-success">Active</span>
+                                                        @else
+                                                            <span class="badge badge-danger">Inactive</span>
+                                                        @endif
+                                                    </h5>
+                                                    <span class="description-text">Status</span>
+                                                </div>
+                                                <!-- /.description-block -->
+                                            </div>
+                                            <!-- /.col -->
                                         </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-4 border-right">
-                                          <div class="description-block">
-                                            <h5 class="description-header">
-                                                @foreach ($b_groups as $bg)
-                                                @if($donor->blood_group == $bg->id)
-                                                {{$bg->name}}
-                                                @endif
-                                                @endforeach
-                                            </h5>
-                                            <span class="description-text">Blood Group</span>
-                                          </div>
-                                          <!-- /.description-block -->
-                                        </div>
-                                        <!-- /.col -->
-                                        <div class="col-sm-4">
-                                          <div class="description-block">
-                                            <h5 class="description-header">
-                                               @if($donor->status==1)
-                                               <span class="badge badge-success">Active</span>
-                                               @else
-                                               <span class="badge badge-danger">Inactive</span>
-                                               @endif
-                                            </h5>
-                                            <span class="description-text">Status</span>
-                                          </div>
-                                          <!-- /.description-block -->
-                                        </div>
-                                        <!-- /.col -->
-                                      </div>
-                                      <!-- /.row -->
+                                        <!-- /.row -->
                                     </div>
-                                  </div>
+                                </div>
                             </div>
 
                         </div>

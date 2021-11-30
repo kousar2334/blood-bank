@@ -22,7 +22,7 @@
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Blood Bank</a></li>
-                        <li class="breadcrumb-item active">Edit Blood Donor List</li>
+                        <li class="breadcrumb-item active">Blood Donor's List</li>
                     </ol>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="{{ route('admin.blood.donar.add') }}"
-                                class="btn btn-info btn-sm float-right text-white">Add New Blood Donor</a>
+                                class="btn btn-danger btn-sm float-right text-white">Add New Blood Donor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

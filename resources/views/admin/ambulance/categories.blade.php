@@ -78,7 +78,8 @@
                                             </td>
                                             <td class="text-center text-white">
                                                 <a href="{{ route('admin.ambulance.category.edit', $cat->id) }}"
-                                                    class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                                                    class="btn btn-sm btn-circle primary-soft"><i
+                                                        class="fas fa-edit"></i></a>
                                             </td>
                                             <td class="text-right">
                                                 <form method="post"
@@ -86,7 +87,7 @@
                                                     style="float:right;">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $cat->id }}">
-                                                    <button class="btn btn-sm ml-1"><i
+                                                    <button class="btn btn-sm ml-1 btn-circle danger-soft"><i
                                                             class="fas fa-trash-alt"></i></button>
                                                 </form>
                                             </td>

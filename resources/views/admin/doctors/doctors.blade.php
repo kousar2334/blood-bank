@@ -40,7 +40,7 @@
 
         .chamber-list {
             /* border: 1px solid;
-                            border-style: dotted; */
+                                border-style: dotted; */
             padding: 15px;
         }
 
@@ -76,7 +76,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Doctor's List</h3>
                             <a href="{{ route('admin.doctor.add') }}"
-                                class="btn btn-info btn-sm float-right text-white">Add New Doctor</a>
+                                class="btn btn-success btn-sm float-right text-white">Add New Doctor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">

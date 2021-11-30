@@ -37,7 +37,7 @@
                             <a href="{{ route('admin.doctor.list') }}"
                                 class="btn btn-info btn-sm float-right text-white">All Doctors</a>
                             <a href="{{ route('admin.doctor.add') }}"
-                                class="mr-2 btn btn-success btn-sm float-right text-white">New Doctor</a>
+                                class="mr-2 btn btn-success btn-sm float-right text-white">Add New Doctor</a>
                             <a href="{{ route('admin.doctor.category.list') }}"
                                 class="mr-2 btn btn-danger btn-sm float-right text-white">All Departments</a>
                         </div>

@@ -74,16 +74,17 @@
                                                     <p class="badge badge-danger">Inactive</p>
                                                 @endif
                                             </td>
-                                            <td class="text-right text-white">
+                                            <td class="text-center text-white">
                                                 <a href="{{ route('admin.hospital.category.edit', $hospital_cat->id) }}"
-                                                    class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
+                                                    class="btn btn-sm btn-circle primary-soft"><i
+                                                        class="fas fa-edit"></i></a>
                                             </td>
                                             <td class="text-right">
                                                 <form method="post" action="{{ route('admin.hospital.category.delete') }}"
                                                     style="float:right;">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $hospital_cat->id }}">
-                                                    <button class="btn btn-sm ml-1">
+                                                    <button class="btn btn-sm ml-1 btn-circle danger-soft">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </button>
                                                 </form>

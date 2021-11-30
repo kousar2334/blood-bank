@@ -36,7 +36,7 @@
                         <div class="card-header">
                             {{-- <h3 class="card-title">Blood Group Information</h3> --}}
                             <a href="{{ route('admin.fireservice.list') }}"
-                                class="btn btn-info btn-sm float-right text-white">Fire service's List</a>
+                                class="btn btn-danger btn-sm float-right text-white">Fire service's List</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">

@@ -170,7 +170,7 @@ class BloodDonorRepository implements BloodDonorInterface
                 }
             })
             ->editColumn('action', function ($donor) {
-                return '<a href="' . route('admin.blood.donar.edit', $donor->id) . '" class="btn btn-sm btn-info edit-info"><i class="fas fa-edit"></i></a>';
+                return '<a href="' . route('admin.blood.donar.edit', $donor->id) . '" class="btn btn-sm btn-circle primary-soft"><i class="fas fa-edit"></i></a>';
             })
             ->editColumn('remove', function ($donor) {
                 return '
@@ -178,7 +178,7 @@ class BloodDonorRepository implements BloodDonorInterface
                     <form method="post" action="' . route('admin.blood.donar.delete') . '">
                          <input type="hidden" name="id" value="' . $donor->id . '">
                          <input type="hidden" name="_token" value="' . csrf_token() . '">
-                        <button class="btn btn-sm ml-1"><i
+                        <button class="btn btn-sm ml-1 btn-circle danger-soft"><i
                         class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>

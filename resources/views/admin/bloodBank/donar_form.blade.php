@@ -34,7 +34,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Blood Donor Form</h3>
-                            <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-info btn-sm float-right text-white">Blood Donor List</a>
+                            <a href="{{ route('admin.blood.donar.list') }}"
+                                class="btn btn-danger btn-sm float-right text-white">Blood Donor's List</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -46,8 +47,8 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>Name<span class="text-danger">*</span></label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control"
-                                                placeholder="Enter Name">
+                                            <input type="text" name="name" value="{{ old('name') }}"
+                                                class="form-control" placeholder="Enter Name">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
