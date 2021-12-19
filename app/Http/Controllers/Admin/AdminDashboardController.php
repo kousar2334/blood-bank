@@ -26,12 +26,19 @@ class AdminDashboardController extends Controller
         $total_hospital = Hospitals::all()->count();
         $total_donor = BloodDonor::all()->count();
         $total_doctor = Doctor::all()->count();
+        $leatest_hospitals = DB::table('hospitals')
+            ->join('hospital_categories', 'hospital_categories.id', '=', 'hospitals.cat_id')
+            ->select('hospitals.name', 'hospitals.id', 'hospitals.image', 'hospitals.status', 'hospital_categories.bn_name as category')
+            ->orderBy('hospitals.status', 'ASC')
+            ->orderBy('hospitals.id', 'DESC')
+            ->get()->take(5);
         return view('admin.dashboard.dashboard')->with([
             'leatest_blood_donors' => $leatest_blood_donors,
             'total_hospital' => $total_hospital,
             'total_donor' => $total_donor,
             'total_doctor' => $total_doctor,
-            'leatest_doctors' => $leatest_doctors
+            'leatest_doctors' => $leatest_doctors,
+            'leatest_hospitals' => $leatest_hospitals
         ]);
     }
 }

@@ -43,3 +43,7 @@ Route::post('/get-fire-service-list', 'Api\FireserviceController@fireServiceList
 
 //police station
 Route::post('/get-police-station-list', 'Api\PoliceStationController@policeStationList');
+
+//site info
+Route::get('/get-site-logo-name', 'Api\SystemController@getLogoAndName');
+Route::get('/get-site-about-us', 'Api\SystemController@getAboutUsContent');

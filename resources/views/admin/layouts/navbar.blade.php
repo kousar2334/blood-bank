@@ -272,73 +272,56 @@
                     </ul>
                 </li>
                 <!--End Police Stations Module-->
-                <!--Blog Module-->
-                {{-- <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fa fa-file"></i>
+                <!--Setting Module-->
+                <li
+                    class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us']) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            Blogs
+                            Settings
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.settings.general') }}"
+                                class="{{ Request::routeIs('admin.settings.general') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Authors</p>
+                                <p>General</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.settings.general.about.us') }}"
+                                class="{{ Request::routeIs('admin.settings.general.about.us') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>About Us</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add Author</p>
+                                <p>Social Account</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Blogs</p>
+                                <p>Banners</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add Blogs</p>
+                                <p>Banner Management</p>
                             </a>
                         </li>
                     </ul>
-                    <!--End Blog Module-->
-                    <!--Gallery Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>
-                            Galleries
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Videos</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Images</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
-                <!--End Gallery Module-->
+                </li>
+                <!--End Setting Module-->
                 <!--Users Module-->
                 <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
@@ -366,40 +349,7 @@
                     </ul>
                 </li>
                 <!--End Users Module-->
-                <!--Setting Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-cog"></i>
-                        <p>
-                            Settings
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Menu Management</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Homepage Setting</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Banner Management</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <!--End Setting Module-->
+
 
 
             </ul>

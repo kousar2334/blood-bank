@@ -77,3 +77,29 @@ if (!function_exists('uploadDoctorCategoryIcon')) {
         return $image;
     }
 }
+if (!function_exists('uploadSiteLogo')) {
+    function uploadSiteLogo($request)
+    {
+        $directory = "uploads/general/";
+        $image = $request->file('logo');
+        $imageName = $image->getClientOriginalName();
+        $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+        $imageName = date('mdYHis') . 'logo.' . $extension;
+        $image->move(public_path($directory), $imageName);
+        $image = $directory . '' . $imageName;
+        return $image;
+    }
+}
+if (!function_exists('uploadSiteFavicon')) {
+    function uploadSiteFavicon($request)
+    {
+        $directory = "uploads/general/";
+        $image = $request->file('favicon');
+        $imageName = $image->getClientOriginalName();
+        $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+        $imageName = date('mdYHis') . 'favicon.' . $extension;
+        $image->move(public_path($directory), $imageName);
+        $image = $directory . '' . $imageName;
+        return $image;
+    }
+}

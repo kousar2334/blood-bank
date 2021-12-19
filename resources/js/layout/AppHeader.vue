@@ -2,15 +2,14 @@
 	<header class="header-global">
 		<base-nav class="navbar-main" transparent type="" effect="light" expand>
 			<router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
-				<img src="img/brand/white.png" alt="logo" />
+				<img v-if="site_info.logo" :src="`/${site_info.logo}`" alt="logo" />
+				<h2 v-else class="text-white bangla-font">{{ site_info.name }}</h2>
 			</router-link>
 
 			<div class="row" slot="content-header" slot-scope="{ closeMenu }">
 				<div class="col-6 collapse-brand">
-					<a
-						href="https://demos.creative-tim.com/vue-argon-design-system/documentation/"
-					>
-						<img src="img/brand/white.png" />
+					<a href="/">
+						<h2 class="text-black bangla-font">{{ site_info.name }}</h2>
 					</a>
 				</div>
 				<div class="col-6 collapse-close">
@@ -136,7 +135,7 @@
 				</li>
 			</ul>
 			<ul class="navbar-nav align-items-lg-center ml-lg-auto">
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a
 						class="nav-link nav-link-icon"
 						href="https://www.facebook.com/creativetim"
@@ -174,11 +173,12 @@
 						<i class="fa fa-twitter-square"></i>
 						<span class="nav-link-inner--text d-lg-none">Twitter</span>
 					</a>
-				</li>
+				</li> -->
 				<li class="nav-item d-none d-lg-block ml-lg-4">
 					<router-link class="btn btn-neutral btn-icon" to="/blood-bank">
 						<span class="btn-inner--icon">
-							<svg
+							<img src="/images/blood-type.png" />
+							<!-- <svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="16"
 								height="16"
@@ -194,9 +194,9 @@
 									fill-rule="evenodd"
 									d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
 								/>
-							</svg>
+							</svg> -->
 						</span>
-						<span class="nav-link-inner--text bangla-font ml-2 danger"
+						<span class="nav-link-inner--text bangla-font ml-2 danger-deep"
 							>রক্ত প্রয়োজন</span
 						>
 					</router-link>
@@ -209,12 +209,40 @@
 import BaseNav from "../components/BaseNav";
 import BaseDropdown from "../components/BaseDropdown";
 import CloseButton from "../components/CloseButton";
+import axios from "axios";
 
 export default {
 	components: {
 		BaseNav,
 		CloseButton,
 		BaseDropdown,
+	},
+	data() {
+		return {
+			site_info: {
+				name: "name",
+				logo: "logo",
+			},
+		};
+	},
+	mounted() {
+		this.getSiteInfo();
+	},
+	methods: {
+		/**
+		 *Get site logo and name
+		 */
+		getSiteInfo() {
+			axios
+				.get("/api/get-site-logo-name")
+				.then((response) => {
+					if (response.data.success) {
+						this.site_info.name = response.data.info.site_name;
+						this.site_info.logo = response.data.info.logo;
+					}
+				})
+				.catch((error) => {});
+		},
 	},
 };
 </script>

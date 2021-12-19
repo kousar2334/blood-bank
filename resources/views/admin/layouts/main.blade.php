@@ -38,6 +38,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/backend/css/toastr.min.css') }}">
     <!-- jQuery -->
     <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+
+    <!----tiny mce--->
+    <script src="{{ asset('/backend/js/tinymce.min.js') }}"></script>
     @yield('custom_css')
     <style>
         /* .content-header .breadcrumb {

@@ -142,34 +142,34 @@
                                 <thead>
                                     <tr>
                                         <th class="font-weight-normal">Name</th>
-                                        <th class="font-weight-normal">Specialist</th>
+                                        <th class="font-weight-normal">Category</th>
                                         <th class="font-weight-normal">Status</th>
                                         <th class="font-weight-normal">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($leatest_doctors as $doctor)
+                                    @foreach ($leatest_hospitals as $hospital)
                                         <tr>
                                             <td class="bangla-font">
-                                                @if ($doctor->image)
-                                                    <img src="{{ asset('/') }}{{ $doctor->image }}"
-                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                @if ($hospital->image)
+                                                    <img src="{{ asset('/') }}{{ $hospital->image }}"
+                                                        alt="{{ $hospital->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
                                                     <img src="{{ asset('/') }}images/no-image.png"
-                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                        alt="{{ $hospital->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
-                                                {{ $doctor->name }}
+                                                {{ $hospital->name }}
                                             </td>
-                                            <td class="bangla-font">{{ $doctor->specialist }}</td>
+                                            <td class="bangla-font">{{ $hospital->category }}</td>
                                             <td>
-                                                @if ($doctor->status == 1)
+                                                @if ($hospital->status == 1)
                                                     <span class="badge badge-success">Active</span>
                                                 @else
                                                     <span class="badge badge-danger">Pending</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
+                                                <a href="{{ route('admin.hospital.edit', $hospital->id) }}"
                                                     class="btn btn-sm  primary-soft btn-circle"><i
                                                         class="fas fa-edit"></i></a>
                                             </td>
