@@ -13,16 +13,17 @@
 			<span class="span-100"></span>
 		</div>
 		<div class="container shape-container d-flex">
-			<div class="col px-0">
+			<div class="col px-0 mt-lg-5">
 				<div
 					class="
 						row
 						justify-content-center
 						align-items-center
-						mt-3 mt-lg-5 mt-md-5
+						mb-4 mb-md-0 mb-lg-0
+						mt-0 mt-lg-5 mt-md-5
 					"
 				>
-					<div class="col-lg-12 text-center pt-0 mt-0 mt-lg-5 mt-md-5 pb-0">
+					<div class="col-lg-12 text-center pt-0 pt-lg-5 pt-md-5 pb-5">
 						<VueSlickCarousel :arrows="false" :dots="false" v-bind="settings">
 							<div>
 								<h1 class="bangla-font text-white">দুটি সন্তানের বেশী নয়</h1>
@@ -37,6 +38,17 @@
 									এখানে আপনার ডাক্তার খুঁজুন
 								</h1>
 								<p class="bangla-font text-white btn btn-success">খুঁজুন</p>
+							</div>
+							<div>
+								<p class="bangla-font text-white">
+									রাজধানীর খিলক্ষেতে সড়ক বিভাজক টপকে মাইক্রোবাসকে ধাক্কা দেওয়া
+									বাসটি চালক চালাচ্ছিলেন না। তিনি ঘুমাচ্ছিলেন। বাস ছিল তাঁর
+									সহকারীর হাতে। চালকের বরাত দিয়ে ওই বাসের (এনা পরিবহন) মালিক ও
+									বাংলাদেশ সড়ক পরিবহন মালিক সমিতির মহাসচিব খন্দকার এনায়েত উল্যাহ
+									প্রথম আলোকে এ কথা বলেছেন। এ ঘটনায় মঙ্গলবার সন্ধ্যার পর র‌্যাব
+									মহাখালীতে গিয়ে বাসচালক মিজানুর রহমানকে ধরে নিয়ে গেছে বলেও
+									খন্দকার এনায়েত উল্যাহ জানিয়েছেন।
+								</p>
 							</div>
 						</VueSlickCarousel>
 					</div>
