@@ -274,9 +274,9 @@
                 <!--End Police Stations Module-->
                 <!--Setting Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Settings
@@ -299,10 +299,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.settings.social.acconts.list') }}"
+                                class="{{ Request::routeIs('admin.settings.social.acconts.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Social Account</p>
+                                <p>Social Accounts</p>
                             </a>
                         </li>
                         <li class="nav-item">

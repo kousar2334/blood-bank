@@ -16,7 +16,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
                                 Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Settings</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.settings.general') }}">Settings</a></li>
                         <li class="breadcrumb-item active">General Settings</li>
                     </ol>
                 </div>

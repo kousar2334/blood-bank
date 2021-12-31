@@ -78,4 +78,36 @@ class SettingsRepository
     {
         return DB::table('general_settings')->first()->about_us;
     }
+
+    /**
+     * This method will return site's social account liks
+     * 
+     * @return Object 
+     */
+    public function socialAccounts()
+    {
+        return DB::table('social_accounts')->first();
+    }
+    /**
+     * update social account
+     * 
+     * @param Arrary $request
+     * @return void
+     */
+    public function updateSocialAccount($request)
+    {
+        try {
+            DB::beginTransaction();
+            DB::table('social_accounts')
+                ->where('id', $request->id)
+                ->update([
+                    'fb_link' => $request->fb_link,
+                    'twitter_link' => $request->twitter_link,
+                    'youtube_link' => $request->youtube_link
+                ]);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
 }

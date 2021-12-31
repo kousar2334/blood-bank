@@ -52,4 +52,27 @@ class SystemController extends Controller
             ]);
         }
     }
+    /**
+     * 
+     * this method will return footer content
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function footerContent(Request $request)
+    {
+        try {
+            $info = $this->settings_repository->nameandLogo();
+            $social_accounts = $this->settings_repository->socialAccounts();
+            return response()->json([
+                'success' => true,
+                'info' => $info,
+                'social_accounts' => $social_accounts
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false
+            ]);
+        }
+    }
 }

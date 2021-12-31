@@ -95,4 +95,6 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/update-general-settings', 'SettingController@updateGeneralSettings')->name('admin.settings.general.update');
     Route::get('/get-site-about-us', 'SettingController@aboutUs')->name('admin.settings.general.about.us');
     Route::post('/update-site-about-us', 'SettingController@updateAboutUs')->name('admin.settings.general.about.us.update');
+    Route::get('/social-accounts', 'SettingController@socialAccounts')->name('admin.settings.social.acconts.list');
+    Route::post('/update-social-accounts', 'SettingController@updateSocialAccounts')->name('admin.settings.social.acconts.update');
 });

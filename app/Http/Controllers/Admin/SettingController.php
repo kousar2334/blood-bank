@@ -84,4 +84,38 @@ class SettingController extends Controller
             return redirect()->back();
         }
     }
+    /**
+     * This method will return all social list
+     * 
+     * @return mixed
+     */
+    public function socialAccounts()
+    {
+        try {
+            $accounts = $this->settings_repository->socialAccounts();
+            return view('admin.settings.social_accounts', [
+                'accounts' => $accounts
+            ]);
+        } catch (\Exception $e) {
+            Toastr::error('Solial Accounts loading faled');
+            return redirect()->back();
+        }
+    }
+    /**
+     * This method update social accounts
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function updateSocialAccounts(Request $request)
+    {
+        try {
+            $this->settings_repository->updateSocialAccount($request);
+            Toastr::success('Social accounts updated successfully');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            Toastr::error('Something went wrong');
+            return redirect()->back();
+        }
+    }
 }
