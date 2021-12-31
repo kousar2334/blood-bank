@@ -25,6 +25,19 @@ if (!function_exists('uploadDoctorImage')) {
         return $image;
     }
 }
+if (!function_exists('uploadUserImage')) {
+    function uploadUserImage($request)
+    {
+        $directory = 'uploads/profile_image/admin/';
+        $image = $request->file('image');
+        $imageName = $image->getClientOriginalName();
+        $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+        $imageName = date('mdYHis') . 'd.' . $extension;
+        $image->move(public_path($directory), $imageName);
+        $image = $directory . '' . $imageName;
+        return $image;
+    }
+}
 if (!function_exists('uploadHospitalImage')) {
     function uploadHospitalImage($request)
     {

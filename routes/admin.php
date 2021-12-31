@@ -98,3 +98,13 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/social-accounts', 'SettingController@socialAccounts')->name('admin.settings.social.acconts.list');
     Route::post('/update-social-accounts', 'SettingController@updateSocialAccounts')->name('admin.settings.social.acconts.update');
 });
+Route::group(['middleware' => 'auth:admin'], function () {
+    //users module
+    Route::get('/add-new-user', 'User\IndexController@newUserpage')->name('admin.user.new.user');
+    Route::post('/store-new-user', 'User\IndexController@storeNewUser')->name('admin.user.new.user.store');
+    Route::post('/delete-user', 'User\IndexController@deleteUser')->name('admin.user.delete');
+    Route::get('/edit-user/{id}', 'User\IndexController@editUser')->name('admin.user.edit');
+    Route::post('/update-user', 'User\IndexController@updateUser')->name('admin.user.update');
+    Route::post('/update-user-password', 'User\IndexController@updateUserPassword')->name('admin.user.update.password');
+    Route::get('/all-users', 'User\IndexController@allUsers')->name('admin.users');
+});

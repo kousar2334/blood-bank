@@ -13,8 +13,7 @@
                 @if (!empty(Auth::user()->image))
                     <img src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
                 @else
-                    <img src="{{ asset('/backend/dist/img/user1-160x160.jpg') }}" class="img-circle elevation-2"
-                        alt="User Image">
+                    <img src="{{ asset('/images/no-image.png') }}" class="img-circle elevation-2" alt="User Image">
                 @endif
 
             </div>
@@ -323,8 +322,10 @@
                 </li>
                 <!--End Setting Module-->
                 <!--Users Module-->
-                <li class="{{ Request::routeIs([]) ? 'menu-open' : '' }} nav-item has-treeview">
-                    <a href="#" class="{{ Request::routeIs([]) ? 'active' : '' }} nav-link">
+                <li
+                    class="{{ Request::routeIs(['admin.user.new.user', 'admin.users', 'admin.user.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs(['admin.user.new.user', 'admin.users', 'admin.user.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -333,25 +334,22 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.users') }}"
+                                class="{{ Request::routeIs('admin.users') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>Users</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.user.new.user') }}"
+                                class="{{ Request::routeIs('admin.user.new.user') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Roles</p>
+                                <p>New User</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <!--End Users Module-->
-
-
-
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
