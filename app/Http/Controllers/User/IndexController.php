@@ -9,15 +9,31 @@ use App\Repositories\UserRepository;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserUpdateRequest;
+use App\Repositories\SettingsRepository;
 use App\Http\Requests\UserPasswordUpdateRequest;
 
 class IndexController extends Controller
 {
     protected $user_repository;
+    protected $settings_repository;
 
-    public function __construct(UserRepository $user_repository)
+    public function __construct(UserRepository $user_repository, SettingsRepository $settings_repository)
     {
         $this->user_repository = $user_repository;
+        $this->settings_repository = $settings_repository;
+    }
+    /**
+     * This method will return frontend
+     * 
+     * @return mixed
+     */
+    public function index()
+    {
+        $this->settings_repository->storeVisitor();
+        $siteNameLogo = $this->settings_repository->nameandLogo();
+        return view('user.index', [
+            'siteNameLogo' => $siteNameLogo
+        ]);
     }
     /**
      *This method will redirect new user page

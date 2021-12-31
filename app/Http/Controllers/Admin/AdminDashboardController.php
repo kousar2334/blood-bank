@@ -32,13 +32,22 @@ class AdminDashboardController extends Controller
             ->orderBy('hospitals.status', 'ASC')
             ->orderBy('hospitals.id', 'DESC')
             ->get()->take(5);
+        $leatest_ambulances = DB::table('ambulance')
+            ->join('ambulance_categories', 'ambulance_categories.id', '=', 'ambulance.cat_id')
+            ->select('ambulance.bn_name as name', 'ambulance.id', 'ambulance.image', 'ambulance.status', 'ambulance_categories.bn_name as category')
+            ->orderBy('ambulance.status', 'ASC')
+            ->orderBy('ambulance.id', 'DESC')
+            ->get()->take(5);
+        $toatal_visitor = DB::table('site_visitors')->count();
         return view('admin.dashboard.dashboard')->with([
             'leatest_blood_donors' => $leatest_blood_donors,
             'total_hospital' => $total_hospital,
             'total_donor' => $total_donor,
             'total_doctor' => $total_doctor,
             'leatest_doctors' => $leatest_doctors,
-            'leatest_hospitals' => $leatest_hospitals
+            'leatest_hospitals' => $leatest_hospitals,
+            'leatest_ambulances' => $leatest_ambulances,
+            'toatal_visitor' => $toatal_visitor
         ]);
     }
 }

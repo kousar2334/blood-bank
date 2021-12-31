@@ -2,12 +2,24 @@
 
 namespace App\Repositories;
 
-use Brian2694\Toastr\Toastr;
 use DB;
-use GuzzleHttp\Psr7\Request;
 
 class SettingsRepository
 {
+    /**
+     *This method store site visitor information
+     *
+     *@return void
+     */
+    public function storeVisitor()
+    {
+        $ip = $this->get_client_ip();
+        DB::table('site_visitors')
+            ->insert([
+                'ip' => $ip
+            ]);
+    }
+
     /**
      * This method will return general Settings
      * 
@@ -66,7 +78,7 @@ class SettingsRepository
     public function nameandLogo()
     {
         return DB::table('general_settings')
-            ->select('logo', 'site_name')
+            ->select('logo', 'site_name', 'favicon')
             ->first();
     }
     /**
@@ -109,5 +121,27 @@ class SettingsRepository
         } catch (\Exception $e) {
             DB::rollBack();
         }
+    }
+    /**
+     * get clinet ip
+     */
+    public  function get_client_ip()
+    {
+        $ipaddress = '';
+        if (isset($_SERVER['HTTP_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if (isset($_SERVER['HTTP_X_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        else if (isset($_SERVER['HTTP_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        else if (isset($_SERVER['HTTP_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        else if (isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
     }
 }
