@@ -10,7 +10,7 @@
 							<router-link :to="service.url">
 								<card class="border-0 py-0" hover shadow>
 									<img
-										v-lazy="`/${service.icon}`"
+										:src="'/' + service.icon"
 										class="
 											rounded-circle
 											img-center img-fluid
@@ -47,7 +47,7 @@
 							>
 								<card class="border-1 call-center-box">
 									<img
-										v-lazy="`/${item.logo}`"
+										:src="'/' + item.logo"
 										class="img-center img-fluid"
 										style="width: 100px"
 									/>
@@ -118,7 +118,7 @@ export default {
 				{
 					name: "পুলিশ",
 					icon: "img/theme/police.png",
-					url: "/police-stattons",
+					url: "/police-stations",
 				},
 			],
 			national_emergency_numbers: [
@@ -220,6 +220,16 @@ export default {
 				},
 			],
 		};
+	},
+	metaInfo: {
+		title: "বন্ধন | মানুষের পাশে সব সময় ",
+		meta: [
+			{
+				vmid: "description",
+				name: "description",
+				content: "মানুষের পাশে সব সময়",
+			},
+		],
 	},
 };
 </script>

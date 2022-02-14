@@ -114,9 +114,6 @@ export default {
 	},
 	metaInfo: {
 		title: "হাসপাতাল ও ক্লিনিক",
-		meta: [
-			{ vmid: "description", name: "description", content: "The home page" },
-		],
 	},
 };
 </script>

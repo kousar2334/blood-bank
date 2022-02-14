@@ -1,23 +1,42 @@
 import Vue from "vue";
 import Router from "vue-router";
-import AppHeader from "./layout/AppHeader";
-import AppFooter from "./layout/AppFooter";
-import Home from "./views/pages/Home.vue";
-import Doctors from "./views/pages/Doctors.vue";
-import BloodBank from "./views/pages/BloodBank.vue";
-import BloodDonorForm from "./views/pages/BloodDonorForm.vue";
-import DoctorAddForm from "./views/pages/DoctorAddForm.vue";
-import Hospitals from "./views/pages/Hospitals.vue";
-import AddHospital from "./views/pages/AddHospital.vue";
-import AddAmbulance from "./views/pages/NewAmbulance.vue";
-import Ambulance from "./views/pages/Ambulance.vue";
-import AboutUs from "./views/pages/AboutUs.vue";
-import FireStation from "./views/pages/FireStation.vue";
-import Police from "./views/pages/Police.vue";
-import Login from "./views/pages/Login.vue";
-import Register from "./views/pages/Register.vue";
-import Profile from "./views//pages/Profile.vue";
-
+const AppHeader = () =>
+    import(/* webpackChunkName: "AppHeader" */ "./layout/AppHeader");
+const AppFooter = () =>
+    import(/* webpackChunkName: "AppFooter" */ "./layout/AppFooter");
+const DoctorAddForm = () =>
+    import(
+        /* webpackChunkName: "DoctorAddForm" */ "./views/pages/DoctorAddForm"
+    );
+const BloodDonorForm = () =>
+    import(
+        /* webpackChunkName: "BloodDonorForm" */ "./views/pages/BloodDonorForm"
+    );
+const BloodBank = () =>
+    import(/* webpackChunkName: "BloodBank" */ "./views/pages/BloodBank");
+const Doctors = () =>
+    import(/* webpackChunkName: "Doctors" */ "./views/pages/Doctors");
+const Home = () => import(/* webpackChunkName: "Home" */ "./views/pages/Home");
+const Hospitals = () =>
+    import(/* webpackChunkName: "Hospitals" */ "./views/pages/Hospitals");
+const AddHospital = () =>
+    import(/* webpackChunkName: "AddHospital" */ "./views/pages/AddHospital");
+const AddAmbulance = () =>
+    import(/* webpackChunkName: "AddAmbulance" */ "./views/pages/NewAmbulance");
+const Ambulance = () =>
+    import(/* webpackChunkName: "Ambulance" */ "./views/pages/Ambulance");
+const AboutUs = () =>
+    import(/* webpackChunkName: "AboutUs" */ "./views/pages/AboutUs");
+const FireStation = () =>
+    import(/* webpackChunkName: "FireStation" */ "./views/pages/FireStation");
+const Police = () =>
+    import(/* webpackChunkName: "police" */ "./views/pages/Police");
+const Login = () =>
+    import(/* webpackChunkName: "Login" */ "./views/pages/Login");
+const Register = () =>
+    import(/* webpackChunkName: "Register" */ "./views/pages/Register");
+const Profile = () =>
+    import(/* webpackChunkName: "Profile" */ "./views/pages/Profile");
 Vue.use(Router);
 export default new Router({
     linkExactActiveClass: "active",
@@ -123,7 +142,7 @@ export default new Router({
             }
         },
         {
-            path: "/police-stattons",
+            path: "/police-stations",
             name: "Police",
             components: {
                 header: AppHeader,

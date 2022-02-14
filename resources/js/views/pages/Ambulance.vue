@@ -115,9 +115,6 @@ export default {
 	},
 	metaInfo: {
 		title: "অ্যাম্বুলেন্স",
-		meta: [
-			{ vmid: "description", name: "description", content: "The home page" },
-		],
 	},
 };
 </script>

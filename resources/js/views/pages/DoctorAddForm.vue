@@ -504,7 +504,6 @@ export default {
 	},
 	metaInfo: {
 		title: "নতুন ডাক্তার",
-		meta: [{ name: "description", content: "foo" }],
 	},
 };
 </script>

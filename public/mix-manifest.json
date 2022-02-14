@@ -1,4 +1,25 @@
 {
     "/js/main.js": "/js/main.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/AboutUs.js": "/AboutUs.js",
+    "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Hospitals.js": "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Hospitals.js",
+    "/AddAmbulance.js": "/AddAmbulance.js",
+    "/AddHospital.js": "/AddHospital.js",
+    "/Ambulance.js": "/Ambulance.js",
+    "/AppFooter.js": "/AppFooter.js",
+    "/AppHeader.js": "/AppHeader.js",
+    "/BloodBank.js": "/BloodBank.js",
+    "/BloodDonorForm.js": "/BloodDonorForm.js",
+    "/DoctorAddForm.js": "/DoctorAddForm.js",
+    "/Doctors.js": "/Doctors.js",
+    "/FireStation.js": "/FireStation.js",
+    "/Home.js": "/Home.js",
+    "/Hospitals.js": "/Hospitals.js",
+    "/Login.js": "/Login.js",
+    "/Profile.js": "/Profile.js",
+    "/Register.js": "/Register.js",
+    "/police.js": "/police.js",
+    "/vendors~AboutUs~AddAmbulance~AddHospital~Ambulance~AppFooter~AppHeader~BloodBank~BloodDonorForm~Doct~cf4c4e57.js": "/vendors~AboutUs~AddAmbulance~AddHospital~Ambulance~AppFooter~AppHeader~BloodBank~BloodDonorForm~Doct~cf4c4e57.js",
+    "/vendors~BloodBank.js": "/vendors~BloodBank.js",
+    "/vendors~FireStation~Home~police.js": "/vendors~FireStation~Home~police.js"
 }

@@ -11,28 +11,34 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\SettingsRepository;
 use App\Http\Requests\UserPasswordUpdateRequest;
+use App\Repositories\SeoRepository;
+
 
 class IndexController extends Controller
 {
     protected $user_repository;
     protected $settings_repository;
+    protected $seo_repository;
 
-    public function __construct(UserRepository $user_repository, SettingsRepository $settings_repository)
+    public function __construct(UserRepository $user_repository, SettingsRepository $settings_repository, SeoRepository $seo_repository)
     {
         $this->user_repository = $user_repository;
         $this->settings_repository = $settings_repository;
+        $this->seo_repository = $seo_repository;
     }
     /**
      * This method will return frontend
      * 
      * @return mixed
      */
-    public function index()
+    public function index(Request $request, $ur = null)
     {
+        $meta = $this->seo_repository->getPageSeo();
         $this->settings_repository->storeVisitor();
         $siteNameLogo = $this->settings_repository->nameandLogo();
         return view('user.index', [
-            'siteNameLogo' => $siteNameLogo
+            'siteNameLogo' => $siteNameLogo,
+            'meta' => $meta
         ]);
     }
     /**

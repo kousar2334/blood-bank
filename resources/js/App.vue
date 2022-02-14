@@ -18,10 +18,7 @@ export default {
 	},
 	metaInfo: {
 		charset: "utf-8",
-		// if no subcomponents specify a metaInfo.title, this title will be used
-		title: "আমার বগুড়া",
-		// all titles will be injected into this template
-		titleTemplate: "%s | আমার বগুড়া",
+		titleTemplate: "%s",
 	},
 };
 </script>

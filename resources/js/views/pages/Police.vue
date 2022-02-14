@@ -195,9 +195,6 @@ export default {
 	},
 	metaInfo: {
 		title: "পুলিশ স্টেশন",
-		meta: [
-			{ vmid: "description", name: "description", content: "The home page" },
-		],
 	},
 };
 </script>

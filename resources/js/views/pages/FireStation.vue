@@ -96,9 +96,6 @@ export default {
 	},
 	metaInfo: {
 		title: "ফায়ার সার্ভিস",
-		meta: [
-			{ vmid: "description", name: "description", content: "The home page" },
-		],
 	},
 };
 </script>
