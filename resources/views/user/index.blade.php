@@ -17,13 +17,13 @@
     <meta name="twitter:title" content="{!! $meta['meta_title'] !!}">
     <meta name="twitter:description" content="{!! $meta['meta_description'] !!}">
     <meta name="twitter:creator" content="@author_handle">
-    <meta name="twitter:image" content="{{ $meta['meta_image'] }}">
+    <meta name="twitter:image" content="{{ asset('/') }}{{ $meta['meta_image'] }}">
 
     <!-- Open Graph data -->
     <meta property="og:title" content="{!! $meta['meta_title'] !!}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url()->full() }}" />
-    <meta property="og:image" content="{{ $meta['meta_image'] }}" />
+    <meta property="og:image" content="{{ asset('/') }}{{ $meta['meta_image'] }}" />
     <meta property="og:description" content="{!! $meta['meta_description'] !!}" />
     <meta property="og:site_name" content="{{ $siteNameLogo->site_name }}" />
     <meta property="fb:app_id" content="{{ env('FACEBOOK_PIXEL_ID') }}">

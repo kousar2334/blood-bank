@@ -34,32 +34,12 @@
     </script>
 @stop
 @section('admin_content')
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">About Us</h4>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
-                                Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Settings</a></li>
-                        <li class="breadcrumb-item active">About Us</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
         <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
-
-                <div class="col-lg-12 col-sm-12">
+                <div class="offset-lg-2 col-lg-8 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">About Us</h3>
@@ -69,20 +49,15 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="offset-3 col-sm-6">
-                                        <div class="form-group">
-                                            <input type="hidden" name="id" value="{{ $settings->id }}">
-                                            <label>About Us</label>
-                                            <textarea class="form-control" id="about_us" name="about_us" rows="10"
-                                                placeholder="Enter Address">{{ $settings->about_us }}</textarea>
-                                            @if ($errors->has('about_us'))
-                                                <small class="text text-danger">{{ $errors->first('about_us') }}</small>
-                                            @endif
-                                        </div>
+                                    <div class="form-group col-12">
+                                        <input type="hidden" name="id" value="{{ $settings->id }}">
+                                        <textarea class="form-control" id="about_us" name="about_us" rows="10"
+                                            placeholder="Enter Address">{{ $settings->about_us }}</textarea>
+                                        @if ($errors->has('about_us'))
+                                            <small class="text text-danger">{{ $errors->first('about_us') }}</small>
+                                        @endif
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="offset-3 col-sm-3 text-center">
+                                    <div class="form-group">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
                                             value="Update About Us" />
                                     </div>

@@ -97,6 +97,8 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/update-site-about-us', 'SettingController@updateAboutUs')->name('admin.settings.general.about.us.update');
     Route::get('/social-accounts', 'SettingController@socialAccounts')->name('admin.settings.social.acconts.list');
     Route::post('/update-social-accounts', 'SettingController@updateSocialAccounts')->name('admin.settings.social.acconts.update');
+    Route::get('/seo-settings', 'SettingController@seoSettings')->name('admin.settings.seo');
+    Route::post('/update-seo-settings', 'SettingController@updateSeoSettings')->name('admin.settings.seo.update');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module

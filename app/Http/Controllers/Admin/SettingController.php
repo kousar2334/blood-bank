@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\SeoRepository;
 use App\Repositories\SettingsRepository;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -11,10 +12,12 @@ class SettingController extends Controller
 {
 
     protected $settings_repository;
+    protected $seo_repository;
 
-    public function __construct(SettingsRepository $settings_repository)
+    public function __construct(SettingsRepository $settings_repository, SeoRepository $seo_repository)
     {
         $this->settings_repository = $settings_repository;
+        $this->seo_repository = $seo_repository;
     }
     /**
      * This method will return general settings
@@ -115,6 +118,39 @@ class SettingController extends Controller
             return redirect()->back();
         } catch (\Exception $e) {
             Toastr::error('Something went wrong');
+            return redirect()->back();
+        }
+    }
+    /**
+     * This method will return seo settings
+     * 
+     * @return mixed
+     */
+    public function seoSettings()
+    {
+        try {
+            $seo = $this->seo_repository->getSeoSettings();
+            return view('admin.settings.seo_settings', [
+                'seo' => $seo
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
+    }
+    /**
+     * This method will update seo info
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function updateSeoSettings(Request $request)
+    {
+        try {
+            $this->seo_repository->updateSeoSettings($request);
+            Toastr::success('Seo information updated successfully');
+            return redirect()->route('admin.settings.seo');
+        } catch (\Exception $e) {
+            Toastr::error('Update failed');
             return redirect()->back();
         }
     }

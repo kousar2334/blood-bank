@@ -3,34 +3,20 @@
     General Settings
 @stop
 @section('custom_css')
+    <style>
+        .logo {
+            max-height: 70px;
+        }
+
+    </style>
 @stop
 @section('admin_content')
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">General Settings</h4>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
-                                Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.settings.general') }}">Settings</a></li>
-                        <li class="breadcrumb-item active">General Settings</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
         <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
-
-                <div class="col-lg-12 col-sm-12">
+                <div class="offset-lg-2 col-lg-8 col-sm-12 mt-3">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">General Settings</h3>
@@ -40,7 +26,7 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>Site Name<span class="text-danger">*</span></label>
                                             <input type="hidden" name="id" value="{{ $settings->id }}">
@@ -55,6 +41,13 @@
                                             <input type="file" name="logo" class="form-control">
                                             @if ($errors->has('logo'))
                                                 <small class="text text-danger">{{ $errors->first('logo') }}</small>
+                                            @endif
+                                        </div>
+                                        <div class="row">
+                                            @if ($settings->logo)
+                                                <div class="logo">
+                                                    <img src="{{ asset('/') }}{{ $settings->logo }}" height="70px">
+                                                </div>
                                             @endif
                                         </div>
                                         <div class="form-group">
@@ -97,15 +90,6 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="row">
-                                            <div class="offset-lg-1 offset-md-1 col-11">
-                                                <p class="mb-0">Logo</p>
-                                                <img src="{{ asset('/') }}{{ $settings->logo }}" height="100px">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-3">

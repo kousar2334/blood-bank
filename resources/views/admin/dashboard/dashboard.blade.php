@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">Dashboard</h4>
+                    {{-- <h4 class="m-0 text-dark">Dashboard</h4> --}}
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -77,7 +77,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="card">
+                    <div class="card mt-3">
                         <div class="card-header py-3">
                             <h3 class="card-title">Leatest Doctors</h3>
                             <div class="card-tools">
@@ -128,7 +128,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card mt-4">
                         <div class="card-header py-3">
                             <h3 class="card-title">Leatest Hospital & Clinics</h3>
                             <div class="card-tools">
@@ -181,12 +181,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card">
+                    <div class="card mt-3">
                         <div class="card-header py-3">
-                            <h3 class="card-title">Leatest Doctors</h3>
+                            <h3 class="card-title">Leatest Blood Donors</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.doctor.list') }}" class="btn btn-sm btn-success">
-                                    All Doctors
+                                <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-sm btn-success">
+                                    All Blood Donors
                                 </a>
                             </div>
                         </div>
@@ -195,35 +195,39 @@
                                 <thead>
                                     <tr>
                                         <th class="font-weight-normal">Name</th>
-                                        <th class="font-weight-normal">Specialist</th>
-                                        <th class="font-weight-normal">Status</th>
+                                        <th class="font-weight-normal">Blood Group</th>
+                                        <th class="font-weight-normal">Mobile</th>
+                                        <th class="font-weight-normal">status</th>
                                         <th class="font-weight-normal">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($leatest_doctors as $doctor)
+                                    @foreach ($leatest_blood_donors as $donor)
                                         <tr>
                                             <td class="bangla-font">
-                                                @if ($doctor->image)
-                                                    <img src="{{ asset('/') }}{{ $doctor->image }}"
-                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                @if ($donor->image)
+                                                    <img src="{{ asset('/') }}{{ $donor->image }}"
+                                                        alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
                                                     <img src="{{ asset('/') }}images/no-image.png"
-                                                        alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
+                                                        alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
-                                                {{ $doctor->name }}
+                                                {{ $donor->name }}
+                                            </td class="bangla-font">
+                                            <td>{{ $donor->group }}</td>
+                                            <td class="bangla-font">
+                                                {{ $donor->mobile }}
                                             </td>
-                                            <td class="bangla-font">{{ $doctor->specialist }}</td>
                                             <td>
-                                                @if ($doctor->status == 1)
+                                                @if ($donor->status == 1)
                                                     <span class="badge badge-success">Active</span>
                                                 @else
-                                                    <span class="badge badge-danger">Pending</span>
+                                                    <span class="badge badge-danger">Inactive</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.doctor.edit', $doctor->id) }}"
-                                                    class="btn btn-sm btn-circle primary-soft"><i
+                                                <a href="{{ route('admin.blood.donar.edit', $donor->id) }}"
+                                                    class="btn btn-sm primary-soft btn-circle"><i
                                                         class="fas fa-edit"></i></a>
                                             </td>
                                         </tr>
@@ -232,7 +236,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card mt-4">
                         <div class="card-header py-3">
                             <h3 class="card-title">Leatest Ambulances</h3>
                             <div class="card-tools">

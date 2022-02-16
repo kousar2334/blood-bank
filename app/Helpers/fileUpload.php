@@ -116,3 +116,16 @@ if (!function_exists('uploadSiteFavicon')) {
         return $image;
     }
 }
+if (!function_exists('uploadMetaImage')) {
+    function uploadMetaImage($request)
+    {
+        $directory = "uploads/meta/";
+        $image = $request->file('meta_image');
+        $imageName = $image->getClientOriginalName();
+        $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+        $imageName = date('mdYHis.') . $extension;
+        $image->move(public_path($directory), $imageName);
+        $image = $directory . '' . $imageName;
+        return $image;
+    }
+}

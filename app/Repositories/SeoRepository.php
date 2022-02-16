@@ -8,17 +8,71 @@ use Route;
 class SeoRepository
 {
     /**
+     * This method will return seo settings
+     * 
+     * @return Collection
+     */
+    public function getSeoSettings()
+    {
+        return DB::table('seo_settings')
+            ->select([
+                'title',
+                'meta_description',
+                'meta_keywords',
+                'meta_image'
+            ])
+            ->first();
+    }
+    /**
+     * This method will update seo info
+     * 
+     * @param Arrary $request
+     * @returnb void
+     */
+    public function updateSeoSettings($request)
+    {
+
+        try {
+            if ($request->has('meta_image')) {
+                $meta_image = uploadMetaImage($request);
+            } else {
+                $meta_image = DB::table('seo_settings')->first()->meta_image;
+            }
+
+            DB::beginTransaction();
+            DB::table('seo_settings')->where('id', DB::table('seo_settings')->first()->id)
+                ->update([
+                    'meta_image' => $meta_image,
+                    'title' => $request->title,
+                    'meta_description' => $request->meta_description,
+                    'meta_keywords' => $request->meta_keywords,
+
+                ]);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+    }
+    /**
      * Get page seo information
      * 
      * @return Object
      */
     public function getPageSeo()
     {
+        $meta_info = DB::table('seo_settings')
+            ->select([
+                'title',
+                'meta_description',
+                'meta_keywords',
+                'meta_image'
+            ])
+            ->first();
         $meta = [
-            'meta_title' => 'বন্ধন | মানুষের পাশে সব সময়',
-            'meta_description' => 'meta description',
-            'meta_image' => 'meta image',
-            'meta_keywords' => 'meta, keyword',
+            'meta_title' => $meta_info->title,
+            'meta_description' => $meta_info->meta_description,
+            'meta_image' => $meta_info->meta_image,
+            'meta_keywords' => $meta_info->meta_keywords,
         ];
         $meta['meta_title'] = $meta['meta_title'] ? $meta['meta_title'] : config('app.name');
 

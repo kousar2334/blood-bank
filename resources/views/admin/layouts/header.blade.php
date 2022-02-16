@@ -23,7 +23,7 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        {{-- <!-- Messages Dropdown Menu -->
+        <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
                 <i class="far fa-comments"></i>
@@ -110,7 +110,7 @@
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
-        </li> --}}
+        </li>
         <!-- User manu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
@@ -124,8 +124,8 @@
                             <img src="{{ asset(Auth::user()->image) }}" class="img-size-50 mr-3 img-circle"
                                 alt="User Image">
                         @else
-                            <img src="{{ asset('/backend/dist/img/user1-160x160.jpg') }}"
-                                class="img-size-50 mr-3 img-circle" alt="User Image">
+                            <img src="{{ asset('/images/no-image.png') }}" class="img-size-50 mr-3 img-circle"
+                                alt="User Image">
                         @endif
                         <div class="media-body">
                             <h3 class="dropdown-item-title">

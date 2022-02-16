@@ -17,35 +17,15 @@
     </style>
 @stop
 @section('admin_content')
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h4 class="m-0 text-dark">Add New Doctor</h4>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i>
-                                Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="{{ route('admin.blood.donar.list') }}">Doctors</a></li>
-                        <li class="breadcrumb-item active">Edit Doctor</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content-header -->
     <!-- Main content -->
     <section class="content">
         <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
-
-                <div class="col-lg-12 col-sm-12">
+                <div class="col-lg-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Edit Doctor</h3>
+                            <h3 class="card-title">Update Doctor</h3>
                             <a href="{{ route('admin.doctor.list') }}"
                                 class="btn btn-danger btn-sm float-right text-white"><i class="fas fa-user-md"> </i>
                                 All Doctors</a>
@@ -219,8 +199,6 @@
                                                         placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন "
                                                         rows="4">{{ $chamber->mobiles }}</textarea>
                                                 </div>
-
-
                                             @endforeach
 
                                             <div id="newChamberInputFields">

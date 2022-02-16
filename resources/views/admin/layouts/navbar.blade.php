@@ -39,9 +39,9 @@
                 </li>
                 <!--Start Blood Bank Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list', 'admin.blood.donar.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.blood.group.list','admin.blood.donar.add','admin.blood.group.add','admin.blood.group.edit','admin.blood.donar.add','admin.blood.donar.list','admin.blood.donar.edit'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.blood.group.list','admin.blood.donar.add','admin.blood.group.add','admin.blood.group.edit','admin.blood.donar.add','admin.blood.donar.list'])? 'active': '' }} nav-link">
                         <i class="nav-icon fas fa-burn"></i>
                         <p>
                             Blood Bank
@@ -83,7 +83,7 @@
                 <!--End blood bank Module-->
                 <!--Hospital Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.hospital.list', 'admin.hospital.add', 'admin.hospital.category.add', 'admin.hospital.category.list', 'admin.hospital.category.edit', 'admin.hospital.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.hospital.list','admin.hospital.add','admin.hospital.category.add','admin.hospital.category.list','admin.hospital.category.edit','admin.hospital.edit'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
@@ -127,9 +127,9 @@
                 <!--End Hospital Module-->
                 <!--Doctor Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.doctor.category.add', 'admin.doctor.category.list', 'admin.doctor.category.edit', 'admin.doctor.add', 'admin.doctor.list', 'admin.doctor.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.doctor.category.add','admin.doctor.category.list','admin.doctor.category.edit','admin.doctor.add','admin.doctor.list','admin.doctor.edit'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.doctor.category.add', 'admin.doctor.category.list', 'admin.doctor.category.edit', 'admin.doctor.add', 'admin.doctor.list', 'admin.doctor.edit']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.doctor.category.add','admin.doctor.category.list','admin.doctor.category.edit','admin.doctor.add','admin.doctor.list','admin.doctor.edit'])? 'active': '' }} nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
                             Doctors
@@ -172,9 +172,9 @@
 
                 <!--Ambulance Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.ambulance.category.add', 'admin.ambulance.category.list', 'admin.ambulance.category.edit', 'admin.ambulance.add', 'admin.ambulance.all', 'admin.ambulance.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.ambulance.category.add','admin.ambulance.category.list','admin.ambulance.category.edit','admin.ambulance.add','admin.ambulance.all','admin.ambulance.edit'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs([]) ? 'active' : 'admin.ambulance.category.add', 'admin.ambulance.category.list', 'admin.ambulance.category.edit', 'admin.ambulance.add', 'admin.ambulance.all', 'admin.ambulance.edit' }} nav-link">
+                        class="{{ Request::routeIs([]) ? 'active' : 'admin.ambulance.category.add','admin.ambulance.category.list','admin.ambulance.category.edit','admin.ambulance.add','admin.ambulance.all','admin.ambulance.edit' }} nav-link">
                         <i class="nav-icon fas fa-ambulance"></i>
                         <p>
                             Ambulance
@@ -215,9 +215,9 @@
                 <!--End Ambulance Module-->
                 <!--Fire Service Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit'])? 'active': '' }} nav-link">
                         <i class="nav-icon fas fa-shower"></i>
                         <p>
                             Fire Stations
@@ -273,9 +273,9 @@
                 <!--End Police Stations Module-->
                 <!--Setting Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.settings.general','admin.settings.general.about.us','admin.settings.social.acconts.list','admin.settings.seo'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.settings.general','admin.settings.general.about.us','admin.settings.social.acconts.list','admin.settings.seo'])? 'active': '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Settings
@@ -312,10 +312,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.settings.seo') }}"
+                                class="{{ Request::routeIs('admin.settings.seo') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Banner Management</p>
+                                <p>Seo Settings</p>
                             </a>
                         </li>
                     </ul>
