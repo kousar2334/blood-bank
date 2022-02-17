@@ -273,9 +273,9 @@
                 <!--End Police Stations Module-->
                 <!--Setting Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.settings.general','admin.settings.general.about.us','admin.settings.social.acconts.list','admin.settings.seo'])? 'menu-open': '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.settings.general','admin.settings.general.about.us','admin.settings.social.acconts.list','admin.settings.seo','admin.settings.themes'])? 'menu-open': '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.settings.general','admin.settings.general.about.us','admin.settings.social.acconts.list','admin.settings.seo'])? 'active': '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.settings.general','admin.settings.general.about.us','admin.settings.social.acconts.list','admin.settings.seo','admin.settings.themes'])? 'active': '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             Settings
@@ -305,17 +305,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.blood.group.list') }}"
-                                class="{{ Request::routeIs() ? 'active ' : '' }} nav-link">
-                                <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Banners</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('admin.settings.seo') }}"
                                 class="{{ Request::routeIs('admin.settings.seo') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Seo Settings</p>
+                                <p>Seo</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.settings.themes') }}"
+                                class="{{ Request::routeIs('admin.settings.themes') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>Themes</p>
                             </a>
                         </li>
                     </ul>

@@ -154,4 +154,39 @@ class SettingController extends Controller
             return redirect()->back();
         }
     }
+    /**
+     * This method will return themes list
+     * 
+     * @return mixed
+     */
+    public function themes()
+    {
+        try {
+            $themes = $this->settings_repository->themes();
+            $activeTheme = $this->settings_repository->activeTheme();
+            return view('admin.settings.themes', [
+                'themes' => $themes,
+                'activeTheme' => $activeTheme
+            ]);
+        } catch (\Exception $e) {
+            return redirect()->back();
+        }
+    }
+    /**
+     * This method activate theme
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    public function activateTheme(Request $request)
+    {
+        try {
+            $activateTheme = $this->settings_repository->activateTheme($request->theme);
+            Toastr::success($activateTheme . ' activated successfully');
+            return redirect()->route('admin.settings.themes');
+        } catch (\Exception $e) {
+            Toastr::error('Theme activation failed');
+            return redirect()->back();
+        }
+    }
 }

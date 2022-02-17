@@ -1,6 +1,6 @@
 {
-    "/js/main.js": "/js/main.js",
-    "/css/app.css": "/css/app.css",
+    "/js/template/default/main.js": "/js/template/default/main.js",
+    "/js/template/templateOne/main.js": "/js/template/templateOne/main.js",
     "/AboutUs.js": "/AboutUs.js",
     "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Hospitals.js": "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Hospitals.js",
     "/AddAmbulance.js": "/AddAmbulance.js",
@@ -13,6 +13,7 @@
     "/DoctorAddForm.js": "/DoctorAddForm.js",
     "/Doctors.js": "/Doctors.js",
     "/FireStation.js": "/FireStation.js",
+    "/FireStation~Home~police.js": "/FireStation~Home~police.js",
     "/Home.js": "/Home.js",
     "/Hospitals.js": "/Hospitals.js",
     "/Login.js": "/Login.js",

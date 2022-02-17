@@ -36,7 +36,12 @@
     <div id="app">
         {{-- <main></main> --}}
     </div>
-    <script src="/js/main.js"></script>
+    @if ($theme === 'default')
+        <script src="/js/template/default/main.js"></script>
+    @endif
+    @if ($theme === 'templateOne')
+        <script src="/js/template/templateOne/main.js"></script>
+    @endif
 </body>
 
 </html>

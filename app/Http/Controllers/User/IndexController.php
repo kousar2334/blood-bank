@@ -36,9 +36,11 @@ class IndexController extends Controller
         $meta = $this->seo_repository->getPageSeo();
         $this->settings_repository->storeVisitor();
         $siteNameLogo = $this->settings_repository->nameandLogo();
+        $theme = $this->settings_repository->activeTheme();
         return view('user.index', [
             'siteNameLogo' => $siteNameLogo,
-            'meta' => $meta
+            'meta' => $meta,
+            'theme' => $theme
         ]);
     }
     /**

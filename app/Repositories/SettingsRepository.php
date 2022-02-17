@@ -144,4 +144,35 @@ class SettingsRepository
             $ipaddress = 'UNKNOWN';
         return $ipaddress;
     }
+    /**
+     * This method will return themes
+     * 
+     * @return Collection
+     */
+    public function themes()
+    {
+        return DB::table('themes')->get();
+    }
+    /**
+     * This method will return themes
+     * 
+     * @return Collection
+     */
+    public function activeTheme()
+    {
+        $actvate_theme = DB::table('settings')->where('name', 'theme')->first()->value;
+        return DB::table('themes')->where('id', $actvate_theme)->first()->code;
+    }
+    /**
+     * This method will return themes
+     * 
+     * @return void
+     */
+    public function activateTheme($theme)
+    {
+        DB::table('settings')->where('name', 'theme')->update([
+            'value' => $theme,
+        ]);
+        return  DB::table('themes')->where('id', $theme)->first()->name;
+    }
 }
