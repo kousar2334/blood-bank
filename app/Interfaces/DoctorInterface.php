@@ -6,6 +6,8 @@ interface DoctorInterface
 {
     public function all($request);
 
+    public function topDoctors($request);
+
     public function store($request);
 
     public function update($request);

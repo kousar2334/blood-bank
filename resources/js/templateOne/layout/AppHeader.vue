@@ -1,6 +1,6 @@
 <template>
 	<header class="header-global">
-		<base-nav class="navbar-main" type="" effect="light" expand>
+		<base-nav class="navbar-main p-1" type="" effect="light" expand>
 			<router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
 				<img v-if="site_info.logo" :src="`/${site_info.logo}`" alt="logo" />
 				<h2 v-else class="text-white bangla-font">{{ site_info.name }}</h2>
@@ -176,9 +176,7 @@
 				</li> -->
 				<li class="nav-item d-none d-lg-block ml-lg-4">
 					<router-link class="btn btn-neutral btn-icon" to="/blood-bank">
-						<span class="nav-link-inner--text bangla-font danger-deep"
-							>রক্ত প্রয়োজন</span
-						>
+						<span class="nav-link-inner--text bangla-font">রক্ত প্রয়োজন</span>
 					</router-link>
 				</li>
 			</ul>

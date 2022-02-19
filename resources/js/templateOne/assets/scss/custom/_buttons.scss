@@ -7,14 +7,14 @@
     will-change: transform;
     letter-spacing: $btn-letter-spacing;
     font-size: $input-btn-font-size;
-    
+
     &:hover {
         @include box-shadow($btn-hover-box-shadow);
         transform: translateY(-1px);
-    }  
+    }
 
     &:not(:last-child) {
-        margin-right: .5rem;
+        margin-right: 0.5rem;
     }
 }
 
@@ -63,7 +63,9 @@
 }
 
 .btn-neutral {
-    color: theme-color("primary");
+    color: white;
+    background-color: #d71313;
+    border-radius: 50px;
 }
 
 // Icons
@@ -72,7 +74,7 @@
 .btn i:not(:first-child) {
     margin-left: 0.5rem;
 }
- 
+
 .btn svg:not(:last-child),
 .btn i:not(:last-child) {
     margin-right: 0.5rem;
@@ -91,7 +93,7 @@
         text-align: center;
         margin: 0;
         width: 3em;
-        background-color: rgba(0, 0, 0, .1);
+        background-color: rgba(0, 0, 0, 0.1);
     }
     .btn-inner--icon:not(:first-child) {
         right: 0;
@@ -119,8 +121,7 @@
     }
 }
 
-
-// Icons 
+// Icons
 
 .btn-icon {
     .btn-inner--icon {
@@ -129,10 +130,10 @@
         }
     }
     .btn-inner--text:not(:first-child) {
-        margin-left: .75em;
+        margin-left: 0.75em;
     }
     .btn-inner--text:not(:last-child) {
-        margin-right: .75em;
+        margin-right: 0.75em;
     }
 }
 
@@ -149,11 +150,9 @@ a.btn-icon-only {
     height: 2rem;
 }
 
-
 // Brand buttons
 
-@each $color,
-$value in $brand-colors {
+@each $color, $value in $brand-colors {
     .btn-#{$color} {
         @include button-variant($value, $value);
     }

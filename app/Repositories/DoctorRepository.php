@@ -38,6 +38,31 @@ class DoctorRepository implements DoctorInterface
         return $query->paginate($request->perPage);
     }
     /**
+     * Return doctor list
+     *
+     *@param Arrary $request
+     *@return Arrary
+     */
+    public function topDoctors($request)
+    {
+        return  DB::table('doctors')
+            ->select([
+                'id',
+                'image',
+                'name',
+                'qualification',
+                'specialist',
+                'position',
+                'working_place',
+                'mobile',
+                'is_featured'
+            ])
+            ->where('status', 1)
+            ->orderBy('is_featured', 'DESC')
+            ->take($request->limit)
+            ->get();
+    }
+    /**
      * Return doctor chambers
      * 
      * @param Int $id

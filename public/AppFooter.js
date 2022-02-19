@@ -237,6 +237,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app-footer",
@@ -436,91 +444,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("footer", { staticClass: "footer has-cards" }, [
+  return _c("footer", { staticClass: "footer-area pt-100" }, [
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row row-grid align-items-center my-md" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 text-lg-right btn-wrapper" }, [
-          _vm.social_accounts.twitter_link
-            ? _c(
-                "a",
-                {
-                  staticClass:
-                    "btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg",
-                  attrs: {
-                    target: "_blank",
-                    rel: "noopener",
-                    href: _vm.social_accounts.twitter_link,
-                    "data-toggle": "tooltip",
-                    "data-original-title": "Follow us"
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-twitter" })]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.social_accounts.fb_link
-            ? _c(
-                "a",
-                {
-                  staticClass:
-                    "btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg",
-                  attrs: {
-                    target: "_blank",
-                    rel: "noopener",
-                    href: _vm.social_accounts.fb_link,
-                    "data-toggle": "tooltip",
-                    "data-original-title": "Like us"
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-facebook-square" })]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.social_accounts.youtube_link
-            ? _c(
-                "a",
-                {
-                  staticClass:
-                    "btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round",
-                  attrs: {
-                    target: "_blank",
-                    rel: "noopener",
-                    href: _vm.social_accounts.youtube_link,
-                    "data-toggle": "tooltip",
-                    "data-original-title": "Follow us"
-                  }
-                },
-                [_c("i", { staticClass: "fa fa-youtube" })]
-              )
-            : _vm._e()
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "copyright-area" }, [
+        _c("p", { staticClass: "bangla-font" }, [
+          _vm._v(
+            "\n\t\t\t\t©" +
+              _vm._s(_vm.year) +
+              " " +
+              _vm._s(_vm.info.site_name) +
+              ". Designed By\n\t\t\t\t"
+          ),
+          _c(
+            "a",
+            { attrs: { href: "https://hibootstrap.com/", target: "_blank" } },
+            [_vm._v("Kousar Rahman")]
+          )
         ])
-      ]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row align-items-center justify-content-md-between" },
-        [
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("div", { staticClass: "copyright" }, [
-              _vm._v("\n\t\t\t\t\t© " + _vm._s(_vm.year) + "\n\t\t\t\t\t"),
-              _c(
-                "a",
-                {
-                  staticClass: "bangla-font",
-                  attrs: { href: "/", target: "_blank", rel: "noopener" }
-                },
-                [_vm._v(_vm._s(_vm.info.site_name))]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._m(1)
-        ]
-      )
+      ])
     ])
   ])
 }
@@ -529,38 +472,123 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6" }, [
-      _c(
-        "h3",
-        { staticClass: "text-primary font-weight-light mb-2 bangla-font" },
-        [_vm._v("\n\t\t\t\t\tআমাদের সঙ্গে থাকার জন্য ধন্যবাদ\n\t\t\t\t")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("ul", { staticClass: "nav nav-footer justify-content-end" }, [
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "nav-link",
-              attrs: {
-                href: "https://www.facebook.com/kousarrahman",
-                target: "_blank",
-                rel: "noopener"
-              }
-            },
-            [
-              _vm._v("Developed By\n\t\t\t\t\t\t\t"),
-              _c("strong", { staticClass: "deep-blue" }, [
-                _vm._v("Kousar Rahman")
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
+        _c("div", { staticClass: "footer-item" }, [
+          _c("div", { staticClass: "footer-logo" }, [
+            _c("a", { staticClass: "logo", attrs: { href: "index.html" } }, [
+              _c("img", {
+                attrs: {
+                  src: "/uploads/general/02182022073801logo.png",
+                  alt: "Logo"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "\n\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat\n\t\t\t\t\t\t\tvero, magni est placeat neque, repellat maxime a dolore\n\t\t\t\t\t\t"
+              )
+            ]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "pl-0" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                  _c("i", { staticClass: "icofont-facebook" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                  _c("i", { staticClass: "icofont-twitter" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                  _c("i", { staticClass: "icofont-youtube-play" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#", target: "_blank" } }, [
+                  _c("i", { staticClass: "icofont-instagram" })
+                ])
               ])
-            ]
-          )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
+        _c("div", { staticClass: "footer-item" }, [
+          _c("div", { staticClass: "footer-links" }, [
+            _c("h3", [_vm._v("Quick links")]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "pl-0" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "about.html" } }, [_vm._v(" About ")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "blog.html" } }, [_vm._v(" Blog ")])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "events.html" } }, [
+                  _vm._v(" Events ")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "donation.html" } }, [
+                  _vm._v(" Donation ")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
+        _c("div", { staticClass: "footer-item" }, [
+          _c("div", { staticClass: "footer-contact" }, [
+            _c("h3", [_vm._v("Contact info")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "contact-inner" }, [
+              _c("ul", { staticClass: "pl-0" }, [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("6B, Helvetica street, Jordan")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("i", { staticClass: "icofont-ui-call" }),
+                  _vm._v(" "),
+                  _c("a", { attrs: { href: "tel:+123456789" } }, [
+                    _vm._v("+123-456-789")
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "contact-inner" }, [
+              _c("ul", [
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _vm._v("6A, New street, Spain")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "tel:+548658956" } }, [
+                    _vm._v("+548-658-956")
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])

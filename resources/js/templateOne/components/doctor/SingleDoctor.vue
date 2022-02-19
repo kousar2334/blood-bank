@@ -1,44 +1,73 @@
 <template>
-	<div class="single-doctor">
-		<div class="col-12 text-center p-1" @click.prevent="viewDetails()">
-			<p class="bangla-font name font-weight-bold">{{ doctor.name }}</p>
-			<p class="bangla-font qualification">{{ doctor.qualification }}</p>
-			<p class="bangla-font specialist">{{ doctor.specialist }}</p>
-			<p class="bangla-font position">{{ doctor.position }}</p>
-			<p class="bangla-font working_place">{{ doctor.working_place }}</p>
-			<p class="bangla-font mobile">{{ doctor.mobile }}</p>
+	<div class="provider-card" id="provider-card">
+		<div class="provider-card__provider-details">
+			<h3 class="provider-details__provider-name-link">
+				<a
+					class="provider-name-link bangla-font"
+					href="#"
+					@click.prevent="viewDetails()"
+				>
+					{{ doctor.name }}
+				</a>
+			</h3>
+			<div class="provider-details__provider-specialty bangla-font mb-4">
+				{{ doctor.qualification }}
+			</div>
+		</div>
+		<div class="provider-card__provider-img">
+			<img
+				v-if="doctor.image"
+				:src="'/' + doctor.image"
+				:alt="doctor.name"
+				class="provider-img provider-image"
+			/>
+			<img
+				v-else
+				class="provider-img provider-image"
+				:alt="doctor.name"
+				src="/img/theme/doctor-profile.png"
+			/>
+		</div>
+		<div class="provider-card__provider-strengths">
+			<ul class="provider-strengths">
+				<li class="provider-strengths__strength-item bangla-font specialist">
+					{{ doctor.specialist }}
+				</li>
+				<li class="provider-strengths__strength-item bangla-font">
+					{{ doctor.position }}
+				</li>
+				<li class="provider-strengths__strength-item bangla-font">
+					{{ doctor.working_place }}
+				</li>
+				<li class="provider-strengths__strength-item bangla-font">
+					{{ doctor.mobile }}
+				</li>
+			</ul>
+		</div>
+		<div class="provider-card__view-profile-btn">
+			<a
+				class="view-profile-btn button bangla-font"
+				href="#"
+				@click.prevent="viewDetails()"
+				>বিস্তারিত দেখুন</a
+			>
 		</div>
 		<!--Details Modal-->
 		<div class="row">
 			<div class="col-md-4">
 				<modal :show.sync="modal_show" modal-classes="modal-dialog-top">
 					<h6 slot="header" class="modal-title" id="modal-title-default"></h6>
-
 					<div class="col-12 text-center p-1">
 						<img
 							v-if="doctor.image"
 							:src="'/' + doctor.image"
 							:alt="doctor.name"
-							class="
-								rounded-circle
-								img-center img-fluid
-								shadow
-								shadow-lg--hover
-								mb-2
-							"
-							style="width: 100px"
+							class="mb-3 provider-image"
 						/>
 						<img
 							v-else
-							v-lazy="'img/theme/doctor.jpg'"
-							class="
-								rounded-circle
-								img-center img-fluid
-								shadow
-								shadow-lg--hover
-								mb-2
-							"
-							style="width: 100px"
+							v-lazy="'/img/theme/doctor-profile.png'"
+							class="mb-3 provider-image"
 						/>
 
 						<p class="bangla-font name font-weight-bold">{{ doctor.name }}</p>
@@ -73,12 +102,6 @@
 			</div>
 		</div>
 		<!--End Details Modal-->
-		<p
-			class="cursor-pointer bangla-font success mb-0 bottom-0"
-			@click.prevent="viewDetails()"
-		>
-			বিস্তারিত দেখুন
-		</p>
 	</div>
 </template>
 <script>

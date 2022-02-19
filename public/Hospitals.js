@@ -532,6 +532,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1387,229 +1406,265 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "single-doctor" }, [
-      _c(
-        "div",
-        {
-          staticClass: "col-12 text-center p-1",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.viewDetails()
-            }
-          }
-        },
-        [
-          _c("p", { staticClass: "bangla-font name font-weight-bold" }, [
-            _vm._v(_vm._s(_vm.hospital.name))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bangla-font specialist" }, [
-            _vm._v(_vm._s(_vm.hospital.category))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bangla-font qualification" }, [
-            _vm._v(_vm._s(_vm.hospital.address))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bangla-font mobile" }, [
-            _vm._v("ফোনঃ " + _vm._s(_vm.hospital.phone))
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bangla-font mobile" }, [
-            _vm._v(
-              "\n\t\t\t\tমোবাইলঃ " +
-                _vm._s(_vm.hospital.mobile_1) +
-                "," +
-                _vm._s(_vm.hospital.mobile_2) +
-                "\n\t\t\t"
-            )
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "bangla-font working_place" }, [
-            _vm._v("ইমেইলঃ " + _vm._s(_vm.hospital.email))
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "p",
-        {
-          staticClass: "cursor-pointer bangla-font success mb-0 bottom-0",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.viewDetails()
-            }
-          }
-        },
-        [_vm._v("\n\t\t\tবিস্তারিত দেখুন\n\t\t")]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-lg-12" },
-        [
+  return _c(
+    "div",
+    { staticClass: "provider-card", attrs: { id: "provider-card" } },
+    [
+      _c("div", { staticClass: "provider-card__view-profile-btn" }, [
+        _c("h3", { staticClass: "provider-details__provider-name-link" }, [
           _c(
-            "modal",
+            "a",
             {
-              attrs: {
-                show: _vm.modal_show,
-                "modal-classes": "modal-dialog-top modal-lg"
-              },
+              staticClass: "provider-name-link bangla-font",
+              attrs: { href: "#" },
               on: {
-                "update:show": function($event) {
-                  _vm.modal_show = $event
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.viewDetails()
                 }
               }
             },
+            [_vm._v("\n\t\t\t\t" + _vm._s(_vm.hospital.name) + "\n\t\t\t")]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "provider-details__provider-specialty bangla-font mb-4 specialist"
+          },
+          [_vm._v("\n\t\t\t" + _vm._s(_vm.hospital.category) + "\n\t\t")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "provider-card__provider-strengths" }, [
+        _c("ul", { staticClass: "provider-strengths" }, [
+          _c(
+            "li",
+            { staticClass: "provider-strengths__strength-item bangla-font" },
+            [_vm._v("\n\t\t\t\t" + _vm._s(_vm.hospital.address) + "\n\t\t\t")]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "provider-strengths__strength-item bangla-font" },
             [
-              _c("h6", {
-                staticClass: "modal-title",
-                attrs: { slot: "header", id: "modal-title-default" },
-                slot: "header"
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-lg-5 col-sm-12" }, [
-                  _vm.hospital_details.image
-                    ? _c("img", {
-                        staticClass: "mb-2",
-                        staticStyle: { width: "100%", "max-height": "250px" },
-                        attrs: {
-                          src: "/" + _vm.hospital_details.image,
-                          alt: _vm.hospital.name
-                        }
-                      })
-                    : _c("img", {
-                        directives: [
-                          {
-                            name: "lazy",
-                            rawName: "v-lazy",
-                            value: "img/theme/doctor.jpg",
-                            expression: "'img/theme/doctor.jpg'"
-                          }
-                        ],
-                        staticClass: "mb-2",
-                        staticStyle: { width: "100%", "max-height": "250px" }
-                      })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-7 col-sm-12" }, [
-                  _c(
-                    "h5",
-                    {
-                      staticClass: "bangla-font success font-weight-bold mb-0"
-                    },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t" +
-                          _vm._s(_vm.hospital.name) +
-                          "\n\t\t\t\t\t\t"
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font specialist" }, [
-                    _vm._v(_vm._s(_vm.hospital.category))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font mobile" }, [
-                    _vm._v("ফোনঃ " + _vm._s(_vm.hospital.phone))
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font mobile" }, [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\tমোবাইলঃ " +
-                        _vm._s(_vm.hospital.mobile_1) +
-                        "," +
-                        _vm._s(_vm.hospital.mobile_2) +
-                        "\n\t\t\t\t\t\t"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font working_place" }, [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\tইমেইলঃ " +
-                        _vm._s(_vm.hospital.email) +
-                        "\n\t\t\t\t\t\t"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "bangla-font qualification" }, [
-                    _vm._v(_vm._s(_vm.hospital.address))
-                  ]),
-                  _vm._v(" "),
-                  _vm.hospital_details.fb_link
-                    ? _c(
-                        "a",
-                        {
-                          attrs: {
-                            href: _vm.hospital_details.fb_link,
-                            target: "_blank",
-                            rel: "noopener",
-                            "data-toggle": "tooltip",
-                            title: "Like us on Facebook"
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-facebook-square" }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "nav-link-inner--text bangla-font" },
-                            [_vm._v("ফেসবুক")]
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.hospital_details.web
-                    ? _c(
-                        "a",
-                        {
-                          staticClass: "ml-2",
-                          attrs: {
-                            href: _vm.hospital_details.web,
-                            target: "_blank",
-                            rel: "noopener",
-                            "data-toggle": "tooltip",
-                            title: "Follow us on web"
-                          }
-                        },
-                        [
-                          _c("i", { staticClass: "fa fa-dribbble" }),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "nav-link-inner--text bangla-font" },
-                            [_vm._v("ওয়েব সাইট ")]
-                          )
-                        ]
-                      )
-                    : _vm._e()
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("p", { staticClass: "bangla-font mobile" }, [
-                  _vm._v(
-                    "\n\t\t\t\t\t\t" +
-                      _vm._s(_vm.hospital_details.description) +
-                      "\n\t\t\t\t\t"
-                  )
-                ])
-              ])
+              _vm._v(
+                "\n\t\t\t\tফোনঃ " + _vm._s(_vm.hospital.phone) + "\n\t\t\t"
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            {
+              staticClass: "provider-strengths__strength-item bangla-font",
+              attrs: { "data-qa-target": "strength-item--3" }
+            },
+            [
+              _vm._v(
+                "\n\t\t\t\tমোবাইলঃ " +
+                  _vm._s(_vm.hospital.mobile_1) +
+                  "," +
+                  _vm._s(_vm.hospital.mobile_2) +
+                  "\n\t\t\t"
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "provider-strengths__strength-item bangla-font" },
+            [
+              _vm._v(
+                "\n\t\t\t\tইমেইলঃ " + _vm._s(_vm.hospital.email) + "\n\t\t\t"
+              )
             ]
           )
-        ],
-        1
-      )
-    ])
-  ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "provider-card__view-profile-btn" }, [
+        _c(
+          "a",
+          {
+            staticClass: "view-profile-btn button bangla-font",
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.viewDetails()
+              }
+            }
+          },
+          [_vm._v("বিস্তারিত দেখুন")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-lg-12" },
+          [
+            _c(
+              "modal",
+              {
+                attrs: {
+                  show: _vm.modal_show,
+                  "modal-classes": "modal-dialog-top modal-lg"
+                },
+                on: {
+                  "update:show": function($event) {
+                    _vm.modal_show = $event
+                  }
+                }
+              },
+              [
+                _c("h6", {
+                  staticClass: "modal-title",
+                  attrs: { slot: "header", id: "modal-title-default" },
+                  slot: "header"
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _vm.hospital_details.image
+                    ? _c("div", { staticClass: "col-lg-5 col-sm-12" }, [
+                        _vm.hospital_details.image
+                          ? _c("img", {
+                              staticClass: "mb-2",
+                              staticStyle: {
+                                width: "100%",
+                                "max-height": "250px"
+                              },
+                              attrs: {
+                                src: "/" + _vm.hospital_details.image,
+                                alt: _vm.hospital.name
+                              }
+                            })
+                          : _vm._e()
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-7 col-sm-12" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "bangla-font success font-weight-bold mb-0",
+                        attrs: { href: "#" }
+                      },
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t" +
+                            _vm._s(_vm.hospital.name) +
+                            "\n\t\t\t\t\t\t"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "bangla-font specialist" }, [
+                      _vm._v(_vm._s(_vm.hospital.category))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "bangla-font mobile" }, [
+                      _vm._v("ফোনঃ " + _vm._s(_vm.hospital.phone))
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "bangla-font mobile" }, [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\tমোবাইলঃ " +
+                          _vm._s(_vm.hospital.mobile_1) +
+                          "," +
+                          _vm._s(_vm.hospital.mobile_2) +
+                          "\n\t\t\t\t\t\t"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "bangla-font working_place" }, [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\tইমেইলঃ " +
+                          _vm._s(_vm.hospital.email) +
+                          "\n\t\t\t\t\t\t"
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "bangla-font qualification" }, [
+                      _vm._v(_vm._s(_vm.hospital.address))
+                    ]),
+                    _vm._v(" "),
+                    _vm.hospital_details.fb_link
+                      ? _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: _vm.hospital_details.fb_link,
+                              target: "_blank",
+                              rel: "noopener",
+                              "data-toggle": "tooltip",
+                              title: "Like us on Facebook"
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-facebook-square" }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "nav-link-inner--text bangla-font"
+                              },
+                              [_vm._v("ফেসবুক")]
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.hospital_details.web
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "ml-2",
+                            attrs: {
+                              href: _vm.hospital_details.web,
+                              target: "_blank",
+                              rel: "noopener",
+                              "data-toggle": "tooltip",
+                              title: "Follow us on web"
+                            }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-dribbble" }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "nav-link-inner--text bangla-font"
+                              },
+                              [_vm._v("ওয়েব সাইট ")]
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("p", { staticClass: "bangla-font mobile" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t" +
+                        _vm._s(_vm.hospital_details.description) +
+                        "\n\t\t\t\t\t"
+                    )
+                  ])
+                ])
+              ]
+            )
+          ],
+          1
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1646,12 +1701,12 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("section", { staticClass: "section section-lg pt-0" }, [
-        _c("div", { staticClass: "p-3" }, [
+        _c("div", { staticClass: "container" }, [
           _c(
             "div",
             { staticClass: "row" },
             [
-              _c("div", { staticClass: "col-12 page-header pb-4" }, [
+              _c("div", { staticClass: "col-12 page-header pb-4 pt-4" }, [
                 _c("h2", { staticClass: "bangla-font text-center mb-2 mt-2" }, [
                   _vm._v("\n\t\t\t\t\t\t" + _vm._s(_vm.title) + "\n\t\t\t\t\t")
                 ])
@@ -1660,7 +1715,7 @@ var render = function() {
               _vm._l(_vm.hospitals, function(hospital, index) {
                 return _c(
                   "div",
-                  { key: index, staticClass: "col-lg-3 p-3" },
+                  { key: index, staticClass: "col-lg-3 p-2" },
                   [_c("single-hospital", { attrs: { hospital: hospital } })],
                   1
                 )

@@ -1,43 +1,45 @@
 <template>
-	<div class="single-donor">
-		<div class="col-12 text-center p-1">
+	<div class="provider-card" id="provider-card">
+		<div class="provider-card__provider-details">
+			<h3 class="provider-details__provider-name-link">
+				<a class="provider-name-link bangla-font" href="#">
+					{{ donor.name }}
+				</a>
+			</h3>
+			<div class="provider-details__provider-specialty bangla-font specialist">
+				রক্তের গ্রুপঃ {{ donor.blood_group }}
+			</div>
+		</div>
+		<div class="provider-card__provider-img">
 			<img
 				v-if="donor.image"
 				:src="'/' + donor.image"
 				:alt="donor.name"
-				class="
-					rounded-circle
-					img-center img-fluid
-					shadow
-					shadow-lg--hover
-					mb-2
-					list-image
-				"
-				style="width: 100px"
+				class="provider-img provider-image"
 			/>
 			<img
 				v-else
-				v-lazy="'img/theme/doctor.jpg'"
-				class="
-					rounded-circle
-					img-center img-fluid
-					shadow
-					shadow-lg--hover
-					mb-2
-					list-image
-				"
-				style="width: 100px"
+				class="provider-img provider-image"
+				:alt="donor.name"
+				src="/img/theme/blood-donor-profile.png"
 			/>
-			<p class="bangla-font name font-weight-bold">{{ donor.name }}</p>
-			<p class="bangla-font specialist">{{ donor.blood_group }}</p>
-			<p class="bangla-font mobile">
-				মোবাইলঃ {{ donor.mobile }}<span v-if="donor.mobile2">,</span>
-				{{ donor.mobile2 }}
-			</p>
-			<p class="bangla-font mobile" v-if="donor.email">
-				ইমেইলঃ {{ donor.email }}
-			</p>
-			<p class="bangla-font working_place">{{ donor.address }}</p>
+		</div>
+		<div class="provider-card__provider-strengths">
+			<ul class="provider-strengths">
+				<li class="provider-strengths__strength-item bangla-font">
+					মোবাইলঃ {{ donor.mobile }}<span v-if="donor.mobile2">,</span>
+					{{ donor.mobile2 }}
+				</li>
+				<li
+					class="provider-strengths__strength-item bangla-font"
+					v-if="donor.email"
+				>
+					ইমেইলঃ {{ donor.email }}
+				</li>
+				<li class="provider-strengths__strength-item bangla-font">
+					{{ donor.address }}
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>

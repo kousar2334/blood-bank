@@ -57,6 +57,26 @@ class DoctorController extends Controller
         }
     }
     /**
+     * Get top doctors list
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse 
+     */
+    public function getTopDoctors(Request $request)
+    {
+        try {
+            $doctors = $this->doctor_repository->topDoctors($request);
+            return response()->json([
+                'success' => true,
+                'doctors' => $doctors
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false
+            ]);
+        }
+    }
+    /**
      * Get doctors chambers
      * 
      * @param \Illuminate\Http\Request $request

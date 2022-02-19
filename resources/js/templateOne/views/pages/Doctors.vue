@@ -5,9 +5,9 @@
 			@selectItem="getSelectedDepartment($event)"
 		></doctor-hero>
 		<section class="section section-lg pt-0">
-			<div class="p-3">
+			<div class="container">
 				<div class="row">
-					<div class="col-12 page-header pb-4">
+					<div class="col-12 page-header pb-4 mt-4">
 						<h2 class="bangla-font text-center mb-2 mt-2">
 							{{ title }}
 						</h2>
@@ -15,7 +15,7 @@
 					<div
 						v-for="(doctor, index) in doctors"
 						:key="index"
-						class="col-lg-3 p-3"
+						class="col-lg-3 col-12 p-2"
 					>
 						<single-doctor :doctor="doctor"> </single-doctor>
 					</div>

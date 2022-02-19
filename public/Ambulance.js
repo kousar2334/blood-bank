@@ -415,6 +415,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1080,56 +1084,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "single-donor" }, [
-    _c("div", { staticClass: "col-12 text-center p-1" }, [
-      _vm.ambulance.image
-        ? _c("img", {
+  return _c(
+    "div",
+    { staticClass: "provider-card", attrs: { id: "provider-card" } },
+    [
+      _c("div", { staticClass: "provider-card__provider-details" }, [
+        _c("h3", { staticClass: "provider-details__provider-name-link" }, [
+          _c(
+            "a",
+            {
+              staticClass: "provider-name-link bangla-font",
+              attrs: { href: "#" }
+            },
+            [_vm._v("\n\t\t\t\t" + _vm._s(_vm.ambulance.name) + "\n\t\t\t")]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
             staticClass:
-              "\n\t\t\t\trounded-circle\n\t\t\t\timg-center img-fluid\n\t\t\t\tshadow\n\t\t\t\tshadow-lg--hover\n\t\t\t\tmb-2\n\t\t\t\tlist-image\n\t\t\t",
-            staticStyle: { width: "100px" },
-            attrs: { src: "/" + _vm.ambulance.image, alt: _vm.ambulance.name }
-          })
-        : _c("img", {
-            directives: [
-              {
-                name: "lazy",
-                rawName: "v-lazy",
-                value: "img/theme/ambulance.png",
-                expression: "'img/theme/ambulance.png'"
+              "provider-details__provider-specialty bangla-font specialist"
+          },
+          [_vm._v("\n\t\t\t" + _vm._s(_vm.ambulance.category) + "\n\t\t")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "provider-card__provider-img" }, [
+        _vm.ambulance.image
+          ? _c("img", {
+              staticClass: "provider-img provider-image",
+              attrs: { src: "/" + _vm.ambulance.image, alt: _vm.ambulance.name }
+            })
+          : _c("img", {
+              staticClass: "provider-img provider-image",
+              attrs: {
+                alt: _vm.ambulance.name,
+                src: "/img/theme/ambulance.png"
               }
-            ],
-            staticClass:
-              "\n\t\t\t\trounded-circle\n\t\t\t\timg-center img-fluid\n\t\t\t\tshadow\n\t\t\t\tshadow-lg--hover\n\t\t\t\tmb-2\n\t\t\t\tlist-image\n\t\t\t",
-            staticStyle: { width: "100px" }
-          }),
-      _vm._v(" "),
-      _c("p", { staticClass: "bangla-font name font-weight-bold" }, [
-        _vm._v(_vm._s(_vm.ambulance.name))
+            })
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "bangla-font specialist" }, [
-        _vm._v(_vm._s(_vm.ambulance.category))
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "bangla-font mobile" }, [
-        _vm._v("\n\t\t\tমোবাইলঃ " + _vm._s(_vm.ambulance.mobile_1)),
-        _vm.ambulance.mobile_2 ? _c("span", [_vm._v(",")]) : _vm._e(),
-        _vm._v("\n\t\t\t" + _vm._s(_vm.ambulance.mobile_2) + "\n\t\t")
-      ]),
-      _vm._v(" "),
-      _vm.ambulance.email
-        ? _c("p", { staticClass: "bangla-font mobile" }, [
-            _vm._v("\n\t\t\tইমেইলঃ " + _vm._s(_vm.ambulance.email) + "\n\t\t")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.ambulance.phone
-        ? _c("p", { staticClass: "bangla-font mobile" }, [
-            _vm._v("\n\t\t\tইমেইলঃ " + _vm._s(_vm.ambulance.phone) + "\n\t\t")
-          ])
-        : _vm._e()
-    ])
-  ])
+      _c("div", { staticClass: "provider-card__provider-strengths" }, [
+        _c("ul", { staticClass: "provider-strengths" }, [
+          _c(
+            "li",
+            { staticClass: "provider-strengths__strength-item bangla-font" },
+            [
+              _vm._v("\n\t\t\t\tমোবাইলঃ " + _vm._s(_vm.ambulance.mobile_1)),
+              _vm.ambulance.mobile_2 ? _c("span", [_vm._v(",")]) : _vm._e(),
+              _vm._v("\n\t\t\t\t" + _vm._s(_vm.ambulance.mobile_2) + "\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _vm.ambulance.email
+            ? _c(
+                "li",
+                {
+                  staticClass: "provider-strengths__strength-item bangla-font"
+                },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tইমেইলঃ " +
+                      _vm._s(_vm.ambulance.email) +
+                      "\n\t\t\t"
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.ambulance.phone
+            ? _c(
+                "li",
+                {
+                  staticClass: "provider-strengths__strength-item bangla-font"
+                },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tফোনঃ " + _vm._s(_vm.ambulance.phone) + "\n\t\t\t"
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1166,12 +1206,12 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("section", { staticClass: "section section-lg pt-0" }, [
-        _c("div", { staticClass: "p-3" }, [
+        _c("div", { staticClass: "container" }, [
           _c(
             "div",
             { staticClass: "row" },
             [
-              _c("div", { staticClass: "col-12 page-header pb-4" }, [
+              _c("div", { staticClass: "col-12 page-header pb-4 pt-4" }, [
                 _c("h2", { staticClass: "bangla-font text-center mb-2 mt-2" }, [
                   _vm._v("\n\t\t\t\t\t\t" + _vm._s(_vm.title) + "\n\t\t\t\t\t")
                 ])
@@ -1180,7 +1220,7 @@ var render = function() {
               _vm._l(_vm.ambulances, function(ambulance, index) {
                 return _c(
                   "div",
-                  { key: index, staticClass: "col-lg-3 p-3" },
+                  { key: index, staticClass: "col-lg-3 p-2" },
                   [_c("single-ambulance", { attrs: { ambulance: ambulance } })],
                   1
                 )

@@ -30,6 +30,14 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px !important;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -37,10 +45,10 @@
         {{-- <main></main> --}}
     </div>
     @if ($theme === 'default')
-        <script src="/js/template/default/main.js"></script>
+        <script src="{{ mix('/js/template/default/main.js') }}" defer></script>
     @endif
     @if ($theme === 'templateOne')
-        <script src="/js/template/templateOne/main.js"></script>
+        <script src="{{ mix('/js/template/templateOne/main.js') }}" defer></script>
     @endif
 </body>
 

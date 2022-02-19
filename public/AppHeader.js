@@ -1002,8 +1002,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -2077,7 +2075,7 @@ var render = function() {
       _c(
         "base-nav",
         {
-          staticClass: "navbar-main",
+          staticClass: "navbar-main p-1",
           attrs: { type: "", effect: "light", expand: "" },
           scopedSlots: _vm._u([
             {
@@ -2304,10 +2302,7 @@ var render = function() {
                     [
                       _c(
                         "span",
-                        {
-                          staticClass:
-                            "nav-link-inner--text bangla-font danger-deep"
-                        },
+                        { staticClass: "nav-link-inner--text bangla-font" },
                         [_vm._v("রক্ত প্রয়োজন")]
                       )
                     ]

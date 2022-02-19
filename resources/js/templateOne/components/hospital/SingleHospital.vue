@@ -1,22 +1,47 @@
 <template>
-	<div>
-		<div class="single-doctor">
-			<div class="col-12 text-center p-1" @click.prevent="viewDetails()">
-				<p class="bangla-font name font-weight-bold">{{ hospital.name }}</p>
-				<p class="bangla-font specialist">{{ hospital.category }}</p>
-				<p class="bangla-font qualification">{{ hospital.address }}</p>
-				<p class="bangla-font mobile">ফোনঃ {{ hospital.phone }}</p>
-				<p class="bangla-font mobile">
-					মোবাইলঃ {{ hospital.mobile_1 }},{{ hospital.mobile_2 }}
-				</p>
-				<p class="bangla-font working_place">ইমেইলঃ {{ hospital.email }}</p>
-			</div>
-			<p
-				class="cursor-pointer bangla-font success mb-0 bottom-0"
-				@click.prevent="viewDetails()"
+	<div class="provider-card" id="provider-card">
+		<div class="provider-card__view-profile-btn">
+			<h3 class="provider-details__provider-name-link">
+				<a
+					class="provider-name-link bangla-font"
+					href="#"
+					@click.prevent="viewDetails()"
+				>
+					{{ hospital.name }}
+				</a>
+			</h3>
+			<div
+				class="provider-details__provider-specialty bangla-font mb-4 specialist"
 			>
-				বিস্তারিত দেখুন
-			</p>
+				{{ hospital.category }}
+			</div>
+		</div>
+		<div class="provider-card__provider-strengths">
+			<ul class="provider-strengths">
+				<li class="provider-strengths__strength-item bangla-font">
+					{{ hospital.address }}
+				</li>
+				<li class="provider-strengths__strength-item bangla-font">
+					ফোনঃ {{ hospital.phone }}
+				</li>
+				<li
+					class="provider-strengths__strength-item bangla-font"
+					data-qa-target="strength-item--3"
+				>
+					মোবাইলঃ {{ hospital.mobile_1 }},{{ hospital.mobile_2 }}
+				</li>
+				<li class="provider-strengths__strength-item bangla-font">
+					ইমেইলঃ {{ hospital.email }}
+				</li>
+			</ul>
+		</div>
+		<div class="provider-card__view-profile-btn">
+			<a
+				class="view-profile-btn button bangla-font"
+				href="#"
+				@click.prevent="viewDetails()"
+				>বিস্তারিত দেখুন</a
+			>
 		</div>
 		<!--Details Modal-->
 		<div class="row">
@@ -27,7 +52,7 @@
 				>
 					<h6 slot="header" class="modal-title" id="modal-title-default"></h6>
 					<div class="row">
-						<div class="col-lg-5 col-sm-12">
+						<div class="col-lg-5 col-sm-12" v-if="hospital_details.image">
 							<img
 								v-if="hospital_details.image"
 								:src="'/' + hospital_details.image"
@@ -35,17 +60,11 @@
 								class="mb-2"
 								style="width: 100%; max-height: 250px"
 							/>
-							<img
-								v-else
-								v-lazy="'img/theme/doctor.jpg'"
-								class="mb-2"
-								style="width: 100%; max-height: 250px"
-							/>
 						</div>
 						<div class="col-lg-7 col-sm-12">
-							<h5 class="bangla-font success font-weight-bold mb-0">
+							<a href="#" class="bangla-font success font-weight-bold mb-0">
 								{{ hospital.name }}
-							</h5>
+							</a>
 							<p class="bangla-font specialist">{{ hospital.category }}</p>
 							<p class="bangla-font mobile">ফোনঃ {{ hospital.phone }}</p>
 							<p class="bangla-font mobile">
