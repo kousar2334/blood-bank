@@ -2,6 +2,7 @@
     "/js/template/default/main.js": "/js/template/default/main.js",
     "/js/template/templateOne/main.js": "/js/template/templateOne/main.js",
     "/AboutUs.js": "/AboutUs.js",
+    "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Home~Hospitals.js": "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Home~Hospitals.js",
     "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Hospitals.js": "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Hospitals.js",
     "/AddAmbulance.js": "/AddAmbulance.js",
     "/AddHospital.js": "/AddHospital.js",
@@ -12,6 +13,7 @@
     "/BloodDonorForm.js": "/BloodDonorForm.js",
     "/DoctorAddForm.js": "/DoctorAddForm.js",
     "/Doctors.js": "/Doctors.js",
+    "/Doctors~Home.js": "/Doctors~Home.js",
     "/FireStation.js": "/FireStation.js",
     "/FireStation~Home~police.js": "/FireStation~Home~police.js",
     "/Home.js": "/Home.js",
@@ -20,11 +22,7 @@
     "/Profile.js": "/Profile.js",
     "/Register.js": "/Register.js",
     "/police.js": "/police.js",
-    "/vendors~AboutUs~AddAmbulance~AddHospital~Ambulance~AppFooter~AppHeader~BloodBank~BloodDonorForm~Doct~cf4c4e57.js": "/vendors~AboutUs~AddAmbulance~AddHospital~Ambulance~AppFooter~AppHeader~BloodBank~BloodDonorForm~Doct~cf4c4e57.js",
-    "/vendors~BloodBank.js": "/vendors~BloodBank.js",
-    "/vendors~FireStation~Home~police.js": "/vendors~FireStation~Home~police.js",
     "/vendors~AboutUs~AddAmbulance~AddHospital~Ambulance~AppFooter~AppHeader~BloodBank~BloodDonorForm~Doct~8fdebbcb.js": "/vendors~AboutUs~AddAmbulance~AddHospital~Ambulance~AppFooter~AppHeader~BloodBank~BloodDonorForm~Doct~8fdebbcb.js",
-    "/vendors~Home.js": "/vendors~Home.js",
-    "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Home~Hospitals.js": "/AboutUs~AddAmbulance~AddHospital~Ambulance~BloodBank~BloodDonorForm~DoctorAddForm~Doctors~Home~Hospitals.js",
-    "/Doctors~Home.js": "/Doctors~Home.js"
+    "/vendors~BloodBank.js": "/vendors~BloodBank.js",
+    "/vendors~FireStation~Home~police.js": "/vendors~FireStation~Home~police.js"
 }

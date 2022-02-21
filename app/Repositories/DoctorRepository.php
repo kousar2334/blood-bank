@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Resources\DoctorCollection;
 use App\Model\Doctor;
 use App\Model\DoctorChamber;
 use Illuminate\Support\Facades\DB;
@@ -18,24 +19,10 @@ class DoctorRepository implements DoctorInterface
      */
     public function all($request)
     {
-        $query = DB::table('doctors')
-            ->select([
-                'id',
-                'image',
-                'name',
-                'qualification',
-                'specialist',
-                'position',
-                'working_place',
-                'mobile',
-                'is_featured'
-            ])
+        $query = Doctor::query()
             ->where('status', 1)
             ->orderBy('is_featured', 'DESC');
-        if (isset($request->department) && $request->department != null) {
-            $query = $query->where('department', $request->department);
-        }
-        return $query->paginate($request->perPage);
+        return new DoctorCollection($query->paginate($request->perPage));
     }
     /**
      * Return doctor list

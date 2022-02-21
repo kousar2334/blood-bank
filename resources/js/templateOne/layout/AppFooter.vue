@@ -41,19 +41,21 @@
 				<div class="col-sm-6 col-lg-4">
 					<div class="footer-item">
 						<div class="footer-links">
-							<h3>Quick links</h3>
+							<h3 class="bangla-font">লিঙ্ক সমূহ</h3>
 							<ul class="pl-0">
 								<li>
-									<a href="about.html"> About </a>
+									<a href="about.html" class="bangla-font">নতুন ডাক্তার </a>
 								</li>
 								<li>
-									<a href="blog.html"> Blog </a>
+									<a href="blog.html" class="bangla-font">নতুন হাসপাতাল </a>
 								</li>
 								<li>
-									<a href="events.html"> Events </a>
+									<a href="events.html" class="bangla-font"> নতুন রক্তদাতা </a>
 								</li>
 								<li>
-									<a href="donation.html"> Donation </a>
+									<a href="donation.html" class="bangla-font">
+										আমাদের সম্পর্কে
+									</a>
 								</li>
 							</ul>
 						</div>

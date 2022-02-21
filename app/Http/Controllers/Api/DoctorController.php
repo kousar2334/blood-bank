@@ -45,11 +45,7 @@ class DoctorController extends Controller
     public function getDoctorList(Request $request)
     {
         try {
-            $doctors = $this->doctor_repository->all($request);
-            return response()->json([
-                'success' => true,
-                'doctors' => $doctors
-            ]);
+            return $this->doctor_repository->all($request);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false

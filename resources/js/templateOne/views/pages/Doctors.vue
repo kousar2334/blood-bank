@@ -101,8 +101,8 @@ export default {
 				})
 				.then((response) => {
 					if (response.data.success) {
-						this.doctors = response.data.doctors.data;
-						this.total = response.data.doctors.total;
+						this.doctors = response.data.data;
+						this.total = response.data.meta.total;
 					}
 				})
 				.catch((error) => {});

@@ -325,8 +325,8 @@ __webpack_require__.r(__webpack_exports__);
         department: this.selectedDepartment.id
       }).then(function (response) {
         if (response.data.success) {
-          _this2.doctors = response.data.doctors.data;
-          _this2.total = response.data.doctors.total;
+          _this2.doctors = response.data.data;
+          _this2.total = response.data.meta.total;
         }
       })["catch"](function (error) {});
     },
@@ -533,8 +533,8 @@ __webpack_require__.r(__webpack_exports__);
         department: this.selectedDepartment.id
       }).then(function (response) {
         if (response.data.success) {
-          _this2.doctors = response.data.doctors.data;
-          _this2.total = response.data.doctors.total;
+          _this2.doctors = response.data.data;
+          _this2.total = response.data.meta.total;
         }
       })["catch"](function (error) {});
     },

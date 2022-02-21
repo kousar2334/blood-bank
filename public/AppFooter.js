@@ -245,6 +245,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "app-footer",
@@ -523,27 +525,49 @@ var staticRenderFns = [
       _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
         _c("div", { staticClass: "footer-item" }, [
           _c("div", { staticClass: "footer-links" }, [
-            _c("h3", [_vm._v("Quick links")]),
+            _c("h3", { staticClass: "bangla-font" }, [_vm._v("লিঙ্ক সমূহ")]),
             _vm._v(" "),
             _c("ul", { staticClass: "pl-0" }, [
               _c("li", [
-                _c("a", { attrs: { href: "about.html" } }, [_vm._v(" About ")])
+                _c(
+                  "a",
+                  { staticClass: "bangla-font", attrs: { href: "about.html" } },
+                  [_vm._v("নতুন ডাক্তার ")]
+                )
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "blog.html" } }, [_vm._v(" Blog ")])
+                _c(
+                  "a",
+                  { staticClass: "bangla-font", attrs: { href: "blog.html" } },
+                  [_vm._v("নতুন হাসপাতাল ")]
+                )
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "events.html" } }, [
-                  _vm._v(" Events ")
-                ])
+                _c(
+                  "a",
+                  {
+                    staticClass: "bangla-font",
+                    attrs: { href: "events.html" }
+                  },
+                  [_vm._v(" নতুন রক্তদাতা ")]
+                )
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "donation.html" } }, [
-                  _vm._v(" Donation ")
-                ])
+                _c(
+                  "a",
+                  {
+                    staticClass: "bangla-font",
+                    attrs: { href: "donation.html" }
+                  },
+                  [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t\tআমাদের সম্পর্কে\n\t\t\t\t\t\t\t\t"
+                    )
+                  ]
+                )
               ])
             ])
           ])
