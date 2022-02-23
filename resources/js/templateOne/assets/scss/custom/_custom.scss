@@ -581,8 +581,8 @@ button {
     transition: box-shadow 0.25s, background-color 0.25s;
     text-align: center;
     vertical-align: middle;
-    background: theme-color("primary");
-    border: theme-color("primary");
+    background: var(--primaryColor);
+    border: var(--primaryColor);
 }
 
 .sr-only {
@@ -639,7 +639,7 @@ button {
 }
 .section-title .sub-title {
     display: inline-block;
-    color: #ff6015;
+    color: var(--primaryColor);
     margin-bottom: 10px;
 }
 //footer
@@ -844,4 +844,10 @@ $orange-color: #ff6015;
             }
         }
     }
+}
+.social-link {
+    color: white !important;
+}
+.social-link:hover {
+    color: var(--primaryColor) !important;
 }

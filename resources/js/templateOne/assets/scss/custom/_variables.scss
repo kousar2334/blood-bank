@@ -72,7 +72,7 @@ $colors: map-merge(
 );
 
 $default: #172b4d !default;
-$primary: #5e72e4 !default;
+$primary: #ff6015 !default;
 $secondary: #f4f5f7 !default;
 $success: $green !default;
 $info: $teal !default;
@@ -239,9 +239,9 @@ $section-colors: map-merge(
 
 // Links
 
-$link-color: $primary !default;
+$link-color: var(--primaryColor);
 $link-decoration: none !default;
-$link-hover-color: darken($link-color, 15%);
+$link-hover-color: var(--primaryColor);
 $link-hover-decoration: none !default;
 
 // Grid breakpoints

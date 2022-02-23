@@ -967,41 +967,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1022,6 +987,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getSiteInfo();
+    window.addEventListener("scroll", this.scrollHandler);
+    var headerH = this.$refs.Header.clientHeight;
+    var headerM = this.$refs.fooHeader;
+    headerM.parentElement.style.minHeight = headerH + "px";
   },
   methods: {
     /**
@@ -1036,6 +1005,10 @@ __webpack_require__.r(__webpack_exports__);
           _this.site_info.logo = response.data.info.logo;
         }
       })["catch"](function (error) {});
+    },
+    scrollHandler: function scrollHandler() {
+      var fooHeader = this.$refs.fooHeader;
+      window.pageYOffset > this.$refs.Header.clientHeight ? fooHeader.classList.add("sticky") : fooHeader.classList.remove("sticky");
     }
   }
 });
@@ -1143,6 +1116,25 @@ if (__webpack_require__(/*! ./_fails */ "./node_modules/core-js/modules/_fails.j
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".sticky-header {\n  background-color: #fff;\n}\n.sticky-header.sticky {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 99;\n  animation-duration: 0.8s;\n  animation-fill-mode: backwards;\n  animation-name: fadeInDown;\n  box-shadow: 0 4px 25px -12px gray;\n}\n.topbar.style5 {\n  background: #464d58 none repeat scroll 0 0;\n  padding: 5px 0;\n}\n.topbar {\n  background: #040722;\n  float: left;\n  padding: 5px 0;\n  width: 100%;\n}\n.topbar .container {\n  display: table;\n}\n.topbar-info {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table-cell;\n  vertical-align: middle;\n}\n.topbar-info > li {\n  color: #ffffff;\n  float: left;\n  font-family: roboto;\n  font-size: 11px;\n  letter-spacing: 0;\n  margin-right: 20px;\n}\n.topbar.style5 .topbar-links {\n  float: right;\n  list-style: outside none none;\n  margin: 0;\n  padding-left: 0;\n}\n.topbar-links {\n  display: table-cell;\n  vertical-align: middle;\n}\n.topbar-links > a {\n  color: #d6d6d6;\n  float: left;\n  font-family: roboto;\n  font-size: 13px;\n  font-weight: 500;\n  letter-spacing: 0.5px;\n  padding: 4px 20px;\n  position: relative;\n}\n.topbar-links > a:before {\n  background: #474747;\n  content: \"\";\n  height: 10px;\n  margin-top: -5px;\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 1px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/default/components/BaseDropdown.vue?vue&type=style&index=0&lang=css&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--5-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--5-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/default/components/BaseDropdown.vue?vue&type=style&index=0&lang=css& ***!
@@ -1178,6 +1170,36 @@ exports.push([module.i, "\n.dropdown {\n  list-style-type: none;\n}\n.dropdown .
 
 // exports
 
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js??ref--6-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--6-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppHeader.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -2068,258 +2090,372 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "header",
-    { staticClass: "header-global" },
-    [
-      _c(
-        "base-nav",
-        {
-          staticClass: "navbar-main p-1",
-          attrs: { type: "", effect: "light", expand: "" },
-          scopedSlots: _vm._u([
-            {
-              key: "content-header",
-              fn: function(ref) {
-                var closeMenu = ref.closeMenu
-                return _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-6 collapse-brand" }, [
-                    _c("a", { attrs: { href: "/" } }, [
-                      _c("h2", { staticClass: "text-black bangla-font" }, [
-                        _vm._v(_vm._s(_vm.site_info.name))
+  return _c("header", { ref: "Header", staticClass: "header-global header" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        ref: "fooHeader",
+        staticClass: "sticky-header",
+        on: { scroll: _vm.scrollHandler }
+      },
+      [
+        _c(
+          "base-nav",
+          {
+            staticClass: "navbar-main p-1",
+            attrs: { type: "", effect: "light", expand: "" },
+            scopedSlots: _vm._u([
+              {
+                key: "content-header",
+                fn: function(ref) {
+                  var closeMenu = ref.closeMenu
+                  return _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-6 collapse-brand" }, [
+                      _c("a", { attrs: { href: "/" } }, [
+                        _c("h2", { staticClass: "text-black bangla-font" }, [
+                          _vm._v(_vm._s(_vm.site_info.name))
+                        ])
                       ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-6 collapse-close" },
-                    [_c("close-button", { on: { click: closeMenu } })],
-                    1
-                  )
-                ])
-              }
-            }
-          ])
-        },
-        [
-          _c(
-            "router-link",
-            {
-              staticClass: "navbar-brand mr-lg-5",
-              attrs: { slot: "brand", to: "/" },
-              slot: "brand"
-            },
-            [
-              _vm.site_info.logo
-                ? _c("img", {
-                    attrs: { src: "/" + _vm.site_info.logo, alt: "logo" }
-                  })
-                : _c("h2", { staticClass: "text-white bangla-font" }, [
-                    _vm._v(_vm._s(_vm.site_info.name))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-6 collapse-close" },
+                      [_c("close-button", { on: { click: closeMenu } })],
+                      1
+                    )
                   ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              staticClass: "navbar-nav navbar-nav-hover align-items-lg-center"
-            },
-            [
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link nav-link-icon",
-                      attrs: { to: "/" }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { staticClass: "nav-link-inner--text bangla-font" },
-                        [_vm._v("হোম ")]
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link nav-link-icon",
-                      attrs: { to: "/blood-donor-registration" }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { staticClass: "nav-link-inner--text bangla-font" },
-                        [_vm._v("রক্ত দিতে চান ?\n\t\t\t\t\t")]
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link nav-link-icon",
-                      attrs: { to: "/add-new-doctor" }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { staticClass: "nav-link-inner--text bangla-font" },
-                        [_vm._v("ডাক্তার যোগ করুন\n\t\t\t\t\t")]
-                      )
-                    ]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "base-dropdown",
-                { staticClass: "nav-item", attrs: { tag: "li" } },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "nav-link",
-                      attrs: {
-                        slot: "title",
-                        href: "#",
-                        "data-toggle": "dropdown",
-                        role: "button"
+                }
+              }
+            ])
+          },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "navbar-brand mr-lg-5",
+                attrs: { slot: "brand", to: "/" },
+                slot: "brand"
+              },
+              [
+                _vm.site_info.logo
+                  ? _c("img", {
+                      attrs: { src: "/" + _vm.site_info.logo, alt: "logo" }
+                    })
+                  : _c("h2", { staticClass: "bangla-font" }, [
+                      _vm._v(_vm._s(_vm.site_info.name))
+                    ])
+              ]
+            ),
+            _vm._v(" "),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass: "navbar-nav navbar-nav-hover align-items-lg-center"
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link nav-link-icon",
+                        attrs: { to: "/" }
                       },
-                      slot: "title"
-                    },
-                    [
-                      _c("i", { staticClass: "ni ni-collection d-lg-none" }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        { staticClass: "nav-link-inner--text bangla-font" },
-                        [_vm._v("নিবন্ধন ফর্ম")]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "dropdown-item bangla-font",
-                      attrs: { to: "/blood-donor-registration" }
-                    },
-                    [_vm._v("রক্তদাতা\n\t\t\t\t")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "dropdown-item bangla-font",
-                      attrs: { to: "/add-new-doctor" }
-                    },
-                    [_vm._v("ডাক্তার\n\t\t\t\t")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "dropdown-item bangla-font",
-                      attrs: { to: "/add-new-hospital-clinic" }
-                    },
-                    [_vm._v("হাসপাতাল/ক্লিনিক\n\t\t\t\t")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "dropdown-item bangla-font",
-                      attrs: { to: "/add-new-ambulance" }
-                    },
-                    [_vm._v("অ্যাম্বুলেন্স\n\t\t\t\t")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "nav-link nav-link-icon",
-                      attrs: { to: "/about-us" }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { staticClass: "nav-link-inner--text bangla-font" },
-                        [_vm._v("আমাদের সম্পর্কে\n\t\t\t\t\t")]
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "ul",
-            { staticClass: "navbar-nav align-items-lg-center ml-lg-auto" },
-            [
-              _c(
-                "li",
-                { staticClass: "nav-item d-none d-lg-block ml-lg-4" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-neutral btn-icon",
-                      attrs: { to: "/blood-bank" }
-                    },
-                    [
-                      _c(
-                        "span",
-                        { staticClass: "nav-link-inner--text bangla-font" },
-                        [_vm._v("রক্ত প্রয়োজন")]
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            ]
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "nav-link-inner--text bangla-font" },
+                          [_vm._v("হোম ")]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link nav-link-icon",
+                        attrs: { to: "/blood-donor-registration" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "nav-link-inner--text bangla-font" },
+                          [_vm._v("রক্ত দিতে চান ?\n\t\t\t\t\t\t")]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link nav-link-icon",
+                        attrs: { to: "/add-new-doctor" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "nav-link-inner--text bangla-font" },
+                          [_vm._v("ডাক্তার যোগ করুন\n\t\t\t\t\t\t")]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "base-dropdown",
+                  { staticClass: "nav-item", attrs: { tag: "li" } },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "nav-link nav-link-icon",
+                        attrs: {
+                          slot: "title",
+                          href: "#",
+                          "data-toggle": "dropdown",
+                          role: "button"
+                        },
+                        slot: "title"
+                      },
+                      [
+                        _c("i", { staticClass: "ni ni-collection d-lg-none" }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "nav-link-inner--text bangla-font" },
+                          [_vm._v("নিবন্ধন ফর্ম")]
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-item bangla-font",
+                        attrs: { to: "/blood-donor-registration" }
+                      },
+                      [_vm._v("রক্তদাতা\n\t\t\t\t\t")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-item bangla-font",
+                        attrs: { to: "/add-new-doctor" }
+                      },
+                      [_vm._v("ডাক্তার\n\t\t\t\t\t")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-item bangla-font",
+                        attrs: { to: "/add-new-hospital-clinic" }
+                      },
+                      [_vm._v("হাসপাতাল/ক্লিনিক\n\t\t\t\t\t")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "dropdown-item bangla-font",
+                        attrs: { to: "/add-new-ambulance" }
+                      },
+                      [_vm._v("অ্যাম্বুলেন্স\n\t\t\t\t\t")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "nav-link nav-link-icon",
+                        attrs: { to: "/about-us" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "nav-link-inner--text bangla-font" },
+                          [_vm._v("আমাদের সম্পর্কে\n\t\t\t\t\t\t")]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "navbar-nav align-items-lg-center ml-lg-auto" },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item d-none d-lg-block ml-lg-4" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-neutral btn-icon",
+                        attrs: { to: "/blood-bank" }
+                      },
+                      [
+                        _c(
+                          "span",
+                          { staticClass: "nav-link-inner--text bangla-font" },
+                          [_vm._v("রক্ত প্রয়োজন")]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ],
+          1
+        )
+      ],
+      1
+    )
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "topbar style5 d-none d-lg-block" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("ul", { staticClass: "topbar-info" }, [
+          _c("li", [
+            _c("span", [
+              _c("i", { staticClass: "fa fa-envelope-o" }),
+              _vm._v("Email:")
+            ]),
+            _vm._v("\n\t\t\t\t\texample@yourdomain.com\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("span", [
+              _c("i", { staticClass: "fa fa-map-marker" }),
+              _vm._v("Address: ")
+            ]),
+            _vm._v(" 24411 Health\n\t\t\t\t\tCenter Drive, Suite 640\n\t\t\t\t")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "topbar-links" }, [
+          _c("ul", { staticClass: "topbar-info" }, [
+            _c("li", { staticClass: "nav-item mr-0" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link nav-link-icon social-link",
+                  attrs: {
+                    href: "https://www.facebook.com/creativetim",
+                    target: "_blank",
+                    rel: "noopener",
+                    "data-toggle": "tooltip",
+                    title: "Like us on Facebook"
+                  }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-facebook-square" }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { staticClass: "nav-link-inner--text d-lg-none" },
+                    [_vm._v("Facebook")]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item mr-0" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link nav-link-icon social-link",
+                  attrs: {
+                    href: "https://www.instagram.com/creativetimofficial",
+                    target: "_blank",
+                    rel: "noopener",
+                    "data-toggle": "tooltip",
+                    title: "Follow us on Instagram"
+                  }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-instagram" }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { staticClass: "nav-link-inner--text d-lg-none" },
+                    [_vm._v("Instagram")]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item mr-0" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link nav-link-icon social-link",
+                  attrs: {
+                    href: "https://twitter.com/creativetim",
+                    target: "_blank",
+                    rel: "noopener",
+                    "data-toggle": "tooltip",
+                    title: "Follow us on Twitter"
+                  }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-twitter-square" }),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    { staticClass: "nav-link-inner--text d-lg-none" },
+                    [_vm._v("Twitter")]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -2994,7 +3130,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppHeader_vue_vue_type_template_id_094c00ea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppHeader.vue?vue&type=template&id=094c00ea& */ "./resources/js/templateOne/layout/AppHeader.vue?vue&type=template&id=094c00ea&");
 /* harmony import */ var _AppHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppHeader.vue?vue&type=script&lang=js& */ "./resources/js/templateOne/layout/AppHeader.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppHeader.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -3002,7 +3140,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _AppHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AppHeader_vue_vue_type_template_id_094c00ea___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AppHeader_vue_vue_type_template_id_094c00ea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -3031,6 +3169,22 @@ component.options.__file = "resources/js/templateOne/layout/AppHeader.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppHeader.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/templateOne/layout/AppHeader.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss& ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_sass_loader_dist_cjs_js_ref_6_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--6-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./AppHeader.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/templateOne/layout/AppHeader.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_sass_loader_dist_cjs_js_ref_6_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_sass_loader_dist_cjs_js_ref_6_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_sass_loader_dist_cjs_js_ref_6_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_sass_loader_dist_cjs_js_ref_6_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_sass_loader_dist_cjs_js_ref_6_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AppHeader_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

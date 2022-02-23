@@ -15,7 +15,7 @@ class DoctorCollection extends ResourceCollection
                     'name' => $data->name,
                     'image' => $data->image,
                     'qualification' => $data->qualification,
-                    'specialist' => $data->position,
+                    'specialist' => $data->specialist,
                     'position' => $data->position,
                     'working_place' => $data->working_place,
                     'mobile' => $data->mobile,

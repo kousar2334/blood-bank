@@ -37,6 +37,10 @@
             }
         }
 
+        :root {
+            --primaryColor: blue;
+        }
+
     </style>
 </head>
 
