@@ -158,7 +158,7 @@ class BloodDonorRepository implements BloodDonorInterface
                     $url = asset('/' . $donor->image);
                     return '<img src="' . $url . '" border="0"class="img-circle elevation-1" width="50" height="50" />';
                 } else {
-                    $url = asset('/images/no-image.png');
+                    $url = asset('/static/images/no-image.png');
                     return '<img src="' . $url . '" border="0"class="img-circle elevation-1" width="50" height="50" />';
                 }
             })

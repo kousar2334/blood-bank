@@ -104,7 +104,7 @@
                                                     <img src="{{ asset('/') }}{{ $doctor->image }}"
                                                         alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
-                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                    <img src="{{ asset('/') }}static/images/no-image.png"
                                                         alt="{{ $doctor->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $doctor->name }}
@@ -155,7 +155,7 @@
                                                     <img src="{{ asset('/') }}{{ $hospital->image }}"
                                                         alt="{{ $hospital->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
-                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                    <img src="{{ asset('/') }}static/images/no-image.png"
                                                         alt="{{ $hospital->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $hospital->name }}
@@ -209,7 +209,7 @@
                                                     <img src="{{ asset('/') }}{{ $donor->image }}"
                                                         alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
-                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                    <img src="{{ asset('/') }}static/images/no-image.png"
                                                         alt="{{ $donor->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $donor->name }}
@@ -264,7 +264,7 @@
                                                         alt="{{ $ambulance->name }}"
                                                         class="img-circle img-size-32 mr-2">
                                                 @else
-                                                    <img src="{{ asset('/') }}images/no-image.png"
+                                                    <img src="{{ asset('/') }}static/images/no-image.png"
                                                         alt="{{ $ambulance->name }}"
                                                         class="img-circle img-size-32 mr-2">
                                                 @endif

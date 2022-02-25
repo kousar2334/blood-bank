@@ -124,7 +124,7 @@
                             <img src="{{ asset(Auth::user()->image) }}" class="img-size-50 mr-3 img-circle"
                                 alt="User Image">
                         @else
-                            <img src="{{ asset('/images/no-image.png') }}" class="img-size-50 mr-3 img-circle"
+                            <img src="{{ asset('/static/images/no-image.png') }}" class="img-size-50 mr-3 img-circle"
                                 alt="User Image">
                         @endif
                         <div class="media-body">

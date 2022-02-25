@@ -40,7 +40,7 @@
 
         .chamber-list {
             /* border: 1px solid;
-                                    border-style: dotted; */
+                                        border-style: dotted; */
             padding: 15px;
         }
 
@@ -107,7 +107,7 @@
                         <div class="row">
 
                             <div class="col-12 text-center p-3">
-                                <img class="img-circle doctor-image" src="{{ asset('/images/no-image.png') }}"
+                                <img class="img-circle doctor-image" src="{{ asset('/static/images/no-image.png') }}"
                                     width="100px">
                                 <h3 id="name"></h3>
                                 <p id="qualification"></p>
@@ -224,7 +224,7 @@
                             var source = "{{ asset('/') }}" + data.doc_info.image;
                             $('.doctor-image').attr('src', source);
                         } else {
-                            var source = "{{ asset('/images/no-image.png') }}";
+                            var source = "{{ asset('/static/images/no-image.png') }}";
                             $('.doctor-image').attr('src', source);
                         }
                         if (data.doc_info.chambers) {

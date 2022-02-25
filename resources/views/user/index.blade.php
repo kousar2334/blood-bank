@@ -48,11 +48,11 @@
     <div id="app">
         {{-- <main></main> --}}
     </div>
-    @if ($theme === 'default')
+    {{-- @if ($theme === 'default')
         <script src="{{ mix('/js/template/default/main.js') }}" defer></script>
-    @endif
-    @if ($theme === 'templateOne')
-        <script src="{{ mix('/js/template/templateOne/main.js') }}" defer></script>
+    @endif --}}
+    @if ($theme != null)
+        <script src="/<?php echo $theme; ?>/js/main.js"></script>
     @endif
 </body>
 

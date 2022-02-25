@@ -13,7 +13,8 @@
                 @if (!empty(Auth::user()->image))
                     <img src="{{ asset(Auth::user()->image) }}" class="img-circle elevation-2" alt="User Image">
                 @else
-                    <img src="{{ asset('/images/no-image.png') }}" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('/static/images/no-image.png') }}" class="img-circle elevation-2"
+                        alt="User Image">
                 @endif
 
             </div>

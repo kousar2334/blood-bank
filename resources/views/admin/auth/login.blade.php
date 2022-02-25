@@ -9,17 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('/backend/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/static/backend/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/static/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('/backend/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/static/backend/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <style>
-        .body{
+        .body {
             background-color: #343a40;
             align-items: center;
             display: -ms-flexbox;
@@ -27,18 +27,18 @@
             -ms-flex-direction: column;
             flex-direction: column;
             /* height: 100vh; */
-            margin-top:100px;
+            margin-top: 100px;
             -ms-flex-pack: center;
             justify-content: center;
         }
+
     </style>
 </head>
 
 <body class="hold-transition body">
     <div class="login-box">
         <div class="login-logo">
-            <img src="{{ asset('/logo/logo.png') }}" alt="AdminLTE Logo"
-            class="brand-image">
+            <img src="{{ asset('/static/logo/logo.png') }}" alt="AdminLTE Logo" class="brand-image">
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -85,11 +85,11 @@
         <!-- /.login-box -->
 
         <!-- jQuery -->
-        <script src="{{ asset('/backend/plugins/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('/static/backend/plugins/jquery/jquery.min.js') }}"></script>
         <!-- Bootstrap 4 -->
-        <script src="{{ asset('/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('/static/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <!-- AdminLTE App -->
-        <script src="{{ asset('/backend/dist/js/adminlte.min.js') }}"></script>
+        <script src="{{ asset('/static/backend/dist/js/adminlte.min.js') }}"></script>
 
 </body>
 
