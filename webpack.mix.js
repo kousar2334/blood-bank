@@ -10,15 +10,15 @@ const mix = require("laravel-mix");
  | file for the application as well as bundling up all the JS files.
  |
  */
-if (["deafult", "human"].includes(process.env.npm_config_section)) {
-    require(`${__dirname}/webpack.${process.env.npm_config_section}.mix.js`);
-} else {
-    console.log(
-        "\x1b[41m%s\x1b[0m",
-        "Provide correct --section argument to build command: customers, backoffice"
-    );
-    throw new Error("Provide correct --section argument to build command!");
-}
+// if (["deafult", "human"].includes(process.env.npm_config_section)) {
+//     require(`${__dirname}/webpack.${process.env.npm_config_section}.mix.js`);
+// } else {
+//     console.log(
+//         "\x1b[41m%s\x1b[0m",
+//         "Provide correct --section argument to build command: customers, backoffice"
+//     );
+//     throw new Error("Provide correct --section argument to build command!");
+// }
 
 // mix.webpackConfig({
 //     output: {
