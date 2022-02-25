@@ -10,12 +10,15 @@ const mix = require("laravel-mix");
  | file for the application as well as bundling up all the JS files.
  |
  */
-mix.setPublicPath("public/human").setResourceRoot("/human");
-
-mix.js("resources/js/templateOne/main.js", "public/human/js").sass(
-    "resources/js/templateOne/assets/scss/argon.scss",
-    "public/human/css"
-);
+if (["deafult", "human"].includes(process.env.npm_config_section)) {
+    require(`${__dirname}/webpack.${process.env.npm_config_section}.mix.js`);
+} else {
+    console.log(
+        "\x1b[41m%s\x1b[0m",
+        "Provide correct --section argument to build command: customers, backoffice"
+    );
+    throw new Error("Provide correct --section argument to build command!");
+}
 
 // mix.webpackConfig({
 //     output: {
