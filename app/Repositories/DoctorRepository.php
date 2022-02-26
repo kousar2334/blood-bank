@@ -22,6 +22,9 @@ class DoctorRepository implements DoctorInterface
         $query = Doctor::query()
             ->where('status', 1)
             ->orderBy('is_featured', 'DESC');
+        if (isset($request->department) && $request->department != null) {
+            $query = $query->where('department', $request->department);
+        }
         return new DoctorCollection($query->paginate($request->perPage));
     }
     /**
