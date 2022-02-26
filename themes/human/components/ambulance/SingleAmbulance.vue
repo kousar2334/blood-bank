@@ -21,7 +21,7 @@
 				v-else
 				class="provider-img provider-image"
 				:alt="ambulance.name"
-				src="/img/theme/ambulance.png"
+				src="/static/img/theme/ambulance.png"
 			/>
 		</div>
 		<div class="provider-card__provider-strengths">

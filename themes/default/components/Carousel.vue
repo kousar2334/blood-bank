@@ -65,7 +65,7 @@ export default {
 			items: [
 				{
 					title: "This is one",
-					img: "img/theme/slider.jpg",
+					img: "static/img/theme/slider.jpg",
 					titile_first: "titile First",
 					title_middle: "Middle",
 					description: "fgsgfuysd sjgfsduyf",
@@ -73,7 +73,7 @@ export default {
 				},
 				{
 					title: "This is one",
-					img: "img/theme/slider_2.png",
+					img: "static/img/theme/slider_2.png",
 					titile_first: "titile First",
 					title_middle: "Middle",
 					description: "fgsgfuysd sjgfsduyf",
@@ -81,7 +81,7 @@ export default {
 				},
 				{
 					title: "",
-					img: "img/theme/slider_3.jpg",
+					img: "static/img/theme/slider_3.jpg",
 					titile_first: "",
 					title_middle: "",
 					description: "",
@@ -89,7 +89,7 @@ export default {
 				},
 				{
 					title: "This is one",
-					img: "img/theme/slider.jpg",
+					img: "static/img/theme/slider.jpg",
 					titile_first: "titile First",
 					title_middle: "Middle",
 					description: "fgsgfuysd sjgfsduyf",

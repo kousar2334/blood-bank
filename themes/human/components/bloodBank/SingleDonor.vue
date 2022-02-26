@@ -21,7 +21,7 @@
 				v-else
 				class="provider-img provider-image"
 				:alt="donor.name"
-				src="/img/theme/blood-donor-profile.png"
+				src="/static/img/theme/blood-donor-profile.png"
 			/>
 		</div>
 		<div class="provider-card__provider-strengths">

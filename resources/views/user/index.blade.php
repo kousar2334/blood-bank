@@ -30,8 +30,10 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- Styles -->
     <link href="/<?php echo $theme; ?>/css/argon.css" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="{{ mix('/<?php echo $theme; ?>/js/main.js') }}"></script>
     <style>
         @media (min-width: 1200px) {
             .container {
@@ -48,11 +50,8 @@
 
 <body>
     <div id="app">
-        {{-- <main></main> --}}
     </div>
-    {{-- @if ($theme === 'default')
-        <script src="{{ mix('/js/template/default/main.js') }}" defer></script>
-    @endif --}}
+
     @if ($theme != null)
         <script src="/<?php echo $theme; ?>/js/main.js"></script>
     @endif

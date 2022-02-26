@@ -25,7 +25,7 @@
 				v-else
 				class="provider-img provider-image"
 				:alt="doctor.name"
-				src="/img/theme/doctor-profile.png"
+				src="/static/img/theme/doctor-profile.png"
 			/>
 		</div>
 		<div class="provider-card__provider-strengths">
@@ -66,7 +66,7 @@
 						/>
 						<img
 							v-else
-							v-lazy="'/img/theme/doctor-profile.png'"
+							v-lazy="'/static/img/theme/doctor-profile.png'"
 							class="mb-3 provider-image"
 						/>
 

@@ -1,7 +1,7 @@
 <aside class="main-sidebar elevation-4 sidebar-dark-maroon">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link navbar-secondary">
-        <img src="{{ asset('/logo/logo.png') }}" alt="AdminLTE Logo" class="brand-image">
+        <img src="{{ asset('/static/logo/logo.png') }}" alt="Logo" class="brand-image">
         {{-- <span class="brand-text font-weight-light">Amr Bogura</span> --}}
     </a>
 

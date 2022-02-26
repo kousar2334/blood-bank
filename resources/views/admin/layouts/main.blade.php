@@ -8,7 +8,7 @@
     <title>
         @yield('admin-page-title')
     </title>
-    <link rel="shortcut icon" type="image/jpg" href="{{ asset('/common/img/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/jpg" href="{{ asset('/static/common/img/favicon.png') }}" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,9 +26,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/static/backend/dist/css/adminlte.min.css') }}">
     <!--bangla font-->
-    <link rel="stylesheet" href="{{ asset('/common/bangla_font.css') }}">
+    <link rel="stylesheet" href="{{ asset('/static/common/bangla_font.css') }}">
     <!--custom btn style-->
-    <link rel="stylesheet" href="{{ asset('/common/css/btn.css') }}">
+    <link rel="stylesheet" href="{{ asset('/static/common/css/btn.css') }}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet"
         href="{{ asset('/static/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
