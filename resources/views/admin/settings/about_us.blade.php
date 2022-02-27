@@ -3,8 +3,9 @@
     About Us
 @stop
 @section('custom_css')
-    {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> --}}
 
+    <!----tiny mce--->
+    <script src="{{ asset('/static/backend/js/tinymce.min.js') }}"></script>
     <script>
         // tinymce.init({
         //     selector: 'textarea'

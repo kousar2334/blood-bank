@@ -1,8 +1,12 @@
 <aside class="main-sidebar elevation-4 sidebar-dark-maroon">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard') }}" class="brand-link navbar-secondary">
-        <img src="{{ asset('/static/logo/logo.png') }}" alt="Logo" class="brand-image">
-        {{-- <span class="brand-text font-weight-light">Amr Bogura</span> --}}
+        @if ($siteInfo->logo != null)
+            <img src="{{ asset('/') }}{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
+        @else
+            <span class="brand-text bangla-font font-weight-light text-center"> {{ $siteInfo->site_name }}</span>
+        @endif
+
     </a>
 
     <!-- Sidebar -->

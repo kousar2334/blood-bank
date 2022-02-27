@@ -39,61 +39,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/static/backend/css/toastr.min.css') }}">
     <!-- jQuery -->
     <script src="{{ asset('/static/backend/plugins/jquery/jquery.min.js') }}"></script>
-
-    <!----tiny mce--->
-    <script src="{{ asset('/static/backend/js/tinymce.min.js') }}"></script>
     @yield('custom_css')
-    <style>
-        /* .content-header .breadcrumb {
-            line-height: 1.5rem;
-        }
 
-        a {
-            color: black;
-        }
-
-        [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item .nav-treeview,
-        [class*=sidebar-dark] .nav-legacy.nav-sidebar>.nav-item>.nav-treeview {
-            background: #000408;
-        } */
-
-        .del-modal {
-            position: absolute;
-            background-color: white;
-            box-shadow: 0 0 6px 1px grey;
-            z-index: 999;
-            right: 99px;
-            margin-top: -115px;
-            display: none;
-            padding: 20px;
-            border-radius: 5px;
-            color: black;
-        }
-
-        .del-modal::after {
-            content: ' ';
-            width: 0px;
-            height: 0px;
-            border-top: 10px solid transparent;
-            border-left: 10px solid white;
-            border-bottom: 10px solid transparent;
-            border-right: 10px solid transparent;
-            position: absolute;
-            top: 60%;
-            left: 100%;
-            margin-left: 0px;
-        }
-
-        .delete-model-cansel-btn {
-            background-color: #808080a6;
-            border-color: #808080a6;
-        }
-
-        /* .nav-icon {
-            color: #d81b60
-        } */
-
-    </style>
 </head>
 
 <body class="layout-fixed layout-navbar-fixed">
@@ -127,32 +74,20 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('/static/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- ChartJS -->
-    <script src="{{ asset('/static/backend/plugins/chart.js/Chart.min.js') }}"></script>
+
     <!-- Sparkline -->
     <script src="{{ asset('/static/backend/plugins/sparklines/sparkline.js') }}"></script>
-    <!-- JQVMap -->
-    {{-- <script src="{{ asset('/static/backend/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('/static/backend/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script> --}}
-    <!-- jQuery Knob Chart -->
-    <script src="{{ asset('/static/backend/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ asset('/static/backend/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('/static/backend/plugins/daterangepicker/daterangepicker.js') }}"></script>
+
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="{{ asset('/static/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
     </script>
-    <!-- Summernote -->
-    {{-- <script src="{{ asset('/static/backend/plugins/summernote/summernote-bs4.min.js') }}"></script> --}}
+
     <!-- overlayScrollbars -->
     <script src="{{ asset('/static/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}">
     </script>
     <!-- AdminLTE App -->
     <script src="{{ asset('/static/backend/dist/js/adminlte.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    {{-- <script src="{{ asset('/static/backend/dist/js/pages/dashboard.js') }}"></script> --}}
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('/static/backend/dist/js/demo.js') }}"></script>
+
     <!--Toaster-->
     <script src="{{ asset('/static/backend/js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
