@@ -37,6 +37,10 @@ const Register = () =>
     import(/* webpackChunkName: "Register" */ "./views/pages/Register");
 const Profile = () =>
     import(/* webpackChunkName: "Profile" */ "./views/pages/Profile");
+const ProjectDetails = () =>
+    import(
+        /* webpackChunkName: "ProjectDetails" */ "./views/pages/projectDetails"
+    );
 Vue.use(Router);
 export default new Router({
     linkExactActiveClass: "active",
@@ -147,6 +151,15 @@ export default new Router({
             components: {
                 header: AppHeader,
                 default: Police,
+                footer: AppFooter
+            }
+        },
+        {
+            path: "/project-details/:id",
+            name: "ProjectDetails",
+            components: {
+                header: AppHeader,
+                default: ProjectDetails,
                 footer: AppFooter
             }
         },

@@ -77,11 +77,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -124,22 +119,22 @@ __webpack_require__.r(__webpack_exports__);
         title: "Food for every one. No one hungry",
         img: "static/img/theme/education.jpg",
         description: "programe for Food ",
-        url: "/qqwewqe"
+        url: "qqwewqe"
       }, {
         title: "This is one",
         img: "static/img/theme/education.jpg",
         description: "fgsgfuysd sjgfsduyf",
-        url: "/qqwewqe"
+        url: "qqwewqe"
       }, {
         title: "Public lribary",
         img: "static/img/theme/education.jpg",
         description: "fgsgfuysd sjgfsduyf",
-        url: "/qqwewqe"
+        url: "qqwewqe"
       }, {
         title: "Education for every one. No one uneducated",
         img: "static/img/theme/education.jpg",
         description: "fgsgfuysd sjgfsduyf",
-        url: "/qqwewqe"
+        url: "qqwewqe"
       }]
     };
   }
@@ -732,81 +727,95 @@ var render = function() {
           [
             _c("div", { staticClass: "event-grid" }, [
               _c("div", { staticClass: "event-box" }, [
-                _c("div", { staticClass: "img-holder" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: "https://bidyanondo.org/projects/9" } },
-                    [
-                      _c("img", {
-                        staticClass: "img img-responsive",
-                        attrs: { src: "" + ("/" + item.img), alt: "" }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "event-details" }, [
-                  _c(
-                    "h3",
-                    {
-                      staticStyle: {
-                        "margin-top": "0",
-                        "margin-bottom": "10px"
-                      }
-                    },
-                    [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "https://bidyanondo.org/projects/9" }
-                        },
-                        [_vm._v(_vm._s(item.title))]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticStyle: {
-                        "text-align": "justify",
-                        "text-justify": "inter-word",
-                        padding: "0 10px"
+                _c(
+                  "div",
+                  { staticClass: "img-holder" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
+                            name: "ProjectDetails",
+                            params: { id: item.url }
+                          }
+                        }
                       },
-                      attrs: { id: "text-with-link" }
-                    },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t" +
-                          _vm._s(item.description) +
-                          "\n\t\t\t\t\t\t\t"
-                      ),
-                      _c("span", [
+                      [
+                        _c("img", {
+                          staticClass: "img img-responsive",
+                          attrs: { src: "" + ("/" + item.img), alt: "" }
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "event-details" },
+                  [
+                    _c(
+                      "h3",
+                      {
+                        staticStyle: {
+                          "margin-top": "0",
+                          "margin-bottom": "10px"
+                        }
+                      },
+                      [
                         _c(
-                          "a",
+                          "router-link",
                           {
-                            staticStyle: { color: "#ed323799" },
-                            attrs: { href: "https://bidyanondo.org/projects/9" }
+                            attrs: {
+                              to: {
+                                name: "ProjectDetails",
+                                params: { id: item.url }
+                              }
+                            }
                           },
-                          [_vm._v("Read more")]
+                          [_vm._v(_vm._s(item.title))]
                         )
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn theme-btn donate-project",
-                      attrs: {
-                        href: "#",
-                        "data-toggle": "modal",
-                        "data-target": "#donate-project-modal"
-                      }
-                    },
-                    [_vm._v("Donate now")]
-                  )
-                ])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticStyle: {
+                          "text-align": "justify",
+                          "text-justify": "inter-word",
+                          padding: "0 10px"
+                        },
+                        attrs: { id: "text-with-link" }
+                      },
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t\t" +
+                            _vm._s(item.description) +
+                            "\n\t\t\t\t\t\t"
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn theme-btn donate-project",
+                        attrs: {
+                          to: {
+                            name: "ProjectDetails",
+                            params: { id: item.url }
+                          }
+                        }
+                      },
+                      [_vm._v("Donate Now")]
+                    )
+                  ],
+                  1
+                )
               ])
             ])
           ]

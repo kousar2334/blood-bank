@@ -8,17 +8,20 @@
 				<div class="event-grid">
 					<div class="event-box">
 						<div class="img-holder">
-							<a href="https://bidyanondo.org/projects/9">
-								<img
+							<router-link
+								:to="{ name: 'ProjectDetails', params: { id: item.url } }"
+								><img
 									:src="`${'/' + item.img}`"
 									alt=""
 									class="img img-responsive"
-								/>
-							</a>
+							/></router-link>
 						</div>
 						<div class="event-details">
 							<h3 style="margin-top: 0; margin-bottom: 10px">
-								<a href="https://bidyanondo.org/projects/9">{{ item.title }}</a>
+								<router-link
+									:to="{ name: 'ProjectDetails', params: { id: item.url } }"
+									>{{ item.title }}</router-link
+								>
 							</h3>
 							<p
 								id="text-with-link"
@@ -29,20 +32,12 @@
 								"
 							>
 								{{ item.description }}
-								<span
-									><a
-										style="color: #ed323799"
-										href="https://bidyanondo.org/projects/9"
-										>Read more</a
-									></span
-								>
 							</p>
-							<a
-								href="#"
+
+							<router-link
 								class="btn theme-btn donate-project"
-								data-toggle="modal"
-								data-target="#donate-project-modal"
-								>Donate now</a
+								:to="{ name: 'ProjectDetails', params: { id: item.url } }"
+								>Donate Now</router-link
 							>
 						</div>
 					</div>
@@ -113,26 +108,26 @@ export default {
 					title: "Food for every one. No one hungry",
 					img: "static/img/theme/education.jpg",
 					description: "programe for Food ",
-					url: "/qqwewqe",
+					url: "qqwewqe",
 				},
 				{
 					title: "This is one",
 					img: "static/img/theme/education.jpg",
 					description: "fgsgfuysd sjgfsduyf",
-					url: "/qqwewqe",
+					url: "qqwewqe",
 				},
 				{
 					title: "Public lribary",
 					img: "static/img/theme/education.jpg",
 					description: "fgsgfuysd sjgfsduyf",
-					url: "/qqwewqe",
+					url: "qqwewqe",
 				},
 
 				{
 					title: "Education for every one. No one uneducated",
 					img: "static/img/theme/education.jpg",
 					description: "fgsgfuysd sjgfsduyf",
-					url: "/qqwewqe",
+					url: "qqwewqe",
 				},
 			],
 		};
