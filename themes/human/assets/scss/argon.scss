@@ -70,6 +70,7 @@
 @import "custom/global.scss";
 @import "custom/utilities.scss";
 
+@import "custom/accordion.scss";
 @import "custom/alerts.scss";
 @import "custom/avatars.scss";
 @import "custom/badge.scss";
@@ -96,6 +97,6 @@
 
 // Vendor
 
-// @import "custom/vendor/flatpickr.scss";
-// @import "custom/vendor/headroom.scss";
-// @import "custom/vendor/nouislider.scss";
+@import "custom/vendor/flatpickr.scss";
+@import "custom/vendor/headroom.scss";
+@import "custom/vendor/nouislider.scss";

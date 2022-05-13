@@ -70,10 +70,14 @@
 							class="mb-3 provider-image"
 						/>
 
-						<p class="bangla-font name font-weight-bold">{{ doctor.name }}</p>
+						<h3 class="bangla-font provider-name-link font-weight-bold">
+							<a href="#">
+								{{ doctor.name }}
+							</a>
+						</h3>
 						<p class="bangla-font qualification">{{ doctor.qualification }}</p>
 						<p class="bangla-font specialist">{{ doctor.specialist }}</p>
-						<p class="bangla-font position">{{ doctor.position }}</p>
+						<p class="bangla-font">{{ doctor.position }}</p>
 						<p class="bangla-font working_place">{{ doctor.working_place }}</p>
 						<p class="bangla-font mobile">{{ doctor.mobile }}</p>
 						<div v-if="chambers.length > 0">

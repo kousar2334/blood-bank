@@ -23,9 +23,11 @@ class SystemController extends Controller
     {
         try {
             $info = $this->settings_repository->nameandLogo();
+            $social_accounts = $this->settings_repository->socialAccounts();
             return response()->json([
                 'success' => true,
-                'info' => $info
+                'info' => $info,
+                'social_accounts' => $social_accounts
             ]);
         } catch (\Exception $e) {
             return response()->json([

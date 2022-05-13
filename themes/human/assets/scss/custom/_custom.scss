@@ -47,7 +47,7 @@
 
 .specialist {
     font-weight: 700;
-    color: red;
+    color: var(--labelColor);
     margin-bottom: 2px;
 }
 
@@ -569,6 +569,10 @@ button {
 }
 .view-profile-btn {
     width: 100%;
+}
+.button:hover {
+    color: #fff;
+    background: #0a0e33;
 }
 .button {
     display: inline-block;

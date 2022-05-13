@@ -162,7 +162,35 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("footer", { staticClass: "footer-area pt-100" }, [
     _c("div", { staticClass: "container" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
+          _c("div", { staticClass: "footer-item" }, [
+            _c("div", { staticClass: "footer-logo" }, [
+              _c("a", { attrs: { href: "/" } }, [
+                _c("h2", { staticClass: "text-white bangla-font" }, [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t\t" +
+                      _vm._s(_vm.info.site_name) +
+                      "\n\t\t\t\t\t\t\t"
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat\n\t\t\t\t\t\t\tvero, magni est placeat neque, repellat maxime a dolore\n\t\t\t\t\t\t"
+                )
+              ]),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2)
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "copyright-area" }, [
         _c("p", { staticClass: "bangla-font" }, [
@@ -171,7 +199,7 @@ var render = function() {
               _vm._s(_vm.year) +
               " " +
               _vm._s(_vm.info.site_name) +
-              ". Designed By\n\t\t\t\t"
+              ". Developed By\n\t\t\t\t"
           ),
           _c(
             "a",
@@ -188,141 +216,115 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
-        _c("div", { staticClass: "footer-item" }, [
-          _c("div", { staticClass: "footer-logo" }, [
-            _c("a", { staticClass: "logo", attrs: { href: "index.html" } }, [
-              _c("img", {
-                attrs: {
-                  src: "/uploads/general/02182022073801logo.png",
-                  alt: "Logo"
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat\n\t\t\t\t\t\t\tvero, magni est placeat neque, repellat maxime a dolore\n\t\t\t\t\t\t"
+    return _c("ul", { staticClass: "pl-0" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "#", target: "_blank" } }, [
+          _c("i", { staticClass: "fa fa-facebook-square" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#", target: "_blank" } }, [
+          _c("i", { staticClass: "fa fa-twitter-square" })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "#", target: "_blank" } }, [
+          _c("i", { staticClass: "fa fa-instagram" })
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
+      _c("div", { staticClass: "footer-item" }, [
+        _c("div", { staticClass: "footer-links" }, [
+          _c("h3", { staticClass: "bangla-font" }, [_vm._v("লিঙ্ক সমূহ")]),
+          _vm._v(" "),
+          _c("ul", { staticClass: "pl-0" }, [
+            _c("li", [
+              _c(
+                "a",
+                { staticClass: "bangla-font", attrs: { href: "about.html" } },
+                [_vm._v("নতুন ডাক্তার ")]
               )
             ]),
             _vm._v(" "),
-            _c("ul", { staticClass: "pl-0" }, [
-              _c("li", [
-                _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                  _c("i", { staticClass: "icofont-facebook" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                  _c("i", { staticClass: "icofont-twitter" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                  _c("i", { staticClass: "icofont-youtube-play" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                  _c("i", { staticClass: "icofont-instagram" })
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
-        _c("div", { staticClass: "footer-item" }, [
-          _c("div", { staticClass: "footer-links" }, [
-            _c("h3", { staticClass: "bangla-font" }, [_vm._v("লিঙ্ক সমূহ")]),
-            _vm._v(" "),
-            _c("ul", { staticClass: "pl-0" }, [
-              _c("li", [
-                _c(
-                  "a",
-                  { staticClass: "bangla-font", attrs: { href: "about.html" } },
-                  [_vm._v("নতুন ডাক্তার ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  { staticClass: "bangla-font", attrs: { href: "blog.html" } },
-                  [_vm._v("নতুন হাসপাতাল ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "bangla-font",
-                    attrs: { href: "events.html" }
-                  },
-                  [_vm._v(" নতুন রক্তদাতা ")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "bangla-font",
-                    attrs: { href: "donation.html" }
-                  },
-                  [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t\t\t\tআমাদের সম্পর্কে\n\t\t\t\t\t\t\t\t"
-                    )
-                  ]
-                )
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
-        _c("div", { staticClass: "footer-item" }, [
-          _c("div", { staticClass: "footer-contact" }, [
-            _c("h3", [_vm._v("Contact info")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "contact-inner" }, [
-              _c("ul", { staticClass: "pl-0" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _vm._v("6B, Helvetica street, Jordan")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("i", { staticClass: "icofont-ui-call" }),
-                  _vm._v(" "),
-                  _c("a", { attrs: { href: "tel:+123456789" } }, [
-                    _vm._v("+123-456-789")
-                  ])
-                ])
-              ])
+            _c("li", [
+              _c(
+                "a",
+                { staticClass: "bangla-font", attrs: { href: "blog.html" } },
+                [_vm._v("নতুন হাসপাতাল ")]
+              )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "contact-inner" }, [
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _vm._v("6A, New street, Spain")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "tel:+548658956" } }, [
-                    _vm._v("+548-658-956")
-                  ])
+            _c("li", [
+              _c(
+                "a",
+                { staticClass: "bangla-font", attrs: { href: "events.html" } },
+                [_vm._v(" নতুন রক্তদাতা ")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c(
+                "a",
+                {
+                  staticClass: "bangla-font",
+                  attrs: { href: "donation.html" }
+                },
+                [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t\t\tআমাদের সম্পর্কে\n\t\t\t\t\t\t\t\t"
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-sm-6 col-lg-4" }, [
+      _c("div", { staticClass: "footer-item" }, [
+        _c("div", { staticClass: "footer-contact" }, [
+          _c("h3", [_vm._v("Contact info")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "contact-inner" }, [
+            _c("ul", { staticClass: "pl-0" }, [
+              _c("li", { staticClass: "pl-0" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("6B, Helvetica street, Jordan")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "pl-0" }, [
+                _c("a", { attrs: { href: "tel:+123456789" } }, [
+                  _vm._v("+123-456-789")
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "contact-inner" }, [
+            _c("ul", { staticClass: "pl-0" }, [
+              _c("li", { staticClass: "pl-0" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("6A, New street, Spain")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "pl-0" }, [
+                _c("a", { attrs: { href: "tel:+548658956" } }, [
+                  _vm._v("+548-658-956")
                 ])
               ])
             ])

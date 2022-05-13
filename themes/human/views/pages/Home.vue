@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<hero></hero>
+		<!---Doctor List--->
 		<section
 			class="content-section--docs-near-me"
 			id="docs-near-me"
@@ -66,6 +67,16 @@
 				</div>
 			</div>
 		</section>
+		<!---End doctor list-->
+		<!--Leatest Project--->
+		<div class="container pt-100 pb-70">
+			<div class="section-title">
+				<h2 class="sub-title bangla-font">আমাদের চলমান প্রোজেক্ট সমূহ</h2>
+			</div>
+			<Carousel></Carousel>
+		</div>
+		<!--End Leatest Project--->
+		<!--Service List--->
 		<div class="benefit-area three pt-100 pb-70">
 			<div class="container">
 				<div class="section-title">
@@ -94,6 +105,53 @@
 				</div>
 			</div>
 		</div>
+		<!--End service list--->
+		<!--Govt call centers-->
+		<section class="section light-bg">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 mb-5 section-title">
+						<h1 class="bangla-font text-center sub-title">
+							সরকারি জরুরী কল সেন্টার
+						</h1>
+					</div>
+					<div class="col-lg-12">
+						<div class="row">
+							<div
+								class="col-lg-3 col-12 align-middle"
+								v-for="(item, index) in national_emergency_numbers"
+								:key="index"
+							>
+								<card class="border-1 call-center-box">
+									<img
+										:src="'/' + item.logo"
+										class="img-center img-fluid"
+										style="width: 100px"
+									/>
+
+									<h3 class="call-center-number text-center mt-1">
+										{{ item.number }}
+										<span
+											class="bangla-font call-center-badge danger"
+											v-if="item.charge"
+										>
+											চার্জ প্রযোজ্য
+										</span>
+										<span class="bangla-font call-center-badge success" v-else>
+											টোল ফ্রি
+										</span>
+									</h3>
+									<p class="bangla-font text-center call-center-title mt-0">
+										{{ item.name }}
+									</p>
+								</card>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--End call centers-->
 	</div>
 </template>
 <script>
@@ -268,5 +326,8 @@ export default {
 <style scoped>
 .call-center-box {
 	min-height: 300px;
+}
+.light-bg {
+	background-color: #f7f7f7;
 }
 </style>

@@ -4,15 +4,19 @@
 			<div class="container">
 				<ul class="topbar-info">
 					<li>
-						<span><i class="fa fa-envelope-o"></i>Email:</span>
-						example@yourdomain.com
+						<span
+							><i class="fa fa-envelope-o mr-1"></i>{{ site_info.email }}</span
+						>
 					</li>
 
 					<li>
-						<span><i class="fa fa-map-marker"></i>Address: </span> 24411 Health
-						Center Drive, Suite 640
+						<span
+							><i class="fa fa-map-marker mr-1"></i
+							>{{ site_info.address }}</span
+						>
 					</li>
 				</ul>
+
 				<div class="topbar-links">
 					<ul class="topbar-info">
 						<li class="nav-item mr-0">
@@ -62,13 +66,13 @@
 			<base-nav class="navbar-main p-1" type="" effect="light" expand>
 				<router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
 					<img v-if="site_info.logo" :src="`/${site_info.logo}`" alt="logo" />
-					<h2 v-else class="bangla-font">{{ site_info.name }}</h2>
+					<h2 v-else class="bangla-font">{{ site_info.site_name }}</h2>
 				</router-link>
 
 				<div class="row" slot="content-header" slot-scope="{ closeMenu }">
 					<div class="col-6 collapse-brand">
 						<a href="/">
-							<h2 class="text-black bangla-font">{{ site_info.name }}</h2>
+							<h2 class="text-black bangla-font">{{ site_info.site_name }}</h2>
 						</a>
 					</div>
 					<div class="col-6 collapse-close">
@@ -162,10 +166,9 @@ export default {
 	},
 	data() {
 		return {
-			site_info: {
-				name: "name",
-				logo: "logo",
-			},
+			site_info: {},
+			social_accounts: "",
+			info: "",
 		};
 	},
 	mounted() {
@@ -184,8 +187,8 @@ export default {
 				.get("/api/get-site-logo-name")
 				.then((response) => {
 					if (response.data.success) {
-						this.site_info.name = response.data.info.site_name;
-						this.site_info.logo = response.data.info.logo;
+						this.site_info = response.data.info;
+						this.social_accounts = response.data.social_accounts;
 					}
 				})
 				.catch((error) => {});
@@ -216,8 +219,7 @@ export default {
 }
 
 .topbar.style5 {
-	background: #464d58 none repeat scroll 0 0;
-	padding: 5px 0;
+	padding: 2px 0;
 }
 
 .topbar {

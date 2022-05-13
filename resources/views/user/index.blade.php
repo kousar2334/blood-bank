@@ -42,7 +42,9 @@
         }
 
         :root {
-            --primaryColor: blue;
+            --primaryColor: #fd5f17;
+            --bannerBtnBgColor: red;
+            --labelColor: black;
         }
 
     </style>

@@ -78,7 +78,6 @@ class SettingsRepository
     public function nameandLogo()
     {
         return DB::table('general_settings')
-            ->select('logo', 'site_name', 'favicon')
             ->first();
     }
     /**

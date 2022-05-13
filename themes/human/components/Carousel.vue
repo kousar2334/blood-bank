@@ -1,29 +1,74 @@
 <template>
-	<div class="container p-0">
-		<VueSlickCarousel v-bind="settings">
-			<div v-for="(item, index) in items" :key="index">
-				<div
-					class="product-banner-item d-flex align-items-center m-2"
-					:style="{ backgroundImage: `url(${'/' + item.img})` }"
-				>
-					<div class="product-banner-content">
-						<span>{{ item.title }}</span>
-						<h2
-							class="text-uppercase position-relative pl-20"
-							v-if="item.titile_first"
-						>
-							{{ item.titile_first }} <span>{{ item.title_middle }}</span>
-						</h2>
-						<p>{{ item.description }}</p>
-						<a :href="item.url" class="btn btn_fill radius-50"> </a>
+	<VueSlickCarousel v-bind="settings">
+		<div v-for="(item, index) in items" :key="index">
+			<div
+				class="owl-item active center"
+				style="width: 380px; margin-right: 0px"
+			>
+				<div class="event-grid">
+					<div class="event-box">
+						<div class="img-holder">
+							<a href="https://bidyanondo.org/projects/9">
+								<img
+									:src="`${'/' + item.img}`"
+									alt=""
+									class="img img-responsive"
+								/>
+							</a>
+						</div>
+						<div class="event-details">
+							<h3 style="margin-top: 0; margin-bottom: 10px">
+								<a href="https://bidyanondo.org/projects/9">{{ item.title }}</a>
+							</h3>
+							<p
+								id="text-with-link"
+								style="
+									text-align: justify;
+									text-justify: inter-word;
+									padding: 0 10px;
+								"
+							>
+								{{ item.description }}
+								<span
+									><a
+										style="color: #ed323799"
+										href="https://bidyanondo.org/projects/9"
+										>Read more</a
+									></span
+								>
+							</p>
+							<a
+								href="#"
+								class="btn theme-btn donate-project"
+								data-toggle="modal"
+								data-target="#donate-project-modal"
+								>Donate now</a
+							>
+						</div>
 					</div>
 				</div>
 			</div>
-		</VueSlickCarousel>
-	</div>
+		</div>
+		<template #prevArrow>
+			<button
+				class="prev p-0 d-inline-flex align-items-center justify-content-center"
+			>
+				<i class="fa fa-angle-right"></i>
+			</button>
+		</template>
+		<template #nextArrow>
+			<button
+				class="next p-0 d-inline-flex align-items-center justify-content-center"
+			>
+				<i class="fa fa-angle-right"></i>
+			</button>
+		</template>
+	</VueSlickCarousel>
 </template>
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 export default {
 	name: "Carousel",
 	components: {
@@ -32,9 +77,10 @@ export default {
 	data() {
 		return {
 			settings: {
-				dots: true,
+				dots: false,
+				arrows: true,
 				infinite: true,
-				slidesToShow: 2,
+				slidesToShow: 3,
 				slidesToScroll: 1,
 				autoplay: true,
 				autoplaySpeed: 4000,
@@ -45,13 +91,13 @@ export default {
 					{
 						breakpoint: 991,
 						settings: {
-							slidesToShow: 3,
+							slidesToShow: 2,
 						},
 					},
 					{
 						breakpoint: 767,
 						settings: {
-							slidesToShow: 1,
+							slidesToShow: 2,
 						},
 					},
 					{
@@ -64,34 +110,27 @@ export default {
 			},
 			items: [
 				{
+					title: "Food for every one. No one hungry",
+					img: "static/img/theme/education.jpg",
+					description: "programe for Food ",
+					url: "/qqwewqe",
+				},
+				{
 					title: "This is one",
-					img: "img/theme/slider.jpg",
-					titile_first: "titile First",
-					title_middle: "Middle",
+					img: "static/img/theme/education.jpg",
 					description: "fgsgfuysd sjgfsduyf",
 					url: "/qqwewqe",
 				},
 				{
-					title: "This is one",
-					img: "img/theme/slider_2.png",
-					titile_first: "titile First",
-					title_middle: "Middle",
+					title: "Public lribary",
+					img: "static/img/theme/education.jpg",
 					description: "fgsgfuysd sjgfsduyf",
 					url: "/qqwewqe",
 				},
+
 				{
-					title: "",
-					img: "img/theme/slider_3.jpg",
-					titile_first: "",
-					title_middle: "",
-					description: "",
-					url: "/qqwewqe",
-				},
-				{
-					title: "This is one",
-					img: "img/theme/slider.jpg",
-					titile_first: "titile First",
-					title_middle: "Middle",
+					title: "Education for every one. No one uneducated",
+					img: "static/img/theme/education.jpg",
 					description: "fgsgfuysd sjgfsduyf",
 					url: "/qqwewqe",
 				},
@@ -101,53 +140,89 @@ export default {
 };
 </script>
 <style lang="scss" scope>
-.product-banner {
-	&-item {
-		background-size: cover;
-		background-position: center;
-		padding: 130px 60px 138px;
-		min-height: 350px;
-		max-height: 350px;
-	}
-	&-content {
-		> span {
-			font-size: 18px;
-			font-weight: 500;
-			color: #60b946;
-		}
-		h2 {
-			font-size: 48px;
-			$lh: 54 / 48;
-			line-height: $lh;
-			margin-bottom: 24px;
-			span {
-				color: #60b946;
-			}
-			&:before {
-				position: absolute;
-				content: "";
-				left: 0;
-				top: 50%;
-				transform: translateY(-50%);
-				width: 4px;
-				height: 85px;
-				background-color: #60b946;
-			}
-		}
-		p {
-			font-size: 16px;
-			$lh: 26 / 16;
-			line-height: $lh;
-			max-width: 262px;
-			margin-bottom: 32px;
-		}
-
-		.btn {
-			padding: 12px 33px;
-			font-size: 14px;
-			font-weight: 400;
-		}
-	}
+.slick-next:before {
+	content: "\2192";
+	display: none;
+}
+.slick-prev,
+.slick-next {
+	padding: 20px 15px !important;
+	background-color: var(--primaryColor);
+	color: #fff;
+}
+.owl-carousel .owl-item {
+	position: relative;
+	min-height: 1px;
+	float: left;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.event-grid {
+	padding: 5px 15px;
+}
+.event-grid-wrapper .event-box img {
+	display: inline-block;
+}
+.event-details {
+	padding: 28px 0 35px;
+}
+.event-box {
+	text-align: center;
+	-webkit-box-shadow: 0 0 15px 0 #bfbfbf;
+	-moz-box-shadow: 0 0 15px 0 #bfbfbf;
+	-o-box-shadow: 0 0 15px 0 #bfbfbf;
+	-ms-box-shadow: 0 0 15px 0 #bfbfbf;
+	box-shadow: 0 0 15px 0 #bfbfbf;
+}
+.owl-carousel .owl-item img {
+	transform-style: preserve-3d;
+}
+.owl-carousel .owl-item img {
+	display: block;
+	width: 100%;
+}
+.event-grid-wrapper .event-box .event-details h3 {
+	font-size: 20px;
+	margin: 0.9em 0 0.13em;
+	text-transform: capitalize;
+}
+.event-grid-wrapper .event-box .event-details h3 a {
+	color: #3d424b;
+	text-decoration: none;
+}
+.carousel-inner > .item > a > img,
+.carousel-inner > .item > img,
+.img-responsive,
+.thumbnail a > img,
+.thumbnail > img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.event-grid-wrapper .event-box .event-details {
+	padding: 28px 0 35px;
+}
+.event-grid-wrapper .event-box .event-details h3 {
+	font-size: 20px;
+	margin: 0.9em 0 0.13em;
+	text-transform: capitalize;
+}
+.event-details .btn,
+.event-grid-wrapper .event-box .event-details .btn:hover {
+	color: #fff;
+}
+.event-grid-wrapper .event-box .event-details .btn {
+	font-size: 16px;
+	font-weight: 700;
+	color: #fb5e1c;
+	text-transform: capitalize;
+}
+.btn {
+	background-color: var(--primaryColor);
 }
 .slick-dots:not(#_) {
 	button:before {

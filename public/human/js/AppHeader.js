@@ -445,6 +445,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -457,10 +461,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      site_info: {
-        name: "name",
-        logo: "logo"
-      }
+      site_info: {},
+      social_accounts: "",
+      info: ""
     };
   },
   mounted: function mounted() {
@@ -479,8 +482,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/get-site-logo-name").then(function (response) {
         if (response.data.success) {
-          _this.site_info.name = response.data.info.site_name;
-          _this.site_info.logo = response.data.info.logo;
+          _this.site_info = response.data.info;
+          _this.social_accounts = response.data.social_accounts;
         }
       })["catch"](function (error) {});
     },
@@ -606,7 +609,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".sticky-header {\n  background-color: #fff;\n}\n.sticky-header.sticky {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 99;\n  -webkit-animation-duration: 0.8s;\n          animation-duration: 0.8s;\n  -webkit-animation-fill-mode: backwards;\n          animation-fill-mode: backwards;\n  -webkit-animation-name: fadeInDown;\n          animation-name: fadeInDown;\n  box-shadow: 0 4px 25px -12px gray;\n}\n.topbar.style5 {\n  background: #464d58 none repeat scroll 0 0;\n  padding: 5px 0;\n}\n.topbar {\n  background: #040722;\n  float: left;\n  padding: 5px 0;\n  width: 100%;\n}\n.topbar .container {\n  display: table;\n}\n.topbar-info {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table-cell;\n  vertical-align: middle;\n}\n.topbar-info > li {\n  color: #ffffff;\n  float: left;\n  font-family: roboto;\n  font-size: 11px;\n  letter-spacing: 0;\n  margin-right: 20px;\n}\n.topbar.style5 .topbar-links {\n  float: right;\n  list-style: outside none none;\n  margin: 0;\n  padding-left: 0;\n}\n.topbar-links {\n  display: table-cell;\n  vertical-align: middle;\n}\n.topbar-links > a {\n  color: #d6d6d6;\n  float: left;\n  font-family: roboto;\n  font-size: 13px;\n  font-weight: 500;\n  letter-spacing: 0.5px;\n  padding: 4px 20px;\n  position: relative;\n}\n.topbar-links > a:before {\n  background: #474747;\n  content: \"\";\n  height: 10px;\n  margin-top: -5px;\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 1px;\n}", ""]);
+exports.push([module.i, ".sticky-header {\n  background-color: #fff;\n}\n.sticky-header.sticky {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 99;\n  -webkit-animation-duration: 0.8s;\n          animation-duration: 0.8s;\n  -webkit-animation-fill-mode: backwards;\n          animation-fill-mode: backwards;\n  -webkit-animation-name: fadeInDown;\n          animation-name: fadeInDown;\n  box-shadow: 0 4px 25px -12px gray;\n}\n.topbar.style5 {\n  padding: 2px 0;\n}\n.topbar {\n  background: #040722;\n  float: left;\n  padding: 5px 0;\n  width: 100%;\n}\n.topbar .container {\n  display: table;\n}\n.topbar-info {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: table-cell;\n  vertical-align: middle;\n}\n.topbar-info > li {\n  color: #ffffff;\n  float: left;\n  font-family: roboto;\n  font-size: 11px;\n  letter-spacing: 0;\n  margin-right: 20px;\n}\n.topbar.style5 .topbar-links {\n  float: right;\n  list-style: outside none none;\n  margin: 0;\n  padding-left: 0;\n}\n.topbar-links {\n  display: table-cell;\n  vertical-align: middle;\n}\n.topbar-links > a {\n  color: #d6d6d6;\n  float: left;\n  font-family: roboto;\n  font-size: 13px;\n  font-weight: 500;\n  letter-spacing: 0.5px;\n  padding: 4px 20px;\n  position: relative;\n}\n.topbar-links > a:before {\n  background: #474747;\n  content: \"\";\n  height: 10px;\n  margin-top: -5px;\n  position: absolute;\n  right: 0;\n  top: 50%;\n  width: 1px;\n}", ""]);
 
 // exports
 
@@ -976,7 +979,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("header", { ref: "Header", staticClass: "header-global header" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "topbar style5 d-none d-lg-block" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("ul", { staticClass: "topbar-info" }, [
+          _c("li", [
+            _c("span", [
+              _c("i", { staticClass: "fa fa-envelope-o mr-1" }),
+              _vm._v(_vm._s(_vm.site_info.email))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("span", [
+              _c("i", { staticClass: "fa fa-map-marker mr-1" }),
+              _vm._v(_vm._s(_vm.site_info.address))
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
+      ])
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -1000,7 +1023,7 @@ var render = function() {
                     _c("div", { staticClass: "col-6 collapse-brand" }, [
                       _c("a", { attrs: { href: "/" } }, [
                         _c("h2", { staticClass: "text-black bangla-font" }, [
-                          _vm._v(_vm._s(_vm.site_info.name))
+                          _vm._v(_vm._s(_vm.site_info.site_name))
                         ])
                       ])
                     ]),
@@ -1030,7 +1053,7 @@ var render = function() {
                       attrs: { src: "/" + _vm.site_info.logo, alt: "logo" }
                     })
                   : _c("h2", { staticClass: "bangla-font" }, [
-                      _vm._v(_vm._s(_vm.site_info.name))
+                      _vm._v(_vm._s(_vm.site_info.site_name))
                     ])
               ]
             ),
@@ -1239,103 +1262,75 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "topbar style5 d-none d-lg-block" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("ul", { staticClass: "topbar-info" }, [
-          _c("li", [
-            _c("span", [
-              _c("i", { staticClass: "fa fa-envelope-o" }),
-              _vm._v("Email:")
-            ]),
-            _vm._v("\n\t\t\t\t\texample@yourdomain.com\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("span", [
-              _c("i", { staticClass: "fa fa-map-marker" }),
-              _vm._v("Address: ")
-            ]),
-            _vm._v(" 24411 Health\n\t\t\t\t\tCenter Drive, Suite 640\n\t\t\t\t")
-          ])
+    return _c("div", { staticClass: "topbar-links" }, [
+      _c("ul", { staticClass: "topbar-info" }, [
+        _c("li", { staticClass: "nav-item mr-0" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link nav-link-icon social-link",
+              attrs: {
+                href: "https://www.facebook.com/creativetim",
+                target: "_blank",
+                rel: "noopener",
+                "data-toggle": "tooltip",
+                title: "Like us on Facebook"
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-facebook-square" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "nav-link-inner--text d-lg-none" }, [
+                _vm._v("Facebook")
+              ])
+            ]
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "topbar-links" }, [
-          _c("ul", { staticClass: "topbar-info" }, [
-            _c("li", { staticClass: "nav-item mr-0" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link nav-link-icon social-link",
-                  attrs: {
-                    href: "https://www.facebook.com/creativetim",
-                    target: "_blank",
-                    rel: "noopener",
-                    "data-toggle": "tooltip",
-                    title: "Like us on Facebook"
-                  }
-                },
-                [
-                  _c("i", { staticClass: "fa fa-facebook-square" }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    { staticClass: "nav-link-inner--text d-lg-none" },
-                    [_vm._v("Facebook")]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item mr-0" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link nav-link-icon social-link",
-                  attrs: {
-                    href: "https://www.instagram.com/creativetimofficial",
-                    target: "_blank",
-                    rel: "noopener",
-                    "data-toggle": "tooltip",
-                    title: "Follow us on Instagram"
-                  }
-                },
-                [
-                  _c("i", { staticClass: "fa fa-instagram" }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    { staticClass: "nav-link-inner--text d-lg-none" },
-                    [_vm._v("Instagram")]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item mr-0" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link nav-link-icon social-link",
-                  attrs: {
-                    href: "https://twitter.com/creativetim",
-                    target: "_blank",
-                    rel: "noopener",
-                    "data-toggle": "tooltip",
-                    title: "Follow us on Twitter"
-                  }
-                },
-                [
-                  _c("i", { staticClass: "fa fa-twitter-square" }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    { staticClass: "nav-link-inner--text d-lg-none" },
-                    [_vm._v("Twitter")]
-                  )
-                ]
-              )
-            ])
-          ])
+        _c("li", { staticClass: "nav-item mr-0" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link nav-link-icon social-link",
+              attrs: {
+                href: "https://www.instagram.com/creativetimofficial",
+                target: "_blank",
+                rel: "noopener",
+                "data-toggle": "tooltip",
+                title: "Follow us on Instagram"
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-instagram" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "nav-link-inner--text d-lg-none" }, [
+                _vm._v("Instagram")
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item mr-0" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link nav-link-icon social-link",
+              attrs: {
+                href: "https://twitter.com/creativetim",
+                target: "_blank",
+                rel: "noopener",
+                "data-toggle": "tooltip",
+                title: "Follow us on Twitter"
+              }
+            },
+            [
+              _c("i", { staticClass: "fa fa-twitter-square" }),
+              _vm._v(" "),
+              _c("span", { staticClass: "nav-link-inner--text d-lg-none" }, [
+                _vm._v("Twitter")
+              ])
+            ]
+          )
         ])
       ])
     ])

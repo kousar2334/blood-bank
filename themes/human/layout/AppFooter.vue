@@ -5,8 +5,13 @@
 				<div class="col-sm-6 col-lg-4">
 					<div class="footer-item">
 						<div class="footer-logo">
-							<a class="logo" href="index.html">
+							<!-- <a class="logo" href="index.html">
 								<img src="/uploads/general/02182022073801logo.png" alt="Logo" />
+							</a> -->
+							<a href="/">
+								<h2 class="text-white bangla-font">
+									{{ info.site_name }}
+								</h2>
 							</a>
 							<p>
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
@@ -15,22 +20,18 @@
 							<ul class="pl-0">
 								<li>
 									<a href="#" target="_blank">
-										<i class="icofont-facebook"></i>
+										<i class="fa fa-facebook-square"></i>
 									</a>
 								</li>
 								<li>
 									<a href="#" target="_blank">
-										<i class="icofont-twitter"></i>
+										<i class="fa fa-twitter-square"></i>
 									</a>
 								</li>
+
 								<li>
 									<a href="#" target="_blank">
-										<i class="icofont-youtube-play"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" target="_blank">
-										<i class="icofont-instagram"></i>
+										<i class="fa fa-instagram"></i>
 									</a>
 								</li>
 							</ul>
@@ -67,21 +68,20 @@
 							<h3>Contact info</h3>
 							<div class="contact-inner">
 								<ul class="pl-0">
-									<li>
+									<li class="pl-0">
 										<a href="#">6B, Helvetica street, Jordan</a>
 									</li>
-									<li>
-										<i class="icofont-ui-call"></i>
+									<li class="pl-0">
 										<a href="tel:+123456789">+123-456-789</a>
 									</li>
 								</ul>
 							</div>
 							<div class="contact-inner">
-								<ul>
-									<li>
+								<ul class="pl-0">
+									<li class="pl-0">
 										<a href="#">6A, New street, Spain</a>
 									</li>
-									<li>
+									<li class="pl-0">
 										<a href="tel:+548658956">+548-658-956</a>
 									</li>
 								</ul>
@@ -92,7 +92,7 @@
 			</div>
 			<div class="copyright-area">
 				<p class="bangla-font">
-					&copy;{{ year }} {{ info.site_name }}. Designed By
+					&copy;{{ year }} {{ info.site_name }}. Developed By
 					<a href="https://hibootstrap.com/" target="_blank">Kousar Rahman</a>
 				</p>
 			</div>

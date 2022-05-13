@@ -64,7 +64,12 @@
 
 .btn-neutral {
     color: white;
-    background-color: #d71313;
+    background-color: var(--primaryColor);
+    border-radius: 50px;
+}
+.btn-neutral:hover {
+    color: white;
+    background-color: var(--primaryColor);
     border-radius: 50px;
 }
 
