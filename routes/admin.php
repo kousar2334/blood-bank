@@ -101,6 +101,10 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/update-seo-settings', 'SettingController@updateSeoSettings')->name('admin.settings.seo.update');
     Route::get('/themes', 'SettingController@themes')->name('admin.settings.themes');
     Route::post('/activate-theme', 'SettingController@activateTheme')->name('admin.settings.themes.activate');
+
+    //Projects
+    Route::get('/projects', 'ProjectController@projectLists')->name('admin.project.list');
+    Route::post('/delete-project', 'ProjectController@deleteProject')->name('admin.project.delete');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module

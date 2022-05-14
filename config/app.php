@@ -184,6 +184,7 @@ return [
         App\Providers\AmbulanceProvider::class,
         App\Providers\FireserviceProvider::class,
         App\Providers\PoliceStationProvider::class,
+        App\Providers\ProjectsProvider::class,
 
     ],
 
