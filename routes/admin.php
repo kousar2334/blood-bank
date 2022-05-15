@@ -105,6 +105,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     //Projects
     Route::get('/projects', 'ProjectController@projectLists')->name('admin.project.list');
     Route::post('/delete-project', 'ProjectController@deleteProject')->name('admin.project.delete');
+    Route::get('/add-new-project', 'ProjectController@newProject')->name('admin.project.new');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module

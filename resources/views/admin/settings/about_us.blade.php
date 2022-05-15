@@ -58,7 +58,7 @@
                                             <small class="text text-danger">{{ $errors->first('about_us') }}</small>
                                         @endif
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group col-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
                                             value="Update About Us" />
                                     </div>

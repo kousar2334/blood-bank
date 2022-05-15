@@ -16,9 +16,9 @@
                         <div class="card-header">
                             <h3 class="card-title">New Hospital Category</h3>
                             <a href="{{ route('admin.blood.donar.list') }}"
-                                class="btn btn-info btn-sm float-right text-white">Hospitals List</a>
+                                class="btn btn-info btn-sm float-right text-white">Hospitals</a>
                             <a href="{{ route('admin.blood.donar.list') }}"
-                                class="mr-2 btn btn-danger btn-sm float-right text-white">Hospital's Category List</a>
+                                class="mr-2 btn btn-danger btn-sm float-right text-white">Hospital Categories</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -61,7 +61,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block bg-gradient-success" value="Save" />
                                     </div>
 

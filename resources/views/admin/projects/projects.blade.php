@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="m-0 card-title">Projects</h4>
-                            <a href="{{ route('admin.police.add') }}"
+                            <a href="{{ route('admin.project.new') }}"
                                 class="btn btn-success btn-sm float-right text-white">Add New Project</a>
                         </div>
                         <!-- /.card-header -->

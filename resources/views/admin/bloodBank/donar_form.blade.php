@@ -10,12 +10,12 @@
         <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-sm-12 mt-4">
+                <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Blood Donor Form</h3>
                             <a href="{{ route('admin.blood.donar.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Blood Donor's List</a>
+                                class="btn btn-danger btn-sm float-right text-white">Blood Donors</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -107,8 +107,7 @@
                                         <!-- textarea -->
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <textarea class="form-control" name="addres" rows="3"
-                                                placeholder="Enter Address">{{ old('addres') }}</textarea>
+                                            <textarea class="form-control" name="addres" rows="3" placeholder="Enter Address">{{ old('addres') }}</textarea>
                                             @if ($errors->has('address'))
                                                 <small class="text text-danger">{{ $errors->first('address') }}</small>
                                             @endif
@@ -117,7 +116,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
                                     </div>
                                 </div>

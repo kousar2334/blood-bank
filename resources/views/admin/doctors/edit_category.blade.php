@@ -107,7 +107,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block bg-gradient-success"
                                             value="Update Category" />
                                     </div>

@@ -167,8 +167,7 @@
                                         <!-- textarea -->
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <textarea class="form-control" name="address" rows="3"
-                                                placeholder="Enter Address">{{ old('addres') }}</textarea>
+                                            <textarea class="form-control" name="address" rows="3" placeholder="Enter Address">{{ old('addres') }}</textarea>
                                             @if ($errors->has('address'))
                                                 <small class="text text-danger">{{ $errors->first('address') }}</small>
                                             @endif
@@ -177,7 +176,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
                                     </div>
                                 </div>

@@ -46,4 +46,13 @@ class ProjectController extends Controller
         }
         return redirect()->route('admin.project.list');
     }
+    /**
+     * load new project form
+     * 
+     * @return mixed
+     */
+    public function newProject()
+    {
+        return view('admin.projects.new_project');
+    }
 }

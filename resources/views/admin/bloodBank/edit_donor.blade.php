@@ -15,13 +15,13 @@
                         <div class="card-header">
                             <h3 class="card-title">Blood Donor Information</h3>
                             <a href="{{ route('admin.blood.donar.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Blood Donor's List</a>
+                                class="btn btn-danger btn-sm float-right text-white">Blood Donors</a>
                             <a href="{{ route('admin.blood.donar.add') }}"
                                 class="btn btn-success btn-sm float-right text-white mr-2">Add New Donor</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-7">
                                 <form role="form" action="{{ route('admin.blood.donar.update') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
@@ -114,8 +114,7 @@
                                             <!-- textarea -->
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <textarea class="form-control" name="address" rows="3"
-                                                    placeholder="Enter Address">{{ $donor->address }}</textarea>
+                                                <textarea class="form-control" name="address" rows="3" placeholder="Enter Address">{{ $donor->address }}</textarea>
                                                 @if ($errors->has('address'))
                                                     <small
                                                         class="text text-danger">{{ $errors->first('address') }}</small>
@@ -143,7 +142,7 @@
 
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-12">
                                             <input type="submit" class="btn btn-block btn-success btn-flat"
                                                 value="Update" />
                                         </div>
@@ -151,7 +150,7 @@
                                 </form>
 
                             </div>
-                            <div class="col-lg-4">
+                            <div class="offset-lg-1 col-lg-4">
                                 <div class="card card-widget widget-user mt-4">
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-info">

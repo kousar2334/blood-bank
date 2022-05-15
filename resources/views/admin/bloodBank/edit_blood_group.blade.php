@@ -11,12 +11,12 @@
         <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 col-sm-12 mt-4">
+                <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 mt-4">
                     <div class="card ">
                         <div class="card-header">
                             <h3 class="card-title">Update Blood Group Information</h3>
                             <a href="{{ route('admin.blood.group.list') }}"
-                                class="btn btn-success btn-sm float-right text-white">Blood Group's List</a>
+                                class="btn btn-success btn-sm float-right text-white">Blood Groups</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -59,7 +59,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat" value="Update" />
                                     </div>
 

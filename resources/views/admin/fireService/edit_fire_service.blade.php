@@ -16,7 +16,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Update Fire Service</h3>
                             <a href="{{ route('admin.fireservice.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Fire service's List</a>
+                                class="btn btn-danger btn-sm float-right text-white">Fire service Lists</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -91,7 +91,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block bg-gradient-success"
                                             value="Update Fire Service" />
                                     </div>

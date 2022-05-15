@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
                                             value="Update Settings" />
                                     </div>

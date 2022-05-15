@@ -151,8 +151,7 @@
                                         <!-- text input -->
                                         <div class="form-group">
                                             <label>মোবাইল</label>
-                                            <textarea class="form-control" name="mobile" rows="4"
-                                                placeholder="Enter Mobile">{{ old('mobile') }}</textarea>
+                                            <textarea class="form-control" name="mobile" rows="4" placeholder="Enter Mobile">{{ old('mobile') }}</textarea>
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile') }}</small>
                                             @endif
@@ -176,12 +175,10 @@
                                             <label>চেম্বার:</label>
                                             <input type="text" name="chambers[0][chamber]" class="form-control mb-2"
                                                 placeholder="চেম্বারের নাম">
-                                            <textarea class="form-control mb-2" name="chambers[0][address]"
-                                                placeholder="ঠিকানা" rows="4"></textarea>
-                                            <textarea class="form-control mb-2" name="chambers[0][visiting_time]"
-                                                placeholder="রোগী দেখার সময়" rows="4"></textarea>
-                                            <textarea class="form-control" name="chambers[0][mobiles]"
-                                                placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন " rows="4"></textarea>
+                                            <textarea class="form-control mb-2" name="chambers[0][address]" placeholder="ঠিকানা" rows="4"></textarea>
+                                            <textarea class="form-control mb-2" name="chambers[0][visiting_time]" placeholder="রোগী দেখার সময়" rows="4"></textarea>
+                                            <textarea class="form-control" name="chambers[0][mobiles]" placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন "
+                                                rows="4"></textarea>
                                         </div>
                                         <div id="newChamberInputFields">
                                             <!--Dynamic chamber here-->
@@ -195,7 +192,7 @@
 
 
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
                                     </div>
                                 </div>

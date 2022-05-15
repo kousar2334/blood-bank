@@ -140,8 +140,7 @@
 
                                         <div class="form-group">
                                             <label>মোবাইল</label>
-                                            <textarea class="form-control" name="mobile" rows="4"
-                                                placeholder="Enter Mobile">{{ $doc_info->mobile }}</textarea>
+                                            <textarea class="form-control" name="mobile" rows="4" placeholder="Enter Mobile">{{ $doc_info->mobile }}</textarea>
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile') }}</small>
                                             @endif
@@ -187,15 +186,11 @@
                                                     <input type="text" name="chambers[{{ $chamber->id }}][chamber]"
                                                         class="form-control mb-2 mt-4" value="{{ $chamber->chamber }}"
                                                         placeholder="চেম্বারের নাম">
-                                                    <textarea class="form-control mb-2"
-                                                        name="chambers[{{ $chamber->id }}][address]" placeholder="ঠিকানা"
+                                                    <textarea class="form-control mb-2" name="chambers[{{ $chamber->id }}][address]" placeholder="ঠিকানা"
                                                         rows="4">{{ $chamber->address }}</textarea>
-                                                    <textarea class="form-control mb-2"
-                                                        name="chambers[{{ $chamber->id }}][visiting_time]"
-                                                        placeholder="রোগী দেখার সময়"
+                                                    <textarea class="form-control mb-2" name="chambers[{{ $chamber->id }}][visiting_time]" placeholder="রোগী দেখার সময়"
                                                         rows="4">{{ $chamber->visiting_time }}</textarea>
-                                                    <textarea class="form-control"
-                                                        name="chambers[{{ $chamber->id }}][mobiles]"
+                                                    <textarea class="form-control" name="chambers[{{ $chamber->id }}][mobiles]"
                                                         placeholder="সিরিয়াল দেয়ার নাম্বার লিখুন "
                                                         rows="4">{{ $chamber->mobiles }}</textarea>
                                                 </div>
@@ -227,7 +222,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat" value="Update" />
                                     </div>
                                 </div>

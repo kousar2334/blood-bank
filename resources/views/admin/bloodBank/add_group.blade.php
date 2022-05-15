@@ -58,7 +58,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <input type="submit" class="btn btn-block bg-gradient-success" value="Save" />
                                     </div>
 

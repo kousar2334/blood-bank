@@ -14,7 +14,7 @@
                             <h3 class="card-title">Update Police Station</h3>
                             <a href="{{ route('admin.police.list') }}"
                                 class="btn btn-success btn-sm float-right text-white">Police
-                                Station's List</a>
+                                Station List</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -89,7 +89,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block bg-gradient-success"
                                             value="Update Police Station" />
                                     </div>
