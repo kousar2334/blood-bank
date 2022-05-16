@@ -26,10 +26,10 @@
 - Default theme
 ![theme-01](https://user-images.githubusercontent.com/23190775/168627468-620d24b6-9144-427c-b523-6bfa18388b1a.png)
 
-## Admin Templete
+## Admin Template
 - https://adminlte.io/
 
-## Frontend Templete
+## Frontend Template
 - https://demos.creative-tim.com/vue-argon-design-system/?_ga=2.251618690.502891220.1652713848-1185565527.1652713848#/
 
 
