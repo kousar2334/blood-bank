@@ -48,7 +48,7 @@
                         class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-burn"></i>
                         <p>
-                            Blood Bank
+                            {{ __('local.blood_bank') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -57,7 +57,7 @@
                             <a href="{{ route('admin.blood.donar.list') }}"
                                 class="{{ Request::routeIs('admin.blood.donar.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Blood Donors</p>
+                                <p>{{ __('local.blood_donors') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -92,7 +92,7 @@
                         class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
                         <p>
-                            Hospital & Clinic
+                            {{ __('local.hospital') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -101,7 +101,7 @@
                             <a href="{{ route('admin.hospital.list') }}"
                                 class="{{ Request::routeIs('admin.hospital.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p> Hospital & Clinic </p>
+                                <p> {{ __('local.hospital') }} </p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -136,7 +136,7 @@
                         class="{{ Request::routeIs(['admin.doctor.category.add', 'admin.doctor.category.list', 'admin.doctor.category.edit', 'admin.doctor.add', 'admin.doctor.list', 'admin.doctor.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
-                            Doctors
+                            {{ __('local.doctors') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -181,7 +181,7 @@
                         class="{{ Request::routeIs([]) ? 'active' : 'admin.ambulance.category.add', 'admin.ambulance.category.list', 'admin.ambulance.category.edit', 'admin.ambulance.add', 'admin.ambulance.all', 'admin.ambulance.edit' }} nav-link">
                         <i class="nav-icon fas fa-ambulance"></i>
                         <p>
-                            Ambulance
+                            {{ __('local.ambulance') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -224,7 +224,7 @@
                         class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-shower"></i>
                         <p>
-                            Fire Stations
+                            {{ __('local.fire_service') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -253,7 +253,7 @@
                         class="{{ Request::routeIs(['admin.police.add', 'admin.police.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
-                            Police Stations
+                            {{ __('local.police_stations') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -282,7 +282,7 @@
                         class="{{ Request::routeIs(['admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
-                            Projects
+                            {{ __('local.projects') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -311,7 +311,7 @@
                         class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            Settings
+                            {{ __('local.settings') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -361,7 +361,7 @@
                         class="{{ Request::routeIs(['admin.user.new.user', 'admin.users', 'admin.user.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Users
+                            {{ __('local.users') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>

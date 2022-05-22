@@ -31,7 +31,7 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
-                            <p>Blood Donors</p>
+                            <p class="bangla-font">{{ __('local.blood_donors') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-users"></i>
@@ -43,7 +43,7 @@
                         <div class="inner">
                             <h3>{{ $total_doctor }}<sup style="font-size: 20px"></sup></h3>
 
-                            <p>Doctors</p>
+                            <p class="bangla-font">{{ __('local.doctors') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-user-md"></i>
@@ -55,7 +55,7 @@
                         <div class="inner">
                             <h3>{{ $total_hospital }}<sup style="font-size: 20px"></sup></h3>
 
-                            <p>Hospitals</p>
+                            <p class="bangla-font">{{ __('local.hospital') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-hospital"></i>
@@ -66,7 +66,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{ $toatal_visitor }}<sup style="font-size: 20px"></sup></h3>
-                            <p>Visitor</p>
+                            <p class="bangla-font">{{ __('local.visitors') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-glasses"></i>
@@ -79,10 +79,10 @@
                 <div class="col-lg-6">
                     <div class="card mt-3">
                         <div class="card-header py-3">
-                            <h3 class="card-title">Leatest Doctors</h3>
+                            <h3 class="card-title bangla-font">{{ __('local.leatest_doctors') }}</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.doctor.list') }}" class="btn btn-sm btn-success">
-                                    All Doctors
+                                <a href="{{ route('admin.doctor.list') }}" class="btn btn-sm btn-success bangla-font">
+                                    {{ __('local.all_doctors') }}
                                 </a>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
                                         <th class="font-weight-normal">Specialist</th>
                                         <th class="font-weight-normal">Status</th>
                                         <th class="font-weight-normal">Action</th>
@@ -141,7 +141,7 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
                                         <th class="font-weight-normal">Category</th>
                                         <th class="font-weight-normal">Status</th>
                                         <th class="font-weight-normal">Action</th>
@@ -194,7 +194,7 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
                                         <th class="font-weight-normal">Blood Group</th>
                                         <th class="font-weight-normal">Mobile</th>
                                         <th class="font-weight-normal">status</th>
@@ -249,7 +249,7 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">Name</th>
+                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
                                         <th class="font-weight-normal">Category</th>
                                         <th class="font-weight-normal">Status</th>
                                         <th class="font-weight-normal">Action</th>

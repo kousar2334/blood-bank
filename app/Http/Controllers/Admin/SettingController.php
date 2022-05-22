@@ -30,10 +30,8 @@ class SettingController extends Controller
      */
     public function setApplang(Request $request)
     {
-        Config::set('app.locale', $request->lang);
-        config(['app.locale' => $request->lang]);
-        App::setlocale($request->lang);
-        return redirect()->back();
+        $request->session()->put('locale', $request->lang);
+        Toastr::success('Change Language successfully');
     }
     /**
      * This method will return general settings

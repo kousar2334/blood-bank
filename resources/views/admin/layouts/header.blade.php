@@ -23,15 +23,30 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <form method="post" action="{{ route('admin.app.set.language') }}">
-            @csrf
-            <select class="form-control" name="lang">
+
+        <!--Language switcher-->
+        @php
+            if (Session::has('locale')) {
+                $locale = Session::get('locale', Config::get('app.locale'));
+            } else {
+                $locale = 'en';
+            }
+            
+        @endphp
+        <li class="nav-item dropdown">
+            <a class="nav-link text-uppercase" data-toggle="dropdown" href="#">
+                {{ $locale }}
+            </a>
+            <div id="lang-change" class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
                 @foreach ($active_langs as $lang)
-                    <option value="{{ $lang->code }}">{{ $lang->code }}</option>
+                    <a href="#" class="dropdown-item" data-flag="{{ $lang->code }}"
+                        @if ($locale == $lang->code) active @endif>
+                        {{ $lang->name }}
+                    </a>
                 @endforeach
-            </select>
-            <button type="submit">Set </button>
-        </form>
+            </div>
+        </li>
+        <!--End Language switcher-->
 
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
@@ -57,39 +72,7 @@
                     <!-- Message End -->
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="{{ asset('/backend/dist/img/user8-128x128.jpg') }}" alt="User Avatar"
-                            class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                John Pierce
-                                <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">I got your message bro</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <!-- Message Start -->
-                    <div class="media">
-                        <img src="{{ asset('/backend/dist/img/user3-128x128.jpg') }}" alt="User Avatar"
-                            class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Nora Silvester
-                                <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                            </h3>
-                            <p class="text-sm">The subject goes here</p>
-                            <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                    </div>
-                    <!-- Message End -->
-                </a>
+
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
             </div>
@@ -106,16 +89,6 @@
                 <a href="#" class="dropdown-item">
                     <i class="fas fa-envelope mr-2"></i> 4 new messages
                     <span class="float-right text-muted text-sm">3 mins</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                    <span class="float-right text-muted text-sm">12 hours</span>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                    <i class="fas fa-file mr-2"></i> 3 new reports
-                    <span class="float-right text-muted text-sm">2 days</span>
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
@@ -159,3 +132,20 @@
         </li>
     </ul>
 </nav>
+<script>
+    $('#lang-change .dropdown-item').each(function() {
+        $(this).on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var locale = $this.data('flag');
+            console.log(locale);
+            $.post('{{ route('admin.app.set.language') }}', {
+                _token: '{{ csrf_token() }}',
+                lang: locale
+            }, function(data) {
+                location.reload();
+            });
+
+        });
+    });
+</script>
