@@ -174,4 +174,15 @@ class SettingsRepository
         ]);
         return  DB::table('themes')->where('id', $theme)->first()->name;
     }
+    /**
+     * Active languages
+     * 
+     * @return Arrary 
+     */
+    public function getActvivelangs()
+    {
+        return DB::table('langs')
+            ->where('status', 1)
+            ->get();
+    }
 }

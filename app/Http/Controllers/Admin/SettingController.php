@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Repositories\SeoRepository;
-use App\Repositories\SettingsRepository;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use App\Repositories\SeoRepository;
+use Illuminate\Support\Facades\App;
+use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Config;
+use App\Repositories\SettingsRepository;
 
 class SettingController extends Controller
 {
@@ -18,6 +20,20 @@ class SettingController extends Controller
     {
         $this->settings_repository = $settings_repository;
         $this->seo_repository = $seo_repository;
+    }
+    /**
+     * Set App language
+     * 
+     * @param \Illuminate\Http\Request $request
+     * 
+     * @return void
+     */
+    public function setApplang(Request $request)
+    {
+        Config::set('app.locale', $request->lang);
+        config(['app.locale' => $request->lang]);
+        App::setlocale($request->lang);
+        return redirect()->back();
     }
     /**
      * This method will return general settings

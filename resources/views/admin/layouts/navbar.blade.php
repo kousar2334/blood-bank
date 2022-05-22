@@ -8,7 +8,6 @@
         @endif
 
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -38,7 +37,7 @@
                         class="{{ Request::routeIs('admin.dashboard') ? 'active ' : '' }} nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
+                            {{ __('local.dashboard') }}
                         </p>
                     </a>
                 </li>

@@ -23,6 +23,16 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        <form method="post" action="{{ route('admin.app.set.language') }}">
+            @csrf
+            <select class="form-control" name="lang">
+                @foreach ($active_langs as $lang)
+                    <option value="{{ $lang->code }}">{{ $lang->code }}</option>
+                @endforeach
+            </select>
+            <button type="submit">Set </button>
+        </form>
+
         <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">

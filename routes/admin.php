@@ -8,6 +8,14 @@ Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
 //admin middleware start
 Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function () {
+    /**
+     * Set Language
+     */
+    Route::post('/set-app-language', 'SettingController@setApplang')->name('admin.app.set.language');
+
+    /**
+     * Dashboard
+     */
     Route::get('/', 'AdminDashboardController@dashboard')->name('admin.dashboard');
     /**
      * admin  blood bank
