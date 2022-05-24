@@ -37,7 +37,7 @@
                         class="{{ Request::routeIs('admin.dashboard') ? 'active ' : '' }} nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            {{ __('local.dashboard') }}
+                            {{ translate('Dashboard') }}
                         </p>
                     </a>
                 </li>
@@ -48,7 +48,7 @@
                         class="{{ Request::routeIs(['admin.blood.group.list', 'admin.blood.donar.add', 'admin.blood.group.add', 'admin.blood.group.edit', 'admin.blood.donar.add', 'admin.blood.donar.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-burn"></i>
                         <p>
-                            {{ __('local.blood_bank') }}
+                            {{ translate('Blood Bank') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -57,28 +57,28 @@
                             <a href="{{ route('admin.blood.donar.list') }}"
                                 class="{{ Request::routeIs('admin.blood.donar.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>{{ __('local.blood_donors') }}</p>
+                                <p>{{ translate('Blood Donors') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.donar.add') }}"
                                 class="{{ Request::routeIs('admin.blood.donar.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add New Donor</p>
+                                <p>{{ translate('Add New Donor') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.list') }}"
                                 class="{{ Request::routeIs('admin.blood.group.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Blood Groups</p>
+                                <p>{{ translate('Blood Groups') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.blood.group.add') }}"
                                 class="{{ Request::routeIs('admin.blood.group.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add Blood Group</p>
+                                <p>{{ translate('Add Blood Group') }}</p>
                             </a>
                         </li>
 
@@ -92,7 +92,7 @@
                         class="{{ Request::routeIs(['admin.hospital.category.add', 'admin.hospital.category.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-hospital"></i>
                         <p>
-                            {{ __('local.hospital') }}
+                            {{ translate('Hospital & Clinic') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -101,28 +101,28 @@
                             <a href="{{ route('admin.hospital.list') }}"
                                 class="{{ Request::routeIs('admin.hospital.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p> {{ __('local.hospital') }} </p>
+                                <p> {{ translate('Hospital & Clinic') }} </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.hospital.add') }}"
                                 class="{{ Request::routeIs('admin.hospital.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add New Hospital</p>
+                                <p>{{ translate('Add New Hospital') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.hospital.category.list') }}"
                                 class="{{ Request::routeIs('admin.hospital.category.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Hospitals Categories</p>
+                                <p>{{ translate('Hospitals Categories') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.hospital.category.add') }}"
                                 class="{{ Request::routeIs('admin.hospital.category.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add New Category</p>
+                                <p>{{ translate('Add New Category') }}</p>
                             </a>
                         </li>
 
@@ -136,7 +136,7 @@
                         class="{{ Request::routeIs(['admin.doctor.category.add', 'admin.doctor.category.list', 'admin.doctor.category.edit', 'admin.doctor.add', 'admin.doctor.list', 'admin.doctor.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-user-md"></i>
                         <p>
-                            {{ __('local.doctors') }}
+                            {{ translate('Doctors') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -145,14 +145,14 @@
                             <a href="{{ route('admin.doctor.list') }}"
                                 class="{{ Request::routeIs('admin.doctor.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Doctors</p>
+                                <p> {{ translate('Doctors') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.doctor.add') }}"
                                 class="{{ Request::routeIs('admin.doctor.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>New Doctor</p>
+                                <p>{{ translate('New Doctor') }}</p>
                             </a>
                         </li>
 
@@ -160,14 +160,14 @@
                             <a href="{{ route('admin.doctor.category.list') }}"
                                 class="{{ Request::routeIs('admin.doctor.category.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Departments</p>
+                                <p>{{ translate('Departments') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.doctor.category.add') }}"
                                 class="{{ Request::routeIs('admin.doctor.category.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>New Department</p>
+                                <p>{{ translate('New Department') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -181,7 +181,7 @@
                         class="{{ Request::routeIs([]) ? 'active' : 'admin.ambulance.category.add', 'admin.ambulance.category.list', 'admin.ambulance.category.edit', 'admin.ambulance.add', 'admin.ambulance.all', 'admin.ambulance.edit' }} nav-link">
                         <i class="nav-icon fas fa-ambulance"></i>
                         <p>
-                            {{ __('local.ambulance') }}
+                            {{ translate('Ambulances') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -190,28 +190,28 @@
                             <a href="{{ route('admin.ambulance.all') }}"
                                 class="{{ Request::routeIs('admin.ambulance.all') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Ambulance</p>
+                                <p> {{ translate('Ambulances') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.ambulance.add') }}"
                                 class="{{ Request::routeIs('admin.ambulance.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>New Ambulance</p>
+                                <p> {{ translate('New Ambulance') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.ambulance.category.list') }}"
                                 class="{{ Request::routeIs('admin.ambulance.category.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Ambulance Categories</p>
+                                <p> {{ translate('Ambulance Categories') }} </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.ambulance.category.add') }}"
                                 class="{{ Request::routeIs('admin.ambulance.category.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>New Category</p>
+                                <p>{{ translate('New Category') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -224,7 +224,7 @@
                         class="{{ Request::routeIs(['admin.fireservice.add', 'admin.fireservice.list', 'admin.fireservice.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-shower"></i>
                         <p>
-                            {{ __('local.fire_service') }}
+                            {{ translate('Fire Services') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -233,14 +233,14 @@
                             <a href="{{ route('admin.fireservice.list') }}"
                                 class="{{ Request::routeIs('admin.fireservice.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p> Fire Stations</p>
+                                <p>{{ translate('Fire Stations') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.fireservice.add') }}"
                                 class="{{ Request::routeIs('admin.fireservice.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add Fire Stations</p>
+                                <p>{{ translate('Add Fire Stations') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -253,7 +253,7 @@
                         class="{{ Request::routeIs(['admin.police.add', 'admin.police.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
-                            {{ __('local.police_stations') }}
+                            {{ translate('Police Stations') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -262,14 +262,14 @@
                             <a href="{{ route('admin.police.list') }}"
                                 class="{{ Request::routeIs('admin.police.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Police Stations</p>
+                                <p>{{ translate('Police Stations') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.police.add') }}"
                                 class="{{ Request::routeIs('admin.police.add') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Add Police Stations</p>
+                                <p>{{ translate('Add Police Stations') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -282,7 +282,7 @@
                         class="{{ Request::routeIs(['admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
-                            {{ __('local.projects') }}
+                            {{ translate('Projects') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -291,14 +291,14 @@
                             <a href="{{ route('admin.project.list') }}"
                                 class="{{ Request::routeIs('admin.project.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Project Lists</p>
+                                <p> {{ translate('Projects List') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.project.new') }}"
                                 class="{{ Request::routeIs('admin.project.new') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Create New Project</p>
+                                <p>{{ translate('Create New Project') }}</p>
                             </a>
                         </li>
                     </ul>
@@ -306,12 +306,12 @@
                 <!--End Projects Module-->
                 <!--Setting Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
-                            {{ __('local.settings') }}
+                            {{ translate('Settings') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -320,42 +320,42 @@
                             <a href="{{ route('admin.settings.general') }}"
                                 class="{{ Request::routeIs('admin.settings.general') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>General</p>
+                                <p>{{ translate('General') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.settings.general.about.us') }}"
                                 class="{{ Request::routeIs('admin.settings.general.about.us') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>About Us</p>
+                                <p>{{ translate('About Us') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.settings.social.acconts.list') }}"
                                 class="{{ Request::routeIs('admin.settings.social.acconts.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Social Accounts</p>
+                                <p>{{ translate('Social Accounts') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.settings.seo') }}"
                                 class="{{ Request::routeIs('admin.settings.seo') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Seo</p>
+                                <p>{{ translate('Seo') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.settings.themes') }}"
                                 class="{{ Request::routeIs('admin.settings.themes') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Themes</p>
+                                <p>{{ translate('Themes') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.settings.themes') }}"
-                                class="{{ Request::routeIs('admin.settings.themes') ? 'active ' : '' }} nav-link">
+                            <a href="{{ route('admin.language.list') }}"
+                                class="{{ Request::routeIs('admin.language.list') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>{{ __('local.language') }} {{ __('local.settings') }} </p>
+                                <p>{{ translate('Languages') }} </p>
                             </a>
                         </li>
                     </ul>
@@ -368,7 +368,7 @@
                         class="{{ Request::routeIs(['admin.user.new.user', 'admin.users', 'admin.user.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            {{ __('local.users') }}
+                            {{ translate('Users') }}
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -377,14 +377,14 @@
                             <a href="{{ route('admin.users') }}"
                                 class="{{ Request::routeIs('admin.users') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>Users</p>
+                                <p>{{ translate('Users') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.user.new.user') }}"
                                 class="{{ Request::routeIs('admin.user.new.user') ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
-                                <p>New User</p>
+                                <p>{{ translate('New Users') }}</p>
                             </a>
                         </li>
                     </ul>

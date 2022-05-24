@@ -12,6 +12,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
      * Set Language
      */
     Route::post('/set-app-language', 'SettingController@setApplang')->name('admin.app.set.language');
+    Route::get('/all-languages', 'LanguageController@allLanguages')->name('admin.language.list');
 
     /**
      * Dashboard

@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Interfaces\LanguageInterface;
+use App\Repositories\LanguageRepository;
 use Illuminate\Support\ServiceProvider;
 
-class languageProvider extends ServiceProvider
+class LanguageProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -13,7 +15,7 @@ class languageProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(LanguageInterface::class, LanguageRepository::class);
     }
 
     /**

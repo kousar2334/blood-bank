@@ -42,7 +42,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helpers/fileUpload.php"
+            "app/Helpers/fileUpload.php",
+            "app/Helpers/Helper.php"
         ],
         "classmap": [
             "database/seeds",

@@ -30,6 +30,7 @@ class SettingController extends Controller
      */
     public function setApplang(Request $request)
     {
+        cache_clear();
         $request->session()->put('locale', $request->lang);
         Toastr::success('Change Language successfully');
     }
