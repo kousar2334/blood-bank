@@ -351,6 +351,13 @@
                                 <p>Themes</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.settings.themes') }}"
+                                class="{{ Request::routeIs('admin.settings.themes') ? 'active ' : '' }} nav-link">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                <p>{{ __('local.language') }} {{ __('local.settings') }} </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <!--End Setting Module-->

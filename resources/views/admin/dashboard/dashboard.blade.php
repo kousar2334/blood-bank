@@ -66,7 +66,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{ $toatal_visitor }}<sup style="font-size: 20px"></sup></h3>
-                            <p class="bangla-font">{{ __('local.visitors') }}</p>
+                            <p class="bangla-font">{{ __('local.visitor') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-glasses"></i>
@@ -90,10 +90,10 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
-                                        <th class="font-weight-normal">Specialist</th>
-                                        <th class="font-weight-normal">Status</th>
-                                        <th class="font-weight-normal">Action</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.name') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.specialist') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.status') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,10 +130,10 @@
                     </div>
                     <div class="card mt-4">
                         <div class="card-header py-3">
-                            <h3 class="card-title">Leatest Hospital & Clinics</h3>
+                            <h3 class="card-title bangla-font">{{ __('local.leatest_hospitals') }}</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.hospital.list') }}" class="btn btn-sm btn-success">
-                                    Hospital & Clinics
+                                <a href="{{ route('admin.hospital.list') }}" class="btn btn-sm btn-success bangla-font">
+                                    {{ __('local.all_hospitals') }}
                                 </a>
                             </div>
                         </div>
@@ -141,10 +141,10 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
-                                        <th class="font-weight-normal">Category</th>
-                                        <th class="font-weight-normal">Status</th>
-                                        <th class="font-weight-normal">Action</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.name') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.category') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.status') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -183,10 +183,11 @@
                 <div class="col-lg-6">
                     <div class="card mt-3">
                         <div class="card-header py-3">
-                            <h3 class="card-title">Leatest Blood Donors</h3>
+                            <h3 class="card-title bangla-font">{{ __('local.leatest_donors') }}</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.blood.donar.list') }}" class="btn btn-sm btn-success">
-                                    All Blood Donors
+                                <a href="{{ route('admin.blood.donar.list') }}"
+                                    class="btn btn-sm btn-success bangla-font">
+                                    {{ __('local.all_donors') }}
                                 </a>
                             </div>
                         </div>
@@ -194,11 +195,11 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
-                                        <th class="font-weight-normal">Blood Group</th>
-                                        <th class="font-weight-normal">Mobile</th>
-                                        <th class="font-weight-normal">status</th>
-                                        <th class="font-weight-normal">Action</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.name') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.blood_group') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.mobile') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.status') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -238,10 +239,10 @@
                     </div>
                     <div class="card mt-4">
                         <div class="card-header py-3">
-                            <h3 class="card-title">Leatest Ambulances</h3>
+                            <h3 class="card-title bangla-font">{{ __('local.leatest_ambulance') }}</h3>
                             <div class="card-tools">
-                                <a href="{{ route('admin.ambulance.all') }}" class="btn btn-sm btn-success">
-                                    Ambulances
+                                <a href="{{ route('admin.ambulance.all') }}" class="btn btn-sm btn-success bangla-font">
+                                    {{ __('local.all_ambulance') }}
                                 </a>
                             </div>
                         </div>
@@ -249,10 +250,10 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal">{{ __('local.name') }}</th>
-                                        <th class="font-weight-normal">Category</th>
-                                        <th class="font-weight-normal">Status</th>
-                                        <th class="font-weight-normal">Action</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.name') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.category') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.status') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ __('local.action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
