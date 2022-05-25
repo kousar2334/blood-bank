@@ -24,6 +24,15 @@
     background-color: rgba(247, 39, 11, 0.15);
     color: #f71b0b;
 }
+.scondary-soft:hover {
+    background-color: #0bf728d4;
+    color: white;
+}
+
+.scondary-soft {
+    background-color: #0bf72836;
+    color: #62600e;
+}
 .cursor-pointer {
     cursor: pointer;
 }

@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Dashboard
+    {{ translate('Dashboard') }}
 @stop
 @section('custom_css')
     <style>
@@ -31,7 +31,7 @@
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>{{ $total_donor }}<sup style="font-size: 20px"></sup></h3>
-                            <p class="bangla-font">{{ __('local.blood_donors') }}</p>
+                            <p class="bangla-font">{{ translate('Blood Donors') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-users"></i>
@@ -43,7 +43,7 @@
                         <div class="inner">
                             <h3>{{ $total_doctor }}<sup style="font-size: 20px"></sup></h3>
 
-                            <p class="bangla-font">{{ __('local.doctors') }}</p>
+                            <p class="bangla-font">{{ translate('Doctors') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-user-md"></i>
@@ -55,7 +55,7 @@
                         <div class="inner">
                             <h3>{{ $total_hospital }}<sup style="font-size: 20px"></sup></h3>
 
-                            <p class="bangla-font">{{ __('local.hospital') }}</p>
+                            <p class="bangla-font">{{ translate('Hospitals') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-hospital"></i>
@@ -66,7 +66,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{ $toatal_visitor }}<sup style="font-size: 20px"></sup></h3>
-                            <p class="bangla-font">{{ __('local.visitor') }}</p>
+                            <p class="bangla-font">{{ translate('Visitors') }}</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-glasses"></i>
@@ -82,7 +82,7 @@
                             <h3 class="card-title bangla-font">{{ __('local.leatest_doctors') }}</h3>
                             <div class="card-tools">
                                 <a href="{{ route('admin.doctor.list') }}" class="btn btn-sm btn-success bangla-font">
-                                    {{ __('local.all_doctors') }}
+                                    {{ translate('Doctors') }}
                                 </a>
                             </div>
                         </div>
@@ -90,10 +90,10 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.name') }}</th>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.specialist') }}</th>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.status') }}</th>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.action') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Name') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Specialist') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Status') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -112,9 +112,9 @@
                                             <td class="bangla-font">{{ $doctor->specialist }}</td>
                                             <td>
                                                 @if ($doctor->status == 1)
-                                                    <span class="badge badge-success">Active</span>
+                                                    <span class="badge badge-success">{{ translate('Active') }}</span>
                                                 @else
-                                                    <span class="badge badge-danger">Pending</span>
+                                                    <span class="badge badge-danger">{{ translate('Inactive') }}</span>
                                                 @endif
                                             </td>
                                             <td>

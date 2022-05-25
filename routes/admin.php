@@ -9,10 +9,17 @@ Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 //admin middleware start
 Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function () {
     /**
-     * Set Language
+     *Language routes
      */
     Route::post('/set-app-language', 'SettingController@setApplang')->name('admin.app.set.language');
     Route::get('/all-languages', 'LanguageController@allLanguages')->name('admin.language.list');
+    Route::get('/add-new-language', 'LanguageController@addNewLanguage')->name('admin.language.new');
+    Route::post('/store-new-language', 'LanguageController@storeNewLanguage')->name('admin.language.new.store');
+    Route::get('/edit-language/{id}', 'LanguageController@editLanguage')->name('admin.language.edit');
+    Route::post('/update-language', 'LanguageController@updateLanguage')->name('admin.language.update');
+    Route::post('/delete-language', 'LanguageController@deleteLanguage')->name('admin.language.delete');
+    Route::get('/edit-language-key-values/{id}', 'LanguageController@editLanguageKeyValue')->name('admin.language.edit.key.value');
+    Route::post('/update-language-key-values', 'LanguageController@updateLanguageKeyValue')->name('admin.language.update.key.value');
 
     /**
      * Dashboard

@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    {{ translate('Admin | Blood Bank') }}
+    {{ translate('Admin | Language') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -18,6 +18,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">{{ translate('languages') }}</h3>
+                            <a href="{{ route('admin.language.new') }}"
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('New Language') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -55,13 +57,17 @@
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
-                                                <a href="{{ route('admin.blood.group.edit', $lang->id) }}"
+                                                <a href="{{ route('admin.language.edit.key.value', $lang->id) }}"
+                                                    class="btn btn-sm btn-circle scondary-soft"><i
+                                                        class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="{{ route('admin.language.edit', $lang->id) }}"
                                                     class="btn btn-sm btn-circle primary-soft"><i
                                                         class="fas fa-edit"></i>
                                                 </a>
                                             </td>
                                             <td class="text-right">
-                                                <form method="post" action="{{ route('admin.blood.group.delete') }}"
+                                                <form method="post" action="{{ route('admin.language.delete') }}"
                                                     style="float:right;">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $lang->id }}">
