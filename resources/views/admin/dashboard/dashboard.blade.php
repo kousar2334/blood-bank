@@ -79,7 +79,7 @@
                 <div class="col-lg-6">
                     <div class="card mt-3">
                         <div class="card-header py-3">
-                            <h3 class="card-title bangla-font">{{ __('local.leatest_doctors') }}</h3>
+                            <h3 class="card-title bangla-font">{{ translate('Latest Doctors') }}</h3>
                             <div class="card-tools">
                                 <a href="{{ route('admin.doctor.list') }}" class="btn btn-sm btn-success bangla-font">
                                     {{ translate('Doctors') }}
@@ -130,10 +130,10 @@
                     </div>
                     <div class="card mt-4">
                         <div class="card-header py-3">
-                            <h3 class="card-title bangla-font">{{ __('local.leatest_hospitals') }}</h3>
+                            <h3 class="card-title bangla-font">{{ translate('Latest Hospitals') }}</h3>
                             <div class="card-tools">
                                 <a href="{{ route('admin.hospital.list') }}" class="btn btn-sm btn-success bangla-font">
-                                    {{ __('local.all_hospitals') }}
+                                    {{ translate('All Hospitals') }}
                                 </a>
                             </div>
                         </div>
@@ -141,10 +141,10 @@
                             <table class="table table-striped table-valign-middle">
                                 <thead>
                                     <tr>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.name') }}</th>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.category') }}</th>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.status') }}</th>
-                                        <th class="font-weight-normal bangla-font">{{ __('local.action') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Name') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Category') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Status') }}</th>
+                                        <th class="font-weight-normal bangla-font">{{ translate('Action') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -163,9 +163,9 @@
                                             <td class="bangla-font">{{ $hospital->category }}</td>
                                             <td>
                                                 @if ($hospital->status == 1)
-                                                    <span class="badge badge-success">Active</span>
+                                                    <span class="badge badge-success">{{ translate('Active') }}</span>
                                                 @else
-                                                    <span class="badge badge-danger">Pending</span>
+                                                    <span class="badge badge-danger">{{ translate('Inactive') }}</span>
                                                 @endif
                                             </td>
                                             <td>
@@ -187,7 +187,7 @@
                             <div class="card-tools">
                                 <a href="{{ route('admin.blood.donar.list') }}"
                                     class="btn btn-sm btn-success bangla-font">
-                                    {{ __('local.all_donors') }}
+                                    {{ translate('All Donors') }}
                                 </a>
                             </div>
                         </div>

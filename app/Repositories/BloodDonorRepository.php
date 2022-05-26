@@ -164,9 +164,9 @@ class BloodDonorRepository implements BloodDonorInterface
             })
             ->addColumn('status', function ($donor) {
                 if ($donor->status == 1) {
-                    return ' <p class="badge badge-success">Active</p>';
+                    return ' <p class="badge badge-success">' . translate('Active') . '</p>';
                 } else {
-                    return '<p class="badge badge-danger">Inactive</p>';
+                    return '<p class="badge badge-danger">' . translate('Inactive') . '</p>';
                 }
             })
             ->editColumn('action', function ($donor) {

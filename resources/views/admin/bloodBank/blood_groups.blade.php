@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Blood Bank
+    {{ translate('Blood Groups') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -17,7 +17,7 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Blood Groups</h3>
+                            <h3 class="card-title"> {{ translate('Blood Groups') }}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -25,11 +25,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Bangla Name</th>
-                                        <th>Description</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Description') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,8 +42,6 @@
                                         <tr>
                                             <td>{{ $counter }}</td>
                                             <td>{{ $bg->name }}
-                                            </td>
-                                            <td>{{ $bg->bn_name }}</td>
                                             <td>{{ $bg->description }}</td>
                                             <td class="text-center text-white">
                                                 <a href="{{ route('admin.blood.group.edit', $bg->id) }}"

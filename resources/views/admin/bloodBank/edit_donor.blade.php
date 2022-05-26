@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Edit Blood Donor Infomation | Blood Bank
+    {{ translate('Edit Blood Donor Infomation') }}
 @stop
 @section('custom_css')
 @stop
@@ -13,11 +13,11 @@
                 <div class="col-lg-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Blood Donor Information</h3>
+                            <h3 class="card-title">{{ translate('Blood Donor Information') }}</h3>
                             <a href="{{ route('admin.blood.donar.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Blood Donors</a>
+                                class="btn btn-danger btn-sm float-right text-white">{{ translate('Blood Donors') }}</a>
                             <a href="{{ route('admin.blood.donar.add') }}"
-                                class="btn btn-success btn-sm float-right text-white mr-2">Add New Donor</a>
+                                class="btn btn-success btn-sm float-right text-white mr-2">{{ translate('Add New Donor') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
@@ -30,7 +30,7 @@
                                             <input type="hidden" name="id" value="{{ $donor->id }}">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Name<span class="text-danger">*</span></label>
+                                                <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                                 <input type="text" name="name" value="{{ $donor->name }}"
                                                     class="form-control" placeholder="Enter Name">
                                                 @if ($errors->has('name'))
@@ -43,7 +43,8 @@
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Blood Group<span class="text-danger">*</span></label>
+                                                <label>{{ translate('Blood Group') }}<span
+                                                        class="text-danger">*</span></label>
                                                 <select class="form-control" name="blood_group"
                                                     value="{{ $donor->blood_group }}">
                                                     @foreach ($b_groups as $bg)
@@ -63,7 +64,8 @@
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Mobile<span class="text-danger">*</span></label>
+                                                <label>{{ translate('Mobile') }}<span
+                                                        class="text-danger">*</span></label>
                                                 <input type="text" name="mobile" value="{{ $donor->mobile }}"
                                                     class="form-control" placeholder="Enter Mobile">
                                                 @if ($errors->has('mobile'))
@@ -77,7 +79,7 @@
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Mobile 2</label>
+                                                <label>{{ translate('Alternative Mobile') }}</label>
                                                 <input type="text" name="mobile_2" value="{{ $donor->mobile2 }}"
                                                     class="form-control" placeholder="Enter Mobile">
                                                 @if ($errors->has('mobile'))
@@ -89,7 +91,7 @@
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>{{ translate('Email') }}</label>
                                                 <input type="email" name="email" value="{{ $donor->email }}"
                                                     class="form-control" placeholder="Enter Email">
                                                 @if ($errors->has('email'))
@@ -100,7 +102,7 @@
                                         <div class="col-sm-6">
                                             <!-- text input -->
                                             <div class="form-group">
-                                                <label>Image</label>
+                                                <label>{{ translate('Image') }}</label>
                                                 <input type="file" name="image" value="{{ old('image') }}"
                                                     class="form-control" placeholder="Enter ...">
                                                 @if ($errors->has('image'))
@@ -113,7 +115,7 @@
                                         <div class="col-sm-6">
                                             <!-- textarea -->
                                             <div class="form-group">
-                                                <label>Address</label>
+                                                <label>{{ translate('Address') }}</label>
                                                 <textarea class="form-control" name="address" rows="3" placeholder="Enter Address">{{ $donor->address }}</textarea>
                                                 @if ($errors->has('address'))
                                                     <small
@@ -124,12 +126,14 @@
                                         <div class="col-sm-6">
                                             <!-- textarea -->
                                             <div class="form-group">
-                                                <label>Status</label>
+                                                <label>{{ translate('Status') }}</label>
                                                 <select class="form-control" name="status">
                                                     <option {{ $donor->status == '1' ? 'selected' : '' }} value="1">
-                                                        Active</option>
+                                                        {{ translate('Active') }}
+                                                    </option>
                                                     <option {{ $donor->status == '0' ? 'selected' : '' }} value="0">
-                                                        Inactive</option>
+                                                        {{ translate('Inactive') }}
+                                                    </option>
 
                                                 </select>
 
@@ -144,7 +148,7 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <input type="submit" class="btn btn-block btn-success btn-flat"
-                                                value="Update" />
+                                                value="{{ translate('Update') }}" />
                                         </div>
                                     </div>
                                 </form>
@@ -155,7 +159,7 @@
                                     <!-- Add the bg color to the header using any of the bg-* classes -->
                                     <div class="widget-user-header bg-info">
                                         <h3 class="widget-user-username">{{ $donor->name }}</h3>
-                                        <h5 class="widget-user-desc">Blood Donor</h5>
+                                        <h5 class="widget-user-desc">{{ translate('Blood Donor') }}</h5>
                                     </div>
                                     <div class="widget-user-image">
                                         @if ($donor->image)
@@ -168,7 +172,7 @@
                                             <div class="col-sm-4 border-right">
                                                 <div class="description-block">
                                                     <h5 class="description-header">{{ $donor->mobile }}</h5>
-                                                    <span class="description-text">Mobile</span>
+                                                    <span class="description-text">{{ translate('Mobile') }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
@@ -182,7 +186,7 @@
                                                             @endif
                                                         @endforeach
                                                     </h5>
-                                                    <span class="description-text">Blood Group</span>
+                                                    <span class="description-text">{{ translate('Blood Group') }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>
@@ -191,12 +195,14 @@
                                                 <div class="description-block">
                                                     <h5 class="description-header">
                                                         @if ($donor->status == 1)
-                                                            <span class="badge badge-success">Active</span>
+                                                            <span
+                                                                class="badge badge-success">{{ translate('Active') }}</span>
                                                         @else
-                                                            <span class="badge badge-danger">Inactive</span>
+                                                            <span
+                                                                class="badge badge-danger">{{ translate('Inactive') }}</span>
                                                         @endif
                                                     </h5>
-                                                    <span class="description-text">Status</span>
+                                                    <span class="description-text">{{ translate('Status') }}</span>
                                                 </div>
                                                 <!-- /.description-block -->
                                             </div>

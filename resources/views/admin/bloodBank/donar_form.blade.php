@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Add Blood Donor | Blood Bank
+    {{ translate('Add New Donor') }}
 @stop
 @section('custom_css')
 @stop
@@ -13,9 +13,9 @@
                 <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Blood Donor Form</h3>
+                            <h3 class="card-title">{{ translate('Add New Donor') }}</h3>
                             <a href="{{ route('admin.blood.donar.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Blood Donors</a>
+                                class="btn btn-danger btn-sm float-right text-white">{{ translate('Blood Donors') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -26,7 +26,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Name<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="name" value="{{ old('name') }}"
                                                 class="form-control" placeholder="Enter Name">
                                             @if ($errors->has('name'))
@@ -39,7 +39,8 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Blood Group<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Blood Group') }}<span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-control" name="blood_group"
                                                 value="{{ old('blood_group') }}">
                                                 @foreach ($b_groups as $bg)
@@ -58,7 +59,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Mobile<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Mobile') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="mobile" value="{{ old('mobile') }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile'))
@@ -71,7 +72,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Mobile 2</label>
+                                            <label>{{ translate('Alternative Mobile') }}</label>
                                             <input type="text" name="mobile_2" value="{{ old('mobile_2') }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile'))
@@ -82,7 +83,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Email</label>
+                                            <label>{{ translate('Email') }}</label>
                                             <input type="email" name="email" value="{{ old('email') }}"
                                                 class="form-control" placeholder="Enter Email">
                                             @if ($errors->has('email'))
@@ -93,7 +94,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>Image</label>
+                                            <label>{{ translate('Image') }}</label>
                                             <input type="file" name="image" value="{{ old('image') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('image'))
@@ -106,7 +107,7 @@
                                     <div class="col-sm-12">
                                         <!-- textarea -->
                                         <div class="form-group">
-                                            <label>Address</label>
+                                            <label>{{ translate('Address') }}</label>
                                             <textarea class="form-control" name="addres" rows="3" placeholder="Enter Address">{{ old('addres') }}</textarea>
                                             @if ($errors->has('address'))
                                                 <small class="text text-danger">{{ $errors->first('address') }}</small>
@@ -117,7 +118,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
+                                        <input type="submit" class="btn btn-block btn-success btn-flat"
+                                            value="{{ translate('Save') }}" />
                                     </div>
                                 </div>
                             </form>

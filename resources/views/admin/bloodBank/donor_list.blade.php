@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Blood Donor's list
+    {{ translate('Blood Donors') }}
 @stop
 @section('custom_css')
     {{-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -19,26 +19,26 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Blood Donors</h3>
+                            <h3 class="card-title">{{ translate('Blood Donors') }}</h3>
                             <a href="{{ route('admin.blood.donar.add') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Add New Blood Donor</a>
+                                class="btn btn-danger btn-sm float-right text-white">{{ translate('Add New Blood Donor') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="donor_list" class="table table-bordered table-striped dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Blood Group</th>
-                                        <th>Email</th>
-                                        <th>Mobile</th>
-                                        <th>Mobile 2</th>
-                                        <th>Address</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>#</th>
+                                        <th>{{ translate('Image') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Blood Group') }}</th>
+                                        <th>{{ translate('Email') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Alternative Mobile') }}</th>
+                                        <th>{{ translate('Address') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

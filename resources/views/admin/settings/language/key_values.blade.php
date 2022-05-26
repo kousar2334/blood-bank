@@ -49,12 +49,11 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div class="form-group mt-2 text-right">
+                                        <button type="submit" class="btn btn-success">{{ translate('Save') }}</button>
+                                    </div>
                                     <div class="mt-2">
                                         {{ $lang_keys->appends(request()->input())->links() }}
-                                    </div>
-
-                                    <div class="form-group mb-0 text-right">
-                                        <button type="submit" class="btn btn-success">{{ translate('Save') }}</button>
                                     </div>
                                 </div>
                             </form>
