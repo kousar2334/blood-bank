@@ -277,9 +277,9 @@
                 <!--End Police Stations Module-->
                 <!--Projects Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-motorcycle"></i>
                         <p>
                             {{ translate('Projects') }}

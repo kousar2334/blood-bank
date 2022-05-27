@@ -19,9 +19,9 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="m-0 card-title">Projects</h4>
+                            <h4 class="m-0 card-title">{{ translate('Projects') }}</h4>
                             <a href="{{ route('admin.project.new') }}"
-                                class="btn btn-success btn-sm float-right text-white">Add New Project</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('Add New Project') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -29,13 +29,13 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Title</th>
-                                        <th>Purpose</th>
-                                        <th>Donation target</th>
-                                        <th>Donation collection</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Purpose') }}</th>
+                                        <th>{{ translate('Donation target') }}</th>
+                                        <th>{{ translate('Donation collected') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,20 +48,20 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $counter }}</td>
-                                            <td class="bangla-font">{{ $project->title }}</td>
+                                            <td class="bangla-font">{{ $project->name }}</td>
                                             <td class="bangla-font">{{ $project->purpose }}</td>
                                             <td class="bangla-font">{{ $project->donation_target }}</td>
                                             <td class="bangla-font">{{ $project->donation_collection }}</td>
 
                                             <td>
                                                 @if ($project->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
-                                                <a href="{{ route('admin.police.edit', $project->id) }}"
+                                                <a href="{{ route('admin.project.edit', ['id' => $project->id, 'lang' => env('DEFAULT_LANGUAGE', 'en')]) }}"
                                                     class="btn btn-sm btn-circle primary-soft"><i
                                                         class="fas fa-edit"></i></a>
 

@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | New Project
+    {{ translate('New Project') }}
 @stop
 @section('custom_css')
 
@@ -14,23 +14,23 @@
                 <div class="offset-lg-3 mt-4 col-lg-6 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">New Project</h3>
+                            <h3 class="card-title">{{ translate('New Project') }}</h3>
                             <a href="{{ route('admin.project.list') }}"
-                                class="btn btn-success btn-sm float-right text-white">Project Lists</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('All Projects') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body row">
-                            <form role="form" action="{{ route('admin.police.store') }}" method="POST"
-                                class="col-lg-12">
+                            <form role="form" action="{{ route('admin.project.new.store') }}" method="POST"
+                                enctype="multipart/form-data" class="col-lg-12">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Title</label>
-                                            <input type="text" name="title" value="{{ old('title') }}"
+                                            <label>{{ translate('Name') }}</label>
+                                            <input type="text" name="name" value="{{ old('name') }}"
                                                 class="form-control" placeholder="Enter ...">
-                                            @if ($errors->has('title'))
-                                                <small class="text text-danger">{{ $errors->first('title') }}</small>
+                                            @if ($errors->has('name'))
+                                                <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
 
                                         </div>
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Purpose</label>
+                                            <label>{{ translate('Purpose') }}</label>
                                             <input type="text" name="purpose" value="{{ old('purpose') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('purpose'))
@@ -51,7 +51,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Description</label>
+                                            <label>{{ translate('Description') }}</label>
                                             <textarea class="form-control" name="description" rows="3"
                                                 placeholder="Enter ...">{{ old('description') }}</textarea>
                                         </div>
@@ -59,7 +59,7 @@
 
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Location</label>
+                                            <label>{{ translate('Location') }}</label>
                                             <input type="text" name="locations" value="{{ old('locations') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('locations'))
@@ -70,7 +70,7 @@
 
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Image</label>
+                                            <label>{{ translate('Image') }}</label>
                                             <input type="file" name="image" value="{{ old('image') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('image'))
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>video Link</label>
+                                            <label>{{ translate('video Link') }}</label>
                                             <input type="text" name="video_link" value="{{ old('video_link') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('video_link'))
@@ -91,19 +91,19 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Donation</label>
+                                            <label>{{ translate('Donation') }}</label>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="donation_enabale"
                                                     id="donation_enabale1" value="1" checked>
                                                 <label class="form-check-label" for="donation_enabale1">
-                                                    Enable
+                                                    {{ translate('Enable') }}
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="donation_enabale"
                                                     id="donation_enabale2" value="0">
                                                 <label class="form-check-label" for="donation_enabale2">
-                                                    Disable
+                                                    {{ translate('Disable') }}
                                                 </label>
                                             </div>
                                             @if ($errors->has('donation_enabale'))
@@ -114,7 +114,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Donation Target</label>
+                                            <label>{{ translate('Donation Target') }}</label>
                                             <input type="text" name="donation_target"
                                                 value="{{ old('donation_target') }}" class="form-control"
                                                 placeholder="Enter ...">
@@ -126,9 +126,9 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Donation Instruction</label>
-                                            <textarea class="form-control" name="donation_instruction	" rows="3"
-                                                placeholder="Enter ...">{{ old('donation_instruction	') }}</textarea>
+                                            <label>{{ translate('Donation Instruction') }}</label>
+                                            <textarea class="form-control" name="donation_instruction" rows="3" placeholder="Enter ...">{{ old('donation_instruction') }}
+                                            </textarea>
                                             @if ($errors->has('donation_instruction'))
                                                 <small
                                                     class="text text-danger">{{ $errors->first('donation_instruction') }}</small>
@@ -139,7 +139,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block bg-gradient-success" value="Save" />
+                                        <input type="submit" class="btn btn-block bg-gradient-success"
+                                            value="{{ translate('Save') }}" />
                                     </div>
 
                                 </div>
