@@ -14,7 +14,7 @@
                 <div class="offset-lg-3 mt-4 col-lg-6 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">{{ translate('New Project') }}</h3>
+                            <h3 class="card-title">{{ translate('Edit Project') }}</h3>
                             <a href="{{ route('admin.project.list') }}"
                                 class="btn btn-success btn-sm float-right text-white">{{ translate('All Projects') }}</a>
                         </div>
@@ -43,8 +43,10 @@
                                         <div class="form-group">
                                             <label>{{ translate('Name') }}</label>
                                             <input type="hidden" name="id" value="{{ $project->id }}">
-                                            <input type="text" name="name" value="{{ $project->name }}"
-                                                class="form-control" placeholder="Enter ...">
+                                            <input type="hidden" name="lang" value="{{ $lang }}">
+                                            <input type="text" name="name"
+                                                value="{{ $project->translation('name', $lang) }}" class="form-control"
+                                                placeholder="Enter ...">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
@@ -55,7 +57,8 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ translate('Purpose') }}</label>
-                                            <input type="text" name="purpose" value="{{ $project->purpose }}"
+                                            <input type="text" name="purpose"
+                                                value="{{ $project->translation('purpose', $lang) }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('purpose'))
                                                 <small class="text text-danger">{{ $errors->first('purpose') }}</small>
@@ -69,14 +72,15 @@
                                         <div class="form-group">
                                             <label>{{ translate('Description') }}</label>
                                             <textarea class="form-control" name="description" rows="3"
-                                                placeholder="Enter ...">{{ $project->description }}</textarea>
+                                                placeholder="Enter ...">{{ $project->translation('description', $lang) }}</textarea>
                                         </div>
                                     </div>
 
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ translate('Location') }}</label>
-                                            <input type="text" name="locations" value="{{ $project->locations }}"
+                                            <input type="text" name="locations"
+                                                value="{{ $project->translation('locations', $lang) }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('locations'))
                                                 <small class="text text-danger">{{ $errors->first('locations') }}</small>
@@ -145,7 +149,8 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ translate('Donation Instruction') }}</label>
-                                            <textarea class="form-control" name="donation_instruction" rows="3" placeholder="Enter ...">{{ $project->donation_instruction }}
+                                            <textarea class="form-control" name="donation_instruction" rows="3" placeholder="Enter ...">
+                                                {{ $project->translation('donation_instruction', $lang) }}
                                             </textarea>
                                             @if ($errors->has('donation_instruction'))
                                                 <small

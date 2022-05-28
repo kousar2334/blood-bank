@@ -14,9 +14,10 @@ class LanguageRepository implements LanguageInterface
      * 
      * @return Array
      */
-    public function allLanguage()
+    public function allLanguage($status = null)
     {
-        return Language::all();
+        $status = $status == false ? [0, 1] : $status;
+        return Language::whereIn('status', $status)->get();
     }
 
     /**

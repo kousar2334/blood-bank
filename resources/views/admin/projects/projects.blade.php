@@ -11,6 +11,14 @@
     </style>
 @stop
 @section('admin_content')
+    @php
+    if (Session::has('locale')) {
+        $locale = Session::get('locale', Config::get('app.locale'));
+    } else {
+        $locale = 'en';
+    }
+
+    @endphp
     <!-- Main content -->
     <section class="content">
         <!--Start Container fluid-->
@@ -48,10 +56,10 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $counter }}</td>
-                                            <td class="bangla-font">{{ $project->name }}</td>
-                                            <td class="bangla-font">{{ $project->purpose }}</td>
-                                            <td class="bangla-font">{{ $project->donation_target }}</td>
-                                            <td class="bangla-font">{{ $project->donation_collection }}</td>
+                                            <td>{{ $project->translation('name', $locale) }}</td>
+                                            <td>{{ $project->translation('purpose', $locale) }}</td>
+                                            <td>{{ $project->donation_target }}</td>
+                                            <td>{{ $project->donation_collection }}</td>
 
                                             <td>
                                                 @if ($project->status == 1)

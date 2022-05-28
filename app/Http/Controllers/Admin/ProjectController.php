@@ -86,7 +86,7 @@ class ProjectController extends Controller
             [
                 'project' => $this->project_repository->projectDetails($id),
                 'lang' => $request->lang,
-                'languages' => $this->language_repository->allLanguage()
+                'languages' => $this->language_repository->allLanguage([1])
             ]
         );
     }

@@ -5,8 +5,9 @@ namespace App\Repositories;
 use App\Model\Projects;
 use Illuminate\Support\Facades\DB;
 use App\Interfaces\ProjectsInterface;
+use App\Model\ProjectTranslations;
 use Brian2694\Toastr\Facades\Toastr;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
+
 
 class ProjectRepository implements ProjectsInterface
 {
@@ -15,7 +16,7 @@ class ProjectRepository implements ProjectsInterface
      * 
      * @return collection
      */
-    public function projectsList()
+    public function projectsList($status = null)
     {
         $projects = Projects::all();
         return $projects;
@@ -91,6 +92,7 @@ class ProjectRepository implements ProjectsInterface
      */
     public function updateProject($request)
     {
+
         try {
             DB::beginTransaction();
             $project = Projects::findorFail($request['id']);
@@ -99,18 +101,31 @@ class ProjectRepository implements ProjectsInterface
             } else {
                 $image = $project['image'];
             }
+            if ($request['lang'] === 'en') {
+                $project->name = $request['name'];
+                $project->image = $image;
+                $project->purpose = $request['purpose'];
+                $project->description = $request['description'];
+                $project->locations = $request['locations'];
+                $project->video_link = $request['video_link'];
+                $project->donation_enabale = $request['donation_enabale'];
+                $project->donation_target = $request['donation_target'];
+                $project->donation_instruction = $request['donation_instruction'];
+                $project->status = $request['status'];
+                $project->save();
+            } else {
 
-            $project->name = $request['name'];
-            $project->image = $image;
-            $project->purpose = $request['purpose'];
-            $project->description = $request['description'];
-            $project->locations = $request['locations'];
-            $project->video_link = $request['video_link'];
-            $project->donation_enabale = $request['donation_enabale'];
-            $project->donation_target = $request['donation_target'];
-            $project->donation_instruction = $request['donation_instruction'];
-            $project->status = $request['status'];
-            $project->save();
+                $project_translation = ProjectTranslations::firstOrNew(['project_id' => $request['id'], 'lang' => $request['lang']]);
+                $project_translation->name = $request['name'];
+                $project_translation->lang = $request['lang'];
+                $project_translation->purpose = $request['purpose'];
+                $project_translation->description = $request['description'];
+                $project_translation->locations = $request['locations'];
+                $project_translation->donation_instruction = $request['donation_instruction'];
+                $project_translation->save();
+            }
+
+
             Toastr::success(translate('Project updated successfully'));
             DB::commit();
             return true;
