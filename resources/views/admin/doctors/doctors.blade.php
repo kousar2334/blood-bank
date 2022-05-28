@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Doctors
+    {{ translate('Doctors') }}
 @stop
 @section('custom_css')
     {{-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 
         .chamber-list {
             /* border: 1px solid;
-                                            border-style: dotted; */
+                                                        border-style: dotted; */
             padding: 15px;
         }
 
@@ -56,26 +56,26 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Doctors</h3>
+                            <h3 class="card-title">{{ translate('Doctors') }}</h3>
                             <a href="{{ route('admin.doctor.add') }}"
-                                class="btn btn-success btn-sm float-right text-white">Add New Doctor</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('Add New Doctor') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="doctor_list" class="table table-bordered table-striped dataTable">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Dept.</th>
-                                        <th>Position</th>
-                                        <th>Specialist</th>
-                                        <th>Institution</th>
-                                        <th>Mobile</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>#</th>
+                                        <th>{{ translate('Image') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Department') }}</th>
+                                        <th>{{ translate('Position') }}</th>
+                                        <th>{{ translate('Specialist') }}</th>
+                                        <th>{{ translate('Institute') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

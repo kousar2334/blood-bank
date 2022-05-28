@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Docotr's Departments
+    {{ translate('Departments') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -17,13 +17,13 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Doctor's Departments</h3>
+                            <h3 class="card-title">{{ translate('Departments') }}</h3>
                             <a href="{{ route('admin.doctor.category.add') }}"
-                                class="btn btn-info btn-sm float-right text-white">Add New Departments</a>
+                                class="btn btn-info btn-sm float-right text-white">{{ translate('Add New Department') }}</a>
                             <a href="{{ route('admin.doctor.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white mr-2">All Doctors</a>
+                                class="btn btn-danger btn-sm float-right text-white mr-2">{{ translate('All Doctors') }}</a>
                             <a href="{{ route('admin.doctor.add') }}"
-                                class="mr-2 btn btn-success btn-sm float-right text-white">Add New Doctor</a>
+                                class="mr-2 btn btn-success btn-sm float-right text-white">{{ translate('Add New Doctor') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -31,14 +31,14 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Bangla Name</th>
-                                        <th>Icon</th>
-                                        <th>Image</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Icon') }}</th>
+                                        <th>{{ translate('Image') }}</th>
+                                        <th>{{ translate('Description') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,8 +51,8 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $counter }}</td>
-                                            <td class="bangla-font">{{ $cat->name }}</td>
-                                            <td class="bangla-font">{{ $cat->bn_name }}</td>
+                                            <td>{{ $cat->name }}</td>
+                                            <td>{{ $cat->bn_name }}</td>
                                             <td>
                                                 @if ($cat->icon)
                                                     <img src="{{ asset('/') }}{{ $cat->icon }}" border="0"
@@ -74,9 +74,9 @@
                                             <td>{{ $cat->description }}</td>
                                             <td>
                                                 @if ($cat->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">

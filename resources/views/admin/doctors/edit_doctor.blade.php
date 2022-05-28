@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Edit Doctor | Doctors
+    {{ translate('Edit Doctor') }}
 @stop
 @section('custom_css')
     <style>
@@ -25,10 +25,11 @@
                 <div class="col-lg-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Update Doctor</h3>
+                            <h3 class="card-title">{{ translate('Edit Doctor') }}</h3>
                             <a href="{{ route('admin.doctor.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white"><i class="fas fa-user-md"> </i>
-                                All Doctors</a>
+                                class="btn btn-success btn-sm float-right text-white"><i class="fas fa-user-md"> </i>
+                                {{ translate('All Doctors') }}
+                            </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -38,7 +39,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>নাম<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="hidden" name="id" value="{{ $doc_info->id }}">
                                             <input type="text" name="name" value="{{ $doc_info->name }}"
                                                 class="form-control" placeholder="Enter Name">
@@ -50,7 +51,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>নাম<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="en_name" value="{{ $doc_info->en_name }}"
                                                 class="form-control" placeholder="Enter Name">
                                             @if ($errors->has('name'))
@@ -62,7 +63,8 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>বিভাগ<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Department') }}<span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-control" name="department">
                                                 @foreach ($specializations as $sp)
                                                     <option {{ $doc_info->department == $sp->id ? 'selected' : '' }}
@@ -79,7 +81,7 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>বিএমডিসি রেজি. নং:</label>
+                                            <label>{{ translate('BMDC No.') }}</label>
                                             <input type="text" name="bmdc_no" value="{{ $doc_info->bmdc_no }}"
                                                 class="form-control" placeholder="Enter BMDC No">
                                             @if ($errors->has('bmdc_no'))
@@ -90,7 +92,8 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>ডিগ্রি<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Qualification') }}<span
+                                                    class="text-danger">*</span></label>
                                             <textarea class="form-control" name="qualification" rows="4"
                                                 placeholder="Enter Qualification">{{ $doc_info->qualification }}</textarea>
                                             @if ($errors->has('qualification'))
@@ -104,7 +107,7 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>পদবী</label>
+                                            <label>{{ translate('Designation') }}</label>
                                             <textarea class="form-control" name="position" rows="4"
                                                 placeholder="Enter Position">{{ $doc_info->position }}</textarea>
                                             @if ($errors->has('position'))
@@ -115,7 +118,7 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>কোন বিষয়ে বিশেষজ্ঞ</label>
+                                            <label>{{ translate('Specialist') }}</label>
                                             <textarea class="form-control" name="specialist" rows="4"
                                                 placeholder="Enter Specialist">{{ $doc_info->specialist }}</textarea>
                                             @if ($errors->has('specialist'))
@@ -127,7 +130,7 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>কর্মস্থল</label>
+                                            <label>{{ translate('Working Place') }}</label>
                                             <textarea class="form-control" name="working_place" rows="4"
                                                 placeholder="Enter Working Place">{{ $doc_info->working_place }}</textarea>
                                             @if ($errors->has('working_place'))
@@ -139,7 +142,7 @@
                                     <div class="col-sm-6">
 
                                         <div class="form-group">
-                                            <label>মোবাইল</label>
+                                            <label>{{ translate('Mobile') }}</label>
                                             <textarea class="form-control" name="mobile" rows="4" placeholder="Enter Mobile">{{ $doc_info->mobile }}</textarea>
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile') }}</small>
@@ -150,12 +153,14 @@
 
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label>স্ট্যাটাস</label>
+                                            <label>{{ translate('Status') }}</label>
                                             <select class="form-control" name="status">
                                                 <option {{ $doc_info->status == '1' ? 'selected' : '' }} value="1">
-                                                    Active</option>
+                                                    {{ translate('Active') }}
+                                                </option>
                                                 <option {{ $doc_info->status == '0' ? 'selected' : '' }} value="0">
-                                                    Inactive</option>
+                                                    {{ translate('Inactive') }}
+                                                </option>
 
                                             </select>
                                             @if ($errors->has('status'))
@@ -165,7 +170,7 @@
                                     </div>
                                     <div class="col-sm-3">
                                         <div class="form-group">
-                                            <label>মেম্বার</label>
+                                            <label>{{ translate('Chamber') }}</label>
                                             <input type="text" name="is_featured" value="{{ $doc_info->is_featured }}"
                                                 class="form-control">
                                             @if ($errors->has('is_featured'))
@@ -178,7 +183,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>চেম্বার:</label>
+                                            <label>{{ translate('Chamber') }}</label>
                                             @foreach ($doc_info->chambers as $chamber)
                                                 <div>
                                                     <span class="fas fa-times remove-btn"
@@ -203,12 +208,13 @@
                                         </div>
 
                                         <span class="btn btn-info btn-sm text-white mb-5"
-                                            onclick="createNewChamberInputFiled()"><span class="fas fa-plus"></span> New
-                                            Chamber</span>
+                                            onclick="createNewChamberInputFiled()"><span class="fas fa-plus"></span>
+                                            {{ translate('New
+                                                                                                                                    Chamber') }}</span>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>ছবি</label>
+                                            <label>{{ translate('Image') }}</label>
                                             <br>
                                             <input type="file" name="image">
                                             @if ($errors->has('image'))
@@ -223,7 +229,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat" value="Update" />
+                                        <input type="submit" class="btn btn-block btn-success btn-flat"
+                                            value="{{ translate('Update') }}" />
                                     </div>
                                 </div>
                             </form>

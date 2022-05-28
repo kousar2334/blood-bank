@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Add New Doctor | Doctors
+    {{ translate('New Doctor') }}
 @stop
 @section('custom_css')
     <style>
@@ -25,10 +25,11 @@
                 <div class="col-lg-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">New Doctor</h3>
+                            <h3 class="card-title">{{ translate('New Doctor') }}</h3>
                             <a href="{{ route('admin.doctor.list') }}"
-                                class="btn btn-danger btn-sm float-right text-white"><i class="fas fa-user-md"> </i>
-                                All Doctors</a>
+                                class="btn btn-success btn-sm float-right text-white"><i class="fas fa-user-md"> </i>
+                                {{ translate('All Doctors') }}
+                            </a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -41,7 +42,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>নাম<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="name" value="{{ old('name') }}"
                                                 class="form-control" placeholder="Enter Name">
                                             @if ($errors->has('name'))
@@ -54,7 +55,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>নাম</label>
+                                            <label>{{ translate('Name') }}</label>
                                             <input type="text" name="en_name" value="{{ old('name') }}"
                                                 class="form-control" placeholder="Enter Name">
                                             @if ($errors->has('name'))
@@ -71,7 +72,8 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>বিভাগ<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Department') }}<span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-control" name="department"
                                                 value="{{ old('department') }}">
                                                 @foreach ($specializations as $sp)
@@ -79,14 +81,15 @@
                                                 @endforeach
                                             </select>
                                             @if ($errors->has('department'))
-                                                <small class="text text-danger">{{ $errors->first('department') }}</small>
+                                                <small
+                                                    class="text text-danger">{{ $errors->first('department') }}</small>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>বিএমডিসি রেজি. নং:</label>
+                                            <label>{{ translate('BMDC No.') }}</label>
                                             <input type="text" class="form-control" name="bmdc_no"
                                                 placeholder="Enter BMDC No">{{ old('bmdc_no') }}</input>
                                             @if ($errors->has('bmdc_no'))
@@ -97,7 +100,8 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>ডিগ্রি<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Qualification') }}<span
+                                                    class="text-danger">*</span></label>
                                             <textarea class="form-control" name="qualification" rows="4"
                                                 placeholder="Enter Qualification">{{ old('qualification') }}</textarea>
                                             @if ($errors->has('qualification'))
@@ -111,7 +115,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>পদবী</label>
+                                            <label>{{ translate('Designation') }}</label>
                                             <textarea class="form-control" name="position" rows="4"
                                                 placeholder="Enter Position">{{ old('position') }}</textarea>
                                             @if ($errors->has('position'))
@@ -122,7 +126,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>কোন বিষয়ে বিশেষজ্ঞ</label>
+                                            <label>{{ translate('Specialist') }}</label>
                                             <textarea class="form-control" name="specialist" rows="4"
                                                 placeholder="Enter Specialist">{{ old('specialist') }}</textarea>
                                             @if ($errors->has('specialist'))
@@ -134,7 +138,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>কর্মস্থল</label>
+                                            <label>{{ translate('Working Place') }}</label>
                                             <textarea class="form-control" name="working_place" rows="4"
                                                 placeholder="Enter Working Place">{{ old('working_place') }}</textarea>
                                             @if ($errors->has('working_place'))
@@ -150,7 +154,7 @@
                                     <div class="col-sm-6">
                                         <!-- text input -->
                                         <div class="form-group">
-                                            <label>মোবাইল</label>
+                                            <label>{{ translate('Mobile') }}</label>
                                             <textarea class="form-control" name="mobile" rows="4" placeholder="Enter Mobile">{{ old('mobile') }}</textarea>
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile') }}</small>
@@ -160,7 +164,7 @@
                                     <div class="col-sm-6">
                                         <!-- textarea -->
                                         <div class="form-group">
-                                            <label>ছবি</label>
+                                            <label>{{ translate('Image') }}</label>
                                             <br>
                                             <input type="file" name="image">
                                             @if ($errors->has('image'))
@@ -172,7 +176,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>চেম্বার:</label>
+                                            <label>{{ translate('Chamber') }}</label>
                                             <input type="text" name="chambers[0][chamber]" class="form-control mb-2"
                                                 placeholder="চেম্বারের নাম">
                                             <textarea class="form-control mb-2" name="chambers[0][address]" placeholder="ঠিকানা" rows="4"></textarea>
@@ -184,8 +188,9 @@
                                             <!--Dynamic chamber here-->
                                         </div>
                                         <span class="btn btn-info btn-sm text-white mb-5"
-                                            onclick="createNewChamberInputFiled()"><span class="fas fa-plus"></span> New
-                                            Chamber</span>
+                                            onclick="createNewChamberInputFiled()"><span class="fas fa-plus"></span>
+                                            {{ translate('New Chamber') }}
+                                        </span>
                                     </div>
 
                                 </div>
@@ -193,7 +198,8 @@
 
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
+                                        <input type="submit" class="btn btn-block btn-success btn-flat"
+                                            value="{{ translate('Save') }}" />
                                     </div>
                                 </div>
                             </form>
