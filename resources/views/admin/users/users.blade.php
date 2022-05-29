@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    All Users
+    {{ translate('Users') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -16,9 +16,9 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Users</h3>
+                            <h3 class="card-title">{{ translate('Users') }}</h3>
                             <a href="{{ route('admin.user.new.user') }}"
-                                class="mr-2 btn btn-success btn-sm float-right text-white">Add New User</a>
+                                class="mr-2 btn btn-success btn-sm float-right text-white">{{ translate('Add New User') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -26,14 +26,14 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Mobile</th>
-                                        <th>User Name</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Image') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Email') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Username') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,9 +62,9 @@
                                             <td>{{ $user->username }}</td>
                                             <td>
                                                 @if ($user->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
@@ -86,18 +86,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
 @stop
 @section('custom_script')
     <!--data table-->

@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Edit User
+    {{ translate('Edit User') }}
 @stop
 @section('custom_css')
 @stop
@@ -13,7 +13,7 @@
                 <div class="col-lg-6 col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Update Basic Information</h3>
+                            <h3 class="card-title">{{ translate('Update Basic Information') }}</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.user.update') }}" method="POST"
@@ -22,7 +22,8 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>First Name<span class="text-danger">*</span></label>
+                                            <label>{{ translate('First Name') }}<span
+                                                    class="text-danger">*</span></label>
                                             <input type="hidden" name="id" value="{{ $user_info->id }}">
                                             <input type="text" name="first_name" class="form-control"
                                                 value="{{ $user_info->first_name }}" placeholder=" Enter First Name">
@@ -31,7 +32,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Last Name</label>
+                                            <label>{{ translate('Last Name') }}</label>
                                             <input type="text" name="last_name" class="form-control"
                                                 value="{{ $user_info->last_name }}" placeholder=" Enter Last Name">
                                             @if ($errors->has('last_name'))
@@ -39,7 +40,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Email</label>
+                                            <label>{{ translate('Email') }}</label>
                                             <input type="email" name="email" class="form-control"
                                                 value="{{ $user_info->email }}" placeholder=" Enter Email">
                                             @if ($errors->has('email'))
@@ -47,7 +48,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Mobile</label>
+                                            <label>{{ translate('Mobile') }}</label>
                                             <input type="text" name="mobile" class="form-control"
                                                 value="{{ $user_info->mobile }}" placeholder=" Enter Mobile">
                                             @if ($errors->has('mobile'))
@@ -55,20 +56,21 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Image</label>
+                                            <label>{{ translate('Image') }}</label>
                                             <input type="file" name="image" class="form-control">
                                             @if ($errors->has('image'))
                                                 <small class="text text-danger">{{ $errors->first('image') }}</small>
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Status</label>
+                                            <label>{{ translate('Status') }}</label>
                                             <select class="form-control" name="status">
                                                 <option {{ $user_info->status == '1' ? 'selected' : '' }} value="1">
-                                                    Active</option>
+                                                    {{ translate('Active') }}
+                                                </option>
                                                 <option {{ $user_info->status == '0' ? 'selected' : '' }} value="0">
-                                                    Inactive</option>
-
+                                                    {{ translate('Inactive') }}
+                                                </option>
                                             </select>
                                             @if ($errors->has('status'))
                                                 <small class="text text-danger">{{ $errors->first('status') }}</small>
@@ -79,7 +81,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="Update User" />
+                                            value="{{ translate('Update') }}" />
                                     </div>
                                 </div>
                             </form>
@@ -90,7 +92,7 @@
                 <div class="col-lg-6 col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Update Password</h3>
+                            <h3 class="card-title">{{ translate('Update Password') }}</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.user.update.password') }}" method="POST">
@@ -98,7 +100,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>New Password</label>
+                                            <label>{{ translate('New Password') }}</label>
                                             <input type="hidden" name="id" value="{{ $user_info->id }}" readonly>
                                             <input type="password" name="password" class="form-control"
                                                 value="{{ old('password') }}" placeholder=" Enter Password">
@@ -107,7 +109,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Conform Password</label>
+                                            <label>{{ translate('Conform Password') }}</label>
                                             <input type="password" name="password_confirmation" class="form-control"
                                                 placeholder="Confirm Password">
                                         </div>
@@ -117,7 +119,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="Update User Password" />
+                                            value="{{ translate('Update Password') }}" />
                                     </div>
                                 </div>
                             </form>
