@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    General Settings
+    {{ translate('General Settings') }}
 @stop
 @section('custom_css')
     <style>
@@ -19,7 +19,7 @@
                 <div class="offset-lg-2 col-lg-8 col-sm-12 mt-3">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">General Settings</h3>
+                            <h3 class="card-title">{{ translate('General Settings') }}</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.settings.general.update') }}" method="POST"
@@ -28,7 +28,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Site Name<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Site Name') }}<span class="text-danger">*</span></label>
                                             <input type="hidden" name="id" value="{{ $settings->id }}">
                                             <input type="text" name="site_name" value="{{ $settings->site_name }}"
                                                 class="form-control" placeholder="Enter Site Name">
@@ -37,7 +37,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Logo</label>
+                                            <label>{{ translate('Logo') }}</label>
                                             <input type="file" name="logo" class="form-control">
                                             @if ($errors->has('logo'))
                                                 <small class="text text-danger">{{ $errors->first('logo') }}</small>
@@ -51,14 +51,14 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Favicon</label>
+                                            <label>{{ translate('Favicon') }}</label>
                                             <input type="file" name="favicon" class="form-control">
                                             @if ($errors->has('favicon'))
                                                 <small class="text text-danger">{{ $errors->first('favicon') }}</small>
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Phone</label>
+                                            <label>{{ translate('Phone') }}</label>
                                             <input type="text" name="phone" value="{{ $settings->phone }}"
                                                 class="form-control" placeholder="Enter Phone">
                                             @if ($errors->has('phone'))
@@ -66,7 +66,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Mobile</label>
+                                            <label>{{ translate('Mobile') }}</label>
                                             <input type="text" name="mobile" value="{{ $settings->mobile }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile'))
@@ -74,7 +74,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Email</label>
+                                            <label>{{ translate('Email') }}</label>
                                             <input type="email" name="email" value="{{ $settings->email }}"
                                                 class="form-control" placeholder="Enter Email">
                                             @if ($errors->has('email'))
@@ -82,7 +82,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Address</label>
+                                            <label>{{ translate('Address') }}</label>
                                             <textarea class="form-control" name="address" rows="3"
                                                 placeholder="Enter Address">{{ $settings->address }}</textarea>
                                             @if ($errors->has('address'))
@@ -94,7 +94,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="Update Settings" />
+                                            value="{{ translate('Update Settings') }}" />
                                     </div>
                                 </div>
                             </form>

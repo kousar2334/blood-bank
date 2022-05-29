@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    About Us
+    {{ translate('About Us') }}
 @stop
 @section('custom_css')
 
@@ -43,7 +43,7 @@
                 <div class="offset-lg-2 col-lg-8 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">About Us</h3>
+                            <h3 class="card-title">{{ translate('About Us') }}</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.settings.general.about.us.update') }}" method="POST"
@@ -60,12 +60,11 @@
                                     </div>
                                     <div class="form-group col-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="Update About Us" />
+                                            value="{{ translate('Update') }}" />
                                     </div>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>

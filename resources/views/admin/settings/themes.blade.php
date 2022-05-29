@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Themes
+    {{ translate('Themes') }}
 @stop
 @section('custom_css')
     <style>
@@ -34,7 +34,7 @@
                 <div class="col-lg-12 col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Themes</h3>
+                            <h3 class="card-title">{{ translate('Themes') }}</h3>
                         </div>
                         <div class="card-body row">
                             @foreach ($themes as $theme)
@@ -46,7 +46,7 @@
                                             <div class="theme-card">
                                                 <div class="content">
                                                     @if ($theme->code === $activeTheme)
-                                                        <div class="badge badge-success">Active</div>
+                                                        <div class="badge badge-success">{{ translate('Active') }}</div>
                                                     @endif
                                                     <p>{{ $theme->description }}</p><span>Version: 1.0.0</span>
                                                 </div>
@@ -61,7 +61,7 @@
                                                 <div class="d-flex justify-content-sm-end col-sm-6 p-0">
                                                     @if ($theme->code != $activeTheme)
                                                         <button type="submit"
-                                                            class="btn btn-sm btn-info float-right">Activate</button>
+                                                            class="btn btn-sm btn-info float-right">{{ translate('Activate') }}</button>
                                                     @endif
                                                 </div>
 

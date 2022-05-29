@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Social Accounts
+    {{ translate('Social Accounts') }}
 @stop
 @section('custom_css')
 @stop
@@ -13,7 +13,7 @@
                 <div class="offset-lg-3 col-lg-6 col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Social Accounts</h3>
+                            <h3 class="card-title">{{ translate('Social Accounts') }}</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.settings.social.acconts.update') }}" method="POST">
@@ -21,7 +21,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>Facebook</label>
+                                            <label>{{ translate('Facebook') }}</label>
                                             <input type="hidden" name="id" value="{{ $accounts->id }}">
                                             <input type="text" name="fb_link" value="{{ $accounts->fb_link }}"
                                                 class="form-control" placeholder="Enter facebook page link">
@@ -31,7 +31,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Twitter</label>
+                                            <label>{{ translate('Twitter') }}</label>
                                             <input type="text" name="twitter_link" value="{{ $accounts->twitter_link }}"
                                                 class="form-control" placeholder="Enter twitter account link">
                                             @if ($errors->has('twitter_link'))
@@ -40,7 +40,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Youtube</label>
+                                            <label>{{ translate('Youtube') }}</label>
                                             <input type="text" name="youtube_link" value="{{ $accounts->youtube_link }}"
                                                 class="form-control" placeholder="Enter youtube channel link">
                                             @if ($errors->has('youtube_link'))
@@ -48,18 +48,16 @@
                                                     class="text text-danger">{{ $errors->first('youtube_link') }}</small>
                                             @endif
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="Update Settings" />
+                                            value="{{ translate('Update') }}" />
                                     </div>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
