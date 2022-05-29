@@ -87,6 +87,10 @@
             font-size: 13px;
         }
 
+        label {
+            font-weight: normal !important;
+        }
+
     </style>
     @yield('custom_css')
 

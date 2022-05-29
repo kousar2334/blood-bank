@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Ambulance List
+    {{ translate('Ambulances') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -17,27 +17,26 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Ambulances</h3>
+                            <h3 class="card-title">{{ translate('Ambulances') }}</h3>
                             <a href="{{ route('admin.ambulance.category.add') }}"
-                                class="btn btn-success btn-sm float-right text-white">New Category</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('Add New Category') }}</a>
                             <a href="{{ route('admin.ambulance.add') }}"
-                                class="btn btn-danger btn-sm float-right text-white mr-2">New Ambulance</a>
+                                class="btn btn-info btn-sm float-right text-white mr-2">{{ translate('Add New Ambulance') }}</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="ambulance_table" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Bangla Name</th>
-                                        <th>Phone</th>
-                                        <th>Mobile 1</th>
-                                        <th>Mobile 2</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Phone') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Alternative Mobile') }}</th>
+                                        <th>{{ translate('Description') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th>{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,9 +58,9 @@
                                             <td>{{ $ambulance->description }}</td>
                                             <td>
                                                 @if ($ambulance->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
@@ -83,18 +82,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-
 @stop
 @section('custom_script')
     <!--data table-->

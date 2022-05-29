@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Ambulance Categories
+    {{ translate('Ambulance Categories') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -17,9 +17,9 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Ambulance Categories</h3>
+                            <h3 class="card-title">{{ translate('Ambulance Categories') }}</h3>
                             <a href="{{ route('admin.ambulance.category.add') }}"
-                                class="btn btn-success btn-sm float-right text-white">New Category</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('Add New Category') }}</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -27,12 +27,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Bangla Name</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Description') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th>{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,9 +51,9 @@
                                             <td>{{ $cat->description }}</td>
                                             <td>
                                                 @if ($cat->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
@@ -76,18 +76,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
 @stop
 @section('custom_script')
 
