@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Police Stations
+    {{ translate('Police Stations') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -13,29 +13,27 @@
 @section('admin_content')
     <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="m-0 card-title">Police Stations</h4>
+                            <h4 class="m-0 card-title">{{ translate('Police Stations') }}</h4>
                             <a href="{{ route('admin.police.add') }}"
-                                class="btn btn-success btn-sm float-right text-white">Add New Police Station</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('Add New Police Station') }}</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="doctor_department_table" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Mobile 1</th>
-                                        <th>Mobile 2</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Phone') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Alternative Mobile') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,12 +50,11 @@
                                             <td class="bangla-font">{{ $police->phone }}</td>
                                             <td class="bangla-font">{{ $police->mobile_1 }}</td>
                                             <td class="bangla-font">{{ $police->mobile_2 }}</td>
-
                                             <td>
                                                 @if ($police->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
@@ -80,18 +77,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-
 @stop
 @section('custom_script')
     <!--data table-->
@@ -110,7 +100,6 @@
                 "autoWidth": false,
                 "responsive": true,
             });
-
         });
     </script>
 @stop
