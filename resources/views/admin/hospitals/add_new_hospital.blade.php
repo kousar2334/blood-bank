@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Add New Hospital
+    {{ translate('Add New Hospital') }}
 @stop
 @section('custom_css')
 @stop
@@ -14,50 +14,43 @@
                 <div class="col-lg-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Hospital's Form</h3>
+                            <h3 class="card-title">{{ translate('Add New Hospital') }}</h3>
                             <a href="{{ route('admin.hospital.list') }}"
-                                class="btn btn-info btn-sm float-right text-white">Hospital's List</a>
+                                class="btn btn-info btn-sm float-right text-white">{{ translate('Hospital & Clinic') }}</a>
                             <a href="{{ route('admin.hospital.category.add') }}"
-                                class="btn btn-danger btn-sm float-right text-white mr-3">Add New Category</a>
+                                class="btn btn-sucess btn-sm float-right text-white mr-3">{{ translate('Add New Category') }}</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.hospital.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Name<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="hidden" name="status" value="1">
                                             <input type="text" name="name" value="{{ old('name') }}"
                                                 class="form-control" placeholder="Enter Name">
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Bangla Name</label>
+                                            <label>{{ translate('Name') }}</label>
                                             <input type="text" name="bn_name" value="{{ old('bn_name') }}"
                                                 class="form-control" placeholder="Enter Bangla Name">
                                             @if ($errors->has('bn_name'))
                                                 <small class="text text-danger">{{ $errors->first('bn_name') }}</small>
                                             @endif
-
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Category<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Category') }}<span class="text-danger">*</span></label>
                                             <select class="form-control" name="cat_id" value="{{ old('cat_id') }}">
                                                 @foreach ($hos_cats as $cat)
                                                     <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -69,9 +62,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Phone</label>
+                                            <label>{{ translate('Phone') }}</label>
                                             <input type="text" name="phone" value="{{ old('phone') }}"
                                                 class="form-control" placeholder="Enter Phone">
                                             @if ($errors->has('phone'))
@@ -82,22 +74,18 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Mobile<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Mobile') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="mobile_1" value="{{ old('mobile_1') }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile_1'))
                                                 <small class="text text-danger">{{ $errors->first('mobile_1') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Mobile 2</label>
+                                            <label>{{ translate('Alternative Mobile') }}</label>
                                             <input type="text" name="mobile_2" value="{{ old('mobile_2') }}"
                                                 class="form-control" placeholder="Enter Mobile">
                                             @if ($errors->has('mobile'))
@@ -106,9 +94,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Email</label>
+                                            <label>{{ translate('Email') }}</label>
                                             <input type="email" name="email" value="{{ old('email') }}"
                                                 class="form-control" placeholder="Enter Email">
                                             @if ($errors->has('email'))
@@ -117,9 +104,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Web</label>
+                                            <label>{{ translate('Web Site') }}</label>
                                             <input type="text" name="web" value="{{ old('web') }}"
                                                 class="form-control" placeholder="Enter Web address">
                                             @if ($errors->has('web'))
@@ -128,9 +114,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Facebook Page</label>
+                                            <label>{{ translate('Facebook Page') }}</label>
                                             <input type="text" name="fb_link" value="{{ old('fb_link') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('fb_link'))
@@ -139,9 +124,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
-                                            <label>Image</label>
+                                            <label>{{ translate('Image') }}</label>
                                             <input type="file" name="image" value="{{ old('image') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('image'))
@@ -152,9 +136,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- textarea -->
                                         <div class="form-group">
-                                            <label>Description</label>
+                                            <label>{{ translate('Description') }}</label>
                                             <textarea class="form-control" name="description" rows="3"
                                                 placeholder="Enter Description">{{ old('description') }}</textarea>
                                             @if ($errors->has('description'))
@@ -164,35 +147,28 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- textarea -->
                                         <div class="form-group">
-                                            <label>Address</label>
+                                            <label>{{ translate('Address') }}</label>
                                             <textarea class="form-control" name="address" rows="3" placeholder="Enter Address">{{ old('addres') }}</textarea>
                                             @if ($errors->has('address'))
                                                 <small class="text text-danger">{{ $errors->first('address') }}</small>
                                             @endif
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat" value="Save" />
+                                        <input type="submit" class="btn btn-block btn-success btn-flat"
+                                            value="{{ translate('Save') }}" />
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-
 @stop
 @section('custom_script')
 

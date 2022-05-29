@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Hospitals & Clinics List
+    {{ translate('Hospital & Clinic') }}
 @stop
 @section('custom_css')
     <link rel="stylesheet" href="{{ asset('/static/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -21,34 +21,31 @@
     </style>
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Hospitals & Clinics</h3>
+                            <h3 class="card-title">{{ translate('Hospital & Clinic') }}</h3>
                             <a href="{{ route('admin.hospital.add') }}"
-                                class="btn btn-success btn-sm float-right text-white">Add New Hospital</a>
+                                class="btn btn-success btn-sm float-right text-white">{{ translate('Add New Hospital') }}</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="hospital_list" class="table table-bordered table-striped dataTable">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Category</th>
-                                        <th>Email</th>
-                                        <th>Mobile</th>
-                                        <th>Mobile 2</th>
-                                        <th>Address</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Image') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Category') }}</th>
+                                        <th>{{ translate('Email') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Alternative Mobile') }}</th>
+                                        <th>{{ translate('Address') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,15 +53,10 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
     <!--Modal-->
@@ -72,7 +64,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Hospital Details</h4>
+                    <h4 class="modal-title">{{ translate('Hospital Details') }}</h4>
                     <button type="button" class="close" onclick="closeModal()" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -225,7 +217,6 @@
                             var source = "{{ asset('/') }}" + data.hospital.image;
                             $('.img-hospital').attr('src', source);
                         }
-
                     }
                     $("#details-modal").show('fadeOut');
                 }

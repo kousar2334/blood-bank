@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Hospital Categories
+    {{ translate('Hospital Categories') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -11,26 +11,24 @@
 @section('admin_content')
     <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Hospitals Categories</h3>
+                            <h3 class="card-title">{{ translate('Hospital Categories') }}</h3>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Bangla Name</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Description') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,9 +47,9 @@
                                             <td>{{ $hospital_cat->description }}</td>
                                             <td>
                                                 @if ($hospital_cat->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
@@ -60,7 +58,8 @@
                                                         class="fas fa-edit"></i></a>
                                             </td>
                                             <td class="text-right">
-                                                <form method="post" action="{{ route('admin.hospital.category.delete') }}"
+                                                <form method="post"
+                                                    action="{{ route('admin.hospital.category.delete') }}"
                                                     style="float:right;">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $hospital_cat->id }}">
@@ -74,17 +73,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
 
 @stop
 @section('custom_script')
@@ -99,8 +92,6 @@
                 $(".del-modal").hide('fadeIn');
 
             });
-
-
         });
 
         function displayDeleteModal(id) {
