@@ -1,6 +1,6 @@
 @extends('admin.layouts.main')
 @section('admin-page-title')
-    Admin | Fire services
+    {{ translate('Fire services') }}
 @stop
 @section('custom_css')
     <!-- DataTables -->
@@ -17,22 +17,22 @@
                 <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="m-0 card-title">Fire services</h3>
+                            <h3 class="m-0 card-title">{{ translate('Fire services') }}</h3>
                             <a href="{{ route('admin.fireservice.add') }}"
-                                class="btn btn-danger btn-sm float-right text-white">Add New Fire service</a>
+                                class="btn btn-danger btn-sm float-right text-white">{{ translate('Add New Fire service') }}</a>
                         </div>
                         <div class="card-body">
                             <table id="doctor_department_table" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Phone</th>
-                                        <th>Mobile 1</th>
-                                        <th>Mobile 2</th>
-                                        <th>Status</th>
-                                        <th class="text-center">Action</th>
-                                        <th class="text-right">Remove</th>
+                                        <th>{{ translate('Name') }}</th>
+                                        <th>{{ translate('Phone') }}</th>
+                                        <th>{{ translate('Mobile') }}</th>
+                                        <th>{{ translate('Alternative Mobile') }}</th>
+                                        <th>{{ translate('Status') }}</th>
+                                        <th class="text-center">{{ translate('Action') }}</th>
+                                        <th class="text-right">{{ translate('Remove') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,16 +52,16 @@
 
                                             <td>
                                                 @if ($fire_service->status == 1)
-                                                    <p class="badge badge-success">Actice</p>
+                                                    <p class="badge badge-success">{{ translate('Active') }}</p>
                                                 @else
-                                                    <p class="badge badge-danger">Inactive</p>
+                                                    <p class="badge badge-danger">{{ translate('Inactive') }}</p>
                                                 @endif
                                             </td>
                                             <td class="text-center text-white">
                                                 <a href="{{ route('admin.fireservice.edit', $fire_service->id) }}"
                                                     class="btn btn-sm btn-circle primary-soft"><i
-                                                        class="fas fa-edit"></i></a>
-
+                                                        class="fas fa-edit"></i>
+                                                </a>
                                             </td>
                                             <td class="text-right">
                                                 <form method="post" action="{{ route('admin.fireservice.delete') }}"
@@ -77,18 +77,14 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-
 @stop
 @section('custom_script')
     <!--data table-->
