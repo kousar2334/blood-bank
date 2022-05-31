@@ -86,7 +86,7 @@ class LanguageRepository implements LanguageInterface
         try {
             DB::beginTransaction();
             $code = Language::where('id', $id)->value('code');
-            if ($code == config('app.locale')) {
+            if ($code == 'en') {
                 Toastr::error(translate('Can not delete default language'));
             } else {
                 Language::where('id', $id)->delete();

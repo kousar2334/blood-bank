@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="_token" content="{{ csrf_token() }}">
     <title>
-        @yield('admin-page-title')
+        {{ translate('Admin') }} | @yield('admin-page-title')
     </title>
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('/static/common/img/favicon.png') }}" />
     <!-- Tell the browser to be responsive to screen width -->
@@ -89,6 +89,10 @@
 
         label {
             font-weight: normal !important;
+        }
+
+        body {
+            font-family: "SolaimanLipiNormal";
         }
 
     </style>

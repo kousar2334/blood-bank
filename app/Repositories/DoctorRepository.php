@@ -212,9 +212,9 @@ class DoctorRepository implements DoctorInterface
             })
             ->addColumn('status', function ($doctor) {
                 if ($doctor->status == 1) {
-                    return ' <p class="badge badge-success">Active</p>';
+                    return ' <p class="badge badge-success">' . translate('Active') . '</p>';
                 } else {
-                    return '<p class="badge badge-danger">Inactive</p>';
+                    return '<p class="badge badge-danger">' . translate('Inactive') . '</p>';
                 }
             })
             ->editColumn('action', function ($doctor) {
@@ -224,8 +224,8 @@ class DoctorRepository implements DoctorInterface
                     <i class="fas fa-tasks"></i>
                     </p>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button" onclick=viewDetails(' . $doctor->id . ')>View Details</button>
-                        <a href="' . route('admin.doctor.edit', $doctor->id) . '" class="dropdown-item" type="button">Edit Doctor</a>
+                        <button class="dropdown-item" type="button" onclick=viewDetails(' . $doctor->id . ')>' . translate('View Details') . '</button>
+                        <a href="' . route('admin.doctor.edit', $doctor->id) . '" class="dropdown-item" type="button">' . translate('Edit Doctor') . '</a>
                     </div>
                  </div>
                 ';

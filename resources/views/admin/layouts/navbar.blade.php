@@ -304,11 +304,12 @@
                     </ul>
                 </li>
                 <!--End Projects Module-->
+
                 <!--Setting Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.language.edit.key.value', 'admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.language.edit.key.value', 'admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             {{ translate('Settings') }}
@@ -353,7 +354,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.language.list') }}"
-                                class="{{ Request::routeIs('admin.language.list') ? 'active ' : '' }} nav-link">
+                                class="{{ Request::routeIs(['admin.language.edit.key.value', 'admin.language.list']) ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>{{ translate('Languages') }} </p>
                             </a>
@@ -390,6 +391,18 @@
                     </ul>
                 </li>
                 <!--End Users Module-->
+                <!--Addon Manager-->
+                <li
+                    class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="#"
+                        class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            {{ translate('Addon Manager') }}
+                        </p>
+                    </a>
+                </li>
+                <!--End Addon Manager-->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
