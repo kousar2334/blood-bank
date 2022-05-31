@@ -175,9 +175,9 @@ class HospitalRepository implements HospitalInterface
             })
             ->addColumn('status', function ($hospital) {
                 if ($hospital->status == 1) {
-                    return ' <p class="badge badge-success">Active</p>';
+                    return ' <p class="badge badge-success">' . translate('Active') . '</p>';
                 } else {
-                    return '<p class="badge badge-danger">Inactive</p>';
+                    return '<p class="badge badge-danger">' . translate('Inactive') . '</p>';
                 }
             })
             ->editColumn('action', function ($hospital) {
@@ -187,8 +187,8 @@ class HospitalRepository implements HospitalInterface
                         <i class="fas fa-tasks"></i>
                         </p>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" type="button" onclick=viewDetails(' . $hospital->id . ')>View Details</button>
-                            <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="dropdown-item" type="button">Edit Hospital</a>
+                            <button class="dropdown-item" type="button" onclick=viewDetails(' . $hospital->id . ')>' . translate('View Details') . '</button>
+                            <a href="' . route('admin.hospital.edit', $hospital->id) . '" class="dropdown-item" type="button">' . translate('Edit Hospital') . '</a>
                         </div>
                     </div>
             ';

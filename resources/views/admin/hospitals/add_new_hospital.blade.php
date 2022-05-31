@@ -5,12 +5,9 @@
 @section('custom_css')
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
-
                 <div class="col-lg-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
@@ -50,7 +47,8 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>{{ translate('Category') }}<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Category') }}<span
+                                                    class="text-danger">*</span></label>
                                             <select class="form-control" name="cat_id" value="{{ old('cat_id') }}">
                                                 @foreach ($hos_cats as $cat)
                                                     <option value="{{ $cat->id }}">{{ $cat->name }}</option>
@@ -156,11 +154,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="{{ translate('Save') }}" />
-                                    </div>
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Save') }}" />
                                 </div>
                             </form>
                         </div>

@@ -28,7 +28,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <label>{{ translate('Site Name') }}<span class="text-danger">*</span></label>
+                                            <label>{{ translate('Site Name') }}<span
+                                                    class="text-danger">*</span></label>
                                             <input type="hidden" name="id" value="{{ $settings->id }}">
                                             <input type="text" name="site_name" value="{{ $settings->site_name }}"
                                                 class="form-control" placeholder="Enter Site Name">
@@ -91,11 +92,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="{{ translate('Update Settings') }}" />
-                                    </div>
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success"
+                                        value="{{ translate('Update Settings') }}" />
                                 </div>
                             </form>
                         </div>

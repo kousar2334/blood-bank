@@ -5,9 +5,7 @@
 @section('custom_css')
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="offset-lg-2 col-lg-8 col-sm-12 mt-4">
@@ -59,11 +57,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="{{ translate('Update') }}" />
-                                    </div>
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Update') }}" />
                                 </div>
                             </form>
                         </div>

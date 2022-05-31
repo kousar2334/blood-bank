@@ -26,9 +26,7 @@
     </style>
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-12 mt-4">

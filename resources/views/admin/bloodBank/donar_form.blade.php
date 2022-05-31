@@ -5,9 +5,7 @@
 @section('custom_css')
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 mt-4">
@@ -17,14 +15,12 @@
                             <a href="{{ route('admin.blood.donar.list') }}"
                                 class="btn btn-danger btn-sm float-right text-white">{{ translate('Blood Donors') }}</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.blood.donar.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="name" value="{{ old('name') }}"
@@ -32,12 +28,9 @@
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Blood Group') }}<span
                                                     class="text-danger">*</span></label>
@@ -53,11 +46,9 @@
                                             @endif
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Mobile') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="mobile" value="{{ old('mobile') }}"
@@ -65,12 +56,9 @@
                                             @if ($errors->has('mobile'))
                                                 <small class="text text-danger">{{ $errors->first('mobile') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Alternative Mobile') }}</label>
                                             <input type="text" name="mobile_2" value="{{ old('mobile_2') }}"
@@ -81,7 +69,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Email') }}</label>
                                             <input type="email" name="email" value="{{ old('email') }}"
@@ -92,11 +79,10 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Image') }}</label>
                                             <input type="file" name="image" value="{{ old('image') }}"
-                                                class="form-control" placeholder="Enter ...">
+                                                class="form-control">
                                             @if ($errors->has('image'))
                                                 <small class="text text-danger">{{ $errors->first('image') }}</small>
                                             @endif
@@ -105,7 +91,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <!-- textarea -->
                                         <div class="form-group">
                                             <label>{{ translate('Address') }}</label>
                                             <textarea class="form-control" name="addres" rows="3" placeholder="Enter Address">{{ old('addres') }}</textarea>
@@ -114,27 +99,17 @@
                                             @endif
                                         </div>
                                     </div>
-
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="{{ translate('Save') }}" />
-                                    </div>
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Save') }}" />
                                 </div>
                             </form>
                         </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-
 @stop
 @section('custom_script')
 

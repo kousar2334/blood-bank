@@ -68,11 +68,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block bg-gradient-success"
-                                            value="{{ translate('Update') }}" />
-                                    </div>
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Update') }}" />
                                 </div>
                             </form>
                         </div>

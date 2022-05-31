@@ -307,9 +307,9 @@
 
                 <!--Setting Module-->
                 <li
-                    class="{{ Request::routeIs(['admin.language.edit.key.value', 'admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    class="{{ Request::routeIs(['admin.language.edit', 'admin.language.edit.key.value', 'admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
-                        class="{{ Request::routeIs(['admin.language.edit.key.value', 'admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
+                        class="{{ Request::routeIs(['admin.language.edit', 'admin.language.edit.key.value', 'admin.language.new', 'admin.language.list', 'admin.settings.general', 'admin.settings.general.about.us', 'admin.settings.social.acconts.list', 'admin.settings.seo', 'admin.settings.themes']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-cog"></i>
                         <p>
                             {{ translate('Settings') }}
@@ -354,7 +354,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.language.list') }}"
-                                class="{{ Request::routeIs(['admin.language.edit.key.value', 'admin.language.list']) ? 'active ' : '' }} nav-link">
+                                class="{{ Request::routeIs(['admin.language.edit', 'admin.language.edit.key.value', 'admin.language.list']) ? 'active ' : '' }} nav-link">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                                 <p>{{ translate('Languages') }} </p>
                             </a>

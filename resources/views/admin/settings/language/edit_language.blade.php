@@ -6,10 +6,7 @@
 @stop
 @section('admin_content')
     </section>
-    <!-- /.content-header -->
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 mt-4">
@@ -17,10 +14,10 @@
                         <div class="card-header">
                             <h3 class="card-title">{{ translate('Language Information') }}</h3>
                             <a href="{{ route('admin.language.list') }}"
-                                class="btn btn-info btn-sm float-right text-white">{{ translate('Languages') }}</a>
-
+                                class="btn btn-info btn-sm float-right text-white">
+                                {{ translate('Languages') }}
+                            </a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body row">
                             <form role="form" action="{{ route('admin.language.update') }}" method="POST"
                                 class="col-md-12">
@@ -64,25 +61,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block bg-gradient-success"
-                                            value="{{ translate('Update') }}" />
-                                    </div>
-
+                                <div class="form-group mt-2 text-right">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Update') }}" />
                                 </div>
                             </form>
                         </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
 
 @stop
 @section('custom_script')

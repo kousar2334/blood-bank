@@ -17,9 +17,7 @@
     </style>
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 mt-4">
@@ -31,7 +29,6 @@
                                 {{ translate('All Doctors') }}
                             </a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <form role="form" action="{{ route('admin.doctor.store') }}" method="POST"
                                 enctype="multipart/form-data">
@@ -40,7 +37,6 @@
                                     <input type="hidden" name="status" value="1">
                                     <input type="hidden" name="end" value="web">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Name') }}<span class="text-danger">*</span></label>
                                             <input type="text" name="name" value="{{ old('name') }}"
@@ -48,12 +44,9 @@
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Name') }}</label>
                                             <input type="text" name="en_name" value="{{ old('name') }}"
@@ -61,16 +54,11 @@
                                             @if ($errors->has('name'))
                                                 <small class="text text-danger">{{ $errors->first('name') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
-
-
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Department') }}<span
                                                     class="text-danger">*</span></label>
@@ -87,7 +75,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('BMDC No.') }}</label>
                                             <input type="text" class="form-control" name="bmdc_no"
@@ -98,7 +85,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Qualification') }}<span
                                                     class="text-danger">*</span></label>
@@ -108,12 +94,9 @@
                                                 <small
                                                     class="text text-danger">{{ $errors->first('qualification') }}</small>
                                             @endif
-
                                         </div>
-
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Designation') }}</label>
                                             <textarea class="form-control" name="position" rows="4"
@@ -124,7 +107,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Specialist') }}</label>
                                             <textarea class="form-control" name="specialist" rows="4"
@@ -136,7 +118,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Working Place') }}</label>
                                             <textarea class="form-control" name="working_place" rows="4"
@@ -147,12 +128,9 @@
                                             @endif
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="row">
-
                                     <div class="col-sm-6">
-                                        <!-- text input -->
                                         <div class="form-group">
                                             <label>{{ translate('Mobile') }}</label>
                                             <textarea class="form-control" name="mobile" rows="4" placeholder="Enter Mobile">{{ old('mobile') }}</textarea>
@@ -162,7 +140,6 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <!-- textarea -->
                                         <div class="form-group">
                                             <label>{{ translate('Image') }}</label>
                                             <br>
@@ -192,28 +169,17 @@
                                             {{ translate('New Chamber') }}
                                         </span>
                                     </div>
-
                                 </div>
-
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block btn-success btn-flat"
-                                            value="{{ translate('Save') }}" />
-                                    </div>
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Save') }}" />
                                 </div>
                             </form>
                         </div>
-                        <!-- /.card-body -->
                     </div>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
 
 @stop
 @section('custom_script')

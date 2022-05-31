@@ -6,10 +6,7 @@
 @stop
 @section('admin_content')
     </section>
-    <!-- /.content-header -->
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 mt-4">
@@ -73,12 +70,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block bg-gradient-success"
-                                            value="{{ translate('Save') }}" />
-                                    </div>
-
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Save') }}" />
                                 </div>
                             </form>
                         </div>

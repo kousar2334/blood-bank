@@ -9,9 +9,7 @@
         href="{{ asset('/static/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
-        <!--Start Container fluid-->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 mt-4">
@@ -21,7 +19,6 @@
                             <a href="{{ route('admin.language.new') }}"
                                 class="btn btn-success btn-sm float-right text-white">{{ translate('New Language') }}</a>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
                             <table id="languages_table" class="table table-bordered table-striped">
                                 <thead>
@@ -81,17 +78,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
 
 @stop
 @section('custom_script')

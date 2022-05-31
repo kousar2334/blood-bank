@@ -5,7 +5,6 @@
 @section('custom_css')
 @stop
 @section('admin_content')
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -87,26 +86,17 @@
                                                     value="0">
                                                     {{ translate('Inactive') }}
                                                 </option>
-
                                             </select>
-
                                             @if ($errors->has('status'))
                                                 <small class="text text-danger">{{ $errors->first('status') }}</small>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block bg-gradient-success"
-                                            value="{{ translate('Update') }}" />
-                                    </div>
-
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Update') }}" />
                                 </div>
                             </form>
-                            {{-- <div class="offset-lg-1 col-lg-5">
-                              Image
-                            </div> --}}
                         </div>
                     </div>
                 </div>
