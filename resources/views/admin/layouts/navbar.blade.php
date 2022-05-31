@@ -275,12 +275,24 @@
                     </ul>
                 </li>
                 <!--End Police Stations Module-->
+                <!--Media Manager-->
+                <li
+                    class="{{ Request::routeIs(['admin.media.manager']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="{{ route('admin.media.manager') }}"
+                        class="{{ Request::routeIs(['admin.media.manager']) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-file-image"></i>
+                        <p>
+                            {{ translate('Media') }}
+                        </p>
+                    </a>
+                </li>
+                <!--End Media Manager-->
                 <!--Projects Module-->
                 <li
                     class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-motorcycle"></i>
+                        <i class="nav-icon fas fa-handshake"></i>
                         <p>
                             {{ translate('Projects') }}
                             <i class="fas fa-angle-left right"></i>
@@ -396,7 +408,8 @@
                     class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="#"
                         class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'active' : '' }} nav-link">
-                        <i class="nav-icon fas fa-cog"></i>
+                        <i class="nav-icon fas fa-hammer"></i>
+                        {{-- <i class="fa-solid fa-hammer"></i> --}}
                         <p>
                             {{ translate('Addon Manager') }}
                         </p>

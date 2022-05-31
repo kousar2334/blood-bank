@@ -125,6 +125,9 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::get('/edit-project/{id}', 'ProjectController@editProject')->name('admin.project.edit');
     Route::post('/update-project', 'ProjectController@updateProject')->name('admin.project.update');
     Route::post('/delete-project', 'ProjectController@projectDelete')->name('admin.project.delete');
+
+    //Media
+    Route::get('/media-manager', 'MediaController@index')->name('admin.media.manager');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module
