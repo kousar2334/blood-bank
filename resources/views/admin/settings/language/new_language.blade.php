@@ -37,26 +37,22 @@
                                             @endif
                                         </div>
                                     </div>
+
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ translate('Code') }}</label>
-                                            <input type="text" name="code" value="{{ old('code') }}"
-                                                class="form-control" placeholder="Enter Code...">
+                                            <select class="langCodeSelect form-control" name="code"
+                                                placeholder="{{ translate('Select a option') }}">
+                                                @foreach (\File::files(base_path('public/flags')) as $path)
+                                                    <option value="{{ pathinfo($path)['filename'] }}"
+                                                        data-image="{{ pathinfo($path)['filename'] }}">
+                                                        {{ pathinfo($path)['filename'] }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                             @if ($errors->has('code'))
                                                 <small class="text text-danger">{{ $errors->first('code') }}</small>
                                             @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label>{{ translate('Code') }}</label>
-                                            <select class="select2 form-control" data-placeholder="Select a option">
-                                                @foreach (\File::files(base_path('public/flags')) as $path)
-                                                    <option value="{{ pathinfo($path)['filename'] }}"
-                                                        class="text-upper">
-                                                        {{ pathinfo($path)['filename'] }}</option>
-                                                @endforeach
-                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -76,8 +72,29 @@
     <!-- Select2 -->
     <script src="{{ asset('/static/backend/plugins/select2/js/select2.full.min.js') }}"></script>
     <script>
-        $('.select2').select2({
-            theme: 'bootstrap4'
-        })
+        $(document).ready(function() {
+            $('.langCodeSelect').select2({
+                theme: 'bootstrap4',
+                templateResult: formatState,
+                templateSelection: formatState
+            });
+        });
+        //Generate language code select options
+        function formatState(opt) {
+            if (!opt.id) {
+                return opt.text.toUpperCase();
+            }
+            var image = $(opt.element).attr('data-image');
+            var optimage = 'flags/' + image + '.png';
+            if (!optimage) {
+                return opt.text.toUpperCase();
+            } else {
+                var $opt = $(
+                    '<span><img src="/' + optimage + '" width="20px" class="mr-2" /> ' + opt.text
+                    .toUpperCase() + '</span>'
+                );
+                return $opt;
+            }
+        };
     </script>
 @stop

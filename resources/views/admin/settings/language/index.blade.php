@@ -44,8 +44,8 @@
                                             <td>{{ $counter }}</td>
                                             <td>{{ $lang->name }}
                                             </td>
-                                            <td>{{ $lang->code }}</td>
-                                            <td>{{ $lang->flag }}</td>
+                                            <td class="text-uppercase">{{ $lang->code }}</td>
+                                            <td><img src="{{ asset('/flags') . '/' . $lang->code . '.png' }}"></td>
                                             <td>
                                                 @if ($lang->status == 1)
                                                     <p class="badge badge-success">{{ translate('Active') }}</p>
