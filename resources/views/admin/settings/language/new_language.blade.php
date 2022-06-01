@@ -3,6 +3,10 @@
     {{ translate('New Language') }}
 @stop
 @section('custom_css')
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('/static/backend/plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('/static/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 @stop
 @section('admin_content')
     </section>
@@ -43,6 +47,18 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label>{{ translate('Code') }}</label>
+                                            <select class="select2 form-control" data-placeholder="Select a option">
+                                                @foreach (\File::files(base_path('public/flags')) as $path)
+                                                    <option value="{{ pathinfo($path)['filename'] }}"
+                                                        class="text-upper">
+                                                        {{ pathinfo($path)['filename'] }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group mt-2 text-right">
                                     <button type="submit" class="btn btn-success">{{ translate('Save') }}</button>
@@ -57,5 +73,11 @@
 
 @stop
 @section('custom_script')
-
+    <!-- Select2 -->
+    <script src="{{ asset('/static/backend/plugins/select2/js/select2.full.min.js') }}"></script>
+    <script>
+        $('.select2').select2({
+            theme: 'bootstrap4'
+        })
+    </script>
 @stop

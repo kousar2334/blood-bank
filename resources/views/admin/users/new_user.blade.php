@@ -71,9 +71,9 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ translate('Conform Password') }}</label>
+                                            <label>{{ translate('Confirm Password') }}</label>
                                             <input type="password" name="password_confirmation" class="form-control"
-                                                placeholder="Confirm Password">
+                                                placeholder="{{ translate('Confirm Password') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>{{ translate('Image') }}</label>
