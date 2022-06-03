@@ -216,8 +216,8 @@
         }
 
         /**
-                                                                                                                                                *Media modal
-                                                                                                                                                **/
+                                                                                                                                                                                            *Media modal
+                                                                                                                                                                                            **/
 
 
 
@@ -268,6 +268,60 @@
             background-color: transparent;
         }
 
+
+        .drag-area {
+            border: 2px dashed #fff;
+            height: 500px;
+            width: 100%;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: darkgrey;
+        }
+
+        .drag-area.active {
+            border: 2px solid #fff;
+        }
+
+        .drag-area .icon {
+            font-size: 100px;
+            color: #fff;
+        }
+
+        .drag-area header {
+            font-size: 30px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .drag-area span {
+            font-size: 25px;
+            font-weight: 500;
+            color: #fff;
+            margin: 10px 0 15px 0;
+        }
+
+        .drag-area button {
+            padding: 10px 25px;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            background: #fff;
+            color: #5256ad;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .drag-area img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
     </style>
 @stop
 @section('admin_content')
@@ -278,120 +332,87 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 mt-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">{{ translate('Media') }}</h3>
-                            <a href="{{ route('admin.media.manager.file.upload') }}"
-                                class="btn btn-info btn-sm float-right text-white">{{ translate('Upload New File') }}</a>
+                            <h3 class="card-title">{{ translate('File Upload') }}</h3>
+                            <a href="{{ route('admin.media.manager') }}"
+                                class="btn btn-info btn-sm float-right text-white">{{ translate('Media') }}</a>
 
                         </div>
                         <div class="card-body">
-                            <div class="gutters-5 row">
-                                @foreach ($files as $file)
-                                    <div class="col-auto w-140px w-lg-220px">
-                                        <div class="media-file-box">
-                                            <div class="dropdown-file">
-                                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                                    aria-expanded="false">
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item" data-toggle="modal"
-                                                        data-target="#modal-default">
-                                                        <i class="fas fa-info ml-1 mr-2" aria-hidden="true"></i>
-                                                        <span> Details Info</span>
-                                                    </a>
-                                                    <a href="https://demo.activeitzone.com/ecommerce/public/uploads/all/NCTG8i6iUz5EmeyGa2cqTXMz2xj6TbEMTbEfNGZF.png"
-                                                        target="_blank" download="Flash Deal 4.png" class="dropdown-item">
-                                                        <i class="fas fa-download mr-2" aria-hidden="true"></i>
-                                                        <span> Download</span>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="dropdown-item"
-                                                        onclick="copyUrl(this)"
-                                                        data-url="https://demo.activeitzone.com/ecommerce/public/uploads/all/NCTG8i6iUz5EmeyGa2cqTXMz2xj6TbEMTbEfNGZF.png">
-                                                        <i class="fas fa-link mr-2"></i>
-                                                        <span> Copy Link</span>
-                                                    </a>
-                                                    <a href="javascript:void(0)" class="dropdown-item confirm-alert"
-                                                        data-href="https://demo.activeitzone.com/ecommerce/admin/uploaded-files/destroy/1308"
-                                                        data-target="#delete-modal">
-                                                        <i class="fas fa-trash mr-2" aria-hidden="true"></i>
-                                                        <span> Delete</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="card card-file media-uploader-select c-default"
-                                                title="Flash Deal 4.png">
-                                                <div class="card-file-thumb">
-                                                    <img src="{{ asset('/') . $file->path }}" class="img-fit">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h6 class="d-flex">
-                                                        <span class="text-truncate title">{{ $file->name }}</span>
-                                                    </h6>
-                                                    <p>{{ $file->size }}KB</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <div class="mt-2">
-                                {{ $files->appends(request()->input())->links() }}
+                            <div class="drag-area">
+                                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <h2 class="header">Drag & Drop to Upload File</h2>
+                                <span>OR</span>
+                                <button>Browse File</button>
+                                <input type="file" hidden>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal fade show" id="modal-default">
-            <div class="modal-dialog modal-dialog-right">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">{{ translate('File Info') }}</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            <div class="form-group">
-                                <label>File Name</label>
-                                <input type="text" class="form-control"
-                                    value="uploads/all/PSXnLLFoKCogpGRiTPT9pR8DlkdAi6SlzFYNAA8S.zip" disabled="">
-                            </div>
-                            <div class="form-group">
-                                <label>File Type</label>
-                                <input type="text" class="form-control" value="archive" disabled="">
-                            </div>
-                            <div class="form-group">
-                                <label>File Size</label>
-                                <input type="text" class="form-control" value="82.72 MB" disabled="">
-                            </div>
-                            <div class="form-group">
-                                <label>Uploaded By</label>
-                                <input type="text" class="form-control" value="William C. Schroyer" disabled="">
-                            </div>
-                            <div class="form-group">
-                                <label>Uploaded At</label>
-                                <input type="text" class="form-control" value="2022-04-27 20:08:21" disabled="">
-                            </div>
-                            <div class="form-group text-center">
-                                <a class="btn btn-secondary"
-                                    href="https://demo.activeitzone.com/ecommerce/public/uploads/all/PSXnLLFoKCogpGRiTPT9pR8DlkdAi6SlzFYNAA8S.zip"
-                                    target="_blank" download="updates.zip">Download</a>
-                                <a class="btn btn-secondary"
-                                    href="https://demo.activeitzone.com/ecommerce/public/uploads/all/PSXnLLFoKCogpGRiTPT9pR8DlkdAi6SlzFYNAA8S.zip"
-                                    target="_blank" download="updates.zip">Copy Link</a>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
     </section>
 
 @stop
 @section('custom_script')
     <script type="text/javascript">
+        //selecting all required elements
+        const dropArea = document.querySelector(".drag-area"),
+            dragText = dropArea.querySelector(".header"),
+            button = dropArea.querySelector("button"),
+            input = dropArea.querySelector("input");
+        let file; //this is a global variable and we'll use it inside multiple functions
+        button.onclick = () => {
+            input.click(); //if user click on the button then the input also clicked
+        }
+        input.addEventListener("change", function() {
+            //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+            file = this.files[0];
+            dropArea.classList.add("active");
+            showFile(); //calling function
+        });
+        //If user Drag File Over DropArea
+        dropArea.addEventListener("dragover", (event) => {
+            event.preventDefault(); //preventing from default behaviour
+            dropArea.classList.add("active");
+            dragText.textContent = "Release to Upload File";
+        });
+        //If user leave dragged File from DropArea
+        dropArea.addEventListener("dragleave", () => {
+            dropArea.classList.remove("active");
+            dragText.textContent = "Drag & Drop to Upload File";
+        });
+        //If user drop File on DropArea
+        dropArea.addEventListener("drop", (event) => {
+            event.preventDefault(); //preventing from default behaviour
+            //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+            file = event.dataTransfer.files[0];
+            showFile(); //calling function
+        });
+
+        function showFile() {
+            let fileType = file.type; //getting selected file type
+            let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array
+            if (validExtensions.includes(fileType)) { //if user selected file is an image file
+                let fileReader = new FileReader(); //creating new FileReader object
+                fileReader.onload = () => {
+                    let fileURL = fileReader.result; //passing user file source in fileURL variable
+                    // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
+                    let imgTag =
+                    `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+                    dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
+                }
+                fileReader.readAsDataURL(file);
+            } else {
+                alert("This is not an Image File!");
+                dropArea.classList.remove("active");
+                dragText.textContent = "Drag & Drop to Upload File";
+            }
+        }
+
+
+
+
         function detailsInfo(e) {
             $('#info-modal-content').html(
                 '<div class="c-preloader text-center absolute-center"><i class="las la-spinner la-spin la-3x opacity-70"></i></div>'

@@ -31,14 +31,12 @@ class SeoRepository
      */
     public function updateSeoSettings($request)
     {
-
         try {
             if ($request->has('meta_image')) {
                 $meta_image = uploadMetaImage($request);
             } else {
                 $meta_image = DB::table('seo_settings')->first()->meta_image;
             }
-
             DB::beginTransaction();
             DB::table('seo_settings')->where('id', DB::table('seo_settings')->first()->id)
                 ->update([
@@ -49,8 +47,10 @@ class SeoRepository
 
                 ]);
             DB::commit();
+            return true;
         } catch (\Exception $e) {
             DB::rollBack();
+            return false;
         }
     }
     /**

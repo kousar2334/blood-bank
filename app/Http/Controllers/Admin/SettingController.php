@@ -160,11 +160,11 @@ class SettingController extends Controller
      */
     public function updateSeoSettings(Request $request)
     {
-        try {
-            $this->seo_repository->updateSeoSettings($request);
+        $res = $this->seo_repository->updateSeoSettings($request);
+        if ($res == true) {
             Toastr::success('Seo information updated successfully');
             return redirect()->route('admin.settings.seo');
-        } catch (\Exception $e) {
+        } else {
             Toastr::error('Update failed');
             return redirect()->back();
         }

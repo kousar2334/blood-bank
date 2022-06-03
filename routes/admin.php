@@ -128,6 +128,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
 
     //Media
     Route::get('/media-manager', 'MediaController@index')->name('admin.media.manager');
+    Route::get('/file-upload', 'MediaController@fileUpload')->name('admin.media.manager.file.upload');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module

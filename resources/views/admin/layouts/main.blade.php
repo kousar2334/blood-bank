@@ -91,9 +91,9 @@
             font-weight: normal !important;
         }
 
-        /* body {
+        body {
             font-family: "SolaimanLipiNormal";
-        } */
+        }
 
     </style>
     @yield('custom_css')

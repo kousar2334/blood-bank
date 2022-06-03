@@ -1,4 +1,7 @@
 <?php
+
+use App\Model\UploadFiles;
+
 if (!function_exists('uploadDonorImage')) {
     function uploadDonorImage($request)
     {
@@ -134,11 +137,25 @@ if (!function_exists('uploadMetaImage')) {
     {
         $directory = "uploads/meta/";
         $image = $request->file('meta_image');
-        $imageName = $image->getClientOriginalName();
-        $extension = pathinfo($imageName, PATHINFO_EXTENSION);
+        $originalImageName = $image->getClientOriginalName();
+        $extension = pathinfo($originalImageName, PATHINFO_EXTENSION);
         $imageName = date('mdYHis.') . $extension;
         $image->move(public_path($directory), $imageName);
-        $image = $directory . '' . $imageName;
-        return $image;
+        $image_path = $directory . '' . $imageName;
+        insertFile($originalImageName, $extension, $image_path, 10, 'seo');
+        return $image_path;
+    }
+}
+if (!function_exists('insertFile')) {
+    function insertFile($name = null, $extentions, $path, $size, $type)
+    {
+        $file = new UploadFiles;
+        $file->name = $name;
+        $file->size = $size;
+        $file->extention = $extentions;
+        $file->type = $type;
+        $file->uploaded_by = auth()->user()->id;
+        $file->path = $path;
+        $file->save();
     }
 }
