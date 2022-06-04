@@ -216,8 +216,8 @@
         }
 
         /**
-                                                                                                                                                *Media modal
-                                                                                                                                                **/
+                                                                                                                                                                                        *Media modal
+                                                                                                                                                                                        **/
 
 
 
@@ -284,6 +284,46 @@
 
                         </div>
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+
+                                        <select class="form-control" name="cat_id">
+                                            <option>Type</option>
+                                        </select>
+                                        @if ($errors->has('cat_id'))
+                                            <small class="text text-danger">{{ $errors->first('cat_id') }}</small>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <select class="form-control" name="cat_id">
+                                            <option>Type</option>
+                                        </select>
+                                        @if ($errors->has('cat_id'))
+                                            <small class="text text-danger">{{ $errors->first('cat_id') }}</small>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+
+                                        <input type="text" name="phone" class="form-control" placeholder="Enter Phone">
+                                        @if ($errors->has('phone'))
+                                            <small class="text text-danger">{{ $errors->first('phone') }}</small>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+
+                                        <a href="{{ route('admin.media.manager.file.upload') }}"
+                                            class="btn btn-info btn-sm  text-white">{{ translate('Upload New File') }}</a>
+
+                                    </div>
+                                </div>
+                            </div>
                             <div class="gutters-5 row">
                                 @foreach ($files as $file)
                                     <div class="col-auto w-140px w-lg-220px">

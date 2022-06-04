@@ -216,8 +216,8 @@
         }
 
         /**
-                                                                                                                                                                                            *Media modal
-                                                                                                                                                                                            **/
+                                                                                                                                                                                                                                                                                                                            *Media modal
+                                                                                                                                                                                                                                                                                                                            **/
 
 
 
@@ -316,8 +316,8 @@
         }
 
         .drag-area img {
-            height: 100%;
-            width: 100%;
+            height: 100px;
+            width: 150px;
             object-fit: cover;
             border-radius: 5px;
         }
@@ -343,7 +343,7 @@
                                 <h2 class="header">Drag & Drop to Upload File</h2>
                                 <span>OR</span>
                                 <button>Browse File</button>
-                                <input type="file" hidden>
+                                <input type="file" hidden multiple>
                             </div>
                         </div>
                     </div>
@@ -361,14 +361,21 @@
             dragText = dropArea.querySelector(".header"),
             button = dropArea.querySelector("button"),
             input = dropArea.querySelector("input");
-        let file; //this is a global variable and we'll use it inside multiple functions
+        let files = []; //this is a global variable and we'll use it inside multiple functions
         button.onclick = () => {
             input.click(); //if user click on the button then the input also clicked
         }
         input.addEventListener("change", function() {
             //getting user select file and [0] this means if user select multiple files then we'll select only the first one
-            file = this.files[0];
+            files = this.files;
             dropArea.classList.add("active");
+            showFile(); //calling function
+        });
+        //If user drop File on DropArea
+        dropArea.addEventListener("drop", (event) => {
+            event.preventDefault(); //preventing from default behaviour
+            //getting user select file and [0] this means if user select multiple files then we'll select only the first one
+            files = event.dataTransfer.files;
             showFile(); //calling function
         });
         //If user Drag File Over DropArea
@@ -382,103 +389,73 @@
             dropArea.classList.remove("active");
             dragText.textContent = "Drag & Drop to Upload File";
         });
-        //If user drop File on DropArea
-        dropArea.addEventListener("drop", (event) => {
-            event.preventDefault(); //preventing from default behaviour
-            //getting user select file and [0] this means if user select multiple files then we'll select only the first one
-            file = event.dataTransfer.files[0];
-            showFile(); //calling function
-        });
 
+
+        // function showFile() {
+        //     console.log(files.length);
+        //     for (let i = 0; i < files.length; i++) {
+        //         let fileType = files[i].type; //getting selected file type
+
+        //         let validExtensions = ["image/jpeg", "image/jpg",
+        //             "image/png"
+        //         ]; //adding some valid image extensions in array
+        //         if (validExtensions.includes(fileType)) { //if user selected file is an image file
+        //             let fileReader = new FileReader(); //creating new FileReader object
+        //             fileReader.onload = () => {
+        //                 let fileURL = fileReader.result; //passing user file source in fileURL variable
+        //                 let imgTag =
+        //                     `<img src="${fileURL}" alt="image" width="100px">`; //creating an img tag and passing user selected file source inside src attribute
+        //                 dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
+        //             }
+        //             fileReader.readAsDataURL(files[i]);
+        //         } else {
+        //             toaster.error('error');
+        //             dropArea.classList.remove("active");
+        //             dragText.textContent = "Drag & Drop to Upload File";
+        //         }
+        //     }
+
+        // }
         function showFile() {
-            let fileType = file.type; //getting selected file type
-            let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array
-            if (validExtensions.includes(fileType)) { //if user selected file is an image file
-                let fileReader = new FileReader(); //creating new FileReader object
-                fileReader.onload = () => {
-                    let fileURL = fileReader.result; //passing user file source in fileURL variable
-                    // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
-                    let imgTag =
-                    `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
-                    dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-                fileReader.readAsDataURL(file);
-            } else {
-                alert("This is not an Image File!");
-                dropArea.classList.remove("active");
-                dragText.textContent = "Drag & Drop to Upload File";
-            }
-        }
-
-
-
-
-        function detailsInfo(e) {
-            $('#info-modal-content').html(
-                '<div class="c-preloader text-center absolute-center"><i class="las la-spinner la-spin la-3x opacity-70"></i></div>'
-            );
-            var id = $(e).data('id')
-            $('#info-modal').modal('show');
-            $.post('https://demo.activeitzone.com/ecommerce/admin/uploaded-files/file-info', {
-                _token: media.data.csrf,
-                id: id
-            }, function(data) {
-                $('#info-modal-content').html(data);
-                // console.log(data);
             });
-        }
+            var formData = new FormData();
+            let TotalFiles = files.length;
 
-        function copyUrl(e) {
-            var url = $(e).data('url');
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val(url).select();
-            try {
-                document.execCommand("copy");
-                media.plugins.notify('success', 'Link copied to clipboard');
-            } catch (err) {
-                media.plugins.notify('danger', 'Oops, unable to copy');
+            for (let i = 0; i < TotalFiles; i++) {
+                formData.append('files' + i, files[i]);
+
             }
-            $temp.remove();
-        }
+            formData.append('TotalFiles', TotalFiles);
+            // console.log(formData);
+            // $.post('{{ route('admin.media.manager.file.store') }}', {
+            //     _token: '{{ csrf_token() }}',
+            //     data: formData,
+            //     dataType: 'json',
+            // }, function(data) {
+            //     console.log(data);
+            // });
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('admin.media.manager.file.store') }}",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: (data) => {
 
-        function sort_uploads(el) {
-            $('#sort_uploads').submit();
-        }
-    </script>
-
-    <script type="text/javascript">
-        function menuSearch() {
-            var filter, item;
-            filter = $("#menu-search").val().toUpperCase();
-            items = $("#main-menu").find("a");
-            items = items.filter(function(i, item) {
-                if ($(item).find(".media-side-nav-text")[0].innerText.toUpperCase().indexOf(filter) > -1 && $(item)
-                    .attr('href') !== '#') {
-                    return item;
+                    alert('Files has been uploaded using jQuery ajax');
+                },
+                error: function(data) {
+                    alert(data.responseJSON.errors.files[0]);
+                    console.log(data.responseJSON.errors);
                 }
             });
 
-            if (filter !== '') {
-                $("#main-menu").addClass('d-none');
-                $("#search-menu").html('')
-                if (items.length > 0) {
-                    for (i = 0; i < items.length; i++) {
-                        const text = $(items[i]).find(".media-side-nav-text")[0].innerText;
-                        const link = $(items[i]).attr('href');
-                        $("#search-menu").append(
-                            `<li class="media-side-nav-item"><a href="${link}" class="media-side-nav-link"><i class="las la-ellipsis-h media-side-nav-icon"></i><span>${text}</span></a></li`
-                        );
-                    }
-                } else {
-                    $("#search-menu").html(
-                        `<li class="media-side-nav-item"><span	class="text-center text-muted d-block">Nothing found</span></li>`
-                    );
-                }
-            } else {
-                $("#main-menu").removeClass('d-none');
-                $("#search-menu").html('')
-            }
         }
     </script>
 @stop

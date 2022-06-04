@@ -143,7 +143,6 @@
             e.preventDefault();
             var $this = $(this);
             var locale = $this.data('flag');
-            console.log(locale);
             $.post('{{ route('admin.app.set.language') }}', {
                 _token: '{{ csrf_token() }}',
                 lang: locale
