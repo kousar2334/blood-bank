@@ -17,7 +17,7 @@ class MediaController extends Controller
      */
     public function index(Request $request)
     {
-        $files = UploadFiles::paginate(50);
+        $files = UploadFiles::latest()->paginate(50);
         return view('admin.media.index', compact('files'));
     }
     /**

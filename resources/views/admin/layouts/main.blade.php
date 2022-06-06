@@ -39,64 +39,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/static/backend/css/toastr.min.css') }}">
     <!-- jQuery -->
     <script src="{{ asset('/static/backend/plugins/jquery/jquery.min.js') }}"></script>
-    <style>
-        .main-footer .col-md-6 span {
-            display: block;
-            margin: 0 0 15px;
-        }
-
-        .main-footer .col-md-6 span sub {
-            bottom: auto;
-            margin-bottom: 6px;
-            display: inline-block;
-            line-height: 1;
-            vertical-align: bottom;
-            color: #aaa;
-            margin-left: 4px;
-        }
-
-        sub,
-        sup {
-            position: relative;
-            font-size: .75em;
-            line-height: 0;
-            vertical-align: baseline;
-        }
-
-        .main-footer .col-md-6 div {
-            color: #777;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-        .main-footer .col-md-2 ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-        }
-
-        .main-footer .col-md-2 ul li {
-            margin: 0;
-            padding: 0;
-        }
-
-        .main-footer .col-md-2 ul li a {
-            text-decoration: none;
-            color: #888;
-            font-size: 13px;
-        }
-
-        label {
-            font-weight: normal !important;
-        }
-
-        body {
-            font-family: "SolaimanLipiNormal";
-        }
-
-    </style>
+    {{-- Custom style --}}
     @yield('custom_css')
+    <link rel="stylesheet" href="{{ asset('/static/backend/css/custom.css') }}">
 
 </head>
 

@@ -1,0 +1,371 @@
+.main-footer .col-md-6 span {
+    display: block;
+    margin: 0 0 15px;
+}
+
+.main-footer .col-md-6 span sub {
+    bottom: auto;
+    margin-bottom: 6px;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: bottom;
+    color: #aaa;
+    margin-left: 4px;
+}
+
+sub,
+sup {
+    position: relative;
+    font-size: .75em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+.main-footer .col-md-6 div {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.main-footer .col-md-2 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
+
+.main-footer .col-md-2 ul li {
+    margin: 0;
+    padding: 0;
+}
+
+.main-footer .col-md-2 ul li a {
+    text-decoration: none;
+    color: #888;
+    font-size: 13px;
+}
+
+label {
+    font-weight: normal !important;
+}
+
+/**
+*Media style
+**/
+.gutters-5 {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+
+.gutters-5>.col,
+.gutters-5>[class*="col-"] {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.w-140px,
+.size-140px {
+    width: 140px;
+}
+
+.card-file .card-body {
+    padding: 10px 0 0;
+}
+
+@media screen and (min-width: 992px) {
+
+    .w-lg-220px,
+    .size-lg-220px {
+        width: 220px;
+    }
+}
+
+
+.media-file-box {
+    position: relative;
+}
+
+.media-file-box:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+.media-file-box .dropdown-file {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+    z-index: 1;
+}
+
+.media-file-box .dropdown-file>a {
+    color: #5a5a5a;
+    font-size: 22px;
+    background: #f5f6fa;
+    cursor: pointer;
+}
+
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.media-file-box .card-file {
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.card-file {
+    padding: 8px;
+    position: relative;
+    border-color: rgb(223, 224, 228);
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.c-default {
+    cursor: default !important;
+}
+
+.img-fit {
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card .card-body {
+    padding: 20px 25px;
+    border-radius: 4px;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+.card-file .card-body h6 {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+.media-file-box .dropdown-file {
+    position: absolute;
+    top: 6px;
+    right: 9px;
+    z-index: 1;
+}
+
+.media-file-box .dropdown-file>a {
+    color: #5a5a5a;
+    font-size: 22px;
+    background: #f5f6fa;
+    cursor: pointer;
+}
+
+a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.media-file-box .card-file .card-file-thumb {
+    position: absolute;
+    width: calc(100% - 16px);
+    top: 8px px;
+    left: 8px;
+    height: calc(100% - 55px);
+}
+
+.card-file .card-file-thumb {
+    height: 120px;
+    background-color: #f5f6fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-file-box .card-file .card-body {
+    position: absolute;
+    width: calc(100% - 16px);
+    bottom: 5px;
+    left: 8px;
+}
+
+.card-file .card-body {
+    padding: 10px 0 0;
+}
+
+.card-file .card-body p {
+    margin-bottom: 0;
+    font-size: 9px;
+    color: #8392a5;
+}
+
+.show.dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 0 !important;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-menu[x-placement^=bottom],
+.dropdown-menu[x-placement^=left],
+.dropdown-menu[x-placement^=right],
+.dropdown-menu[x-placement^=top] {
+    right: auto;
+    bottom: auto;
+}
+
+.dropdown-menu {
+    border-color: #e2e5ec;
+    margin: 0;
+    border-radius: 0;
+    min-width: 14rem;
+    font-size: inherit;
+    padding: 0;
+    -webkit-box-shadow: 0 0 50px 0 rgb(82 63 105 / 15%);
+    box-shadow: 0 0 50px 0 rgb(82 63 105 / 15%);
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1.1rem;
+    clear: both;
+    font-weight: 400;
+    color: #74788d;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/**
+                                                                                                                                                                                                                                                                                                                    *Media modal
+                                                                                                                                                                                                                                                                                                                    **/
+
+
+
+.modal.fade .modal-dialog-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    margin: 0;
+    width: 400px;
+    max-width: 80vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    background-color: #fff;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+}
+
+.modal-dialog-right .modal-content {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    right: 50px;
+}
+
+.modal-content .modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px 25px;
+    border-bottom: 1px solid #ebedf2;
+    min-height: 60px;
+    background-color: transparent;
+}
+
+
+.drag-area {
+    border: 2px dashed #fff;
+    height: 500px;
+    width: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: darkgrey;
+}
+
+.drag-area.active {
+    border: 2px solid #fff;
+}
+
+.drag-area .icon {
+    font-size: 100px;
+    color: #fff;
+}
+
+.drag-area header {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.drag-area span {
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 15px 0;
+}
+
+.drag-area button {
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #5256ad;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.drag-area img {
+    height: 100px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
