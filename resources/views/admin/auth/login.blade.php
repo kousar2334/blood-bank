@@ -31,19 +31,25 @@
             -ms-flex-pack: center;
             justify-content: center;
         }
-
     </style>
 </head>
 
 <body class="hold-transition body">
     <div class="login-box">
-        <div class="login-logo">
-            <img src="{{ asset('/static/logo/logo.png') }}" alt="AdminLTE Logo" class="brand-image">
-        </div>
-        <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <div class="login-logo">
+                    @if ($siteInfo->logo != null)
+                        <img src="{{ asset('/') }}{{ $siteInfo->logo }}" alt="Logo" class="brand-image">
+                    @else
+                        <h2 class="brand-text bangla-font font-weight-light text-center">
+                            {{ $siteInfo->site_name }}
+                        </h2>
+                    @endif
+                </div>
+
+
+                <p class="login-box-msg">{{ translate('Sign in to start your session') }}</p>
 
                 <form method="post" action="{{ route('admin.login.submit') }}">
                     @csrf
@@ -68,13 +74,13 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
-                                    Remember Me
+                                    {{ translate('Remember Me') }}
                                 </label>
                             </div>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">{{ translate('Sign In') }}</button>
                         </div>
                         <!-- /.col -->
                     </div>
