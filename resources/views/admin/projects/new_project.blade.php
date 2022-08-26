@@ -52,8 +52,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label>{{ translate('Description') }}</label>
-                                            <textarea class="form-control" name="description" rows="3"
-                                                placeholder="Enter ...">{{ old('description') }}</textarea>
+                                            <textarea class="form-control" name="description" rows="3" placeholder="Enter ...">{{ old('description') }}</textarea>
                                         </div>
                                     </div>
 
@@ -84,8 +83,7 @@
                                             <input type="text" name="video_link" value="{{ old('video_link') }}"
                                                 class="form-control" placeholder="Enter ...">
                                             @if ($errors->has('video_link'))
-                                                <small
-                                                    class="text text-danger">{{ $errors->first('video_link') }}</small>
+                                                <small class="text text-danger">{{ $errors->first('video_link') }}</small>
                                             @endif
                                         </div>
                                     </div>
@@ -137,12 +135,8 @@
                                     </div>
 
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input type="submit" class="btn btn-block bg-gradient-success"
-                                            value="{{ translate('Save') }}" />
-                                    </div>
-
+                                <div class="form-group text-right mt-2">
+                                    <input type="submit" class="btn btn-success" value="{{ translate('Save') }}">
                                 </div>
                             </form>
                         </div>
