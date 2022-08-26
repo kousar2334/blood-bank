@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Translations;
 use App\Repositories\SettingsRepository;
 use Illuminate\Http\Request;
+use Cache;
 
 class SystemController extends Controller
 {
@@ -13,6 +15,15 @@ class SystemController extends Controller
     public function __construct(SettingsRepository $settings_repository)
     {
         $this->settings_repository = $settings_repository;
+    }
+    /**
+     * Will return translation
+     */
+    public function translation($lang)
+    {
+        return Cache::rememberForever("frontend-translations-{$lang}", function () use ($lang) {
+            return Translations::where('lang', $lang)->pluck('lang_value', 'lang_key')->toJson();
+        });
     }
     /**
      * This method will return site logo and name

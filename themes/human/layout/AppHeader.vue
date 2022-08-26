@@ -16,7 +16,24 @@
 						>
 					</li>
 				</ul>
-
+				<!-- Language-->
+				<div class="topbar-links">
+					<b-dropdown
+						id="dropdown-left"
+						:text="$i18n.locale"
+						variant="primary"
+						class="m-2"
+					>
+						<b-dropdown-item
+							href="#"
+							v-for="(locale, index) in locales"
+							:key="index"
+							@click.prevent="setLocale(locale)"
+							>{{ locale }}</b-dropdown-item
+						>
+					</b-dropdown>
+				</div>
+				<!--End Language -->
 				<div class="topbar-links">
 					<ul class="topbar-info">
 						<li class="nav-item mr-0">
@@ -26,7 +43,7 @@
 								target="_blank"
 								rel="noopener"
 								data-toggle="tooltip"
-								title="Like us on Facebook"
+								title="Like us on Facebook Kousar"
 							>
 								<i class="fa fa-facebook-square"></i>
 								<span class="nav-link-inner--text d-lg-none">Facebook</span>
@@ -62,6 +79,8 @@
 				</div>
 			</div>
 		</div>
+		<p>{{ $t("activate") }}</p>
+		<p>{{ $t("action") }}</p>
 		<div class="sticky-header" @scroll="scrollHandler" ref="fooHeader">
 			<base-nav class="navbar-main p-1" type="" effect="light" expand>
 				<router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
@@ -169,6 +188,15 @@ export default {
 			site_info: {},
 			social_accounts: "",
 			info: "",
+			locales: ["en", "bd"],
+			lang: {
+				bd: {
+					Hello: "হ্যালো",
+				},
+				en: {
+					Hello: "Hello data",
+				},
+			},
 		};
 	},
 	mounted() {
@@ -179,6 +207,15 @@ export default {
 		headerM.parentElement.style.minHeight = headerH + "px";
 	},
 	methods: {
+		setLocale(language) {
+			this.$store
+				.dispatch("changeLocale", language)
+				.then(() => {
+					this.$i18n.locale = language;
+					location.reload();
+				})
+				.catch((error) => {});
+		},
 		/**
 		 *Get site logo and name
 		 */

@@ -449,6 +449,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -463,7 +482,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       site_info: {},
       social_accounts: "",
-      info: ""
+      info: "",
+      locales: ["en", "bd"],
+      lang: {
+        bd: {
+          Hello: "হ্যালো"
+        },
+        en: {
+          Hello: "Hello data"
+        }
+      }
     };
   },
   mounted: function mounted() {
@@ -474,16 +502,25 @@ __webpack_require__.r(__webpack_exports__);
     headerM.parentElement.style.minHeight = headerH + "px";
   },
   methods: {
+    setLocale: function setLocale(language) {
+      var _this = this;
+
+      this.$store.dispatch("changeLocale", language).then(function () {
+        _this.$i18n.locale = language;
+        location.reload();
+      })["catch"](function (error) {});
+    },
+
     /**
      *Get site logo and name
      */
     getSiteInfo: function getSiteInfo() {
-      var _this = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/get-site-logo-name").then(function (response) {
         if (response.data.success) {
-          _this.site_info = response.data.info;
-          _this.social_accounts = response.data.social_accounts;
+          _this2.site_info = response.data.info;
+          _this2.social_accounts = response.data.social_accounts;
         }
       })["catch"](function (error) {});
     },
@@ -997,9 +1034,49 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "topbar-links" },
+          [
+            _c(
+              "b-dropdown",
+              {
+                staticClass: "m-2",
+                attrs: {
+                  id: "dropdown-left",
+                  text: _vm.$i18n.locale,
+                  variant: "primary"
+                }
+              },
+              _vm._l(_vm.locales, function(locale, index) {
+                return _c(
+                  "b-dropdown-item",
+                  {
+                    key: index,
+                    attrs: { href: "#" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.setLocale(locale)
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(locale))]
+                )
+              }),
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
         _vm._m(0)
       ])
     ]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.$t("activate")))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.$t("action")))]),
     _vm._v(" "),
     _c(
       "div",
@@ -1274,7 +1351,7 @@ var staticRenderFns = [
                 target: "_blank",
                 rel: "noopener",
                 "data-toggle": "tooltip",
-                title: "Like us on Facebook"
+                title: "Like us on Facebook Kousar"
               }
             },
             [

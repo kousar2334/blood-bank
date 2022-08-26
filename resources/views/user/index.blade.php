@@ -46,14 +46,12 @@
             --bannerBtnBgColor: red;
             --labelColor: black;
         }
-
     </style>
 </head>
 
 <body>
     <div id="app">
     </div>
-
     @if ($theme != null)
         <script src="/<?php echo $theme; ?>/js/main.js"></script>
     @endif
