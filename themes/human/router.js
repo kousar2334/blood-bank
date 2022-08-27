@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import { loadLanguageAsync } from "./i18n";
 const AppHeader = () =>
     import(/* webpackChunkName: "AppHeader" */ "./layout/AppHeader");
 const AppFooter = () =>
@@ -42,7 +43,7 @@ const ProjectDetails = () =>
         /* webpackChunkName: "ProjectDetails" */ "./views/pages/projectDetails"
     );
 Vue.use(Router);
-export default new Router({
+const router = new Router({
     linkExactActiveClass: "active",
     mode: "history",
     routes: [
@@ -199,3 +200,8 @@ export default new Router({
         }
     }
 });
+router.beforeEach((to, from, next) => {
+    const lang = localStorage.getItem("locale") || "en";
+    loadLanguageAsync(lang).then(() => next());
+});
+export default router;

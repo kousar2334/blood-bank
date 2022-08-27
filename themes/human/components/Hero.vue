@@ -16,8 +16,10 @@
 			<div class="row align-items-center justify-content-between">
 				<div class="col-12 col-lg-5">
 					<div class="py-1">
-						<h1 class="bangla-font banner-word">
-							মানুষ আমরা <br />পাশে দাঁড়াব সবার বিপদে , হাসব মোরা সবাই এক সাথে।
+						<h1 :class="'bangla-font banner-word ' + $i18n.locale">
+							{{ $t("we_are_human") }} <br />{{
+								$t("we_will_stand_by_everyones_danger_we_will_laugh_together")
+							}}
 						</h1>
 						<!-- <div class="d-flex align-items-center">
 							<a

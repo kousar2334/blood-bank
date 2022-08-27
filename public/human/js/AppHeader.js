@@ -468,6 +468,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -483,15 +488,7 @@ __webpack_require__.r(__webpack_exports__);
       site_info: {},
       social_accounts: "",
       info: "",
-      locales: ["en", "bd"],
-      lang: {
-        bd: {
-          Hello: "হ্যালো"
-        },
-        en: {
-          Hello: "Hello data"
-        }
-      }
+      locales: ["en", "bd"]
     };
   },
   mounted: function mounted() {
@@ -503,10 +500,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     setLocale: function setLocale(language) {
-      var _this = this;
-
       this.$store.dispatch("changeLocale", language).then(function () {
-        _this.$i18n.locale = language;
+        // this.$i18n.locale = language;
         location.reload();
       })["catch"](function (error) {});
     },
@@ -515,12 +510,12 @@ __webpack_require__.r(__webpack_exports__);
      *Get site logo and name
      */
     getSiteInfo: function getSiteInfo() {
-      var _this2 = this;
+      var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/get-site-logo-name").then(function (response) {
         if (response.data.success) {
-          _this2.site_info = response.data.info;
-          _this2.social_accounts = response.data.social_accounts;
+          _this.site_info = response.data.info;
+          _this.social_accounts = response.data.social_accounts;
         }
       })["catch"](function (error) {});
     },
@@ -1041,11 +1036,11 @@ var render = function() {
             _c(
               "b-dropdown",
               {
-                staticClass: "m-2",
+                staticClass: "m-0",
                 attrs: {
                   id: "dropdown-left",
                   text: _vm.$i18n.locale,
-                  variant: "primary"
+                  variant: "primary p-1"
                 }
               },
               _vm._l(_vm.locales, function(locale, index) {
@@ -1053,6 +1048,7 @@ var render = function() {
                   "b-dropdown-item",
                   {
                     key: index,
+                    staticClass: "text-uppercase",
                     attrs: { href: "#" },
                     on: {
                       click: function($event) {
@@ -1073,10 +1069,6 @@ var render = function() {
         _vm._m(0)
       ])
     ]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.$t("activate")))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.$t("action")))]),
     _vm._v(" "),
     _c(
       "div",
@@ -1155,8 +1147,8 @@ var render = function() {
                       [
                         _c(
                           "span",
-                          { staticClass: "nav-link-inner--text bangla-font" },
-                          [_vm._v("হোম ")]
+                          { class: "nav-link-inner--text " + _vm.$i18n.locale },
+                          [_vm._v(_vm._s(_vm.$t("home")) + "\n\t\t\t\t\t\t")]
                         )
                       ]
                     )
@@ -1177,8 +1169,13 @@ var render = function() {
                       [
                         _c(
                           "span",
-                          { staticClass: "nav-link-inner--text bangla-font" },
-                          [_vm._v("রক্ত দিতে চান ?\n\t\t\t\t\t\t")]
+                          { class: "nav-link-inner--text " + _vm.$i18n.locale },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.$t("want_to_give_blood")) +
+                                " ?\n\t\t\t\t\t\t"
+                            )
+                          ]
                         )
                       ]
                     )
@@ -1199,8 +1196,18 @@ var render = function() {
                       [
                         _c(
                           "span",
-                          { staticClass: "nav-link-inner--text bangla-font" },
-                          [_vm._v("ডাক্তার যোগ করুন\n\t\t\t\t\t\t")]
+                          {
+                            class:
+                              "nav-link-inner--text bangla-font " +
+                              _vm.$i18n.locale
+                          },
+                          [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t\t" +
+                                _vm._s(_vm.$t("add_new_doctor")) +
+                                "\n\t\t\t\t\t\t"
+                            )
+                          ]
                         )
                       ]
                     )
@@ -1229,8 +1236,8 @@ var render = function() {
                         _vm._v(" "),
                         _c(
                           "span",
-                          { staticClass: "nav-link-inner--text bangla-font" },
-                          [_vm._v("নিবন্ধন ফর্ম")]
+                          { class: "nav-link-inner--text " + _vm.$i18n.locale },
+                          [_vm._v(_vm._s(_vm.$t("registration_form")))]
                         )
                       ]
                     ),
@@ -1287,8 +1294,12 @@ var render = function() {
                       [
                         _c(
                           "span",
-                          { staticClass: "nav-link-inner--text bangla-font" },
-                          [_vm._v("আমাদের সম্পর্কে\n\t\t\t\t\t\t")]
+                          { class: "nav-link-inner--text " + _vm.$i18n.locale },
+                          [
+                            _vm._v(
+                              _vm._s(_vm.$t("about_us")) + "\n\t\t\t\t\t\t"
+                            )
+                          ]
                         )
                       ]
                     )
@@ -1316,8 +1327,8 @@ var render = function() {
                       [
                         _c(
                           "span",
-                          { staticClass: "nav-link-inner--text bangla-font" },
-                          [_vm._v("রক্ত প্রয়োজন")]
+                          { class: "nav-link-inner--text " + _vm.$i18n.locale },
+                          [_vm._v(_vm._s(_vm.$t("need_blood")))]
                         )
                       ]
                     )

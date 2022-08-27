@@ -46,6 +46,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -277,67 +279,83 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", { staticClass: "section-hero section-shaped my-0" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "container pt-0 shape-container d-flex" }, [
+      _c(
+        "div",
+        { staticClass: "row align-items-center justify-content-between" },
+        [
+          _c("div", { staticClass: "col-12 col-lg-5" }, [
+            _c("div", { staticClass: "py-1" }, [
+              _c(
+                "h1",
+                { class: "bangla-font banner-word " + _vm.$i18n.locale },
+                [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t" + _vm._s(_vm.$t("we_are_human")) + " "
+                  ),
+                  _c("br"),
+                  _vm._v(
+                    _vm._s(
+                      _vm.$t(
+                        "we_will_stand_by_everyones_danger_we_will_laugh_together"
+                      )
+                    ) + "\n\t\t\t\t\t"
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "section-hero section-shaped my-0" }, [
-      _c("div", { staticClass: "shape shape-style-1 shape-primary" }, [
-        _c("span", { staticClass: "span-150" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-50" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-50" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-75" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-100" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-75" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-50" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-100" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-50" }),
-        _vm._v(" "),
-        _c("span", { staticClass: "span-100" })
-      ]),
+    return _c("div", { staticClass: "shape shape-style-1 shape-primary" }, [
+      _c("span", { staticClass: "span-150" }),
       _vm._v(" "),
-      _c("div", { staticClass: "container pt-0 shape-container d-flex" }, [
-        _c(
-          "div",
-          { staticClass: "row align-items-center justify-content-between" },
-          [
-            _c("div", { staticClass: "col-12 col-lg-5" }, [
-              _c("div", { staticClass: "py-1" }, [
-                _c("h1", { staticClass: "bangla-font banner-word" }, [
-                  _vm._v("\n\t\t\t\t\t\tমানুষ আমরা "),
-                  _c("br"),
-                  _vm._v(
-                    "পাশে দাঁড়াব সবার বিপদে , হাসব মোরা সবাই এক সাথে।\n\t\t\t\t\t"
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-lg-7 d-none d-lg-block banner-image-setion" },
-              [
-                _c("img", {
-                  staticClass: "banner-img",
-                  attrs: { src: "/static/common/img/banner5.png" }
-                })
-              ]
-            )
-          ]
-        )
-      ])
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-75" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-100" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-75" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-100" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-50" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "span-100" })
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-lg-7 d-none d-lg-block banner-image-setion" },
+      [
+        _c("img", {
+          staticClass: "banner-img",
+          attrs: { src: "/static/common/img/banner5.png" }
+        })
+      ]
+    )
   }
 ]
 render._withStripped = true

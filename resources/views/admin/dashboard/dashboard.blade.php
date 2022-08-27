@@ -7,7 +7,6 @@
         .img-size-32 {
             height: 32px;
         }
-
     </style>
 @stop
 @section('admin_content')
@@ -25,6 +24,8 @@
 
     <!-- Main content -->
     <div class="content">
+        {{ translate('we are human') }}
+        {{ translate('We will stand by everyone\'s danger, We will laugh together.') }}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-12">
@@ -261,12 +262,10 @@
                                             <td class="">
                                                 @if ($ambulance->image)
                                                     <img src="{{ asset('/') }}{{ $ambulance->image }}"
-                                                        alt="{{ $ambulance->name }}"
-                                                        class="img-circle img-size-32 mr-2">
+                                                        alt="{{ $ambulance->name }}" class="img-circle img-size-32 mr-2">
                                                 @else
                                                     <img src="{{ asset('/') }}static/images/no-image.png"
-                                                        alt="{{ $ambulance->name }}"
-                                                        class="img-circle img-size-32 mr-2">
+                                                        alt="{{ $ambulance->name }}" class="img-circle img-size-32 mr-2">
                                                 @endif
                                                 {{ $ambulance->name }}
                                             </td>

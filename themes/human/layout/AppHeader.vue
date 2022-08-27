@@ -21,10 +21,11 @@
 					<b-dropdown
 						id="dropdown-left"
 						:text="$i18n.locale"
-						variant="primary"
-						class="m-2"
+						variant="primary p-1"
+						class="m-0"
 					>
 						<b-dropdown-item
+							class="text-uppercase"
 							href="#"
 							v-for="(locale, index) in locales"
 							:key="index"
@@ -79,8 +80,6 @@
 				</div>
 			</div>
 		</div>
-		<p>{{ $t("activate") }}</p>
-		<p>{{ $t("action") }}</p>
 		<div class="sticky-header" @scroll="scrollHandler" ref="fooHeader">
 			<base-nav class="navbar-main p-1" type="" effect="light" expand>
 				<router-link slot="brand" class="navbar-brand mr-lg-5" to="/">
@@ -102,7 +101,9 @@
 				<ul class="navbar-nav navbar-nav-hover align-items-lg-center">
 					<li class="nav-item">
 						<router-link class="nav-link nav-link-icon" to="/">
-							<span class="nav-link-inner--text bangla-font">হোম </span>
+							<span :class="'nav-link-inner--text ' + $i18n.locale"
+								>{{ $t("home") }}
+							</span>
 						</router-link>
 					</li>
 					<li class="nav-item">
@@ -110,15 +111,15 @@
 							class="nav-link nav-link-icon"
 							to="/blood-donor-registration"
 						>
-							<span class="nav-link-inner--text bangla-font"
-								>রক্ত দিতে চান ?
+							<span :class="'nav-link-inner--text ' + $i18n.locale"
+								>{{ $t("want_to_give_blood") }} ?
 							</span>
 						</router-link>
 					</li>
 					<li class="nav-item">
 						<router-link class="nav-link nav-link-icon" to="/add-new-doctor">
-							<span class="nav-link-inner--text bangla-font"
-								>ডাক্তার যোগ করুন
+							<span :class="'nav-link-inner--text bangla-font ' + $i18n.locale">
+								{{ $t("add_new_doctor") }}
 							</span>
 						</router-link>
 					</li>
@@ -131,7 +132,9 @@
 							role="button"
 						>
 							<i class="ni ni-collection d-lg-none"></i>
-							<span class="nav-link-inner--text bangla-font">নিবন্ধন ফর্ম</span>
+							<span :class="'nav-link-inner--text ' + $i18n.locale">{{
+								$t("registration_form")
+							}}</span>
 						</a>
 						<router-link
 							to="/blood-donor-registration"
@@ -154,8 +157,8 @@
 					</base-dropdown>
 					<li class="nav-item">
 						<router-link class="nav-link nav-link-icon" to="/about-us">
-							<span class="nav-link-inner--text bangla-font"
-								>আমাদের সম্পর্কে
+							<span :class="'nav-link-inner--text ' + $i18n.locale"
+								>{{ $t("about_us") }}
 							</span>
 						</router-link>
 					</li>
@@ -163,7 +166,9 @@
 				<ul class="navbar-nav align-items-lg-center ml-lg-auto">
 					<li class="nav-item d-none d-lg-block ml-lg-4">
 						<router-link class="btn btn-neutral btn-icon" to="/blood-bank">
-							<span class="nav-link-inner--text bangla-font">রক্ত প্রয়োজন</span>
+							<span :class="'nav-link-inner--text ' + $i18n.locale">{{
+								$t("need_blood")
+							}}</span>
 						</router-link>
 					</li>
 				</ul>
@@ -189,14 +194,6 @@ export default {
 			social_accounts: "",
 			info: "",
 			locales: ["en", "bd"],
-			lang: {
-				bd: {
-					Hello: "হ্যালো",
-				},
-				en: {
-					Hello: "Hello data",
-				},
-			},
 		};
 	},
 	mounted() {
@@ -211,7 +208,7 @@ export default {
 			this.$store
 				.dispatch("changeLocale", language)
 				.then(() => {
-					this.$i18n.locale = language;
+					// this.$i18n.locale = language;
 					location.reload();
 				})
 				.catch((error) => {});
