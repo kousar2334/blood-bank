@@ -3,29 +3,22 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App;
 use Session;
+use Illuminate\Http\Request;
 
 class Language
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        if (Session::has('locale')) {
-            $locale = Session::get('locale');
+        if ($request->hasHeader('Accept-Language')) {
+            $locale = $request->header('Accept-Language');
+        } elseif (env('DEFAULT_LANGUAGE') != null) {
+            $locale = env('DEFAULT_LANGUAGE');
         } else {
             $locale = 'en';
         }
-
-        App::setLocale($locale);
-        $request->session()->put('locale', $locale);
-
+        app()->setLocale($locale);
+        Session::put('api_locale', $locale);
         return $next($request);
     }
 }

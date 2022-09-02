@@ -68,14 +68,7 @@
 			</div>
 		</section>
 		<!---End doctor list-->
-		<!--Leatest Project--->
-		<div class="container pt-100 pb-70">
-			<div class="section-title">
-				<h2 class="sub-title bangla-font">আমাদের চলমান প্রোজেক্ট সমূহ</h2>
-			</div>
-			<Carousel></Carousel>
-		</div>
-		<!--End Leatest Project--->
+		<project-slider></project-slider>
 		<!--Service List--->
 		<div class="benefit-area three pt-100 pb-70">
 			<div class="container">
@@ -156,15 +149,15 @@
 </template>
 <script>
 import Hero from "../../components/Hero";
-import Carousel from "../../components/Carousel.vue";
 import SingleDoctor from "../../components/doctor/SingleDoctor.vue";
+import ProjectSlider from "../../components/projects/ProjectSlider.vue";
 import axios from "axios";
 export default {
 	name: "Home",
 	components: {
 		Hero,
-		Carousel,
 		SingleDoctor,
+		ProjectSlider,
 	},
 	data() {
 		return {

@@ -24,8 +24,6 @@
 
     <!-- Main content -->
     <div class="content">
-        {{ translate('we are human') }}
-        {{ translate('We will stand by everyone\'s danger, We will laugh together.') }}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-12">

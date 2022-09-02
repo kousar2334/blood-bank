@@ -51,3 +51,6 @@ Route::post('/get-police-station-list', 'Api\PoliceStationController@policeStati
 Route::get('/get-site-logo-name', 'Api\SystemController@getLogoAndName');
 Route::get('/get-site-about-us', 'Api\SystemController@getAboutUsContent');
 Route::post('/get-footer-content', 'Api\SystemController@footerContent');
+
+//projects
+Route::get('latest-projects', 'Api\ProjectController@latestProject');

@@ -10,7 +10,19 @@ use Brian2694\Toastr\Facades\Toastr;
 
 
 class ProjectRepository implements ProjectsInterface
+
 {
+    /**
+     * Will return latest project service
+     * 
+     * @return Cpllections
+     * 
+     */
+    public function latestProjects()
+    {
+        return Projects::all();
+    }
+
     /**
      * Get projects list
      * 
@@ -69,6 +81,7 @@ class ProjectRepository implements ProjectsInterface
             DB::commit();
             return true;
         } catch (\Exception $e) {
+            dd($e);
             DB::rollBack();
             Toastr::success(translate('Project create failed'));
             return false;

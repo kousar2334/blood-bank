@@ -13,4 +13,6 @@ interface ProjectsInterface
     public function projectDetails($id);
 
     public function updateProject($request);
+
+    public function latestProjects();
 }

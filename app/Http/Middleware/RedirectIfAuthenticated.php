@@ -6,31 +6,28 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated {
+class RedirectIfAuthenticated
+{
     /**
-    * Handle an incoming request.
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @param  \Closure  $next
-    * @param  string|null  $guard
-    * @return mixed
-    */
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string|null  $guard
+     * @return mixed
+     */
 
-    public function handle( $request, Closure $next, $guard = null ) {
-        switch ( $guard ) {
-            case 'admin':
-            if ( Auth::guard( $guard )->check() ) {
-                return redirect()->route( 'admin.dashboard' );
-            }
-            break;
-
-            default:
-            if ( Auth::guard( $guard )->check() ) {
-                return redirect( '/home' );
-            }
-            break;
+    public function handle(Request $request, Closure $next)
+    {
+        if ($request->hasHeader('Accept-Language')) {
+            $locale = $request->header('Accept-Language');
+        } elseif (env('DEFAULT_LANGUAGE') != null) {
+            $locale = env('DEFAULT_LANGUAGE');
+        } else {
+            $locale = 'en';
         }
-
-        return $next( $request );
+        app()->setLocale($locale);
+        Session::put('api_locale', $locale);
+        return $next($request);
     }
 }

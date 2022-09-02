@@ -52,6 +52,9 @@
 <body>
     <div id="app">
     </div>
+    <script>
+        // localStorage.setItem("locale", 'bd');
+    </script>
     @if ($theme != null)
         <script src="/<?php echo $theme; ?>/js/main.js"></script>
     @endif
