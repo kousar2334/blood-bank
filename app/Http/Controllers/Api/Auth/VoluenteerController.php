@@ -91,6 +91,7 @@ class VoluenteerController extends Controller
     protected function createNewToken($token)
     {
         return response()->json([
+            'success' => true,
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('jwt')->factory()->getTTL() * 60,

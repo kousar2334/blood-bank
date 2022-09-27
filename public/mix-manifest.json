@@ -15,11 +15,13 @@
     "/human/js/FireStation.js": "/human/js/FireStation.js?id=658f60b93244508af7b9",
     "/human/js/Home.js": "/human/js/Home.js?id=4b72c019f36455efdfea",
     "/human/js/Hospitals.js": "/human/js/Hospitals.js?id=5861ff36d17606a18aa4",
-    "/human/js/Login.js": "/human/js/Login.js?id=3a3322da4ed6938a6b09",
+    "/human/js/Login.js": "/human/js/Login.js?id=8c11782b0fb502aabaf0",
     "/human/js/Profile.js": "/human/js/Profile.js?id=e730e327fa4682aad811",
     "/human/js/ProjectDetails.js": "/human/js/ProjectDetails.js?id=e63b97f9ab94a161d3dc",
     "/human/js/Register.js": "/human/js/Register.js?id=e9bd36af4ccb35513dbb",
     "/human/js/police.js": "/human/js/police.js?id=00c46f0c426d06bffbae",
     "/human/js/vendors~BloodBank.js": "/human/js/vendors~BloodBank.js?id=de12bd0e88114adda199",
-    "/human/js/vendors~Home.js": "/human/js/vendors~Home.js?id=32003fbf4945d0018f56"
+    "/human/js/vendors~Home.js": "/human/js/vendors~Home.js?id=32003fbf4945d0018f56",
+    "/human/js/SiteLayout.js": "/human/js/SiteLayout.js?id=e7c2806694159996cb87",
+    "/human/js/VolunteerDashboard.js": "/human/js/VolunteerDashboard.js?id=79c928c9681fc139b5f1"
 }

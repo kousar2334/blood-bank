@@ -121,28 +121,31 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     //Volunteer user
     volunteerLogin: function volunteerLogin() {
+      var _this = this;
+
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/volunteer-login", {
         phone: this.phone,
         password: this.password
       }).then(function (response) {
-        console.log(response); // if (response.data.success) {
-        //     this.notifination_header = "ধন্যবাদ";
-        //     this.notifination_message =
-        //         "আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।";
-        // } else {
-        //     this.notifination_header = "দুঃখিত";
-        //     this.notifination_message =
-        //         "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
-        // }
-        // this.notification_modal = true;
-      }).catch(function (error) {// if (error.response.status === 422) {
-        //     this.errors = error.response.data.errors;
-        // } else {
-        //     this.notifination_header = "দুঃখিত";
-        //     this.notifination_message =
-        //         "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
-        //     this.notification_modal = true;
-        // }
+        if (response.data.success) {
+          _this.$store.dispatch('login', response.data).then(function () {
+            return _this.$router.push({
+              name: "VolunteerDashboard"
+            });
+          });
+        } else {
+          _this.notifination_header = "দুঃখিত";
+          _this.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+          _this.notification_modal = true;
+        }
+      }).catch(function (error) {
+        if (error.response.status === 422) {
+          _this.errors = error.response.data.errors;
+        } else {
+          _this.notifination_header = "দুঃখিত";
+          _this.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+          _this.notification_modal = true;
+        }
       });
     }
   },

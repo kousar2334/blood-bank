@@ -114,27 +114,27 @@ export default {
                     password: this.password
                 })
                 .then((response) => {
-                    console.log(response);
-                    // if (response.data.success) {
-                    //     this.notifination_header = "ধন্যবাদ";
-                    //     this.notifination_message =
-                    //         "আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।";
-                    // } else {
-                    //     this.notifination_header = "দুঃখিত";
-                    //     this.notifination_message =
-                    //         "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
-                    // }
-                    // this.notification_modal = true;
+                    if (response.data.success) {
+                        this.$store.dispatch('login', response.data).then(() => {
+                            return this.$router.push({ name: "VolunteerDashboard" });
+                        })
+                    } else {
+                        this.notifination_header = "দুঃখিত";
+                        this.notifination_message =
+                            "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+                        this.notification_modal = true;
+                    }
+
                 })
                 .catch((error) => {
-                    // if (error.response.status === 422) {
-                    //     this.errors = error.response.data.errors;
-                    // } else {
-                    //     this.notifination_header = "দুঃখিত";
-                    //     this.notifination_message =
-                    //         "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
-                    //     this.notification_modal = true;
-                    // }
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors;
+                    } else {
+                        this.notifination_header = "দুঃখিত";
+                        this.notifination_message =
+                            "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+                        this.notification_modal = true;
+                    }
                 });
         },
     },

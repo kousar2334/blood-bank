@@ -5,43 +5,13 @@ const AppHeader = () =>
     import(/* webpackChunkName: "AppHeader" */ "./layout/AppHeader");
 const AppFooter = () =>
     import(/* webpackChunkName: "AppFooter" */ "./layout/AppFooter");
-const DoctorAddForm = () =>
-    import(
-        /* webpackChunkName: "DoctorAddForm" */ "./views/pages/DoctorAddForm"
-    );
-const BloodDonorForm = () =>
-    import(
-        /* webpackChunkName: "BloodDonorForm" */ "./views/pages/BloodDonorForm"
-    );
-const BloodBank = () =>
-    import(/* webpackChunkName: "BloodBank" */ "./views/pages/BloodBank");
-const Doctors = () =>
-    import(/* webpackChunkName: "Doctors" */ "./views/pages/Doctors");
-const Home = () => import(/* webpackChunkName: "Home" */ "./views/pages/Home");
-const Hospitals = () =>
-    import(/* webpackChunkName: "Hospitals" */ "./views/pages/Hospitals");
-const AddHospital = () =>
-    import(/* webpackChunkName: "AddHospital" */ "./views/pages/AddHospital");
-const AddAmbulance = () =>
-    import(/* webpackChunkName: "AddAmbulance" */ "./views/pages/NewAmbulance");
-const Ambulance = () =>
-    import(/* webpackChunkName: "Ambulance" */ "./views/pages/Ambulance");
-const AboutUs = () =>
-    import(/* webpackChunkName: "AboutUs" */ "./views/pages/AboutUs");
-const FireStation = () =>
-    import(/* webpackChunkName: "FireStation" */ "./views/pages/FireStation");
-const Police = () =>
-    import(/* webpackChunkName: "police" */ "./views/pages/Police");
 const Login = () =>
     import(/* webpackChunkName: "Login" */ "./views/pages/Login");
 const Register = () =>
     import(/* webpackChunkName: "Register" */ "./views/pages/Register");
 const Profile = () =>
     import(/* webpackChunkName: "Profile" */ "./views/pages/Profile");
-const ProjectDetails = () =>
-    import(
-        /* webpackChunkName: "ProjectDetails" */ "./views/pages/projectDetails"
-    );
+
 Vue.use(Router);
 const router = new Router({
     linkExactActiveClass: "active",
@@ -49,120 +19,131 @@ const router = new Router({
     routes: [
         {
             path: "/",
-            name: "components",
-            components: {
-                header: AppHeader,
-                default: Home,
-                footer: AppFooter
-            }
+            component: () =>
+                import(
+                    /* webpackChunkName: "SiteLayout" */ "./layout/SiteLayout"
+                ),
+            children: [
+                {
+                    path: "",
+                    name: "Home",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "Home" */ "./views/pages/Home"
+                        ),
+                },
+                {
+                    path: "/doctors",
+                    name: "Doctors",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "Doctors" */ "./views/pages/Doctors"
+                        ),
+                },
+                {
+                    path: "/add-new-doctor",
+                    name: "AddNewDoctor",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "DoctorAddForm" */ "./views/pages/DoctorAddForm"
+                        ),
+                },
+                {
+                    path: "/blood-bank",
+                    name: "BloodBank",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "BloodBank" */ "./views/pages/BloodBank"
+                        ),
+                },
+                {
+                    path: "/blood-donor-registration",
+                    name: "NewBloodDonor",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "BloodDonorForm" */ "./views/pages/BloodDonorForm"
+                        ),
+                },
+                {
+                    path: "/hospitals-clinics",
+                    name: "Hospitals",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "Hospitals" */ "./views/pages/Hospitals"
+                        ),
+                },
+                {
+                    path: "/add-new-hospital-clinic",
+                    name: "NewHospital",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "AddHospital" */ "./views/pages/AddHospital"
+                        ),
+                },
+                {
+                    path: "/add-new-ambulance",
+                    name: "NewAmbulance",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "AddAmbulance" */ "./views/pages/NewAmbulance"
+                        ),
+                },
+                {
+                    path: "/all-ambulance",
+                    name: "Ambulance",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "Ambulance" */ "./views/pages/Ambulance"
+                        ),
+                },
+                {
+                    path: "/about-us",
+                    name: "AboutUs",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "AboutUs" */ "./views/pages/AboutUs"
+                        ),
+                },
+                {
+                    path: "/fire-stations",
+                    name: "FireStation",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "FireStation" */ "./views/pages/FireStation"
+                        ),
+                },
+                {
+                    path: "/police-stations",
+                    name: "Police",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "police" */ "./views/pages/Police"
+                        ),
+                },
+                {
+                    path: "/project-details/:id",
+                    name: "ProjectDetails",
+                    component: () =>
+                        import(
+                            /* webpackChunkName: "ProjectDetails" */ "./views/pages/projectDetails"
+                        ),
+                },
+            ],
         },
         {
-            path: "/doctors",
-            name: "Doctors",
-            components: {
-                header: AppHeader,
-                default: Doctors,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/add-new-doctor",
-            name: "AddNewDoctor",
-            components: {
-                header: AppHeader,
-                default: DoctorAddForm,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/blood-bank",
-            name: "BloodBank",
-            components: {
-                header: AppHeader,
-                default: BloodBank,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/blood-donor-registration",
-            name: "NewBloodDonor",
-            components: {
-                header: AppHeader,
-                default: BloodDonorForm,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/hospitals-clinics",
-            name: "Hospitals",
-            components: {
-                header: AppHeader,
-                default: Hospitals,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/add-new-hospital-clinic",
-            name: "NewHospital",
-            components: {
-                header: AppHeader,
-                default: AddHospital,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/add-new-ambulance",
-            name: "NewAmbulance",
-            components: {
-                header: AppHeader,
-                default: AddAmbulance,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/all-ambulance",
-            name: "Ambulance",
-            components: {
-                header: AppHeader,
-                default: Ambulance,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/about-us",
-            name: "AboutUs",
-            components: {
-                header: AppHeader,
-                default: AboutUs,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/fire-stations",
-            name: "FireStation",
-            components: {
-                header: AppHeader,
-                default: FireStation,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/police-stations",
-            name: "Police",
-            components: {
-                header: AppHeader,
-                default: Police,
-                footer: AppFooter
-            }
-        },
-        {
-            path: "/project-details/:id",
-            name: "ProjectDetails",
-            components: {
-                header: AppHeader,
-                default: ProjectDetails,
-                footer: AppFooter
-            }
+            path: "/volunteer",
+            component: () =>
+                import(/*webpackChunkName:"" */ "./layout/VolunteerLayout"),
+            children: [
+                {
+                    path: "dashboard",
+                    name: "VolunteerDashboard",
+                    component: () =>
+                        import(
+                            /*webpackChunkName:"VolunteerDashboard" */ "./views/pages/volunteer/dashboard/Dashboard"
+                        ),
+                },
+            ],
         },
         {
             path: "/login",
@@ -170,8 +151,8 @@ const router = new Router({
             components: {
                 header: AppHeader,
                 default: Login,
-                footer: AppFooter
-            }
+                footer: AppFooter,
+            },
         },
         {
             path: "/register",
@@ -179,8 +160,8 @@ const router = new Router({
             components: {
                 header: AppHeader,
                 default: Register,
-                footer: AppFooter
-            }
+                footer: AppFooter,
+            },
         },
         {
             path: "/profile",
@@ -188,17 +169,17 @@ const router = new Router({
             components: {
                 header: AppHeader,
                 default: Profile,
-                footer: AppFooter
-            }
-        }
+                footer: AppFooter,
+            },
+        },
     ],
-    scrollBehavior: to => {
+    scrollBehavior: (to) => {
         if (to.hash) {
             return { selector: to.hash };
         } else {
             return { x: 0, y: 0 };
         }
-    }
+    },
 });
 router.beforeEach((to, from, next) => {
     const lang = localStorage.getItem("locale") || "en";
