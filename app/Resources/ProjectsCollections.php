@@ -2,8 +2,8 @@
 
 namespace App\Resources;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Session;
 
 class ProjectsCollections extends ResourceCollection
 {

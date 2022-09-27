@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/volunteer-registration', 'Api\Auth\VoluenteerController@volunteerRegistrtion');
+Route::post('/volunteer-login', 'Api\Auth\VoluenteerController@volunteerLogin');
 
 Route::get('/locale/{lang}', 'Api\SystemController@translation');
 Route::get('/get-all-blood-groups', 'Api\BloodBankController@getAllBloodGroups');

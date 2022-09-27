@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RedirectIfAuthenticated
 {
@@ -19,15 +19,6 @@ class RedirectIfAuthenticated
 
     public function handle(Request $request, Closure $next)
     {
-        if ($request->hasHeader('Accept-Language')) {
-            $locale = $request->header('Accept-Language');
-        } elseif (env('DEFAULT_LANGUAGE') != null) {
-            $locale = env('DEFAULT_LANGUAGE');
-        } else {
-            $locale = 'en';
-        }
-        app()->setLocale($locale);
-        Session::put('api_locale', $locale);
         return $next($request);
     }
 }

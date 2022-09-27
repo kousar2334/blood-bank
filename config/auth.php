@@ -44,6 +44,11 @@ return [
             'driver' => 'session',
             'provider' => 'admin',
         ],
+        'jwt' => [
+            'driver' => 'jwt',
+            'provider' => 'volunteer',
+            'hash' => false,
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -78,6 +83,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
+        'volunteer' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Volunteer::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
@@ -109,6 +118,11 @@ return [
         ],
         'admin' => [
             'provider' => 'admin',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'volunteer' => [
+            'provider' => 'volunteer',
             'table' => 'password_resets',
             'expire' => 60,
         ],
