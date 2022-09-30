@@ -1,42 +1,37 @@
 <template>
     <div class="container">
-
         <div class="row">
-            <div style="padding: 0px; background: url(&quot;https://www.bidyanondo.org/uploads/projects/24/Bidyanondo-Mother-&amp;-Child-Care-Hospital-big-1605330843.jpg&quot;) center center / cover no-repeat; visibility: visible; animation-name: fadeInRightSlow;"
+            <div v-bind:style="{ background:`url(/${project_details.image})` }"
                 class="col col-md-4 col-xs-12 wow fadeInRightSlow">
                 <div class="right-col" style=" ">
                     <div class="video">
                         <img style="min-height: 412px" src="https://www.bidyanondo.org/site-assets/images/blank.png"
                             alt="" class="img img-responsive">
-                        <a href="https://www.youtube.com/embed/m4BKwuxnZUA?autoplay=1" class="video-btn"
-                            data-type="iframe"><i class="fa fa-play"></i></a>
+                        <a :href="`${project_details.video_link}`" class="video-btn" data-type="iframe"><i
+                                class="fa fa-play"></i></a>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-8 col-xs-12">
                 <h5>How To Donate</h5>
+                <div>
+                    {{project_details.donation_instruction}}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 px-0">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item px-0">Cras justo odio</li>
-                    <li class="list-group-item px-0">Dapibus ac facilisis in</li>
-                    <li class="list-group-item px-0">Morbi leo risus</li>
-                    <li class="list-group-item px-0">Porta ac consectetur ac</li>
-                    <li class="list-group-item px-0">Vestibulum at eros</li>
+                    <li class="list-group-item px-0">{{project_details.locations}}</li>
+                    <li class="list-group-item px-0">{{project_details.purpose}}</li>
+                    <li class="list-group-item px-0">Donation Target {{project_details.donation_target}} TK</li>
                 </ul>
             </div>
             <div class="col-12 col-md-8">
                 <div class="about-event">
-                    <h2>Bidyanondo Mother and Child Care Hospitals</h2>
-                    <a href="#" class="btn theme-btn donate-project" data-toggle="modal"
-                        data-target="#donate-project-modal">Donate now</a>
+                    <h2>{{project_details.name}}</h2>
                     <div class="content">
-                        <pre
-                            class="p-style">"To ensure proper treatment of the general public and those who live under the poverty line, Bidyanondo has established ""Bidyanondo Mother &amp; Child Care Hospital"". It is a seven-storey hospital based in the Pahartoli area of Chittagong. Primarily, we have started outdoor and emergency treatment services with free medicine for underprivileged people. 
-    
-    There are a separate mother and child care ward, telemedicine service, and Corona unit. Besides, we have a different mobile team to give treatment among other remote areas of Bangladesh. This hospital is funded by the general people of Bangladesh and is catered for the people. If you want, you can also be a part of this endeavour."</pre>
+                        <pre class="p-style">{{project_details.description}}</pre>
                     </div>
                 </div>
             </div>
@@ -44,29 +39,27 @@
     </div>
 </template>
 <script>
-import Modal from "../../components/Modal.vue";
+
 import axios from "axios";
 export default {
     name: "ProjectDetails",
-    components: {
-        Modal,
-    },
     data() {
         return {
-            about_us: "",
+            project_details: {},
         };
     },
     mounted() {
-        this.getAboutUsContent();
+        this.getProjectDetails();
     },
     methods: {
-        //Get site about us
-        getAboutUsContent() {
+        getProjectDetails() {
             axios
-                .get("/api/get-site-about-us")
+                .post("/api/project-details", {
+                    id: this.$route.params.id
+                })
                 .then((response) => {
                     if (response.data.success) {
-                        this.about_us = response.data.about_us;
+                        this.project_details = response.data.data;
                     }
                 })
                 .catch((error) => { });
@@ -74,7 +67,7 @@ export default {
     },
 
     metaInfo: {
-        title: "আমাদের সম্পর্কে",
+        title: "Project Details",
     },
 };
 </script>

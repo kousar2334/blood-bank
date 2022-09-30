@@ -1,0 +1,143 @@
+<template>
+    <section class="section light-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 mb-5 section-title">
+                    <h1 class="bangla-font text-center sub-title">
+                        সরকারি জরুরী কল সেন্টার
+                    </h1>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-12 align-middle" v-for="(item, index) in national_emergency_numbers"
+                            :key="index">
+                            <card class="border-1 call-center-box">
+                                <img :src="'/' + item.logo" class="img-center img-fluid" style="width: 100px" />
+
+                                <h3 class="call-center-number text-center mt-1">
+                                    {{ item.number }}
+                                    <span class="bangla-font call-center-badge danger" v-if="item.charge">
+                                        চার্জ প্রযোজ্য
+                                    </span>
+                                    <span class="bangla-font call-center-badge success" v-else>
+                                        টোল ফ্রি
+                                    </span>
+                                </h3>
+                                <p class="bangla-font text-center call-center-title mt-0">
+                                    {{ item.name }}
+                                </p>
+                            </card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+<script>
+export default {
+    name: "EmergencyCallsSection",
+    data() {
+        return {
+            national_emergency_numbers: [
+                {
+                    name: "জাতীয় জরুরী সেবা",
+                    number: 999,
+                    charge: false,
+                    logo: "static/img/govt_call_centers/nhd_logo2.png",
+                },
+                {
+                    name: "দুর্নীতি দমন কমিশন",
+                    number: 106,
+                    charge: false,
+                    logo: "static/img/govt_call_centers/ic_call_acc.png",
+                },
+                {
+                    name: "কৃষি কল সেন্টার",
+                    number: 16123,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_agriculture.png",
+                },
+                {
+                    name: "স্বাস্থ্য বাতায়ন",
+                    number: 16263,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_health.png",
+                },
+                {
+                    name: "বিটিসিএল",
+                    number: 16402,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_btcl.png",
+                },
+                {
+                    name: "মহিলা সংস্থা / তথ্য আপা",
+                    number: 10922,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_national_female.png",
+                },
+                {
+                    name: "দুর্যোগের আগাম বার্তা",
+                    number: 10941,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_durjog.png",
+                },
+                {
+                    name: "চাইল্ড হেল্প লাইন",
+                    number: 1098,
+                    charge: false,
+                    logo: "static/img/govt_call_centers/ic_call_durjog.png",
+                },
+                {
+                    name: "বাংলাদেশ ব্যাংক",
+                    number: 16236,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_bank.png",
+                },
+                {
+                    name: "নারী ও শিশু নির্যাতন প্রতিরোধ সেল",
+                    number: 109,
+                    charge: false,
+                    logo: "static/img/govt_call_centers/ic_call_mohila_sisu.png",
+                },
+                {
+                    name: "প্রবাসবন্ধু কল সেন্টার",
+                    number: "09654333333",
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_jatio_help_desk.png",
+                },
+                {
+                    name: "প্রবাসী কল্যাণ ও বৈদেশিক কর্মসংস্থান",
+                    number: "01799090011",
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_probasi_collan.png",
+                },
+                {
+                    name: "জাতীয় পরিচয় পত্র",
+                    number: 105,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_vote.png",
+                },
+                {
+                    name: "সরকারি আইন সেবা",
+                    number: 16430,
+                    charge: false,
+                    logo: "static/img/govt_call_centers/ic_call_sorkari_ayn_seba.png",
+                },
+                {
+                    name: "ইউনিয়ন পরিষদ হেল্পলাইন",
+                    number: 16256,
+                    charge: true,
+                    logo: "static/img/govt_call_centers/ic_call_union_porishod.png",
+                },
+                {
+                    name: "বিটিআরসি অভিযোগ কেন্দ্র",
+                    number: 100,
+                    charge: false,
+                    logo: "static/img/govt_call_centers/ic_call_btrc.png",
+                },
+            ],
+        }
+    }
+}
+</script>

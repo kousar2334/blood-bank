@@ -1,5 +1,5 @@
 <template>
-    <div class="site-contailer">
+    <div class="site-container">
         <app-header></app-header>
         <router-view :key="$route.fullPath" />
         <app-footer></app-footer>
@@ -9,12 +9,13 @@
 <script>
 import AppHeader from "./AppHeader.vue";
 import AppFooter from "./AppFooter.vue";
-
+import SiteHeader from "./SiteHeader.vue"
 export default {
     name: "SiteLayout",
     components: {
         AppHeader,
         AppFooter,
+        SiteHeader
     },
     data() {
         return {

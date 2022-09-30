@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Interfaces\ProjectsInterface;
 use App\Resources\ProjectsCollections;
+use App\Resources\SingleProjectCollection;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -23,5 +25,19 @@ class ProjectController extends Controller
     {
         $projets = $this->project_service->latestProjects();
         return new ProjectsCollections($projets);
+    }
+
+    public function projectDetails(Request $request)
+    {
+        try {
+            $project = $this->project_service->projectDetails($request['id']);
+            return new SingleProjectCollection($project);
+        } catch (\Exception $e) {
+            return response()->json(
+                [
+                    'success' => false
+                ]
+            );
+        }
     }
 }

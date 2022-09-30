@@ -389,7 +389,7 @@ var render = function render() {
     staticClass: "form-group"
   }, [_c("label", {
     staticClass: "bangla-font mb-0 font-weight-bold"
-  }, [_vm._v("হাসপাতাল / ক্লিনিকের নাম"), _c("span", {
+  }, [_vm._v("হাসপাতাল / ক্লিনিকের\n\t\t\t\t\t\t\t\t\t\t\tনাম"), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]), _vm._v(" "), _c("input", {
     directives: [{
@@ -421,7 +421,7 @@ var render = function render() {
     staticClass: "form-group"
   }, [_c("label", {
     staticClass: "bangla-font mb-0 font-weight-bold"
-  }, [_vm._v("হাসপাতাল / ক্লিনিকের নাম (ইংরেজিতে)\n\t\t\t\t\t\t\t\t\t\t\t"), _c("span", {
+  }, [_vm._v("হাসপাতাল / ক্লিনিকের নাম\n\t\t\t\t\t\t\t\t\t\t\t(ইংরেজিতে)\n\t\t\t\t\t\t\t\t\t\t\t"), _c("span", {
     staticClass: "text-danger"
   }, [_vm._v("*")])]), _vm._v(" "), _c("input", {
     directives: [{
@@ -770,7 +770,7 @@ var render = function render() {
         _vm.notification_modal = false;
       }
     }
-  }, [_vm._v("কেটে দিন")])], 1)], 2)], 1)])])]);
+  }, [_vm._v("কেটে দিন\n\t\t\t\t\t\t")])], 1)], 2)], 1)])])]);
 };
 
 var staticRenderFns = [function () {

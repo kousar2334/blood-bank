@@ -56,3 +56,4 @@ Route::post('/get-footer-content', 'Api\SystemController@footerContent');
 
 //projects
 Route::get('latest-projects', 'Api\ProjectController@latestProject');
+Route::post('project-details', 'Api\ProjectController@projectDetails');

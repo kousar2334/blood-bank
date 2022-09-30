@@ -140,142 +140,181 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("footer", {
-    staticClass: "footer-area pt-100"
-  }, [_c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "footer-item"
-  }, [_c("div", {
-    staticClass: "footer-logo"
-  }, [_c("a", {
-    attrs: {
-      href: "/"
-    }
-  }, [_c("h2", {
-    staticClass: "text-white bangla-font"
-  }, [_vm._v("\n\t\t\t\t\t\t\t\t" + _vm._s(_vm.info.site_name) + "\n\t\t\t\t\t\t\t")])]), _vm._v(" "), _c("p", [_vm._v("\n\t\t\t\t\t\t\tLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat\n\t\t\t\t\t\t\tvero, magni est placeat neque, repellat maxime a dolore\n\t\t\t\t\t\t")]), _vm._v(" "), _vm._m(0)])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
-    staticClass: "copyright-area"
-  }, [_c("p", {
-    staticClass: "bangla-font"
-  }, [_vm._v("\n\t\t\t\t©" + _vm._s(_vm.year) + " " + _vm._s(_vm.info.site_name) + ". Developed By\n\t\t\t\t"), _c("a", {
-    attrs: {
-      href: "https://hibootstrap.com/",
-      target: "_blank"
-    }
-  }, [_vm._v("Kousar Rahman")])])])])]);
+  return _vm._m(0);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("ul", {
-    staticClass: "pl-0"
-  }, [_c("li", [_c("a", {
+  return _c("footer", [_c("div", {
+    staticClass: "footer-wrapper section-bg2",
     attrs: {
-      href: "#",
+      "data-background": "assets/img/gallery/footer_bg.png"
+    }
+  }, [_c("div", {
+    staticClass: "footer-area footer-padding"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row d-flex justify-content-between"
+  }, [_c("div", {
+    staticClass: "col-xl-3 col-lg-3 col-md-4 col-sm-6"
+  }, [_c("div", {
+    staticClass: "single-footer-caption mb-50"
+  }, [_c("div", {
+    staticClass: "single-footer-caption mb-30"
+  }, [_c("div", {
+    staticClass: "footer-tittle"
+  }, [_c("div", {
+    staticClass: "footer-logo mb-20"
+  }, [_c("a", {
+    attrs: {
+      href: "index.html"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: "assets/img/logo/logo2_footer.png",
+      alt: ""
+    }
+  })])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-xl-3 col-lg-3 col-md-4 col-sm-5"
+  }, [_c("div", {
+    staticClass: "single-footer-caption mb-50"
+  }, [_c("div", {
+    staticClass: "footer-tittle"
+  }, [_c("h4", [_vm._v("Contact Info")]), _vm._v(" "), _c("ul", [_c("li", [_c("p", [_vm._v("Address :Your address goes here, your demo address.")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Phone : +8880 44338899")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Email : info@colorlib.com")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-xl-3 col-lg-3 col-md-4 col-sm-5"
+  }, [_c("div", {
+    staticClass: "single-footer-caption mb-50"
+  }, [_c("div", {
+    staticClass: "footer-tittle"
+  }, [_c("h4", [_vm._v("Important Link")]), _vm._v(" "), _c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v(" View Project")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Contact Us")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Testimonial")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Proparties")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Support")])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-xl-3 col-lg-3 col-md-4 col-sm-5"
+  }, [_c("div", {
+    staticClass: "single-footer-caption mb-50"
+  }, [_c("div", {
+    staticClass: "footer-tittle"
+  }, [_c("h4", [_vm._v("Newsletter")]), _vm._v(" "), _c("div", {
+    staticClass: "footer-pera footer-pera2"
+  }, [_c("p", [_vm._v("Heaven fruitful doesn't over lesser in days. Appear creeping.")])]), _vm._v(" "), _c("div", {
+    staticClass: "footer-form"
+  }, [_c("div", {
+    attrs: {
+      id: "mc_embed_signup"
+    }
+  }, [_c("form", {
+    staticClass: "subscribe_form relative mail_part",
+    attrs: {
+      target: "_blank",
+      action: "https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01",
+      method: "get"
+    }
+  }, [_c("input", {
+    staticClass: "placeholder hide-on-focus",
+    attrs: {
+      type: "email",
+      name: "email",
+      id: "newsletter-form-email",
+      placeholder: "Email Address",
+      onfocus: "this.placeholder = ''",
+      onblur: "this.placeholder = ' Email Address '"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "form-icon"
+  }, [_c("button", {
+    staticClass: "email_icon newsletter-submit button-contactForm",
+    attrs: {
+      type: "submit",
+      name: "submit",
+      id: "newsletter-submit"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: "assets/img/gallery/form.png",
+      alt: ""
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "mt-10 info"
+  })])])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "footer-bottom-area"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "footer-border"
+  }, [_c("div", {
+    staticClass: "row d-flex justify-content-between align-items-center"
+  }, [_c("div", {
+    staticClass: "col-xl-10 col-lg-9"
+  }, [_c("div", {
+    staticClass: "footer-copy-right"
+  }, [_c("p", [_vm._v("\n\t\t\t\t\t\t\t\t\tCopyright © All rights reserved | This template is made with "), _c("i", {
+    staticClass: "fa fa-heart",
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }), _vm._v(" by "), _c("a", {
+    attrs: {
+      href: "https://colorlib.com",
       target: "_blank"
     }
-  }, [_c("i", {
-    staticClass: "fa fa-facebook-square"
-  })])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: "#",
-      target: "_blank"
-    }
-  }, [_c("i", {
-    staticClass: "fa fa-twitter-square"
-  })])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: "#",
-      target: "_blank"
-    }
-  }, [_c("i", {
-    staticClass: "fa fa-instagram"
-  })])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "col-sm-6 col-lg-4"
+  }, [_vm._v("Colorlib")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-xl-2 col-lg-3"
   }, [_c("div", {
-    staticClass: "footer-item"
-  }, [_c("div", {
-    staticClass: "footer-links"
-  }, [_c("h3", {
-    staticClass: "bangla-font"
-  }, [_vm._v("লিঙ্ক সমূহ")]), _vm._v(" "), _c("ul", {
-    staticClass: "pl-0"
-  }, [_c("li", [_c("a", {
-    staticClass: "bangla-font",
-    attrs: {
-      href: "about.html"
-    }
-  }, [_vm._v("নতুন ডাক্তার ")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "bangla-font",
-    attrs: {
-      href: "blog.html"
-    }
-  }, [_vm._v("নতুন হাসপাতাল ")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "bangla-font",
-    attrs: {
-      href: "events.html"
-    }
-  }, [_vm._v(" নতুন রক্তদাতা ")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "bangla-font",
-    attrs: {
-      href: "donation.html"
-    }
-  }, [_vm._v("\n\t\t\t\t\t\t\t\t\tআমাদের সম্পর্কে\n\t\t\t\t\t\t\t\t")])])])])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "footer-item"
-  }, [_c("div", {
-    staticClass: "footer-contact"
-  }, [_c("h3", [_vm._v("Contact info")]), _vm._v(" "), _c("div", {
-    staticClass: "contact-inner"
-  }, [_c("ul", {
-    staticClass: "pl-0"
-  }, [_c("li", {
-    staticClass: "pl-0"
+    staticClass: "footer-social f-right"
   }, [_c("a", {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("6B, Helvetica street, Jordan")])]), _vm._v(" "), _c("li", {
-    staticClass: "pl-0"
-  }, [_c("a", {
+  }, [_c("i", {
+    staticClass: "fab fa-twitter"
+  })]), _vm._v(" "), _c("a", {
     attrs: {
-      href: "tel:+123456789"
+      href: "https://www.facebook.com/sai4ull"
     }
-  }, [_vm._v("+123-456-789")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "contact-inner"
-  }, [_c("ul", {
-    staticClass: "pl-0"
-  }, [_c("li", {
-    staticClass: "pl-0"
-  }, [_c("a", {
+  }, [_c("i", {
+    staticClass: "fab fa-facebook-f"
+  })]), _vm._v(" "), _c("a", {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("6A, New street, Spain")])]), _vm._v(" "), _c("li", {
-    staticClass: "pl-0"
-  }, [_c("a", {
+  }, [_c("i", {
+    staticClass: "fas fa-globe"
+  })]), _vm._v(" "), _c("a", {
     attrs: {
-      href: "tel:+548658956"
+      href: "#"
     }
-  }, [_vm._v("+548-658-956")])])])])])])]);
+  }, [_c("i", {
+    staticClass: "fab fa-behance"
+  })])])])])])])])])]);
 }];
 render._withStripped = true;
 
