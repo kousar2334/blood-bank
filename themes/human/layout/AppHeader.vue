@@ -4,74 +4,41 @@
 			<div class="container">
 				<ul class="topbar-info">
 					<li>
-						<span
-							><i class="fa fa-envelope-o mr-1"></i>{{ site_info.email }}</span
-						>
+						<span><i class="fa fa-envelope-o mr-1"></i>{{ site_info.email }}</span>
 					</li>
 
 					<li>
-						<span
-							><i class="fa fa-map-marker mr-1"></i
-							>{{ site_info.address }}</span
-						>
+						<span><i class="fa fa-map-marker mr-1"></i>{{ site_info.address }}</span>
 					</li>
 				</ul>
 				<!-- Language-->
 				<div class="topbar-links">
-					<b-dropdown
-						id="dropdown-left"
-						:text="$i18n.locale"
-						variant="primary p-1"
-						class="m-0"
-					>
-						<b-dropdown-item
-							class="text-uppercase"
-							href="#"
-							v-for="(locale, index) in locales"
-							:key="index"
-							@click.prevent="setLocale(locale)"
-							>{{ locale }}</b-dropdown-item
-						>
+					<b-dropdown id="dropdown-left" :text="$i18n.locale" variant="primary p-1" class="m-0">
+						<b-dropdown-item class="text-uppercase" href="#" v-for="(locale, index) in locales" :key="index"
+							@click.prevent="setLocale(locale)">{{ locale }}</b-dropdown-item>
 					</b-dropdown>
 				</div>
 				<!--End Language -->
 				<div class="topbar-links">
 					<ul class="topbar-info">
 						<li class="nav-item mr-0">
-							<a
-								class="nav-link nav-link-icon social-link"
-								href="https://www.facebook.com/creativetim"
-								target="_blank"
-								rel="noopener"
-								data-toggle="tooltip"
-								title="Like us on Facebook Kousar"
-							>
+							<a class="nav-link nav-link-icon social-link" href="https://www.facebook.com/creativetim"
+								target="_blank" rel="noopener" data-toggle="tooltip" title="Like us on Facebook Kousar">
 								<i class="fa fa-facebook-square"></i>
 								<span class="nav-link-inner--text d-lg-none">Facebook</span>
 							</a>
 						</li>
 						<li class="nav-item mr-0">
-							<a
-								class="nav-link nav-link-icon social-link"
-								href="https://www.instagram.com/creativetimofficial"
-								target="_blank"
-								rel="noopener"
-								data-toggle="tooltip"
-								title="Follow us on Instagram"
-							>
+							<a class="nav-link nav-link-icon social-link"
+								href="https://www.instagram.com/creativetimofficial" target="_blank" rel="noopener"
+								data-toggle="tooltip" title="Follow us on Instagram">
 								<i class="fa fa-instagram"></i>
 								<span class="nav-link-inner--text d-lg-none">Instagram</span>
 							</a>
 						</li>
 						<li class="nav-item mr-0">
-							<a
-								class="nav-link nav-link-icon social-link"
-								href="https://twitter.com/creativetim"
-								target="_blank"
-								rel="noopener"
-								data-toggle="tooltip"
-								title="Follow us on Twitter"
-							>
+							<a class="nav-link nav-link-icon social-link" href="https://twitter.com/creativetim"
+								target="_blank" rel="noopener" data-toggle="tooltip" title="Follow us on Twitter">
 								<i class="fa fa-twitter-square"></i>
 								<span class="nav-link-inner--text d-lg-none">Twitter</span>
 							</a>
@@ -101,18 +68,13 @@
 				<ul class="navbar-nav navbar-nav-hover align-items-lg-center">
 					<li class="nav-item">
 						<router-link class="nav-link nav-link-icon" to="/">
-							<span :class="'nav-link-inner--text ' + $i18n.locale"
-								>{{ $t("home") }}
+							<span :class="'nav-link-inner--text ' + $i18n.locale">{{ $t("home") }}
 							</span>
 						</router-link>
 					</li>
 					<li class="nav-item">
-						<router-link
-							class="nav-link nav-link-icon"
-							to="/blood-donor-registration"
-						>
-							<span :class="'nav-link-inner--text ' + $i18n.locale"
-								>{{ $t("want_to_give_blood") }} ?
+						<router-link class="nav-link nav-link-icon" to="/blood-donor-registration">
+							<span :class="'nav-link-inner--text ' + $i18n.locale">{{ $t("want_to_give_blood") }} ?
 							</span>
 						</router-link>
 					</li>
@@ -124,41 +86,24 @@
 						</router-link>
 					</li>
 					<base-dropdown tag="li" class="nav-item">
-						<a
-							slot="title"
-							href="#"
-							class="nav-link nav-link-icon"
-							data-toggle="dropdown"
-							role="button"
-						>
+						<a slot="title" href="#" class="nav-link nav-link-icon" data-toggle="dropdown" role="button">
 							<i class="ni ni-collection d-lg-none"></i>
 							<span :class="'nav-link-inner--text ' + $i18n.locale">{{
 								$t("registration_form")
 							}}</span>
 						</a>
-						<router-link
-							to="/blood-donor-registration"
-							class="dropdown-item bangla-font"
-							>রক্তদাতা
+						<router-link to="/blood-donor-registration" class="dropdown-item bangla-font">রক্তদাতা
 						</router-link>
-						<router-link to="/add-new-doctor" class="dropdown-item bangla-font"
-							>ডাক্তার
+						<router-link to="/add-new-doctor" class="dropdown-item bangla-font">ডাক্তার
 						</router-link>
-						<router-link
-							to="/add-new-hospital-clinic"
-							class="dropdown-item bangla-font"
-							>হাসপাতাল/ক্লিনিক
+						<router-link to="/add-new-hospital-clinic" class="dropdown-item bangla-font">হাসপাতাল/ক্লিনিক
 						</router-link>
-						<router-link
-							to="/add-new-ambulance"
-							class="dropdown-item bangla-font"
-							>অ্যাম্বুলেন্স
+						<router-link to="/add-new-ambulance" class="dropdown-item bangla-font">অ্যাম্বুলেন্স
 						</router-link>
 					</base-dropdown>
 					<li class="nav-item">
 						<router-link class="nav-link nav-link-icon" to="/about-us">
-							<span :class="'nav-link-inner--text ' + $i18n.locale"
-								>{{ $t("about_us") }}
+							<span :class="'nav-link-inner--text ' + $i18n.locale">{{ $t("about_us") }}
 							</span>
 						</router-link>
 					</li>
@@ -211,7 +156,7 @@ export default {
 					// this.$i18n.locale = language;
 					location.reload();
 				})
-				.catch((error) => {});
+				.catch((error) => { });
 		},
 		/**
 		 *Get site logo and name
@@ -225,13 +170,13 @@ export default {
 						this.social_accounts = response.data.social_accounts;
 					}
 				})
-				.catch((error) => {});
+				.catch((error) => { });
 		},
 		scrollHandler() {
 			const fooHeader = this.$refs.fooHeader;
 			window.pageYOffset > this.$refs.Header.clientHeight
-				? fooHeader.classList.add("sticky")
-				: fooHeader.classList.remove("sticky");
+				? fooHeader.classList.add("sticky", "fadeInDowns")
+				: fooHeader.classList.remove("sticky", "fadeInDowns");
 		},
 	},
 };
@@ -239,16 +184,14 @@ export default {
 <style lang="scss">
 .sticky-header {
 	background-color: #fff;
+	box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%);
+
 	&.sticky {
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		z-index: 99;
-		animation-duration: 0.8s;
-		animation-fill-mode: backwards;
-		animation-name: fadeInDown;
-		box-shadow: 0 4px 25px -12px gray;
 	}
 }
 
@@ -262,9 +205,11 @@ export default {
 	padding: 5px 0;
 	width: 100%;
 }
+
 .topbar .container {
 	display: table;
 }
+
 .topbar-info {
 	list-style: none;
 	margin: 0;
@@ -272,7 +217,8 @@ export default {
 	display: table-cell;
 	vertical-align: middle;
 }
-.topbar-info > li {
+
+.topbar-info>li {
 	color: #ffffff;
 	float: left;
 	font-family: roboto;
@@ -280,6 +226,7 @@ export default {
 	letter-spacing: 0;
 	margin-right: 20px;
 }
+
 .topbar.style5 .topbar-links {
 	float: right;
 	list-style: outside none none;
@@ -291,7 +238,8 @@ export default {
 	display: table-cell;
 	vertical-align: middle;
 }
-.topbar-links > a {
+
+.topbar-links>a {
 	color: #d6d6d6;
 	float: left;
 	font-family: roboto;
@@ -301,7 +249,8 @@ export default {
 	padding: 4px 20px;
 	position: relative;
 }
-.topbar-links > a:before {
+
+.topbar-links>a:before {
 	background: #474747;
 	content: "";
 	height: 10px;
@@ -310,6 +259,24 @@ export default {
 	right: 0;
 	top: 50%;
 	width: 1px;
+}
+
+.fadeInDowns {
+	animation-name: fadeInDowns;
+	animation-duration: 1s;
+	animation-fill-mode: backwards;
+}
+
+@keyframes fadeInDowns {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -40px, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateZ(0);
+	}
 }
 </style>
 

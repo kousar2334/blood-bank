@@ -123,6 +123,7 @@ __webpack_require__.r(__webpack_exports__);
     volunteerLogin: function volunteerLogin() {
       var _this = this;
 
+      this.errors = [];
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/api/volunteer-login", {
         phone: this.phone,
         password: this.password
@@ -140,7 +141,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).catch(function (error) {
         if (error.response.status === 422) {
-          _this.errors = error.response.data.errors;
+          _this.errors = error.response.data;
         } else {
           _this.notifination_header = "দুঃখিত";
           _this.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
@@ -150,7 +151,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   metaInfo: {
-    title: "Registration"
+    title: "Login"
   }
 });
 
@@ -260,7 +261,7 @@ var render = function render() {
 
   return _c("section", {
     staticClass: "section section-shaped section-lg my-0"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
     staticClass: "container pt-lg-md"
   }, [_c("div", {
     staticClass: "row justify-content-center"
@@ -270,42 +271,19 @@ var render = function render() {
     staticClass: "border-0",
     attrs: {
       type: "secondary",
-      shadow: "",
       "header-classes": "bg-white pb-5",
       "body-classes": "px-lg-5 py-lg-5"
     }
   }, [[_c("div", {
     staticClass: "text-muted text-center mb-3"
-  }, [_c("small", [_vm._v("Sign in with")])]), _vm._v(" "), _c("div", {
-    staticClass: "btn-wrapper text-center"
-  }, [_c("base-button", {
-    attrs: {
-      type: "neutral"
-    }
-  }, [_c("img", {
-    attrs: {
-      slot: "icon",
-      src: "img/icons/common/github.svg"
-    },
-    slot: "icon"
-  }), _vm._v("\n                                Github\n                            ")]), _vm._v(" "), _c("base-button", {
-    attrs: {
-      type: "neutral"
-    }
-  }, [_c("img", {
-    attrs: {
-      slot: "icon",
-      src: "img/icons/common/google.svg"
-    },
-    slot: "icon"
-  }), _vm._v("\n                                Google\n                            ")])], 1)], _vm._v(" "), [_c("div", {
-    staticClass: "text-center text-muted mb-4"
-  }, [_c("small", [_vm._v("Or sign in with credentials")])]), _vm._v(" "), _c("form", {
+  }, [_c("h5", [_vm._v("Sign in with")])])], _vm._v(" "), [_c("form", {
     attrs: {
       role: "form"
     }
   }, [_c("div", {
-    staticClass: "form-group mb-3 input-group input-group-alternative"
+    staticClass: "form-row mb-3"
+  }, [_c("div", {
+    staticClass: "form-group mb-0 input-group input-group-alternative"
   }, [_c("div", {
     staticClass: "input-group-prepend"
   }, [_c("span", {
@@ -335,8 +313,15 @@ var render = function render() {
         _vm.phone = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-3 input-group input-group-alternative"
+  })]), _vm._v(" "), _vm.errors.phone ? _vm._l(_vm.errors.phone, function (error, index) {
+    return _c("p", {
+      key: index,
+      staticClass: "font-size-13 mt-1 mb-0 text-danger"
+    }, [_vm._v("\n                                        " + _vm._s(error) + "\n                                    ")]);
+  }) : _vm._e()], 2), _vm._v(" "), _c("div", {
+    staticClass: "form-row mb-3"
+  }, [_c("div", {
+    staticClass: "form-group mb-0 input-group input-group-alternative"
   }, [_c("div", {
     staticClass: "input-group-prepend"
   }, [_c("span", {
@@ -366,7 +351,12 @@ var render = function render() {
         _vm.password = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("base-checkbox", [_vm._v("\n                                Remember me\n                            ")]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _vm.errors.password ? _vm._l(_vm.errors.password, function (error, index) {
+    return _c("p", {
+      key: index,
+      staticClass: "font-size-13 mt-1 mb-0 text-danger"
+    }, [_vm._v("\n                                        " + _vm._s(error) + "\n                                    ")]);
+  }) : _vm._e()], 2), _vm._v(" "), _c("base-checkbox", [_vm._v("\n                                Remember me\n                            ")]), _vm._v(" "), _c("div", {
     staticClass: "text-center"
   }, [_c("base-button", {
     staticClass: "my-4",
@@ -379,17 +369,10 @@ var render = function render() {
         return _vm.volunteerLogin.apply(null, arguments);
       }
     }
-  }, [_vm._v("Sign In\n                                ")])], 1)], 1)]], 2), _vm._v(" "), _vm._m(1)], 1)])])]);
+  }, [_vm._v("Sign In\n                                ")])], 1)], 1)]], 2), _vm._v(" "), _vm._m(0)], 1)])])]);
 };
 
 var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "shape shape-style-1 bg-gradient-default"
-  }, [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]);
-}, function () {
   var _vm = this,
       _c = _vm._self._c;
 

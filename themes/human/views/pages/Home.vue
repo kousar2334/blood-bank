@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<hero></hero>
+		<slider></slider>
 		<about-us-section></about-us-section>
 		<!---Doctor List--->
 		<doctor-section></doctor-section>
@@ -14,6 +14,7 @@
 </template>
 <script>
 import Hero from "../../components/Hero";
+import Slider from "../../components/homepage-sections/Slider.vue";
 import ProjectSection from "../../components/homepage-sections/ProjectSection.vue";
 import VolunteerRegistrationSection from "../../components/homepage-sections/RegistrationSection.vue"
 import MissionSection from "../../components/homepage-sections/MissionSection.vue"
@@ -24,6 +25,7 @@ import AboutUsSection from "../../components/homepage-sections/AboutUsSection.vu
 export default {
 	name: "Home",
 	components: {
+		Slider,
 		Hero,
 		ProjectSection,
 		VolunteerRegistrationSection,

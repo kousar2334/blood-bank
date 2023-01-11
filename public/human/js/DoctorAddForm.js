@@ -365,8 +365,8 @@ var render = function render() {
 
   return _c("section", {
     staticClass: "section section-shaped section-lg my-0"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "container pt-lg-md"
+  }, [_c("div", {
+    staticClass: "container"
   }, [_c("div", {
     staticClass: "row justify-content-center"
   }, [_c("div", {
@@ -375,7 +375,6 @@ var render = function render() {
     staticClass: "border-0",
     attrs: {
       type: "secondary",
-      shadow: "",
       "header-classes": "bg-white pb-5",
       "body-classes": "px-lg-5 py-lg-5"
     }
@@ -452,7 +451,7 @@ var render = function render() {
     staticClass: "form-group"
   }, [_c("label", {
     staticClass: "bangla-font mb-0 font-weight-bold"
-  }, [_vm._v("ডাক্তারের নাম(ইংরেজিতে)")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("ডাক্তারের\n\t\t\t\t\t\t\t\t\t\t\tনাম(ইংরেজিতে)")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -849,17 +848,10 @@ var render = function render() {
         _vm.notification_modal = false;
       }
     }
-  }, [_vm._v("কেটে দিন")])], 1)], 2)], 1)])])]);
+  }, [_vm._v("কেটে\n\t\t\t\t\t\t\tদিন")])], 1)], 2)], 1)])])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "shape shape-style-1 bg-gradient-default"
-  }, [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 

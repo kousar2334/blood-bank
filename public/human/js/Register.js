@@ -113,8 +113,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       notification_modal: false,
-      notifination_header: "",
-      notifination_message: "",
+      notification_header: "",
+      notification_message: "",
       name: "",
       email: "",
       phone: "",
@@ -128,20 +128,19 @@ __webpack_require__.r(__webpack_exports__);
     userRegistration: function userRegistration() {
       var _this = this;
 
+      this.errors = [];
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/api/volunteer-registration", {
         name: this.name,
         email: this.email,
         phone: this.phone,
         password: this.password
       }).then(function (response) {
-        console.log(response);
-
         if (response.data.success) {
-          _this.notifination_header = "ধন্যবাদ";
-          _this.notifination_message = "আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।";
+          _this.notification_header = "ধন্যবাদ";
+          _this.notification_message = "আপনার নিবন্ধন সম্পূর্ণ হয়েছে , কর্তৃপক্ষ আপানার দেওয়া তথ্য যাচাই করে ওয়েব সাইটে প্রকাশ করবে।";
         } else {
-          _this.notifination_header = "দুঃখিত";
-          _this.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+          _this.notification_header = "দুঃখিত";
+          _this.notification_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
         }
 
         _this.notification_modal = true;
@@ -149,8 +148,8 @@ __webpack_require__.r(__webpack_exports__);
         if (error.response.status === 422) {
           _this.errors = error.response.data.errors;
         } else {
-          _this.notifination_header = "দুঃখিত";
-          _this.notifination_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
+          _this.notification_header = "দুঃখিত";
+          _this.notification_message = "আপানর নিবন্ধন সম্পূর্ণ হয়নি , আবার চেষ্টা করুন ।";
           _this.notification_modal = true;
         }
       });
@@ -271,8 +270,8 @@ var render = function render() {
 
   return _c("section", {
     staticClass: "section section-shaped section-lg my-0"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "container pt-lg-md"
+  }, [_c("div", {
+    staticClass: "container"
   }, [_c("div", {
     staticClass: "row justify-content-center"
   }, [_c("div", {
@@ -281,42 +280,19 @@ var render = function render() {
     staticClass: "border-0",
     attrs: {
       type: "secondary",
-      shadow: "",
       "header-classes": "bg-white pb-5",
       "body-classes": "px-lg-5 py-lg-5"
     }
   }, [[_c("div", {
     staticClass: "text-muted text-center mb-3"
-  }, [_c("small", [_vm._v("Sign in with")])]), _vm._v(" "), _c("div", {
-    staticClass: "btn-wrapper text-center"
-  }, [_c("base-button", {
-    attrs: {
-      type: "neutral"
-    }
-  }, [_c("img", {
-    attrs: {
-      slot: "icon",
-      src: "img/icons/common/github.svg"
-    },
-    slot: "icon"
-  }), _vm._v("\n                                Github\n                            ")]), _vm._v(" "), _c("base-button", {
-    attrs: {
-      type: "neutral"
-    }
-  }, [_c("img", {
-    attrs: {
-      slot: "icon",
-      src: "img/icons/common/google.svg"
-    },
-    slot: "icon"
-  }), _vm._v("\n                                Google\n                            ")])], 1)], _vm._v(" "), [_c("div", {
-    staticClass: "text-center text-muted mb-4"
-  }, [_c("small", [_vm._v("Or sign up with credentials")])]), _vm._v(" "), _c("form", {
+  }, [_c("h5", [_vm._v("Volunteer Registration")])])], _vm._v(" "), [_c("form", {
     attrs: {
       role: "form"
     }
   }, [_c("div", {
-    staticClass: "form-group mb-3 input-group input-group-alternative"
+    staticClass: "form-row mb-3"
+  }, [_c("div", {
+    staticClass: "form-group mb-0 input-group input-group-alternative"
   }, [_c("div", {
     staticClass: "input-group-prepend"
   }, [_c("span", {
@@ -345,8 +321,15 @@ var render = function render() {
         _vm.name = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-3 input-group input-group-alternative"
+  })]), _vm._v(" "), _vm.errors.name ? _vm._l(_vm.errors.name, function (error, index) {
+    return _c("p", {
+      key: index,
+      staticClass: "font-size-13 mt-1 mb-0 text-danger"
+    }, [_vm._v("\n                                        " + _vm._s(error) + "\n                                    ")]);
+  }) : _vm._e()], 2), _vm._v(" "), _c("div", {
+    staticClass: "form-row mb-3"
+  }, [_c("div", {
+    staticClass: "form-group mb-0 input-group input-group-alternative"
   }, [_c("div", {
     staticClass: "input-group-prepend"
   }, [_c("span", {
@@ -376,8 +359,15 @@ var render = function render() {
         _vm.email = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-3 input-group input-group-alternative"
+  })]), _vm._v(" "), _vm.errors.email ? _vm._l(_vm.errors.email, function (error, index) {
+    return _c("p", {
+      key: index,
+      staticClass: "font-size-13 mt-1 mb-0 text-danger"
+    }, [_vm._v("\n                                        " + _vm._s(error) + "\n                                    ")]);
+  }) : _vm._e()], 2), _vm._v(" "), _c("div", {
+    staticClass: "form-row mb-3"
+  }, [_c("div", {
+    staticClass: "form-group mb-0 input-group input-group-alternative"
   }, [_c("div", {
     staticClass: "input-group-prepend"
   }, [_c("span", {
@@ -407,8 +397,15 @@ var render = function render() {
         _vm.phone = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-3 input-group input-group-alternative"
+  })]), _vm._v(" "), _vm.errors.phone ? _vm._l(_vm.errors.phone, function (error, index) {
+    return _c("p", {
+      key: index,
+      staticClass: "font-size-13 mt-1 mb-0 text-danger"
+    }, [_vm._v("\n                                        " + _vm._s(error) + "\n                                    ")]);
+  }) : _vm._e()], 2), _vm._v(" "), _c("div", {
+    staticClass: "form-row mb-3"
+  }, [_c("div", {
+    staticClass: "form-group mb-0 input-group input-group-alternative"
   }, [_c("div", {
     staticClass: "input-group-prepend"
   }, [_c("span", {
@@ -438,7 +435,12 @@ var render = function render() {
         _vm.password = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("base-checkbox", [_c("span", [_vm._v("I agree with the\n                                    "), _c("a", {
+  })]), _vm._v(" "), _vm.errors.password ? _vm._l(_vm.errors.password, function (error, index) {
+    return _c("p", {
+      key: index,
+      staticClass: "font-size-13 mt-1 mb-0 text-danger"
+    }, [_vm._v("\n                                        " + _vm._s(error) + "\n                                    ")]);
+  }) : _vm._e()], 2), _vm._v(" "), _c("base-checkbox", [_c("span", [_vm._v("I agree with the\n                                    "), _c("a", {
     attrs: {
       href: "#"
     }
@@ -473,9 +475,9 @@ var render = function render() {
     staticClass: "ni ni-bell-55 ni-3x"
   }), _vm._v(" "), _c("h1", {
     staticClass: "mt-4 bangla-font"
-  }, [_vm._v(_vm._s(_vm.notifination_header))]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.notification_header))]), _vm._v(" "), _c("p", {
     staticClass: "bangla-font"
-  }, [_vm._v("\n                        " + _vm._s(_vm.notifination_message) + "\n                    ")])]), _vm._v(" "), _c("template", {
+  }, [_vm._v("\n                        " + _vm._s(_vm.notification_message) + "\n                    ")])]), _vm._v(" "), _c("template", {
     slot: "footer"
   }, [_c("base-button", {
     staticClass: "bangla-font",
@@ -490,14 +492,7 @@ var render = function render() {
   }, [_vm._v("কেটে দিন\n                    ")])], 1)], 2)], 1)])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "shape shape-style-1 bg-gradient-default"
-  }, [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 

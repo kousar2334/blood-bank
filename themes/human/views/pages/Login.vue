@@ -1,61 +1,55 @@
 <template>
     <section class="section section-shaped section-lg my-0">
-        <div class="shape shape-style-1 bg-gradient-default">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <div class="container pt-lg-md">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
-                    <card type="secondary" shadow header-classes="bg-white pb-5" body-classes="px-lg-5 py-lg-5"
+                    <card type="secondary" header-classes="bg-white pb-5" body-classes="px-lg-5 py-lg-5"
                         class="border-0">
                         <template>
                             <div class="text-muted text-center mb-3">
-                                <small>Sign in with</small>
-                            </div>
-                            <div class="btn-wrapper text-center">
-                                <base-button type="neutral">
-                                    <img slot="icon" src="img/icons/common/github.svg">
-                                    Github
-                                </base-button>
-
-                                <base-button type="neutral">
-                                    <img slot="icon" src="img/icons/common/google.svg">
-                                    Google
-                                </base-button>
+                                <h5>Sign in with</h5>
                             </div>
                         </template>
                         <template>
-                            <div class="text-center text-muted mb-4">
-                                <small>Or sign in with credentials</small>
-                            </div>
                             <form role="form">
-                                <div class="form-group mb-3 input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <slot name="addonLeft">
-                                                <i class="ni ni-hat-3"></i>
-                                            </slot>
-                                        </span>
+                                <div class="form-row mb-3">
+                                    <div class="form-group mb-0 input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <slot name="addonLeft">
+                                                    <i class="ni ni-hat-3"></i>
+                                                </slot>
+                                            </span>
+                                        </div>
+                                        <input type="text" v-model="phone" placeholder="Mobile" class="form-control">
+
                                     </div>
-                                    <input type="text" v-model="phone" placeholder="Mobile" class="form-control">
+                                    <template v-if="errors.phone">
+                                        <p class="font-size-13 mt-1 mb-0 text-danger"
+                                            v-for="(error, index) in errors.phone" :key="index">
+                                            {{ error }}
+                                        </p>
+                                    </template>
                                 </div>
-                                <div class="form-group mb-3 input-group input-group-alternative">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <slot name="addonLeft">
-                                                <i class="ni ni-lock-circle-open"></i>
-                                            </slot>
-                                        </span>
+
+                                <div class="form-row mb-3">
+                                    <div class="form-group mb-0 input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <slot name="addonLeft">
+                                                    <i class="ni ni-lock-circle-open"></i>
+                                                </slot>
+                                            </span>
+                                        </div>
+                                        <input type="password" v-model="password" placeholder="Password"
+                                            class="form-control">
                                     </div>
-                                    <input type="password" v-model="password" placeholder="Password"
-                                        class="form-control">
+                                    <template v-if="errors.password">
+                                        <p class="font-size-13 mt-1 mb-0 text-danger"
+                                            v-for="(error, index) in errors.password" :key="index">
+                                            {{ error }}
+                                        </p>
+                                    </template>
                                 </div>
                                 <base-checkbox>
                                     Remember me
@@ -108,6 +102,7 @@ export default {
     methods: {
         //Volunteer user
         volunteerLogin() {
+            this.errors = [];
             axios
                 .post("/api/volunteer-login", {
                     phone: this.phone,
@@ -128,7 +123,7 @@ export default {
                 })
                 .catch((error) => {
                     if (error.response.status === 422) {
-                        this.errors = error.response.data.errors;
+                        this.errors = error.response.data;
                     } else {
                         this.notifination_header = "দুঃখিত";
                         this.notifination_message =
@@ -140,10 +135,7 @@ export default {
     },
 
     metaInfo: {
-        title: "Registration",
+        title: "Login",
     },
 };
 </script>
-<style>
-
-</style>
