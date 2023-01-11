@@ -476,7 +476,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("button", {
-    staticClass: "navbar-toggler",
+    staticClass: "navbar-toggler bg-gradient-danger",
     attrs: {
       type: "button",
       "data-toggle": "collapse",

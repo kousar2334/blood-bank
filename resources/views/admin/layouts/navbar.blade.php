@@ -276,7 +276,7 @@
                 </li>
                 <!--End Police Stations Module-->
                 <!--Media Manager-->
-                <li
+                 <li
                     class="{{ Request::routeIs(['admin.media.manager']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="{{ route('admin.media.manager') }}"
                         class="{{ Request::routeIs(['admin.media.manager']) ? 'active' : '' }} nav-link">
@@ -287,6 +287,19 @@
                     </a>
                 </li>
                 <!--End Media Manager-->
+                 <!--Our Mission-->
+                 <li
+                    class="{{ Request::routeIs(['admin.mission.list']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="{{ route('admin.mission.list') }}"
+                        class="{{ Request::routeIs(['admin.mission.list']) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-file-image"></i>
+                        <p>
+                            {{ translate('Our Missions') }}
+                        </p>
+                    </a>
+                </li>
+               
+                <!--End Our Mission-->
                 <!--Projects Module-->
                 <li
                     class="{{ Request::routeIs(['admin.project.edit', 'admin.project.new', 'admin.project.list', 'admin.police.edit']) ? 'menu-open' : '' }} nav-item has-treeview">

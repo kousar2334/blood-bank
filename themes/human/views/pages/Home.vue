@@ -8,11 +8,6 @@
 		<project-section></project-section>
 		<mission-section></mission-section>
 		<!--Service List--->
-
-		<!--End service list--->
-		<!--Govt call centers-->
-		<!-- <emergency-calls-section></emergency-calls-section> -->
-		<!--End call centers-->
 		<volunteer-section></volunteer-section>
 		<VolunteerRegistrationSection></VolunteerRegistrationSection>
 	</div>
@@ -43,7 +38,6 @@ export default {
 
 		};
 	},
-
 	metaInfo: {
 		title: "বন্ধন | মানুষের পাশে সব সময় ",
 		meta: [

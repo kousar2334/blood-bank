@@ -12,6 +12,10 @@ class VoluenteerController extends Controller
 {
     public function volunteerRegistrtion(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'phone' => 'required',
+            'password' => 'required|string|min:6',
+        ]);
         try {
             Volunteer::create([
                 'name' => $request['name'],
@@ -48,7 +52,7 @@ class VoluenteerController extends Controller
         }
         $token = auth('jwt')->attempt($validator->validated());
         if (!$token) {
-            return response()->json(['success' => false, 'errors' => ['error' => 'Your login credentials does not match']]);
+            return response()->json(['success' => false, 'errors' => ['error' => 'Your login credentials does not match']])->header('Authorization', $token)->send();
         }
         return $this->createNewToken($token);
     }
