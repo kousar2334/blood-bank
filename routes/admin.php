@@ -106,7 +106,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
     Route::post('/update-police-station', 'PoliceStationController@updatePoliceStation')->name('admin.police.update');
     Route::post('/delete-police-station', 'PoliceStationController@deletePoliceStation')->name('admin.police.delete');
 
-    //setings
+    //settings
     Route::get('/get-general-settings', 'SettingController@generalSettings')->name('admin.settings.general');
     Route::post('/update-general-settings', 'SettingController@updateGeneralSettings')->name('admin.settings.general.update');
     Route::get('/get-site-about-us', 'SettingController@aboutUs')->name('admin.settings.general.about.us');
@@ -135,6 +135,12 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
      * Our Missions
      */
     Route::get('/our-missions', 'MissionController@index')->name('admin.mission.list');
+
+
+    /**
+     * Volunteer Routes
+     */
+    Route::get('/volunteers', 'VolunteerController@volunteerList')->name('admin.volunteer.list');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module

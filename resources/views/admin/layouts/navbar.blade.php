@@ -276,8 +276,7 @@
                 </li>
                 <!--End Police Stations Module-->
                 <!--Media Manager-->
-                 <li
-                    class="{{ Request::routeIs(['admin.media.manager']) ? 'menu-open' : '' }} nav-item has-treeview">
+                <li class="{{ Request::routeIs(['admin.media.manager']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="{{ route('admin.media.manager') }}"
                         class="{{ Request::routeIs(['admin.media.manager']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-file-image"></i>
@@ -287,9 +286,8 @@
                     </a>
                 </li>
                 <!--End Media Manager-->
-                 <!--Our Mission-->
-                 <li
-                    class="{{ Request::routeIs(['admin.mission.list']) ? 'menu-open' : '' }} nav-item has-treeview">
+                <!--Our Mission-->
+                <li class="{{ Request::routeIs(['admin.mission.list']) ? 'menu-open' : '' }} nav-item has-treeview">
                     <a href="{{ route('admin.mission.list') }}"
                         class="{{ Request::routeIs(['admin.mission.list']) ? 'active' : '' }} nav-link">
                         <i class="nav-icon fas fa-file-image"></i>
@@ -298,7 +296,7 @@
                         </p>
                     </a>
                 </li>
-               
+
                 <!--End Our Mission-->
                 <!--Projects Module-->
                 <li
@@ -387,6 +385,18 @@
                     </ul>
                 </li>
                 <!--End Setting Module-->
+                <!--Volunteers-->
+                <li
+                    class="{{ Request::routeIs(['admin.volunteer.list']) ? 'menu-open' : '' }} nav-item has-treeview">
+                    <a href="{{ route('admin.volunteer.list') }}"
+                        class="{{ Request::routeIs(['admin.volunteer.list']) ? 'active' : '' }} nav-link">
+                        <i class="nav-icon fas fa-file-image"></i>
+                        <p>
+                            {{ translate('Volunteers') }}
+                        </p>
+                    </a>
+                </li>
+                <!--End Volunteers-->
                 <!--Users Module-->
                 <li
                     class="{{ Request::routeIs(['admin.user.new.user', 'admin.users', 'admin.user.edit']) ? 'menu-open' : '' }} nav-item has-treeview">

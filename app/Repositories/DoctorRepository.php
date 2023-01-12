@@ -14,8 +14,8 @@ class DoctorRepository implements DoctorInterface
     /**
      * Return doctor list
      *
-     *@param Arrary $request
-     *@return Arrary
+     *@param Object $request
+     *@return Collections
      */
     public function all($request)
     {
@@ -30,8 +30,8 @@ class DoctorRepository implements DoctorInterface
     /**
      * Return doctor list
      *
-     *@param Arrary $request
-     *@return Arrary
+     *@param Object $request
+     *@return Array
      */
     public function topDoctors($request)
     {
@@ -56,7 +56,7 @@ class DoctorRepository implements DoctorInterface
      * Return doctor chambers
      * 
      * @param Int $id
-     * @return Arrary
+     * @return Array
      */
     public function chambers($id)
     {
@@ -73,7 +73,7 @@ class DoctorRepository implements DoctorInterface
     /**
      * Store new doctor
      *
-     *@param Arrary $request
+     *@param Object $request
      */
     public function store($request)
     {
@@ -113,7 +113,7 @@ class DoctorRepository implements DoctorInterface
     /**
      * Update single doctor information
      * 
-     * @param Arrary $request
+     * @param Object $request
      * @return void
      */
     public function update($request)
@@ -177,7 +177,7 @@ class DoctorRepository implements DoctorInterface
         Doctor::where('id', $id)->delete();
     }
     /**
-     * Return doctor's datatable
+     * Return doctor's data table
      * 
      * @return mixed    
      */
@@ -248,5 +248,6 @@ class DoctorRepository implements DoctorInterface
 
     public function details($id)
     {
+        return $id;
     }
 }
