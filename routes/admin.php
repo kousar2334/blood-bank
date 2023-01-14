@@ -141,6 +141,7 @@ Route::group(['middleware' => 'auth:admin', 'namespace' => 'Admin'], function ()
      * Volunteer Routes
      */
     Route::get('/volunteers', 'VolunteerController@volunteerList')->name('admin.volunteer.list');
+    Route::post('/volunteers-secret-login', 'VolunteerController@volunteerSecretLogin')->name('admin.volunteer.secret.login');
 });
 Route::group(['middleware' => 'auth:admin'], function () {
     //users module

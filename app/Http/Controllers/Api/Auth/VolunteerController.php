@@ -7,10 +7,19 @@ use App\Model\Volunteer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Repositories\VolunteerRepository;
 use App\Http\Requests\VolunteerRegisterRequest;
 
 class VolunteerController extends Controller
 {
+
+    protected $volunteer_repository;
+
+    public function __construct(VolunteerRepository $volunteer_repository)
+    {
+        $this->volunteer_repository = $volunteer_repository;
+    }
+
     public function volunteerRegistration(VolunteerRegisterRequest $request)
     {
         try {
@@ -49,9 +58,9 @@ class VolunteerController extends Controller
         }
         $token = auth('jwt')->attempt($validator->validated());
         if (!$token) {
-            return response()->json(['success' => false, 'errors' => ['error' => 'Your login credentials does not match']])->header('Authorization', $token)->send();
+            return response()->json(['success' => false, 'errors' => ['error' => 'Your login credentials does not match']]);
         }
-        return $this->createNewToken($token);
+        return $this->volunteer_repository->createNewToken($token);
     }
 
     /**
@@ -71,7 +80,7 @@ class VolunteerController extends Controller
      */
     public function refresh()
     {
-        return $this->createNewToken(auth('jwt')->refresh());
+        return $this->volunteer_repository->createNewToken(auth('jwt')->refresh());
     }
     /**
      * Get the authenticated User.
@@ -81,22 +90,5 @@ class VolunteerController extends Controller
     public function userProfile()
     {
         return response()->json(auth('jwt')->user());
-    }
-    /**
-     * Get the token array structure.
-     *
-     * @param  string $token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    protected function createNewToken($token)
-    {
-        return response()->json([
-            'success' => true,
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth('jwt')->factory()->getTTL() * 60,
-            'user' => auth('jwt')->user()
-        ]);
     }
 }

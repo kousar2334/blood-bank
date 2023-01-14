@@ -27,4 +27,9 @@ class VolunteerController extends Controller
             ]
         );
     }
+
+    public function volunteerSecretLogin(Request $request)
+    {
+        return $this->volunteer_repository->secretLogin($request['id']);
+    }
 }
